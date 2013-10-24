@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dc/d53/Dictionary_8cpp.xhtml" title="Core/Dictionary.cpp" alt="" coords="136,237,275,267"/>
+<area shape="rect" id="node5" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="1552,83,1707,112"/>
+<area shape="rect" id="node8" href="$d5/dc2/Dictionary_8hpp.xhtml" title="This class gathers information from modules, namely what they need as input and what they provide as ..." alt="" coords="288,160,427,189"/>
+<area shape="rect" id="node11" href="$db/d94/RunManager_8cpp.xhtml" title="Core/RunManager.cpp" alt="" coords="3220,315,3372,344"/>
+<area shape="rect" id="node13" href="$db/d41/RunManager_8hpp.xhtml" title="This class provides a RunManager for simple fits." alt="" coords="3107,237,3259,267"/>
+<area shape="rect" id="node16" href="$dd/d77/RunManagerTestApp_8cpp.xhtml" title="Test&#45;Application for fit with simple modules using RunManager." alt="" coords="1674,315,1868,344"/>
+<area shape="rect" id="node18" href="$d5/d8d/ChiOneD_8hpp.xhtml" title="This class calculates a simple &#160;of a intensity and a dataset." alt="" coords="299,237,518,267"/>
+<area shape="rect" id="node20" href="$d1/d9e/ChiOneD_8cpp.xhtml" title="Estimator/ChiOneD/ChiOneD.cpp" alt="" coords="46,315,264,344"/>
+<area shape="rect" id="node22" href="$d4/d31/EstimatorTestApp_8cpp.xhtml" title="Test&#45;Application of a simple &#160;estimator." alt="" coords="568,315,747,344"/>
+<area shape="rect" id="node24" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="1087,237,1316,267"/>
+<area shape="rect" id="node26" href="$de/d8e/MinLogLH_8cpp.xhtml" title="Estimator/MinLogLH/MinLogLH.cpp" alt="" coords="306,315,535,344"/>
+<area shape="rect" id="node28" href="$da/d2a/DalitzFitApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model." alt="" coords="1022,315,1166,344"/>
+<area shape="rect" id="node31" href="$d5/d26/IntegrationTestApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple modules." alt="" coords="1464,315,1646,344"/>
+<area shape="rect" id="node34" href="$da/d67/SliceFit_8hpp.xhtml" title="This class performs a Chi2&#45;Fit on slices along one axis of a dalitz&#45;plot." alt="" coords="1340,237,1538,267"/>
+<area shape="rect" id="node36" href="$d2/d9b/SliceFit_8cpp.xhtml" title="Estimator/SliceFit/SliceFit.cpp" alt="" coords="1234,315,1431,344"/>
+<area shape="rect" id="node38" href="$d3/de6/StockLeastSquares_8hpp.xhtml" title="This class calculates a simple square&#45;sum of a stock&#45;model and stock value." alt="" coords="3640,237,3979,267"/>
+<area shape="rect" id="node40" href="$db/de2/StockLeastSquares_8cpp.xhtml" title="Estimator/StockLeastSquares/StockLeastSquares.cpp" alt="" coords="3442,315,3780,344"/>
+<area shape="rect" id="node42" href="$de/dbe/BlackScholesApp_8cpp.xhtml" title="Test&#45;Application for Black&#45;Scholes stock model." alt="" coords="3819,315,3995,344"/>
+<area shape="rect" id="node44" href="$dc/d3f/NeuralNetworkApp_8cpp.xhtml" title="test/NeuralNetworkApp.cpp" alt="" coords="4027,315,4208,344"/>
+<area shape="rect" id="node46" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="1048,160,1339,189"/>
+<area shape="rect" id="node49" href="$d1/d93/GenDalitzApp_8cpp.xhtml" title="Application to generate J/Psi &#45;&gt; g pi pi." alt="" coords="706,237,860,267"/>
+<area shape="rect" id="node51" href="$dc/d4f/AmpSumSliceIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumSliceIntensity.hpp" alt="" coords="603,160,923,189"/>
+<area shape="rect" id="node53" href="$d6/d5d/AmpSumTree_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumTree.hpp" alt="" coords="3128,160,3395,189"/>
+<area shape="rect" id="node55" href="$db/d41/BlackScholes_8hpp.xhtml" title="This class implements a Black&#45;Scholes model of stock price developments." alt="" coords="2240,160,2502,189"/>
+<area shape="rect" id="node57" href="$d9/d27/BlackScholes_8cpp.xhtml" title="Physics/BlackScholes/BlackScholes.cpp" alt="" coords="2472,237,2734,267"/>
+<area shape="rect" id="node60" href="$d3/da8/BreitWigner_8hpp.xhtml" title="This class provides a simple Breit&#45;Wigner calculation with given parameters." alt="" coords="1827,160,2064,189"/>
+<area shape="rect" id="node62" href="$da/d1c/BreitWigner_8cpp.xhtml" title="Physics/BreitWigner/BreitWigner.cpp" alt="" coords="1776,237,2014,267"/>
+<area shape="rect" id="node65" href="$db/d35/GenTwoPartApp_8cpp.xhtml" title="Application to generate a two&#45;particle intensity." alt="" coords="2038,237,2206,267"/>
+<area shape="rect" id="node68" href="$db/da0/PhysicsTestApp_8cpp.xhtml" title="Test&#45;Application of the Physics&#45;IF." alt="" coords="2230,237,2398,267"/>
+<area shape="rect" id="node71" href="$db/dc4/NeuralNetwork_8hpp.xhtml" title="This class implements a neural network to model of stock price developments." alt="" coords="2576,160,2851,189"/>
+<area shape="rect" id="node73" href="$d1/d9c/NeuralNetwork_8cpp.xhtml" title="Physics/NeuralNetwork/NeuralNetwork.cpp" alt="" coords="2808,237,3083,267"/>
+<area shape="rect" id="node78" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="3128,83,3264,112"/>
+<area shape="rect" id="node80" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="3419,160,3555,189"/>
+<area shape="rect" id="node85" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="4296,83,4504,112"/>
+<area shape="rect" id="node87" href="$d5/d10/Estimator_8hpp.xhtml" title="This class provides the interface to classes which estimate the &quot;closeness&quot; of the modeled intensity ..." alt="" coords="3579,160,3742,189"/>
+<area shape="rect" id="node95" href="$db/dad/GenevaIF_8hpp.xhtml" title="This class provides a wrapper around the Geneva library." alt="" coords="4660,237,4874,267"/>
+<area shape="rect" id="node97" href="$d4/d5e/GenevaTestApp_8cpp.xhtml" title="test/GenevaTestApp.cpp" alt="" coords="5158,315,5323,344"/>
+<area shape="rect" id="node100" href="$d4/db7/OptimizerTestApp_8cpp.xhtml" title="Test&#45;Application of the Optimizer&#45;IF." alt="" coords="4710,315,4888,344"/>
+<area shape="rect" id="node102" href="$df/dfa/GStartIndividual_8hpp.xhtml" title="Optimizer/Geneva/GStartIndividual.hpp" alt="" coords="4643,160,4891,189"/>
+<area shape="rect" id="node105" href="$de/d83/MinuitFcn_8hpp.xhtml" title="Based on the Minuit2 FcnBase." alt="" coords="4256,160,4467,189"/>
+<area shape="rect" id="node107" href="$d6/d65/MinuitFcn_8cpp.xhtml" title="Optimizer/Minuit2/MinuitFcn.cpp" alt="" coords="4399,237,4610,267"/>
+<area shape="rect" id="node109" href="$da/d15/MinuitIF_8hpp.xhtml" title="This class provides a wrapper around the Minuit2 library." alt="" coords="4155,237,4355,267"/>
+<area shape="rect" id="node111" href="$d0/d33/MinuitIF_8cpp.xhtml" title="Optimizer/Minuit2/MinuitIF.cpp" alt="" coords="4375,315,4575,344"/>
+<area shape="rect" id="node116" href="$da/d21/MinuitTestApp_8cpp.xhtml" title="Test&#45;Application of the Minuit2 Optimizer&#45;IF." alt="" coords="4976,315,5134,344"/>
+<area shape="rect" id="node123" href="$d2/dcb/PolyFit_8hpp.xhtml" title="This class derives from ControlParameter, the data&#45;interface of the optimizers." alt="" coords="5030,237,5144,267"/>
+<area shape="rect" id="node130" href="$d2/dd8/ParameterList_8cpp.xhtml" title="Core/ParameterList.cpp" alt="" coords="5219,83,5379,112"/>
+<area shape="rect" id="node132" href="$d3/d13/ParameterListTest_8cpp.xhtml" title="Core/ParameterListTest.cpp" alt="" coords="5403,83,5590,112"/>
+<area shape="rect" id="node135" href="$db/d93/Optimizer_8hpp.xhtml" title="This class provides the interface to (external) optimization libraries or routines." alt="" coords="3867,160,4030,189"/>
+<area shape="rect" id="node76" href="$db/d6f/RootGen_8hpp.xhtml" title="Class to generate 4&#45;Vectors." alt="" coords="1464,160,1702,189"/>
+</map>

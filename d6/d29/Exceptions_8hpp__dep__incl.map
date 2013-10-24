@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="3956,83,4095,112"/>
+<area shape="rect" id="node7" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="1880,160,2040,189"/>
+<area shape="rect" id="node62" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="4576,237,4712,267"/>
+<area shape="rect" id="node101" href="$d2/dd8/ParameterList_8cpp.xhtml" title="Core/ParameterList.cpp" alt="" coords="4088,237,4248,267"/>
+<area shape="rect" id="node103" href="$d3/d13/ParameterListTest_8cpp.xhtml" title="Core/ParameterListTest.cpp" alt="" coords="4939,237,5125,267"/>
+<area shape="rect" id="node154" href="$dc/d31/ParameterTest_8cpp.xhtml" title="Core/ParameterTest.cpp" alt="" coords="5301,160,5467,189"/>
+<area shape="rect" id="node184" href="$d6/d94/AsciiReader_8cpp.xhtml" title="DataReader/AsciiReader/AsciiReader.cpp" alt="" coords="5643,83,5909,112"/>
+<area shape="rect" id="node186" href="$d1/db8/StockReader_8cpp.xhtml" title="DataReader/StockReader/StockReader.cpp" alt="" coords="5933,83,6211,112"/>
+<area shape="rect" id="node5" href="$dc/d53/Dictionary_8cpp.xhtml" title="Core/Dictionary.cpp" alt="" coords="2295,624,2433,653"/>
+<area shape="rect" id="node13" href="$d5/dc2/Dictionary_8hpp.xhtml" title="This class gathers information from modules, namely what they need as input and what they provide as ..." alt="" coords="2483,547,2621,576"/>
+<area shape="rect" id="node21" href="$dd/d77/RunManagerTestApp_8cpp.xhtml" title="Test&#45;Application for fit with simple modules using RunManager." alt="" coords="1405,624,1600,653"/>
+<area shape="rect" id="node27" href="$d4/d31/EstimatorTestApp_8cpp.xhtml" title="Test&#45;Application of a simple &#160;estimator." alt="" coords="2620,624,2799,653"/>
+<area shape="rect" id="node29" href="$d0/d0c/IntegrationTestBinnedApp_8cpp.xhtml" title="test/IntegrationTestBinnedApp.cpp" alt="" coords="2823,624,3044,653"/>
+<area shape="rect" id="node35" href="$da/d2a/DalitzFitApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model." alt="" coords="4404,624,4548,653"/>
+<area shape="rect" id="node38" href="$d5/d26/IntegrationTestApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple modules." alt="" coords="3068,624,3249,653"/>
+<area shape="rect" id="node49" href="$de/dbe/BlackScholesApp_8cpp.xhtml" title="Test&#45;Application for Black&#45;Scholes stock model." alt="" coords="5,624,181,653"/>
+<area shape="rect" id="node51" href="$dc/d3f/NeuralNetworkApp_8cpp.xhtml" title="test/NeuralNetworkApp.cpp" alt="" coords="789,624,971,653"/>
+<area shape="rect" id="node53" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="4523,547,4813,576"/>
+<area shape="rect" id="node56" href="$d1/d93/GenDalitzApp_8cpp.xhtml" title="Application to generate J/Psi &#45;&gt; g pi pi." alt="" coords="4875,624,5029,653"/>
+<area shape="rect" id="node58" href="$dc/d4f/AmpSumSliceIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumSliceIntensity.hpp" alt="" coords="1795,547,2115,576"/>
+<area shape="rect" id="node60" href="$d6/d5d/AmpSumTree_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumTree.hpp" alt="" coords="3421,547,3688,576"/>
+<area shape="rect" id="node64" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="4284,392,4439,421"/>
+<area shape="rect" id="node70" href="$d3/d0c/TreeTestApp_8cpp.xhtml" title="Test&#45;Application to show usage of the FunctionTree." alt="" coords="4513,469,4660,499"/>
+<area shape="rect" id="node72" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="4473,315,4609,344"/>
+<area shape="rect" id="node91" href="$db/dad/GenevaIF_8hpp.xhtml" title="This class provides a wrapper around the Geneva library." alt="" coords="917,315,1131,344"/>
+<area shape="rect" id="node93" href="$d4/d5e/GenevaTestApp_8cpp.xhtml" title="test/GenevaTestApp.cpp" alt="" coords="1403,392,1568,421"/>
+<area shape="rect" id="node96" href="$d4/db7/OptimizerTestApp_8cpp.xhtml" title="Test&#45;Application of the Optimizer&#45;IF." alt="" coords="765,392,944,421"/>
+<area shape="rect" id="node98" href="$d6/d65/MinuitFcn_8cpp.xhtml" title="Optimizer/Minuit2/MinuitFcn.cpp" alt="" coords="1205,315,1416,344"/>
+<area shape="rect" id="node123" href="$d0/d33/MinuitIF_8cpp.xhtml" title="Optimizer/Minuit2/MinuitIF.cpp" alt="" coords="3216,237,3416,267"/>
+<area shape="rect" id="node128" href="$d9/d27/BlackScholes_8cpp.xhtml" title="Physics/BlackScholes/BlackScholes.cpp" alt="" coords="3440,237,3701,267"/>
+<area shape="rect" id="node130" href="$da/d1c/BreitWigner_8cpp.xhtml" title="Physics/BreitWigner/BreitWigner.cpp" alt="" coords="3725,237,3963,267"/>
+<area shape="rect" id="node132" href="$d1/d9c/NeuralNetwork_8cpp.xhtml" title="Physics/NeuralNetwork/NeuralNetwork.cpp" alt="" coords="2352,237,2627,267"/>
+<area shape="rect" id="node139" href="$db/d35/GenTwoPartApp_8cpp.xhtml" title="Application to generate a two&#45;particle intensity." alt="" coords="2651,237,2819,267"/>
+<area shape="rect" id="node142" href="$da/d21/MinuitTestApp_8cpp.xhtml" title="Test&#45;Application of the Minuit2 Optimizer&#45;IF." alt="" coords="2843,237,3000,267"/>
+<area shape="rect" id="node146" href="$db/da0/PhysicsTestApp_8cpp.xhtml" title="Test&#45;Application of the Physics&#45;IF." alt="" coords="3024,237,3192,267"/>
+<area shape="rect" id="node10" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="2027,469,2181,499"/>
+<area shape="rect" id="node16" href="$db/d94/RunManager_8cpp.xhtml" title="Core/RunManager.cpp" alt="" coords="1047,624,1199,653"/>
+<area shape="rect" id="node18" href="$db/d41/RunManager_8hpp.xhtml" title="This class provides a RunManager for simple fits." alt="" coords="1160,547,1312,576"/>
+<area shape="rect" id="node23" href="$d5/d8d/ChiOneD_8hpp.xhtml" title="This class calculates a simple &#160;of a intensity and a dataset." alt="" coords="2240,547,2459,576"/>
+<area shape="rect" id="node25" href="$d1/d9e/ChiOneD_8cpp.xhtml" title="Estimator/ChiOneD/ChiOneD.cpp" alt="" coords="1905,624,2124,653"/>
+<area shape="rect" id="node31" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="2797,547,3027,576"/>
+<area shape="rect" id="node33" href="$de/d8e/MinLogLH_8cpp.xhtml" title="Estimator/MinLogLH/MinLogLH.cpp" alt="" coords="4132,624,4361,653"/>
+<area shape="rect" id="node41" href="$da/d67/SliceFit_8hpp.xhtml" title="This class performs a Chi2&#45;Fit on slices along one axis of a dalitz&#45;plot." alt="" coords="283,547,480,576"/>
+<area shape="rect" id="node43" href="$d2/d9b/SliceFit_8cpp.xhtml" title="Estimator/SliceFit/SliceFit.cpp" alt="" coords="205,624,403,653"/>
+<area shape="rect" id="node45" href="$d3/de6/StockLeastSquares_8hpp.xhtml" title="This class calculates a simple square&#45;sum of a stock&#45;model and stock value." alt="" coords="504,547,843,576"/>
+<area shape="rect" id="node47" href="$db/de2/StockLeastSquares_8cpp.xhtml" title="Estimator/StockLeastSquares/StockLeastSquares.cpp" alt="" coords="427,624,765,653"/>
+<area shape="rect" id="node80" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="1259,237,1467,267"/>
+<area shape="rect" id="node83" href="$d5/d10/Estimator_8hpp.xhtml" title="This class provides the interface to classes which estimate the &quot;closeness&quot; of the modeled intensity ..." alt="" coords="1069,469,1232,499"/>
+<area shape="rect" id="node106" href="$db/d93/Optimizer_8hpp.xhtml" title="This class provides the interface to (external) optimization libraries or routines." alt="" coords="817,237,980,267"/>
+</map>

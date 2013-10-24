@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node15" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="827,83,981,112"/>
+<area shape="rect" id="node19" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="915,392,1075,421"/>
+<area shape="rect" id="node51" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="701,160,856,189"/>
+<area shape="rect" id="node28" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="296,547,459,576"/>
+<area shape="rect" id="node37" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="600,469,739,499"/>
+<area shape="rect" id="node45" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="773,547,917,576"/>
+<area shape="rect" id="node35" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="191,624,343,653"/>
+<area shape="rect" id="node57" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="680,315,816,344"/>
+<area shape="rect" id="node66" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="369,237,505,267"/>
+<area shape="rect" id="node78" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="941,315,1149,344"/>
+</map>
