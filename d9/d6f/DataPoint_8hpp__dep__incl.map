@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d29/AmpAbsDynamicalFunction_8cpp.xhtml" title="Physics/AmplitudeSum/AmpAbsDynamicalFunction.cpp" alt="" coords="1183,83,1532,112"/>
+<area shape="rect" id="node5" href="$d4/d12/AmpWigner_8hpp.xhtml" title="Physics/AmplitudeSum/AmpWigner.hpp" alt="" coords="847,160,1100,189"/>
+<area shape="rect" id="node13" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="2160,315,2451,344"/>
+<area shape="rect" id="node18" href="$da/d2a/DalitzFitApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model." alt="" coords="2293,392,2437,421"/>
+<area shape="rect" id="node20" href="$d2/d52/test_2GenDalitzApp_8cpp.xhtml" title="test/GenDalitzApp.cpp" alt="" coords="2461,392,2616,421"/>
+<area shape="rect" id="node40" href="$df/d8c/AmpGausRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpGausRes.hpp" alt="" coords="1143,237,1412,267"/>
+<area shape="rect" id="node47" href="$d4/d56/AmpKinematics_8cpp.xhtml" title="Physics/AmplitudeSum/AmpKinematics.cpp" alt="" coords="2576,83,2853,112"/>
+<area shape="rect" id="node49" href="$d0/d2a/AmpWigner2_8hpp.xhtml" title="Angular distribution based on WignerD functions." alt="" coords="1975,83,2236,112"/>
+<area shape="rect" id="node64" href="$df/dc3/DalitzEfficiency_8cpp.xhtml" title="Physics/DPKinematics/DalitzEfficiency.cpp" alt="" coords="2877,83,3155,112"/>
+<area shape="rect" id="node66" href="$d5/da9/DataPoint_8cpp.xhtml" title="Physics/DPKinematics/DataPoint.cpp" alt="" coords="3179,83,3421,112"/>
+<area shape="rect" id="node68" href="$de/daa/DPKinematics_8cpp.xhtml" title="Physics/DPKinematics/DPKinematics.cpp" alt="" coords="3445,83,3715,112"/>
+<area shape="rect" id="node71" href="$d8/deb/DPareaTestApp_8cpp.xhtml" title="Test App for calculation of DP area via numeric monte&#45;carlo integration." alt="" coords="3739,83,3904,112"/>
+<area shape="rect" id="node74" href="$de/d5e/GenPhspApp_8cpp.xhtml" title="test/GenPhspApp.cpp" alt="" coords="3928,83,4077,112"/>
+<area shape="rect" id="node7" href="$dd/d65/AmpFlatteRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpFlatteRes.hpp" alt="" coords="471,237,740,267"/>
+<area shape="rect" id="node22" href="$dc/d4f/AmpSumSliceIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumSliceIntensity.hpp" alt="" coords="736,315,1056,344"/>
+<area shape="rect" id="node24" href="$d4/d9e/AmpSumOfAmplitudes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp" alt="" coords="1436,237,1756,267"/>
+<area shape="rect" id="node34" href="$d6/daa/AmpWigner_8cpp.xhtml" title="Physics/AmplitudeSum/AmpWigner.cpp" alt="" coords="764,237,1017,267"/>
+<area shape="rect" id="node36" href="$d3/d66/PhiSumOfAmplitudes_8hpp.xhtml" title="Physics/AmplitudeSum/PhiSumOfAmplitudes.hpp" alt="" coords="5,237,317,267"/>
+<area shape="rect" id="node9" href="$d2/d84/AmpFlatteRes_8cpp.xhtml" title="Physics/AmplitudeSum/AmpFlatteRes.cpp" alt="" coords="392,315,661,344"/>
+<area shape="rect" id="node11" href="$db/dd9/AmpSumIntensity_8cpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.cpp" alt="" coords="1464,392,1755,421"/>
+<area shape="rect" id="node16" href="$de/d2f/Physics_2RootGenerator_2GenDalitzApp_8cpp.xhtml" title="Physics/RootGenerator/GenDalitzApp.cpp" alt="" coords="2003,392,2269,421"/>
+<area shape="rect" id="node28" href="$d6/dfb/AmpSumOfAmplitudes_8cpp.xhtml" title="Physics/AmplitudeSum/AmpSumOfAmplitudes.cpp" alt="" coords="1715,315,2035,344"/>
+<area shape="rect" id="node31" href="$d6/d5d/AmpSumTree_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumTree.hpp" alt="" coords="1424,315,1691,344"/>
+<area shape="rect" id="node38" href="$db/db7/PhiSumOfAmplitudes_8cpp.xhtml" title="Physics/AmplitudeSum/PhiSumOfAmplitudes.cpp" alt="" coords="5,315,317,344"/>
+<area shape="rect" id="node42" href="$d9/d61/AmpGausRes_8cpp.xhtml" title="Physics/AmplitudeSum/AmpGausRes.cpp" alt="" coords="1080,315,1349,344"/>
+<area shape="rect" id="node51" href="$d2/d45/AmpRelBreitWignerRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp" alt="" coords="1943,160,2268,189"/>
+<area shape="rect" id="node61" href="$d6/d39/AmpWigner2_8cpp.xhtml" title="Physics/AmplitudeSum/AmpWigner2.cpp" alt="" coords="1657,160,1919,189"/>
+<area shape="rect" id="node53" href="$dd/d5d/AmpRelBreitWignerRes_8cpp.xhtml" title="Physics/AmplitudeSum/AmpRelBreitWignerRes.cpp" alt="" coords="1780,237,2105,267"/>
+</map>

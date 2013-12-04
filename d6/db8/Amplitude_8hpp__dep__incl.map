@@ -1,19 +1,20 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$dc/d53/Dictionary_8cpp.xhtml" title="Core/Dictionary.cpp" alt="" coords="5,160,144,189"/>
-<area shape="rect" id="node5" href="$d5/dc2/Dictionary_8hpp.xhtml" title="This class gathers information from modules, namely what they need as input and what they provide as ..." alt="" coords="80,83,219,112"/>
+<area shape="rect" id="node5" href="$d5/dc2/Dictionary_8hpp.xhtml" title="This class gathers information from modules, namely what they need as input and what they provide as ..." alt="" coords="244,83,383,112"/>
 <area shape="rect" id="node8" href="$db/d94/RunManager_8cpp.xhtml" title="Core/RunManager.cpp" alt="" coords="168,160,320,189"/>
 <area shape="rect" id="node10" href="$db/d41/RunManager_8hpp.xhtml" title="This class provides a RunManager for simple fits." alt="" coords="853,83,1005,112"/>
 <area shape="rect" id="node15" href="$d5/d8d/ChiOneD_8hpp.xhtml" title="This class calculates a simple &#160;of a intensity and a dataset." alt="" coords="1031,83,1249,112"/>
-<area shape="rect" id="node23" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="1953,83,2183,112"/>
-<area shape="rect" id="node33" href="$da/d67/SliceFit_8hpp.xhtml" title="This class performs a Chi2&#45;Fit on slices along one axis of a dalitz&#45;plot." alt="" coords="2599,83,2796,112"/>
-<area shape="rect" id="node37" href="$d3/de6/StockLeastSquares_8hpp.xhtml" title="This class calculates a simple square&#45;sum of a stock&#45;model and stock value." alt="" coords="2820,83,3159,112"/>
-<area shape="rect" id="node45" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="2284,83,2575,112"/>
-<area shape="rect" id="node50" href="$dc/d4f/AmpSumSliceIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumSliceIntensity.hpp" alt="" coords="3767,83,4087,112"/>
-<area shape="rect" id="node52" href="$d6/d5d/AmpSumTree_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumTree.hpp" alt="" coords="4111,83,4377,112"/>
-<area shape="rect" id="node54" href="$db/d41/BlackScholes_8hpp.xhtml" title="This class implements a Black&#45;Scholes model of stock price developments." alt="" coords="3183,83,3444,112"/>
-<area shape="rect" id="node59" href="$d3/da8/BreitWigner_8hpp.xhtml" title="This class provides a simple Breit&#45;Wigner calculation with given parameters." alt="" coords="1360,83,1597,112"/>
-<area shape="rect" id="node71" href="$db/dc4/NeuralNetwork_8hpp.xhtml" title="This class implements a neural network to model of stock price developments." alt="" coords="3468,83,3743,112"/>
-<area shape="rect" id="node76" href="$db/d6f/RootGen_8hpp.xhtml" title="Class to generate 4&#45;Vectors." alt="" coords="4401,83,4639,112"/>
+<area shape="rect" id="node23" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="1989,83,2219,112"/>
+<area shape="rect" id="node33" href="$da/d67/SliceFit_8hpp.xhtml" title="This class performs a Chi2&#45;Fit on slices along one axis of a dalitz&#45;plot." alt="" coords="3100,83,3297,112"/>
+<area shape="rect" id="node37" href="$d3/de6/StockLeastSquares_8hpp.xhtml" title="This class calculates a simple square&#45;sum of a stock&#45;model and stock value." alt="" coords="3399,83,3737,112"/>
+<area shape="rect" id="node45" href="$db/dd9/AmpSumIntensity_8cpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.cpp" alt="" coords="2525,160,2816,189"/>
+<area shape="rect" id="node47" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="2708,83,2999,112"/>
+<area shape="rect" id="node55" href="$dc/d4f/AmpSumSliceIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumSliceIntensity.hpp" alt="" coords="4345,83,4665,112"/>
+<area shape="rect" id="node57" href="$d6/d5d/AmpSumTree_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumTree.hpp" alt="" coords="4689,83,4956,112"/>
+<area shape="rect" id="node59" href="$db/d41/BlackScholes_8hpp.xhtml" title="This class implements a Black&#45;Scholes model of stock price developments." alt="" coords="3761,83,4023,112"/>
+<area shape="rect" id="node64" href="$d3/da8/BreitWigner_8hpp.xhtml" title="This class provides a simple Breit&#45;Wigner calculation with given parameters." alt="" coords="1377,83,1615,112"/>
+<area shape="rect" id="node76" href="$db/dc4/NeuralNetwork_8hpp.xhtml" title="This class implements a neural network to model of stock price developments." alt="" coords="4047,83,4321,112"/>
+<area shape="rect" id="node81" href="$db/d6f/RootGen_8hpp.xhtml" title="Class to generate 4&#45;Vectors." alt="" coords="4980,83,5217,112"/>
 <area shape="rect" id="node13" href="$dd/d77/RunManagerTestApp_8cpp.xhtml" title="Test&#45;Application for fit with simple modules using RunManager." alt="" coords="832,160,1027,189"/>
 <area shape="rect" id="node17" href="$d1/d9e/ChiOneD_8cpp.xhtml" title="Estimator/ChiOneD/ChiOneD.cpp" alt="" coords="344,160,563,189"/>
 <area shape="rect" id="node19" href="$d4/d31/EstimatorTestApp_8cpp.xhtml" title="Test&#45;Application of a simple &#160;estimator." alt="" coords="1051,160,1229,189"/>
@@ -21,14 +22,15 @@
 <area shape="rect" id="node25" href="$de/d8e/MinLogLH_8cpp.xhtml" title="Estimator/MinLogLH/MinLogLH.cpp" alt="" coords="2104,160,2333,189"/>
 <area shape="rect" id="node27" href="$da/d2a/DalitzFitApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model." alt="" coords="2357,160,2501,189"/>
 <area shape="rect" id="node30" href="$d5/d26/IntegrationTestApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple modules." alt="" coords="1899,160,2080,189"/>
-<area shape="rect" id="node35" href="$d2/d9b/SliceFit_8cpp.xhtml" title="Estimator/SliceFit/SliceFit.cpp" alt="" coords="2704,160,2901,189"/>
-<area shape="rect" id="node39" href="$db/de2/StockLeastSquares_8cpp.xhtml" title="Estimator/StockLeastSquares/StockLeastSquares.cpp" alt="" coords="2925,160,3264,189"/>
-<area shape="rect" id="node41" href="$de/dbe/BlackScholesApp_8cpp.xhtml" title="Test&#45;Application for Black&#45;Scholes stock model." alt="" coords="3288,160,3464,189"/>
-<area shape="rect" id="node43" href="$dc/d3f/NeuralNetworkApp_8cpp.xhtml" title="test/NeuralNetworkApp.cpp" alt="" coords="3488,160,3669,189"/>
-<area shape="rect" id="node48" href="$d1/d93/GenDalitzApp_8cpp.xhtml" title="Application to generate J/Psi &#45;&gt; g pi pi." alt="" coords="2525,160,2680,189"/>
-<area shape="rect" id="node56" href="$d9/d27/BlackScholes_8cpp.xhtml" title="Physics/BlackScholes/BlackScholes.cpp" alt="" coords="3693,160,3955,189"/>
-<area shape="rect" id="node61" href="$da/d1c/BreitWigner_8cpp.xhtml" title="Physics/BreitWigner/BreitWigner.cpp" alt="" coords="1445,160,1683,189"/>
-<area shape="rect" id="node64" href="$db/d35/GenTwoPartApp_8cpp.xhtml" title="Application to generate a two&#45;particle intensity." alt="" coords="1707,160,1875,189"/>
-<area shape="rect" id="node68" href="$db/da0/PhysicsTestApp_8cpp.xhtml" title="Test&#45;Application of the Physics&#45;IF." alt="" coords="1253,160,1421,189"/>
-<area shape="rect" id="node73" href="$d1/d9c/NeuralNetwork_8cpp.xhtml" title="Physics/NeuralNetwork/NeuralNetwork.cpp" alt="" coords="3979,160,4253,189"/>
+<area shape="rect" id="node35" href="$d2/d9b/SliceFit_8cpp.xhtml" title="Estimator/SliceFit/SliceFit.cpp" alt="" coords="3309,160,3507,189"/>
+<area shape="rect" id="node39" href="$db/de2/StockLeastSquares_8cpp.xhtml" title="Estimator/StockLeastSquares/StockLeastSquares.cpp" alt="" coords="3531,160,3869,189"/>
+<area shape="rect" id="node41" href="$de/dbe/BlackScholesApp_8cpp.xhtml" title="Test&#45;Application for Black&#45;Scholes stock model." alt="" coords="3893,160,4069,189"/>
+<area shape="rect" id="node43" href="$dc/d3f/NeuralNetworkApp_8cpp.xhtml" title="test/NeuralNetworkApp.cpp" alt="" coords="4093,160,4275,189"/>
+<area shape="rect" id="node50" href="$de/d2f/Physics_2RootGenerator_2GenDalitzApp_8cpp.xhtml" title="Physics/RootGenerator/GenDalitzApp.cpp" alt="" coords="3019,160,3285,189"/>
+<area shape="rect" id="node53" href="$d2/d52/test_2GenDalitzApp_8cpp.xhtml" title="test/GenDalitzApp.cpp" alt="" coords="2840,160,2995,189"/>
+<area shape="rect" id="node61" href="$d9/d27/BlackScholes_8cpp.xhtml" title="Physics/BlackScholes/BlackScholes.cpp" alt="" coords="4299,160,4560,189"/>
+<area shape="rect" id="node66" href="$da/d1c/BreitWigner_8cpp.xhtml" title="Physics/BreitWigner/BreitWigner.cpp" alt="" coords="1253,160,1491,189"/>
+<area shape="rect" id="node69" href="$db/d35/GenTwoPartApp_8cpp.xhtml" title="Application to generate a two&#45;particle intensity." alt="" coords="1515,160,1683,189"/>
+<area shape="rect" id="node73" href="$db/da0/PhysicsTestApp_8cpp.xhtml" title="Test&#45;Application of the Physics&#45;IF." alt="" coords="1707,160,1875,189"/>
+<area shape="rect" id="node78" href="$d1/d9c/NeuralNetwork_8cpp.xhtml" title="Physics/NeuralNetwork/NeuralNetwork.cpp" alt="" coords="4584,160,4859,189"/>
 </map>

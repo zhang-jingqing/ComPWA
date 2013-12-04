@@ -74,65 +74,66 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00011"></a>00011 <span class="comment">// Contributors:</span>
 <a name="l00012"></a>00012 <span class="comment">//     Mathias Michel - initial API and implementation</span>
 <a name="l00013"></a>00013 <span class="comment">//-------------------------------------------------------------------------------</span>
-<a name="l00015"></a>00015 <span class="comment"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#ifndef _DICTIONARY_HPP_</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#define _DICTIONARY_HPP_</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;memory&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="../../db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters.">Core/Parameter.hpp</a>&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types.">Core/ParameterList.hpp</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="../../d2/d4b/Data_8hpp.xhtml" title="This class provides the interface to experimental data.">DataReader/Data.hpp</a>&quot;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity.">Physics/Amplitude.hpp</a>&quot;</span>
-<a name="l00035"></a>00035 
-<a name="l00036"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml">00036</a> <span class="keyword">struct </span><a class="code" href="../../d5/da4/structdataInfo.xhtml">dataInfo</a>{
-<a name="l00037"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">00037</a>   std::string <a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">name</a>;
-<a name="l00038"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">00038</a>   std::shared_ptr&lt;Data&gt; <a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">data</a>;
-<a name="l00039"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">00039</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">parProvided</a>;
-<a name="l00040"></a>00040 
-<a name="l00041"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#afbd0f12fa5f00bcf6afe8943427e9d20">00041</a>   <a class="code" href="../../d5/da4/structdataInfo.xhtml#afbd0f12fa5f00bcf6afe8943427e9d20">dataInfo</a>(std::string inN, std::shared_ptr&lt;Data&gt; inD, std::vector&lt;std::string&gt; inP):
-<a name="l00042"></a>00042     <a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">name</a>(inN), <a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">data</a>(inD), <a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">parProvided</a>(inP){};
-<a name="l00043"></a>00043 };
-<a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="../../d9/d73/structampInfo.xhtml">00045</a> <span class="keyword">struct </span><a class="code" href="../../d9/d73/structampInfo.xhtml">ampInfo</a>{
-<a name="l00046"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">00046</a>   std::string <a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">name</a>;
-<a name="l00047"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">00047</a>   std::shared_ptr&lt;Amplitude&gt; <a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">amplitude</a>;
-<a name="l00048"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">00048</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">inputNeeded</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#adf51b3bea0df687ae0efa95acf047aae">00050</a>   <a class="code" href="../../d9/d73/structampInfo.xhtml#adf51b3bea0df687ae0efa95acf047aae">ampInfo</a>(std::string inN, std::shared_ptr&lt;Amplitude&gt; inD, std::vector&lt;std::string&gt; inP):
-<a name="l00051"></a>00051     <a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">name</a>(inN), <a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">amplitude</a>(inD), <a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">inputNeeded</a>(inP){};
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml">00054</a> <span class="keyword">class </span><a class="code" href="../../d9/d9b/classDictionary.xhtml" title="Dictionary to manage information provided by modules.">Dictionary</a>
-<a name="l00055"></a>00055 {
-<a name="l00056"></a>00056 <span class="keyword">public</span>:
-<a name="l00058"></a>00058 
-<a name="l00062"></a>00062   <a class="code" href="../../d9/d9b/classDictionary.xhtml#aee8d612bc9d323c38faba045ba384b8b" title="Standard constructor.">Dictionary</a>();
-<a name="l00063"></a>00063 
-<a name="l00065"></a>00065   <span class="keyword">virtual</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#aa36f24073d9c9001768517aa2322cb82" title="Destructor.">~Dictionary</a>();
-<a name="l00066"></a>00066 
-<a name="l00068"></a>00068 
-<a name="l00075"></a>00075   <span class="keyword">virtual</span> std::string <a class="code" href="../../d9/d9b/classDictionary.xhtml#ad4404bf4f9e0b719de0d8ea8bbeb538d" title="Introduction of a DataReader.">introduce</a>(std::shared_ptr&lt;Data&gt; inData, std::string inName=<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00076"></a>00076 
-<a name="l00078"></a>00078 
-<a name="l00085"></a>00085   <span class="keyword">virtual</span> std::string <a class="code" href="../../d9/d9b/classDictionary.xhtml#ad4404bf4f9e0b719de0d8ea8bbeb538d" title="Introduction of a DataReader.">introduce</a>(std::shared_ptr&lt;Amplitude&gt; inAmp, std::string inName=<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00086"></a>00086 
-<a name="l00088"></a>00088 
-<a name="l00095"></a>00095   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#a6666ce73063c5a6d3c0684361bdc30ef" title="Check if name already used for a Data Module.">dataNameUsed</a>(std::string inName);
-<a name="l00096"></a>00096 
-<a name="l00098"></a>00098 
-<a name="l00105"></a>00105   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#aa7fea8af597aca5499aa28f30f8a0b11" title="Check if name already used for an Amplitude.">amplitudeNameUsed</a>(std::string inName);
-<a name="l00106"></a>00106 
+<a name="l00014"></a>00014 
+<a name="l00016"></a>00016 
+<a name="l00024"></a>00024 <span class="preprocessor">#ifndef _DICTIONARY_HPP_</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define _DICTIONARY_HPP_</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;memory&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="../../db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters.">Core/Parameter.hpp</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="../../df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types.">Core/ParameterList.hpp</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="../../d2/d4b/Data_8hpp.xhtml" title="This class provides the interface to experimental data.">DataReader/Data.hpp</a>&quot;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity.">Physics/Amplitude.hpp</a>&quot;</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml">00037</a> <span class="keyword">struct </span><a class="code" href="../../d5/da4/structdataInfo.xhtml">dataInfo</a>{
+<a name="l00038"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">00038</a>   std::string <a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">name</a>;
+<a name="l00039"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">00039</a>   std::shared_ptr&lt;Data&gt; <a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">data</a>;
+<a name="l00040"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">00040</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">parProvided</a>;
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="../../d5/da4/structdataInfo.xhtml#afbd0f12fa5f00bcf6afe8943427e9d20">00042</a>   <a class="code" href="../../d5/da4/structdataInfo.xhtml#afbd0f12fa5f00bcf6afe8943427e9d20">dataInfo</a>(std::string inN, std::shared_ptr&lt;Data&gt; inD, std::vector&lt;std::string&gt; inP):
+<a name="l00043"></a>00043     <a class="code" href="../../d5/da4/structdataInfo.xhtml#a4cc493db2d92cf7d7fe2337ddf436011">name</a>(inN), <a class="code" href="../../d5/da4/structdataInfo.xhtml#a89a54e128ff18553daa4c5ca7ce39483">data</a>(inD), <a class="code" href="../../d5/da4/structdataInfo.xhtml#adb09af7379e4ace99287a79e74d19fc3">parProvided</a>(inP){};
+<a name="l00044"></a>00044 };
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="../../d9/d73/structampInfo.xhtml">00046</a> <span class="keyword">struct </span><a class="code" href="../../d9/d73/structampInfo.xhtml">ampInfo</a>{
+<a name="l00047"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">00047</a>   std::string <a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">name</a>;
+<a name="l00048"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">00048</a>   std::shared_ptr&lt;Amplitude&gt; <a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">amplitude</a>;
+<a name="l00049"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">00049</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">inputNeeded</a>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="../../d9/d73/structampInfo.xhtml#adf51b3bea0df687ae0efa95acf047aae">00051</a>   <a class="code" href="../../d9/d73/structampInfo.xhtml#adf51b3bea0df687ae0efa95acf047aae">ampInfo</a>(std::string inN, std::shared_ptr&lt;Amplitude&gt; inD, std::vector&lt;std::string&gt; inP):
+<a name="l00052"></a>00052     <a class="code" href="../../d9/d73/structampInfo.xhtml#a0263db94bf652961389a1e4e508cac55">name</a>(inN), <a class="code" href="../../d9/d73/structampInfo.xhtml#abf7aa0471429f084b02f6919ae9c577b">amplitude</a>(inD), <a class="code" href="../../d9/d73/structampInfo.xhtml#aa6921b9706ace35b8f7e9768a88aee14">inputNeeded</a>(inP){};
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml">00055</a> <span class="keyword">class </span><a class="code" href="../../d9/d9b/classDictionary.xhtml" title="Dictionary to manage information provided by modules.">Dictionary</a>
+<a name="l00056"></a>00056 {
+<a name="l00057"></a>00057 <span class="keyword">public</span>:
+<a name="l00059"></a>00059 
+<a name="l00063"></a>00063   <a class="code" href="../../d9/d9b/classDictionary.xhtml#aee8d612bc9d323c38faba045ba384b8b" title="Standard constructor.">Dictionary</a>();
+<a name="l00064"></a>00064 
+<a name="l00066"></a>00066   <span class="keyword">virtual</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#aa36f24073d9c9001768517aa2322cb82" title="Destructor.">~Dictionary</a>();
+<a name="l00067"></a>00067 
+<a name="l00069"></a>00069 
+<a name="l00076"></a>00076   <span class="keyword">virtual</span> std::string <a class="code" href="../../d9/d9b/classDictionary.xhtml#ad4404bf4f9e0b719de0d8ea8bbeb538d" title="Introduction of a DataReader.">introduce</a>(std::shared_ptr&lt;Data&gt; inData, std::string inName=<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00077"></a>00077 
+<a name="l00079"></a>00079 
+<a name="l00086"></a>00086   <span class="keyword">virtual</span> std::string <a class="code" href="../../d9/d9b/classDictionary.xhtml#ad4404bf4f9e0b719de0d8ea8bbeb538d" title="Introduction of a DataReader.">introduce</a>(std::shared_ptr&lt;Amplitude&gt; inAmp, std::string inName=<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00087"></a>00087 
+<a name="l00089"></a>00089 
+<a name="l00096"></a>00096   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#a6666ce73063c5a6d3c0684361bdc30ef" title="Check if name already used for a Data Module.">dataNameUsed</a>(std::string inName);
+<a name="l00097"></a>00097 
+<a name="l00099"></a>00099 
+<a name="l00106"></a>00106   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9b/classDictionary.xhtml#aa7fea8af597aca5499aa28f30f8a0b11" title="Check if name already used for an Amplitude.">amplitudeNameUsed</a>(std::string inName);
 <a name="l00107"></a>00107 
-<a name="l00108"></a>00108 <span class="keyword">protected</span>:
-<a name="l00109"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml#a9025a141243715d7b87d31c0719184f8">00109</a>   std::vector&lt;dataInfo &gt; <a class="code" href="../../d9/d9b/classDictionary.xhtml#a9025a141243715d7b87d31c0719184f8" title="List of DataReader Info.">mData_</a>; 
-<a name="l00110"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml#a66f7d2e3126aed512fde427b21cdc996">00110</a>   std::vector&lt;ampInfo &gt; <a class="code" href="../../d9/d9b/classDictionary.xhtml#a66f7d2e3126aed512fde427b21cdc996" title="List of Amplitude Info.">mAmps_</a>; 
-<a name="l00112"></a>00112 };
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="preprocessor">#endif </span><span class="comment">/* _DICTIONARY_HPP_ */</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keyword">protected</span>:
+<a name="l00110"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml#a9025a141243715d7b87d31c0719184f8">00110</a>   std::vector&lt;dataInfo &gt; <a class="code" href="../../d9/d9b/classDictionary.xhtml#a9025a141243715d7b87d31c0719184f8" title="List of DataReader Info.">mData_</a>; 
+<a name="l00111"></a><a class="code" href="../../d9/d9b/classDictionary.xhtml#a66f7d2e3126aed512fde427b21cdc996">00111</a>   std::vector&lt;ampInfo &gt; <a class="code" href="../../d9/d9b/classDictionary.xhtml#a66f7d2e3126aed512fde427b21cdc996" title="List of Amplitude Info.">mAmps_</a>; 
+<a name="l00113"></a>00113 };
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="preprocessor">#endif </span><span class="comment">/* _DICTIONARY_HPP_ */</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -149,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

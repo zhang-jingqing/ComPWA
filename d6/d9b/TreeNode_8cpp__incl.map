@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node9" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="385,83,521,112"/>
+<area shape="rect" id="node9" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="385,83,521,112"/>
 <area shape="rect" id="node14" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="280,160,416,189"/>
 <area shape="rect" id="node25" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="493,237,653,267"/>
 <area shape="rect" id="node36" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="797,392,960,421"/>

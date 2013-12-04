@@ -61,7 +61,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">AmpAbsDynamicalFunction Class Reference</div>  </div>
 </div>
@@ -71,23 +72,46 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for AmpAbsDynamicalFunction:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../da/de3/classAmpAbsDynamicalFunction__inherit__graph.svg" width="579" height="923" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe src="../../da/de3/classAmpAbsDynamicalFunction__inherit__graph.svg" width="566" height="768" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for AmpAbsDynamicalFunction:</div>
+<div class="dyncontent">
+<div class="center"><iframe src="../../de/d77/classAmpAbsDynamicalFunction__coll__graph.svg" width="222" height="662" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="../../d6/d24/classAmpAbsDynamicalFunction-members.xhtml">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a7ce97b986b8ca40706f290093837fbf1">AmpAbsDynamicalFunction</a> (const char *name, const char *title)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a28bc08161eec1480e2c52d91ec8c5be8">AmpAbsDynamicalFunction</a> (const char *name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a13ca78b1eaa2998c3db8c3eca8c93bac">AmpAbsDynamicalFunction</a> (const <a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml">AmpAbsDynamicalFunction</a> &amp;, const char *)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a1233f992a2f73ca0c152355c11cff08e">~AmpAbsDynamicalFunction</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a3f3b55066e65360b28bd9e56a23247c2">to_str</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of interface for streaming info about the strategy.  <a href="#a3f3b55066e65360b28bd9e56a23247c2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a7ba5980ea098ed83d96a9c6464c8bb6a">initialise</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual RooComplex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a3f8b75b57709eb680a1df63c2a78473f">evaluate</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of interface for executing a strategy.  <a href="#a7ba5980ea098ed83d96a9c6464c8bb6a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a1fafdad84744aa1469e4696030598084">evaluate</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a00f92151b62c17c2e99e7426bc810bce">evaluateAmp</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a363cc872bc206a133d57be3793454f8b">evaluateWignerD</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a89b4fafcd8421366b5f923fd0e12de30">getSpin</a> ()=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a6bf35600e519ab9e257b978275dd4297">isSubSys</a> (const unsigned int) const =0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual TObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a25025e75233229634bcb7471cb4354d1">clone</a> (const char *newname) const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a7d68a6ab081456228e8a0e9b0c56bf2a">evaluate</a> (double x[], size_t dim) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#abb60928485a52c25cc7142ad82ededa1">integral</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation integral |resonance|^2.  <a href="#abb60928485a52c25cc7142ad82ededa1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a9ec34f0d8d6d0526d171358fb267a7fd">GetName</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#ac181b0715993d90867b78b392c2e0be9">GetTitle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a4c18f6d78ed6c84fc9640a6e356b768f">GetNormalization</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#a610bd048f9806a0a6f0fefaadfc7b60f">SetNormalization</a> (double n)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#aa7c6f2ca7dafa5c9af7e9a7af77a0df1">_name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#ac83077130a3f6e1d575ff39023466cc2">_norm</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7ce97b986b8ca40706f290093837fbf1"></a><!-- doxytag: member="AmpAbsDynamicalFunction::AmpAbsDynamicalFunction" ref="a7ce97b986b8ca40706f290093837fbf1" args="(const char *name, const char *title)" -->
+<a class="anchor" id="a28bc08161eec1480e2c52d91ec8c5be8"></a><!-- doxytag: member="AmpAbsDynamicalFunction::AmpAbsDynamicalFunction" ref="a28bc08161eec1480e2c52d91ec8c5be8" args="(const char *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -95,18 +119,8 @@ Public Member Functions</h2></td></tr>
           <td class="memname">AmpAbsDynamicalFunction::AmpAbsDynamicalFunction </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>title</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -158,31 +172,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a25025e75233229634bcb7471cb4354d1"></a><!-- doxytag: member="AmpAbsDynamicalFunction::clone" ref="a25025e75233229634bcb7471cb4354d1" args="(const char *newname) const =0" -->
+<a class="anchor" id="a1fafdad84744aa1469e4696030598084"></a><!-- doxytag: member="AmpAbsDynamicalFunction::evaluate" ref="a1fafdad84744aa1469e4696030598084" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TObject * AmpAbsDynamicalFunction::clone </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>newname</em></td><td>)</td>
-          <td> const<code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#adbb2d2eb5b9273601651263782c9f352">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#a871c246307acf53a5d699e68d7d3bfcf">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#a9506ef69f517f80847bc27117f6eb56a">AmpRelBreitWignerRes</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3f8b75b57709eb680a1df63c2a78473f"></a><!-- doxytag: member="AmpAbsDynamicalFunction::evaluate" ref="a3f8b75b57709eb680a1df63c2a78473f" args="() const =0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual RooComplex AmpAbsDynamicalFunction::evaluate </td>
+          <td class="memname">virtual std::complex&lt;double&gt; AmpAbsDynamicalFunction::evaluate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [pure virtual]</code></td>
@@ -191,7 +186,136 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#aa118478e2dbd90590be95368ed598f2a">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#afe9a114ad4fdf010dd86b0244a43d7e0">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#ac42b770278a994d77abd10c6285e8155">AmpRelBreitWignerRes</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#a3ec6caa50a53820e4f3074a72091882b">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#a92183914f8fa048073f6599a56ce0cd3">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#a92e4278d123988fdda4a7a79eb95e7d9">AmpRelBreitWignerRes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d68a6ab081456228e8a0e9b0c56bf2a"></a><!-- doxytag: member="AmpAbsDynamicalFunction::evaluate" ref="a7d68a6ab081456228e8a0e9b0c56bf2a" args="(double x[], size_t dim) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double AmpAbsDynamicalFunction::evaluate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>dim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a00f92151b62c17c2e99e7426bc810bce"></a><!-- doxytag: member="AmpAbsDynamicalFunction::evaluateAmp" ref="a00f92151b62c17c2e99e7426bc810bce" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::complex&lt;double&gt; AmpAbsDynamicalFunction::evaluateAmp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#a320232aad537bc77a1e223d7f6e36f51">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#aa3dbef5619c83423b930c886dc6f1f68">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#aa8b387554c7c4139111d892c0b1b6d4b">AmpRelBreitWignerRes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a363cc872bc206a133d57be3793454f8b"></a><!-- doxytag: member="AmpAbsDynamicalFunction::evaluateWignerD" ref="a363cc872bc206a133d57be3793454f8b" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double AmpAbsDynamicalFunction::evaluateWignerD </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#a5eb503b8ef27d0aca8ed2db46e420722">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#a0c04bf972f1291535182c32e860990cd">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#ac43b3f3f2cb227fb22c435127a277703">AmpRelBreitWignerRes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ec34f0d8d6d0526d171358fb267a7fd"></a><!-- doxytag: member="AmpAbsDynamicalFunction::GetName" ref="a9ec34f0d8d6d0526d171358fb267a7fd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string AmpAbsDynamicalFunction::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4c18f6d78ed6c84fc9640a6e356b768f"></a><!-- doxytag: member="AmpAbsDynamicalFunction::GetNormalization" ref="a4c18f6d78ed6c84fc9640a6e356b768f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double AmpAbsDynamicalFunction::GetNormalization </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a89b4fafcd8421366b5f923fd0e12de30"></a><!-- doxytag: member="AmpAbsDynamicalFunction::getSpin" ref="a89b4fafcd8421366b5f923fd0e12de30" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double AmpAbsDynamicalFunction::getSpin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#af1f4f764b8d9bc3ecf0885d2c0bc8a16">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#a092845696d6be8b5b6dd78b9d5bf5fc8">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#afef3034eb12233fc25dc2227bf29fc01">AmpRelBreitWignerRes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac181b0715993d90867b78b392c2e0be9"></a><!-- doxytag: member="AmpAbsDynamicalFunction::GetTitle" ref="ac181b0715993d90867b78b392c2e0be9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string AmpAbsDynamicalFunction::GetTitle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -209,7 +333,27 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Implementation of interface for executing a strategy. </p>
+
 <p>Implemented in <a class="el" href="../../de/d42/classAmpFlatteRes.xhtml#a73a7e85ab72937d88b7972f43dcfee6e">AmpFlatteRes</a>, <a class="el" href="../../d1/d6b/classAmpGausRes.xhtml#a8a8b898346b9a8a3e277a7cd3618cdee">AmpGausRes</a>, and <a class="el" href="../../d5/dcf/classAmpRelBreitWignerRes.xhtml#a157a0fe4973d10bfb002eb065ff341bd">AmpRelBreitWignerRes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb60928485a52c25cc7142ad82ededa1"></a><!-- doxytag: member="AmpAbsDynamicalFunction::integral" ref="abb60928485a52c25cc7142ad82ededa1" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double AmpAbsDynamicalFunction::integral </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Calculation integral |resonance|^2. </p>
 
 </div>
 </div>
@@ -232,6 +376,68 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a610bd048f9806a0a6f0fefaadfc7b60f"></a><!-- doxytag: member="AmpAbsDynamicalFunction::SetNormalization" ref="a610bd048f9806a0a6f0fefaadfc7b60f" args="(double n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void AmpAbsDynamicalFunction::SetNormalization </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3f3b55066e65360b28bd9e56a23247c2"></a><!-- doxytag: member="AmpAbsDynamicalFunction::to_str" ref="a3f3b55066e65360b28bd9e56a23247c2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string AmpAbsDynamicalFunction::to_str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implementation of interface for streaming info about the strategy. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa7c6f2ca7dafa5c9af7e9a7af77a0df1"></a><!-- doxytag: member="AmpAbsDynamicalFunction::_name" ref="aa7c6f2ca7dafa5c9af7e9a7af77a0df1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#aa7c6f2ca7dafa5c9af7e9a7af77a0df1">AmpAbsDynamicalFunction::_name</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac83077130a3f6e1d575ff39023466cc2"></a><!-- doxytag: member="AmpAbsDynamicalFunction::_norm" ref="ac83077130a3f6e1d575ff39023466cc2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml#ac83077130a3f6e1d575ff39023466cc2">AmpAbsDynamicalFunction::_norm</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Physics/AmplitudeSum/<a class="el" href="../../d3/d76/AmpAbsDynamicalFunction_8hpp_source.xhtml">AmpAbsDynamicalFunction.hpp</a></li>
 <li>Physics/AmplitudeSum/<a class="el" href="../../df/d29/AmpAbsDynamicalFunction_8cpp.xhtml">AmpAbsDynamicalFunction.cpp</a></li>
@@ -251,7 +457,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

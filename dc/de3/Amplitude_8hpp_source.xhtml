@@ -89,29 +89,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037 <span class="keyword">public</span>:
 <a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab9d3e53a3aab16125d6c9d1188f02026">00039</a>   <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab9d3e53a3aab16125d6c9d1188f02026">Amplitude</a>()
-<a name="l00040"></a>00040           {
-<a name="l00041"></a>00041           }
+<a name="l00039"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab9d3e53a3aab16125d6c9d1188f02026">00039</a>         <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab9d3e53a3aab16125d6c9d1188f02026">Amplitude</a>()
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041 }
 <a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#a5bdefc61833cf418930b63a87de21ed2">00043</a>   <span class="keyword">virtual</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a5bdefc61833cf418930b63a87de21ed2">~Amplitude</a>()
+<a name="l00043"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#a5bdefc61833cf418930b63a87de21ed2">00043</a>         <span class="keyword">virtual</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a5bdefc61833cf418930b63a87de21ed2">~Amplitude</a>()
 <a name="l00044"></a>00044         { <span class="comment">/* nothing */</span> }
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae0ce9e61d0e567682b4fd0ffe3c01c6c">integral</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; par) =0;
-<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a7f3b23028df6415c9ce20be0735b51d8">volume</a>() =0;
+<a name="l00046"></a>00046         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ac15a36f9c32054edd28b9a930911b483">setNevents</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n)  = 0;
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a38489a276ed921abb94d41fe7c49f00f">getNevents</a>()  = 0;
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a3ff15068212e2151ab9d20d24f4b6248">intensity</a>(std::vector&lt;double&gt;&amp; x, <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; par) =0;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab5c5185c8d84243e21ac9f116b7d54e8">fillStartParVec</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; outPar) =0;
+<a name="l00049"></a>00049         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae0ce9e61d0e567682b4fd0ffe3c01c6c">integral</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; par) =0;
+<a name="l00050"></a>00050         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a9fe357d37871118667835b03c22f7669">getMaxVal</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; par) = 0;
+<a name="l00051"></a>00051         <span class="comment">//virtual const double volume() =0;</span>
 <a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae27aad859e0c7d2ad1ee2f165875ac18">00053</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;FunctionTree&gt; <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae27aad859e0c7d2ad1ee2f165875ac18">functionTree</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; outPar) {
-<a name="l00054"></a>00054     <span class="comment">//if not implemented, return NULL-pointer</span>
-<a name="l00055"></a>00055     <span class="keywordflow">return</span> NULL;
-<a name="l00056"></a>00056   }
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="preprocessor">#endif</span>
+<a name="l00053"></a>00053         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#a3ff15068212e2151ab9d20d24f4b6248">intensity</a>(std::vector&lt;double&gt;&amp; x, <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; par) =0;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ab5c5185c8d84243e21ac9f116b7d54e8">fillStartParVec</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; outPar) =0;
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae27aad859e0c7d2ad1ee2f165875ac18">00057</a>         <span class="keyword">virtual</span> std::shared_ptr&lt;FunctionTree&gt; <a class="code" href="../../d9/d3e/classAmplitude.xhtml#ae27aad859e0c7d2ad1ee2f165875ac18">functionTree</a>(<a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; outPar) {
+<a name="l00058"></a>00058                 <span class="comment">//if not implemented, return NULL-pointer</span>
+<a name="l00059"></a>00059                 <span class="keywordflow">return</span> NULL;
+<a name="l00060"></a>00060         }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 };
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -128,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

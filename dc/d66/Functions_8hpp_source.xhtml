@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00063"></a>00063 
 <a name="l00065"></a>00065   <span class="keyword">virtual</span> <span class="keyword">const</span> std::string <a class="code" href="../../d2/df2/classStrategy.xhtml#a76fc8e8159e9c60afc4556bc106311a2" title="Pure Virtual interface for streaming info about the strategy.">to_str</a>() <span class="keyword">const</span> =0;
 <a name="l00066"></a>00066 
-<a name="l00068"></a>00068   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d2/df2/classStrategy.xhtml#a7cd96afdcb5825742cdf3a383473fc8f" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) = 0;
+<a name="l00068"></a>00068   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d2/df2/classStrategy.xhtml#a7cd96afdcb5825742cdf3a383473fc8f" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) = 0;
 <a name="l00069"></a>00069 };
 <a name="l00070"></a>00070 
 <a name="l00071"></a><a class="code" href="../../d9/db9/classAddAll.xhtml">00071</a> <span class="keyword">class </span><a class="code" href="../../d9/db9/classAddAll.xhtml">AddAll</a> : <span class="keyword">public</span> <a class="code" href="../../d2/df2/classStrategy.xhtml" title="Functions to be used in FuntionTree.">Strategy</a>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00078"></a>00078     <span class="keywordflow">return</span> <span class="stringliteral">&quot;+&quot;</span>;
 <a name="l00079"></a>00079   }
 <a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="../../d9/db9/classAddAll.xhtml#aa77125907f161a742c20d37894b52ae1">00081</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d9/db9/classAddAll.xhtml#aa77125907f161a742c20d37894b52ae1" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
+<a name="l00081"></a><a class="code" href="../../d9/db9/classAddAll.xhtml#aa77125907f161a742c20d37894b52ae1">00081</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d9/db9/classAddAll.xhtml#aa77125907f161a742c20d37894b52ae1" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
 <a name="l00082"></a>00082     <span class="keywordtype">double</span> result = 0;
 <a name="l00083"></a>00083     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#aa626799b903b16e7f6f29f918c626f9e" title="Getter for number of double parameter.">GetNDouble</a>(); i++)
 <a name="l00084"></a>00084       result+=paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#a99c664620aa97bc31d1defcf7ab4c927" title="Getter for parameter value.">GetParameterValue</a>(i);
@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00099"></a>00099     <span class="keywordflow">return</span> <span class="stringliteral">&quot;*&quot;</span>;
 <a name="l00100"></a>00100   }
 <a name="l00101"></a>00101 
-<a name="l00102"></a><a class="code" href="../../dc/dfa/classMultAll.xhtml#a557d00631d62310b1e79fadff7e9ec4c">00102</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../dc/dfa/classMultAll.xhtml#a557d00631d62310b1e79fadff7e9ec4c" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
+<a name="l00102"></a><a class="code" href="../../dc/dfa/classMultAll.xhtml#a557d00631d62310b1e79fadff7e9ec4c">00102</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../dc/dfa/classMultAll.xhtml#a557d00631d62310b1e79fadff7e9ec4c" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
 <a name="l00103"></a>00103     <span class="keywordtype">double</span> result = 1.;
 <a name="l00104"></a>00104     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#aa626799b903b16e7f6f29f918c626f9e" title="Getter for number of double parameter.">GetNDouble</a>(); i++)
 <a name="l00105"></a>00105       result*=paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#a99c664620aa97bc31d1defcf7ab4c927" title="Getter for parameter value.">GetParameterValue</a>(i);
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00120"></a>00120     <span class="keywordflow">return</span> <span class="stringliteral">&quot;^&quot;</span>;
 <a name="l00121"></a>00121   }
 <a name="l00122"></a>00122 
-<a name="l00123"></a><a class="code" href="../../da/d64/classPowerTwo.xhtml#aef2d2067032bdaca5783df14cb3741a1">00123</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../da/d64/classPowerTwo.xhtml#aef2d2067032bdaca5783df14cb3741a1" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
+<a name="l00123"></a><a class="code" href="../../da/d64/classPowerTwo.xhtml#aef2d2067032bdaca5783df14cb3741a1">00123</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../da/d64/classPowerTwo.xhtml#aef2d2067032bdaca5783df14cb3741a1" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras){
 <a name="l00124"></a>00124     <span class="keywordflow">if</span>(paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#aa626799b903b16e7f6f29f918c626f9e" title="Getter for number of double parameter.">GetNDouble</a>()!=2){
 <a name="l00125"></a>00125         <span class="keywordflow">throw</span> <a class="code" href="../../d8/db1/classBadIndex.xhtml" title="Index out of range.">BadIndex</a>(<span class="stringliteral">&quot;need exact two parameters&quot;</span>);
 <a name="l00126"></a>00126         <span class="keywordflow">return</span> NULL;
@@ -188,7 +188,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

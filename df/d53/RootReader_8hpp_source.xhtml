@@ -98,37 +98,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00041"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml">00041</a> <span class="keyword">class </span><a class="code" href="../../d2/d4d/classRootReader.xhtml" title="Reader for data in Root-files.">RootReader</a> : <span class="keyword">public</span> <a class="code" href="../../d0/df3/classData.xhtml" title="Data Interface Base-Class.">Data</a> {
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043 <span class="keyword">public</span>:
-<a name="l00045"></a>00045   <a class="code" href="../../d2/d4d/classRootReader.xhtml#af10d9979564e164fdd8085e3a7a8f473" title="Default Constructor (0x0)">RootReader</a>(<span class="keyword">const</span> std::string inRootFile, <span class="keyword">const</span> <span class="keywordtype">bool</span> binned, <span class="keyword">const</span> std::string inTreeName);
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1459a5bdb157ec3794c7f83c48456479">getVariableNames</a>();
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d5/da5/classEvent.xhtml" title="Internal container for event information.">Event</a>&amp; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a9abb0aca839119eaa81c07da411813cf">getEvent</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);
-<a name="l00050"></a>00050   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#ab4b78926472a13be4ae08e648fe70f15">getBin</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keywordtype">double</span>&amp;, <span class="keywordtype">double</span>&amp;);
-<a name="l00051"></a>00051   <span class="comment">//virtual const int getEvent(const int, TLorentzVector&amp; , TLorentzVector&amp; , double&amp;);</span>
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a035727b2548547a0c1b84bdf3799ab37">00053</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a035727b2548547a0c1b84bdf3799ab37">getNEvents</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">fmaxEvents</a>;};
-<a name="l00054"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a46c7618bb5376827c62e9c8e746a0cb2">00054</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a46c7618bb5376827c62e9c8e746a0cb2">getNBins</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">fmaxBins</a>;};
-<a name="l00055"></a>00055 
-<a name="l00057"></a>00057   <span class="keyword">virtual</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a926a707698e8f61dd3de1d2b329dd6a2">~RootReader</a>();
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="keyword">protected</span>:
-<a name="l00060"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">00060</a>   TFile* <a class="code" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">fFile</a>;
-<a name="l00061"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#ae3a20a6601087cecc748c4b50b94392f">00061</a>   TTree* <a class="code" href="../../d2/d4d/classRootReader.xhtml#ae3a20a6601087cecc748c4b50b94392f">fTree</a>;
-<a name="l00062"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a9c22fe9aa23f6c4299d534aad9b240ce">00062</a>   TClonesArray* <a class="code" href="../../d2/d4d/classRootReader.xhtml#a9c22fe9aa23f6c4299d534aad9b240ce">fParticles</a>;
-<a name="l00063"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">00063</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">fmaxEvents</a>;
-<a name="l00064"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a0e7cabbf6cd0878361886d76f48e5e79">00064</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a0e7cabbf6cd0878361886d76f48e5e79">fEvent</a>;
-<a name="l00065"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a1b113b9995014a846c6096cb4e11eee2">00065</a>   <span class="keywordtype">bool</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1b113b9995014a846c6096cb4e11eee2">fBinned</a>;
-<a name="l00066"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">00066</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">fmaxBins</a>;
-<a name="l00067"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a46ba47478d9bcff794d0f6da72bd7173">00067</a>   std::map&lt;int, std::pair&lt;double,double&gt; &gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a46ba47478d9bcff794d0f6da72bd7173">fBins</a>;
-<a name="l00068"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a2e494bd9033ff06a094069f69e885dcf">00068</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a2e494bd9033ff06a094069f69e885dcf">fVarNames</a>;
-<a name="l00069"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a4d54f4f3c26a75228e85af056f854994">00069</a>   std::vector&lt;Event&gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4d54f4f3c26a75228e85af056f854994">fEvents</a>;
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4c2e6179e52197a407b5a5d216c48243">storeEvents</a>();
-<a name="l00072"></a>00072   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1cf7942febb7897b17baffe2c16a495e">bin</a>();
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 };
+<a name="l00045"></a>00045   <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4e536dd209293a6dd2d7dce1911fd1de" title="Default Constructor (0x0)">RootReader</a>(TTree* tr, <span class="keyword">const</span> <span class="keywordtype">bool</span> binned);
+<a name="l00046"></a>00046   <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4e536dd209293a6dd2d7dce1911fd1de" title="Default Constructor (0x0)">RootReader</a>(<span class="keyword">const</span> std::string inRootFile, <span class="keyword">const</span> <span class="keywordtype">bool</span> binned, <span class="keyword">const</span> std::string inTreeName);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   <span class="keyword">virtual</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1459a5bdb157ec3794c7f83c48456479">getVariableNames</a>();
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050   <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d5/da5/classEvent.xhtml" title="Internal container for event information.">Event</a>&amp; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a9abb0aca839119eaa81c07da411813cf">getEvent</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);
+<a name="l00051"></a>00051   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#ab4b78926472a13be4ae08e648fe70f15">getBin</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keywordtype">double</span>&amp;, <span class="keywordtype">double</span>&amp;);
+<a name="l00052"></a>00052   <span class="comment">//virtual const int getEvent(const int, TLorentzVector&amp; , TLorentzVector&amp; , double&amp;);</span>
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a035727b2548547a0c1b84bdf3799ab37">00054</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a035727b2548547a0c1b84bdf3799ab37">getNEvents</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">fmaxEvents</a>;};
+<a name="l00055"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a46c7618bb5376827c62e9c8e746a0cb2">00055</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a46c7618bb5376827c62e9c8e746a0cb2">getNBins</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">fmaxBins</a>;};
+<a name="l00056"></a>00056 
+<a name="l00058"></a>00058   <span class="keyword">virtual</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a926a707698e8f61dd3de1d2b329dd6a2">~RootReader</a>();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keyword">protected</span>:
+<a name="l00061"></a>00061   <span class="keywordtype">void</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a31e07caffab4106214df7cab13e80829">init</a>();
+<a name="l00062"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">00062</a>   TFile* <a class="code" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">fFile</a>;
+<a name="l00063"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#ae3a20a6601087cecc748c4b50b94392f">00063</a>   TTree* <a class="code" href="../../d2/d4d/classRootReader.xhtml#ae3a20a6601087cecc748c4b50b94392f">fTree</a>;
+<a name="l00064"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a9c22fe9aa23f6c4299d534aad9b240ce">00064</a>   TClonesArray* <a class="code" href="../../d2/d4d/classRootReader.xhtml#a9c22fe9aa23f6c4299d534aad9b240ce">fParticles</a>;
+<a name="l00065"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">00065</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a801a92cd6cd00322d0a89d5588132d10">fmaxEvents</a>;
+<a name="l00066"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a0e7cabbf6cd0878361886d76f48e5e79">00066</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a0e7cabbf6cd0878361886d76f48e5e79">fEvent</a>;
+<a name="l00067"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a1b113b9995014a846c6096cb4e11eee2">00067</a>   <span class="keywordtype">bool</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1b113b9995014a846c6096cb4e11eee2">fBinned</a>;
+<a name="l00068"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">00068</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4dd8f02a657443032c57c90d07228aef">fmaxBins</a>;
+<a name="l00069"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a46ba47478d9bcff794d0f6da72bd7173">00069</a>   std::map&lt;int, std::pair&lt;double,double&gt; &gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a46ba47478d9bcff794d0f6da72bd7173">fBins</a>;
+<a name="l00070"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a2e494bd9033ff06a094069f69e885dcf">00070</a>   std::vector&lt;std::string&gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a2e494bd9033ff06a094069f69e885dcf">fVarNames</a>;
+<a name="l00071"></a><a class="code" href="../../d2/d4d/classRootReader.xhtml#a4d54f4f3c26a75228e85af056f854994">00071</a>   std::vector&lt;Event&gt; <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4d54f4f3c26a75228e85af056f854994">fEvents</a>;
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a4c2e6179e52197a407b5a5d216c48243">storeEvents</a>();
+<a name="l00074"></a>00074   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/d4d/classRootReader.xhtml#a1cf7942febb7897b17baffe2c16a495e">bin</a>();
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="preprocessor">#endif </span><span class="comment">/* _RootReader_HPP */</span>
+<a name="l00076"></a>00076 };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif </span><span class="comment">/* _RootReader_HPP */</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -145,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

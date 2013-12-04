@@ -65,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div class="contents">
 
-<p>This class provides the interface for all kind of elements which later can be used as nodes in the <a class="el" href="../../db/d4e/classFunctionTree.xhtml" title="FunctionTree for the actual Optimization.">FunctionTree</a>.  
+<p>This class acts as a container for a parameter in a function tree.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;complex&gt;</code><br/>
@@ -78,13 +78,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TreeNode.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../da/dcf/TreeNode_8hpp__incl.svg" width="1091" height="427" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe src="../../da/dcf/TreeNode_8hpp__incl.svg" width="1091" height="427" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../dc/d37/TreeNode_8hpp__dep__incl.svg" width="4464" height="350" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../dc/d37/TreeNode_8hpp__dep__incl.svg" width="4864" height="350" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -96,8 +95,8 @@ Classes</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d83/classTreeNode.xhtml" title="TreeNode is the interface for elements of the FunctionTree.">TreeNode</a> is the interface for elements of the <a class="el" href="../../db/d4e/classFunctionTree.xhtml" title="FunctionTree for the actual Optimization.">FunctionTree</a>.  <a href="../../da/d83/classTreeNode.xhtml#details">More...</a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class provides the interface for all kind of elements which later can be used as nodes in the <a class="el" href="../../db/d4e/classFunctionTree.xhtml" title="FunctionTree for the actual Optimization.">FunctionTree</a>. </p>
-<p>There needs to be a unique naming </p>
+<div class="textblock"><p>This class acts as a container for a parameter in a function tree. </p>
+<p>It has a <a class="el" href="../../d2/df2/classStrategy.xhtml" title="Functions to be used in FuntionTree.">Strategy</a> to calculate its value and a unique name. </p>
 </div></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -113,7 +112,7 @@ Classes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

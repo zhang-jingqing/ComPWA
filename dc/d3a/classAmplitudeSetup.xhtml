@@ -75,7 +75,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Collaboration diagram for AmplitudeSetup:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d2/d22/classAmplitudeSetup__coll__graph.svg" width="283" height="1035" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe src="../../d2/d22/classAmplitudeSetup__coll__graph.svg" width="394" height="1411" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="../../db/d9d/classAmplitudeSetup-members.xhtml">List of all members.</a></p>
@@ -83,15 +84,19 @@ Collaboration diagram for AmplitudeSetup:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a7b0216893bfed41c13d975aa683d6012">AmplitudeSetup</a> (const std::string &amp;filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a9e415d3cca43cd3e8f42fcd29e3fda3c">AmplitudeSetup</a> (const <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> &amp;other)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a93e574c5c827a2a74e90b12302e658a3">load</a> (const std::string &amp;filename)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a337a729509cc9af427c4b7afa7bbb72d">save</a> (const std::string &amp;filename)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a532c10d76175f4a47534a10ac8b23512">~AmplitudeSetup</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a40fa4c41b60b30e202346c6612633ea0">getNResonances</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a28cb86bfdfd0ddadbbad64dfec88a16e">getFileName</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d6/d5b/structResonance.xhtml">Resonance</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a75045bb7b79b7b315069e6f0267873a4">getResonances</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d9e/structResonanceFlatte.xhtml">ResonanceFlatte</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a62d1dab470f0113d7959e4f66933117a">getResonancesFlatte</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a010b7d8523f561c1b9d7ded77c7799b9">m_file</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d6/d5b/structResonance.xhtml">Resonance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#ae6af50950306a303e7675d6c68bdc9f5">m_resonances</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d9e/structResonanceFlatte.xhtml">ResonanceFlatte</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a87434db3ef0c5632f1acaddfb43c8be2">m_resonancesFlatte</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class is used to load an <a class="el" href="../../d9/d3e/classAmplitude.xhtml" title="Physics Interface Base-Class.">Amplitude</a> configuration provided in an XML file. </p>
@@ -106,6 +111,23 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9e415d3cca43cd3e8f42fcd29e3fda3c"></a><!-- doxytag: member="AmplitudeSetup::AmplitudeSetup" ref="a9e415d3cca43cd3e8f42fcd29e3fda3c" args="(const AmplitudeSetup &amp;other)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AmplitudeSetup::AmplitudeSetup </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -147,12 +169,44 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a40fa4c41b60b30e202346c6612633ea0"></a><!-- doxytag: member="AmplitudeSetup::getNResonances" ref="a40fa4c41b60b30e202346c6612633ea0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int AmplitudeSetup::getNResonances </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a75045bb7b79b7b315069e6f0267873a4"></a><!-- doxytag: member="AmplitudeSetup::getResonances" ref="a75045bb7b79b7b315069e6f0267873a4" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;<a class="el" href="../../d6/d5b/structResonance.xhtml">Resonance</a>&gt;&amp; AmplitudeSetup::getResonances </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a62d1dab470f0113d7959e4f66933117a"></a><!-- doxytag: member="AmplitudeSetup::getResonancesFlatte" ref="a62d1dab470f0113d7959e4f66933117a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d7/d9e/structResonanceFlatte.xhtml">ResonanceFlatte</a>&gt;&amp; AmplitudeSetup::getResonancesFlatte </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -224,6 +278,19 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a87434db3ef0c5632f1acaddfb43c8be2"></a><!-- doxytag: member="AmplitudeSetup::m_resonancesFlatte" ref="a87434db3ef0c5632f1acaddfb43c8be2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d7/d9e/structResonanceFlatte.xhtml">ResonanceFlatte</a>&gt; <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml#a87434db3ef0c5632f1acaddfb43c8be2">AmplitudeSetup::m_resonancesFlatte</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Physics/AmplitudeSum/<a class="el" href="../../dd/d27/AmplitudeSetup_8hpp_source.xhtml">AmplitudeSetup.hpp</a></li>
 </ul>
@@ -242,7 +309,7 @@ Private Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

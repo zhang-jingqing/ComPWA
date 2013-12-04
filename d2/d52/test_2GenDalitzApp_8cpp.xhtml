@@ -83,14 +83,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;TClonesArray.h&quot;</code><br/>
 <code>#include &quot;TTree.h&quot;</code><br/>
 <code>#include &quot;TRandom3.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d35/PhysConst_8hpp_source.xhtml">Physics/DPKinematics/PhysConst.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/dd4/DataPoint_8hpp_source.xhtml">Physics/DPKinematics/DataPoint.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../d0/d2a/AmpSumIntensity_8hpp_source.xhtml">Physics/AmplitudeSum/AmpSumIntensity.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../dd/d27/AmplitudeSetup_8hpp_source.xhtml">Physics/AmplitudeSum/AmplitudeSetup.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../db/dce/Parameter_8hpp_source.xhtml">Core/Parameter.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../df/d9f/ParameterList_8hpp_source.xhtml">Core/ParameterList.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d72/DPKinematics_8hpp_source.xhtml">Physics/DPKinematics/DPKinematics.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for GenDalitzApp.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../db/def/test_2GenDalitzApp_8cpp__incl.svg" width="3946" height="504" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe src="../../db/def/test_2GenDalitzApp_8cpp__incl.svg" width="4974" height="736" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
@@ -99,12 +103,6 @@ Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#a114bceee7dd8c390b4e5c13d5e168265">MaxEvents</a> = 100000</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#acb959f7b0abeddfde4175cb62025d56a">M</a> = 3.096916</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#a0a0f79bc350021411798f6ac6cfacbc7">Br</a> = 0.000093</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a> = 0.</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a> = 0.139570</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a> = 0.139570</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ac410f6555ebc282703695e0831715846">PI</a> = 3.14159</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a><!-- doxytag: member="GenDalitzApp.cpp::main" ref="a3c04138a5bfe5d72780bb7e82a18e627" args="(int argc, char **argv)" -->
@@ -136,90 +134,12 @@ Variables</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a0a0f79bc350021411798f6ac6cfacbc7"></a><!-- doxytag: member="GenDalitzApp.cpp::Br" ref="a0a0f79bc350021411798f6ac6cfacbc7" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#a0a0f79bc350021411798f6ac6cfacbc7">Br</a> = 0.000093</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acb959f7b0abeddfde4175cb62025d56a"></a><!-- doxytag: member="GenDalitzApp.cpp::M" ref="acb959f7b0abeddfde4175cb62025d56a" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#acb959f7b0abeddfde4175cb62025d56a">M</a> = 3.096916</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad4b1dc0c54e834c5c1ca325ebcd66fc3"></a><!-- doxytag: member="GenDalitzApp.cpp::m1" ref="ad4b1dc0c54e834c5c1ca325ebcd66fc3" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a> = 0.</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ada5f2cdf434605648b802a0e13f67c82"></a><!-- doxytag: member="GenDalitzApp.cpp::m2" ref="ada5f2cdf434605648b802a0e13f67c82" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a> = 0.139570</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ade198176253fe8f58cd46dae72aae18e"></a><!-- doxytag: member="GenDalitzApp.cpp::m3" ref="ade198176253fe8f58cd46dae72aae18e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../d2/d52/test_2GenDalitzApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a> = 0.139570</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a114bceee7dd8c390b4e5c13d5e168265"></a><!-- doxytag: member="GenDalitzApp.cpp::MaxEvents" ref="a114bceee7dd8c390b4e5c13d5e168265" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">const unsigned int <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#a114bceee7dd8c390b4e5c13d5e168265">MaxEvents</a> = 100000</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac410f6555ebc282703695e0831715846"></a><!-- doxytag: member="GenDalitzApp.cpp::PI" ref="ac410f6555ebc282703695e0831715846" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Double_t <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ac410f6555ebc282703695e0831715846">PI</a> = 3.14159</td>
         </tr>
       </table>
 </div>
@@ -242,7 +162,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Jul 5 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

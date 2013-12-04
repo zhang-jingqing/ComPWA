@@ -76,10 +76,13 @@ This is the complete list of members for <a class="el" href="../../d0/d37/classN
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a4ab904d778fc674b3b313a5d65fe427d">drawInt</a>(double *x, double *p)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a2b419fac9f07080d0b8e1588f78ea5ce">fillStartParVec</a>(ParameterList &amp;outPar)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml#ae27aad859e0c7d2ad1ee2f165875ac18">functionTree</a>(ParameterList &amp;outPar)</td><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml">Amplitude</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml#a9fe357d37871118667835b03c22f7669">getMaxVal</a>(ParameterList &amp;par)=0</td><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml">Amplitude</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml#a38489a276ed921abb94d41fe7c49f00f">getNevents</a>()=0</td><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml">Amplitude</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a1722fca6ff09ab597ee8804183534a08">integral</a>(ParameterList &amp;par)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#aa571ab7ad8f9027dc359205ce789b10d">intensity</a>(std::vector&lt; double &gt; &amp;x, ParameterList &amp;par)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a72abaf59ee0b2eb63c3ac5741ed44a2c">NeuralNetwork</a>(const unsigned int nInput, const unsigned int nOutput, const unsigned int nHiddenLayers, const double scaling)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a9ff14d360c9199bf12a8056bfdc390c2">OutValue</a>(std::vector&lt; double &gt; &amp;x, ParameterList &amp;par)</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml#ac15a36f9c32054edd28b9a930911b483">setNevents</a>(unsigned int n)=0</td><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml">Amplitude</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#ad02664a06768c306d1cec5196a516c00">volume</a>()</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml#a5bdefc61833cf418930b63a87de21ed2">~Amplitude</a>()</td><td><a class="el" href="../../d9/d3e/classAmplitude.xhtml">Amplitude</a></td><td><code> [inline, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml#a65475a7d7b05d302392333302626b2f8">~NeuralNetwork</a>()</td><td><a class="el" href="../../d0/d37/classNeuralNetwork.xhtml">NeuralNetwork</a></td><td><code> [virtual]</code></td></tr>
@@ -98,7 +101,7 @@ This is the complete list of members for <a class="el" href="../../d0/d37/classN
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

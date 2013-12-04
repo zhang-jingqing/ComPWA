@@ -1,17 +1,29 @@
 <map id="G" name="G">
-<area shape="rect" id="node39" href="$df/d7d/Event_8hpp.xhtml" title="This class provides a internal container for event&#45;based information." alt="" coords="1136,237,1248,267"/>
-<area shape="rect" id="node43" href="$d3/d65/Particle_8hpp.xhtml" title="This class provides a internal container for information of a particle." alt="" coords="1475,315,1597,344"/>
-<area shape="rect" id="node49" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="1752,469,1891,499"/>
-<area shape="rect" id="node64" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="2203,392,2363,421"/>
-<area shape="rect" id="node76" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="1764,160,1919,189"/>
-<area shape="rect" id="node106" href="$df/d53/RootReader_8hpp.xhtml" title="This class reads event&#45;based data from root&#45;files." alt="" coords="813,83,1077,112"/>
-<area shape="rect" id="node128" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="3671,237,3961,267"/>
-<area shape="rect" id="node159" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="1365,83,1595,112"/>
-<area shape="rect" id="node168" href="$da/d15/MinuitIF_8hpp.xhtml" title="This class provides a wrapper around the Minuit2 library." alt="" coords="2345,237,2545,267"/>
-<area shape="rect" id="node56" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="1953,547,2116,576"/>
-<area shape="rect" id="node61" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="1745,547,1889,576"/>
-<area shape="rect" id="node82" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="1979,315,2115,344"/>
-<area shape="rect" id="node90" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="1773,237,1909,267"/>
-<area shape="rect" id="node101" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="2341,315,2549,344"/>
-<area shape="rect" id="node114" href="$d2/d4b/Data_8hpp.xhtml" title="This class provides the interface to experimental data." alt="" coords="984,160,1133,189"/>
+<area shape="rect" id="node39" href="$df/d7d/Event_8hpp.xhtml" title="This class provides a internal container for event&#45;based information." alt="" coords="1309,237,1421,267"/>
+<area shape="rect" id="node43" href="$d3/d65/Particle_8hpp.xhtml" title="This class provides a internal container for information of a particle." alt="" coords="1365,392,1488,421"/>
+<area shape="rect" id="node49" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="2589,547,2728,576"/>
+<area shape="rect" id="node64" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="3205,469,3365,499"/>
+<area shape="rect" id="node76" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="3128,237,3283,267"/>
+<area shape="rect" id="node106" href="$df/d53/RootReader_8hpp.xhtml" title="This class reads event&#45;based data from root&#45;files." alt="" coords="885,83,1149,112"/>
+<area shape="rect" id="node128" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="2335,83,2625,112"/>
+<area shape="rect" id="node153" href="$d1/d72/DPKinematics_8hpp.xhtml" title="DPKinematics stores kinematic information of a dalitz plot." alt="" coords="1891,469,2160,499"/>
+<area shape="rect" id="node156" href="$d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot" alt="" coords="1715,392,1957,421"/>
+<area shape="rect" id="node179" href="$d7/de4/MinLogLH_8hpp.xhtml" title="This class calculates a simple &#45;log(LH) of a intensity and a dataset." alt="" coords="3236,83,3465,112"/>
+<area shape="rect" id="node195" href="$da/d15/MinuitIF_8hpp.xhtml" title="This class provides a wrapper around the Minuit2 library." alt="" coords="4085,237,4285,267"/>
+<area shape="rect" id="node56" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="2800,624,2963,653"/>
+<area shape="rect" id="node61" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="2437,624,2581,653"/>
+<area shape="rect" id="node82" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="2640,392,2776,421"/>
+<area shape="rect" id="node90" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="2893,315,3029,344"/>
+<area shape="rect" id="node101" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="3864,392,4072,421"/>
+<area shape="rect" id="node114" href="$d2/d4b/Data_8hpp.xhtml" title="This class provides the interface to experimental data." alt="" coords="1179,160,1328,189"/>
+<area shape="rect" id="node133" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="3280,160,3435,189"/>
+<area shape="rect" id="node142" href="$dd/d27/AmplitudeSetup_8hpp.xhtml" title="XML config parser for Amplitude Setup." alt="" coords="3088,624,3365,653"/>
+<area shape="rect" id="node147" href="$d2/d45/AmpRelBreitWignerRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp" alt="" coords="2355,237,2680,267"/>
+<area shape="rect" id="node150" href="$d0/d2a/AmpWigner2_8hpp.xhtml" title="Angular distribution based on WignerD functions." alt="" coords="2304,315,2565,344"/>
+<area shape="rect" id="node163" href="$df/d8c/AmpGausRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpGausRes.hpp" alt="" coords="1808,315,2077,344"/>
+<area shape="rect" id="node168" href="$dd/d65/AmpFlatteRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpFlatteRes.hpp" alt="" coords="1840,547,2109,576"/>
+<area shape="rect" id="node172" href="$d4/d9e/AmpSumOfAmplitudes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp" alt="" coords="2683,160,3003,189"/>
+<area shape="rect" id="node184" href="$d5/d10/Estimator_8hpp.xhtml" title="This class provides the interface to classes which estimate the &quot;closeness&quot; of the modeled intensity ..." alt="" coords="3763,315,3925,344"/>
+<area shape="rect" id="node200" href="$db/d93/Optimizer_8hpp.xhtml" title="This class provides the interface to (external) optimization libraries or routines." alt="" coords="4299,392,4461,421"/>
+<area shape="rect" id="node206" href="$de/d83/MinuitFcn_8hpp.xhtml" title="Based on the Minuit2 FcnBase." alt="" coords="4080,315,4291,344"/>
 </map>

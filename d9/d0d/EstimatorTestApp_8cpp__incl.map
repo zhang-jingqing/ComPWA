@@ -14,7 +14,7 @@
 <area shape="rect" id="node87" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="2349,624,2493,653"/>
 <area shape="rect" id="node77" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="1913,701,2065,731"/>
 <area shape="rect" id="node99" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="2088,392,2224,421"/>
-<area shape="rect" id="node107" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="2221,315,2357,344"/>
+<area shape="rect" id="node107" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="2221,315,2357,344"/>
 <area shape="rect" id="node119" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="2635,392,2843,421"/>
 <area shape="rect" id="node130" href="$d5/d10/Estimator_8hpp.xhtml" title="This class provides the interface to classes which estimate the &quot;closeness&quot; of the modeled intensity ..." alt="" coords="2933,315,3096,344"/>
 </map>

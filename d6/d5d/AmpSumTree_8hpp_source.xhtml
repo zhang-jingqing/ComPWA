@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="../../dd/d27/AmplitudeSetup_8hpp.xhtml" title="XML config parser for Amplitude Setup.">Physics/AmplitudeSum/AmplitudeSetup.hpp</a>&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d9e/AmpSumOfAmplitudes_8hpp.xhtml">Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml">00029</a> <span class="keyword">class </span><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml">BreitWignerStrategy</a> : <span class="keyword">public</span> <a class="code" href="../../d2/df2/classStrategy.xhtml" title="Functions to be used in FuntionTree.">Strategy</a> {
+<a name="l00029"></a>00029 <span class="keyword">class </span><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml">BreitWignerStrategy</a> : <span class="keyword">public</span> <a class="code" href="../../d2/df2/classStrategy.xhtml" title="Functions to be used in FuntionTree.">Strategy</a> {
 <a name="l00030"></a>00030 <span class="keyword">public</span>:
 <a name="l00031"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a03f58a46bb5ee82783fbcd4564eb67af">00031</a>   <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a03f58a46bb5ee82783fbcd4564eb67af">BreitWignerStrategy</a>(<span class="keyword">const</span> std::string resonanceName):<a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">name</a>(resonanceName){
 <a name="l00032"></a>00032     <span class="comment">//name = +resonanceName;</span>
@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00036"></a>00036     <span class="keywordflow">return</span> (<span class="stringliteral">&quot;relativistic BreitWigner of &quot;</span>+<a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">name</a>);
 <a name="l00037"></a>00037   }
 <a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a62b89d4c9fba0133c6ee75a115082a2b">00039</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a62b89d4c9fba0133c6ee75a115082a2b" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) {
+<a name="l00039"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a62b89d4c9fba0133c6ee75a115082a2b">00039</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a62b89d4c9fba0133c6ee75a115082a2b" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) {
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041     <span class="keywordtype">double</span> Gamma0, GammaV;
 <a name="l00042"></a>00042     <span class="keywordtype">double</span> m0 = Double_t(paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#a99c664620aa97bc31d1defcf7ab4c927" title="Getter for parameter value.">GetParameterValue</a>(<span class="stringliteral">&quot;m0_&quot;</span>+<a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">name</a>));
@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00058"></a>00058   }
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060 <span class="keyword">protected</span>:
-<a name="l00061"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">00061</a>   std::string <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">name</a>;
+<a name="l00061"></a>00061   std::string <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a78ac1ff9544b4b28d1397d0b46d8e4bc">name</a>;
 <a name="l00062"></a>00062 
 <a name="l00063"></a><a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a850157e4e3c2e35034294830b7831af3">00063</a>   <span class="keywordtype">double</span> <a class="code" href="../../de/d2e/classBreitWignerStrategy.xhtml#a850157e4e3c2e35034294830b7831af3">q0</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; ma, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; mb, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; m0)<span class="keyword"> const </span>{
 <a name="l00064"></a>00064     <span class="keywordtype">double</span> mapb = ma + mb;
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00110"></a>00110     <span class="keywordflow">return</span> (<span class="stringliteral">&quot;WignerD of &quot;</span>+<a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a15ee726286d5fad903f87cca9c48e0dc">name</a>);
 <a name="l00111"></a>00111   }
 <a name="l00112"></a>00112 
-<a name="l00113"></a><a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a">00113</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a" title="Pure Virtual interface for executing a function.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) {
+<a name="l00113"></a><a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a">00113</a>   <span class="keyword">virtual</span> std::shared_ptr&lt;AbsParameter&gt; <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a" title="Pure Virtual interface for executing a strategy.">execute</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d9d/classParameterList.xhtml" title="Internal container representing a parameter list.">ParameterList</a>&amp; paras) {
 <a name="l00114"></a>00114 
 <a name="l00115"></a>00115     <span class="keywordtype">double</span> Gamma0, GammaV;
 <a name="l00116"></a>00116     <span class="keywordtype">double</span> _m23 = Double_t(paras.<a class="code" href="../../d1/d9d/classParameterList.xhtml#a99c664620aa97bc31d1defcf7ab4c927" title="Getter for parameter value.">GetParameterValue</a>(<span class="stringliteral">&quot;m23&quot;</span>));
@@ -194,21 +194,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00131"></a>00131 
 <a name="l00132"></a>00132     <span class="keywordflow">switch</span>(_subSysFlag){
 <a name="l00133"></a>00133       <span class="keywordflow">case</span> 1:{ <span class="comment">//reso in m23</span>
-<a name="l00134"></a>00134         locmin_sq = s2min(_m23*_m23,_M,_m1,_m2,_m3);
-<a name="l00135"></a>00135         locmax_sq = s2max(_m23*_m23,_M,_m1,_m2,_m3);
+<a name="l00134"></a>00134         locmin_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#aa0ce49471e4697791403215ca4ead729">s2min</a>(_m23*_m23,_M,_m1,_m2,_m3);
+<a name="l00135"></a>00135         locmax_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#ab276cffd026c52f2f2d415499b0681bf">s2max</a>(_m23*_m23,_M,_m1,_m2,_m3);
 <a name="l00136"></a>00136         beta=acos((2.*_m13*_m13-locmax_sq-locmin_sq)/(locmax_sq-locmin_sq));
 <a name="l00137"></a>00137         <span class="keywordflow">break</span>;
 <a name="l00138"></a>00138       }
 <a name="l00139"></a>00139       <span class="keywordflow">case</span> 2:{ <span class="comment">//reso in m13</span>
-<a name="l00140"></a>00140         locmin_sq = s1min(_m13*_m13,_M,_m1,_m2,_m3);
-<a name="l00141"></a>00141         locmax_sq = s1max(_m13*_m13,_M,_m1,_m2,_m3);
+<a name="l00140"></a>00140         locmin_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#ab067c53cf556812781dfdf46dc6d7c9b">s1min</a>(_m13*_m13,_M,_m1,_m2,_m3);
+<a name="l00141"></a>00141         locmax_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a35b5c5e76f158d94b1e1a3ca3371830f">s1max</a>(_m13*_m13,_M,_m1,_m2,_m3);
 <a name="l00142"></a>00142         beta=acos((2.*_m23*_m23-locmax_sq-locmin_sq)/(locmax_sq-locmin_sq));
 <a name="l00143"></a>00143         <span class="keywordflow">break</span>;
 <a name="l00144"></a>00144       }
 <a name="l00145"></a>00145       <span class="keywordflow">case</span> 3:{ <span class="comment">//reso in m12</span>
 <a name="l00146"></a>00146         <span class="comment">//return 1;</span>
-<a name="l00147"></a>00147         locmin_sq = s1min(_m12*_m12,_M,_m1,_m3,_m2);
-<a name="l00148"></a>00148         locmax_sq = s1max(_m12*_m12,_M,_m1,_m3,_m2);
+<a name="l00147"></a>00147         locmin_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#ab067c53cf556812781dfdf46dc6d7c9b">s1min</a>(_m12*_m12,_M,_m1,_m3,_m2);
+<a name="l00148"></a>00148         locmax_sq = <a class="code" href="../../d8/d77/classWignerDStrategy.xhtml#a35b5c5e76f158d94b1e1a3ca3371830f">s1max</a>(_m12*_m12,_M,_m1,_m3,_m2);
 <a name="l00149"></a>00149         beta=acos((2.*_m23*_m23-locmax_sq-locmin_sq)/(locmax_sq-locmin_sq));
 <a name="l00150"></a>00150         <span class="keywordflow">if</span>(beta!=beta) <span class="keywordflow">return</span> 1.;
 <a name="l00151"></a>00151         <span class="keywordflow">break</span>;
@@ -268,7 +268,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00206"></a>00206       <a class="code" href="../../d6/d5b/structResonance.xhtml">Resonance</a> tmp = (*reso);
 <a name="l00207"></a>00207       <span class="comment">//setup RooVars</span>
 <a name="l00208"></a>00208       <a class="code" href="../../d8/dc4/classAmpSumTree.xhtml#a2c4e3bd073fefcac39107e18f8291ff6">mr</a>.push_back( std::shared_ptr&lt;DoubleParameter&gt; (<span class="keyword">new</span> <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>((<span class="stringliteral">&quot;m_{&quot;</span>+tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a1f8a5834b734d5666dddd144ec8398bc">m_name</a>+<span class="stringliteral">&quot;}&quot;</span>), tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#ab9de5ccd6d828375f6619356f188bdbf">m_mass</a>, tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#ae58216b62a7b73ee275c228dc168d8e6">m_mass_min</a>, tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a10b762dd6be3a75ef2dbc7db8ce0df82">m_mass_max</a>) ) );
-<a name="l00209"></a>00209       <a class="code" href="../../d8/dc4/classAmpSumTree.xhtml#a69055935fac9d4ade6677aa1656cf914">qr</a>.push_back( std::shared_ptr&lt;DoubleParameter&gt; (<span class="keyword">new</span> <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>((<span class="stringliteral">&quot;q_{&quot;</span>+tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a1f8a5834b734d5666dddd144ec8398bc">m_name</a>+<span class="stringliteral">&quot;}&quot;</span>), tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#ac429a425cd63073c04f3ed783df31a46">m_breakup_mom</a>) ) );
+<a name="l00209"></a>00209       <a class="code" href="../../d8/dc4/classAmpSumTree.xhtml#a69055935fac9d4ade6677aa1656cf914">qr</a>.push_back( std::shared_ptr&lt;DoubleParameter&gt; (<span class="keyword">new</span> <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>((<span class="stringliteral">&quot;q_{&quot;</span>+tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a1f8a5834b734d5666dddd144ec8398bc">m_name</a>+<span class="stringliteral">&quot;}&quot;</span>), tmp.m_breakup_mom) ) );
 <a name="l00210"></a>00210       <a class="code" href="../../d8/dc4/classAmpSumTree.xhtml#ac8ac66a41c54effb8560f48382bac312">gr</a>.push_back( std::shared_ptr&lt;DoubleParameter&gt; (<span class="keyword">new</span> <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>((<span class="stringliteral">&quot;g_{&quot;</span>+tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a1f8a5834b734d5666dddd144ec8398bc">m_name</a>+<span class="stringliteral">&quot;}&quot;</span>), tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a6a164223523da9b82f05dfe412bf7d85">m_width</a>, tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a96cd124336b15b78a2da80667f754c16">m_width_min</a>, tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#aae6f37d58ee8ea168b28fff6db5065ff">m_width_max</a>) ) );
 <a name="l00211"></a>00211       std::complex&lt;double&gt; tmpintens = std::polar (tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a924fdc23c262d0536bb1c0aafcf167d9">m_strength</a>, tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a9979c547069b4a452c276a63da896a72">m_phase</a>);
 <a name="l00212"></a>00212       <a class="code" href="../../d8/dc4/classAmpSumTree.xhtml#a53316bbdc1c734c1df386a89f262d80e">rr</a>.push_back( std::shared_ptr&lt;ComplexParameter&gt; (<span class="keyword">new</span> <a class="code" href="../../d5/d65/classComplexParameter.xhtml">ComplexParameter</a>((<span class="stringliteral">&quot;r_{&quot;</span>+tmp.<a class="code" href="../../d6/d5b/structResonance.xhtml#a1f8a5834b734d5666dddd144ec8398bc">m_name</a>+<span class="stringliteral">&quot;}&quot;</span>), tmpintens.real(),tmpintens.imag()) ) );
@@ -531,7 +531,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -464,7 +464,7 @@
 </g>
 <!-- Node24 -->
 <g id="node80" class="node"><title>Node24</title>
-<a xlink:href="../../df/d5a/TreeNode_8hpp.xhtml" target="_top" xlink:title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu...">
+<a xlink:href="../../df/d5a/TreeNode_8hpp.xhtml" target="_top" xlink:title="This class acts as a container for a parameter in a function tree.">
 <polygon fill="white" stroke="black" points="893,-290.5 893,-311.5 995,-311.5 995,-290.5 893,-290.5"/>
 <text text-anchor="middle" x="944" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">Core/TreeNode.hpp</text>
 </a>

@@ -85,65 +85,46 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00022"></a>00022 <span class="preprocessor"></span>
 <a name="l00023"></a>00023 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;TObject.h&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;TString.h&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;RooComplex.h&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;RooAbsReal.h&quot;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;RooAbsArg.h&quot;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;RooRealProxy.h&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml">Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="comment">//#include &quot;TObject.h&quot;</span>
+<a name="l00026"></a>00026 <span class="comment">//#include &quot;TString.h&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml">Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="../../d1/d72/DPKinematics_8hpp.xhtml" title="DPKinematics stores kinematic information of a dalitz plot.">Physics/DPKinematics/DPKinematics.hpp</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot">Physics/DPKinematics/DataPoint.hpp</a>&quot;</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keyword">using namespace </span>std;
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">using namespace </span>std;
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">00035</a> <span class="keyword">class </span><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a> : <span class="keyword">public</span> <a class="code" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml">AmpAbsDynamicalFunction</a>  {
-<a name="l00036"></a>00036 <span class="keyword">public</span>:
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keyword">const</span> <span class="keywordtype">char</span> *title,
-<a name="l00039"></a>00039                        RooAbsReal&amp; _x, 
-<a name="l00040"></a>00040                        RooAbsReal&amp; _resMass, RooAbsReal&amp; _resWidth,
-<a name="l00041"></a>00041                        <span class="keywordtype">int</span> _subsys) ; 
+<a name="l00033"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">00033</a> <span class="keyword">class </span><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a> : <span class="keyword">public</span> <a class="code" href="../../de/d75/classAmpAbsDynamicalFunction.xhtml">AmpAbsDynamicalFunction</a>  {
+<a name="l00034"></a>00034 <span class="keyword">public</span>:
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name,
+<a name="l00037"></a>00037                        <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>&amp; _resMass, <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a>&amp; _resWidth,
+<a name="l00038"></a>00038                        <span class="keywordtype">int</span> _subsys) ; 
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>&amp;, <span class="keyword">const</span> <span class="keywordtype">char</span>*);
+<a name="l00041"></a>00041   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>&amp;);
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>&amp;, <span class="keyword">const</span> <span class="keywordtype">char</span>*);
-<a name="l00044"></a>00044   <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>&amp;);
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   ~<a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>();
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048   <span class="keyword">virtual</span> <span class="keywordtype">void</span> initialise();
-<a name="l00049"></a>00049   <span class="keyword">virtual</span> RooComplex evaluate()<span class="keyword">const</span>;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051   <span class="comment">// the following are needed by the RooAbsArg interface, but not yet </span>
-<a name="l00052"></a>00052   <span class="comment">// implemented</span>
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054   <span class="keyword">virtual</span> TObject*  clone (<span class="keyword">const</span> <span class="keywordtype">char</span> *newname) <span class="keyword">const</span> ;
-<a name="l00055"></a>00055   <span class="keyword">virtual</span> Bool_t readFromStream(std::istream&amp;, Bool_t, Bool_t);
-<a name="l00056"></a>00056   <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeToStream(std::ostream&amp;, Bool_t) <span class="keyword">const</span>;
-<a name="l00057"></a>00057   <span class="keyword">virtual</span> Bool_t operator==(<span class="keyword">const</span> RooAbsArg&amp;);
-<a name="l00058"></a>00058   <span class="keyword">virtual</span> <span class="keywordtype">void</span> syncCache(<span class="keyword">const</span> RooArgSet*);
-<a name="l00059"></a>00059   <span class="keyword">virtual</span> <span class="keywordtype">void</span> copyCache(<span class="keyword">const</span> RooAbsArg*, Bool_t, Bool_t);
-<a name="l00060"></a>00060   <span class="keyword">virtual</span> <span class="keywordtype">void</span> attachToTree(TTree&amp;, Int_t);
-<a name="l00061"></a>00061   <span class="keyword">virtual</span> <span class="keywordtype">void</span> attachToVStore(RooVectorDataStore&amp;);
-<a name="l00062"></a>00062   <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTreeBranchStatus(TTree&amp;, Bool_t);
-<a name="l00063"></a>00063   <span class="keyword">virtual</span> <span class="keywordtype">void</span> fillTreeBranch(TTree&amp;);
-<a name="l00064"></a>00064   <span class="keyword">virtual</span> RooAbsArg* createFundamental(<span class="keyword">const</span> <span class="keywordtype">char</span>*) <span class="keyword">const</span> ;
-<a name="l00065"></a>00065 
-<a name="l00066"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#acd7ec796cdb1c9c19a7ec3ddd0a0b68a">00066</a>   <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#acd7ec796cdb1c9c19a7ec3ddd0a0b68a">isSubSys</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> subSys)<span class="keyword">const</span>{<span class="keywordflow">return</span> (subSys==_subSys);};
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="keyword">protected</span>:
-<a name="l00069"></a>00069   RooRealProxy _x;
-<a name="l00070"></a>00070 
-<a name="l00071"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a6184b1cff6ad7479b04dfb401af6f791">00071</a>   RooRealProxy <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a6184b1cff6ad7479b04dfb401af6f791">_m0</a>;
-<a name="l00072"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a6efbd7d5247c4cfacb9db8d8b0b585b0">00072</a>   RooRealProxy <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a6efbd7d5247c4cfacb9db8d8b0b585b0">_resWidth</a>;
-<a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a749db5ee2fa34cdb92c9bbda80d1ff85">00074</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a749db5ee2fa34cdb92c9bbda80d1ff85">_subSys</a>;
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="keyword">private</span>:
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079   <span class="comment">//ClassDef(AmpGausRes,1) // Relativistic Breit-Wigner resonance model</span>
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 };
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="preprocessor">#endif</span>
+<a name="l00043"></a>00043   ~<a class="code" href="../../d1/d6b/classAmpGausRes.xhtml">AmpGausRes</a>();
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <span class="keyword">virtual</span> <span class="keywordtype">void</span> initialise();
+<a name="l00046"></a>00046   <span class="keyword">virtual</span> std::complex&lt;double&gt; evaluate()<span class="keyword">const</span>;
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> std::complex&lt;double&gt; evaluateAmp() <span class="keyword">const</span>;
+<a name="l00048"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a0c04bf972f1291535182c32e860990cd">00048</a>         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a0c04bf972f1291535182c32e860990cd">evaluateWignerD</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; };
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#acd7ec796cdb1c9c19a7ec3ddd0a0b68a">00050</a>   <span class="keyword">inline</span> <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#acd7ec796cdb1c9c19a7ec3ddd0a0b68a">isSubSys</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> subSys)<span class="keyword">const</span>{<span class="keywordflow">return</span> (subSys==_subSys);};
+<a name="l00051"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a092845696d6be8b5b6dd78b9d5bf5fc8">00051</a>   <span class="keywordtype">double</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a092845696d6be8b5b6dd78b9d5bf5fc8">getSpin</a>(){<span class="keywordflow">return</span> 0;};
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">protected</span>:
+<a name="l00054"></a>00054   <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a> _mR;
+<a name="l00055"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a94215481ed03576aa8958070f4acfe81">00055</a>   <a class="code" href="../../dd/d8d/classDoubleParameter.xhtml" title="Implementations for internal parameter.">DoubleParameter</a> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a94215481ed03576aa8958070f4acfe81">_resWidth</a>;
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a749db5ee2fa34cdb92c9bbda80d1ff85">00057</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d6b/classAmpGausRes.xhtml#a749db5ee2fa34cdb92c9bbda80d1ff85">_subSys</a>;
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">private</span>:
+<a name="l00060"></a>00060   <span class="comment">//ClassDef(AmpGausRes,1) // Relativistic Breit-Wigner resonance model</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 };
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -160,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -62,24 +62,25 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">WignerDStrategy Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="WignerDStrategy" --><!-- doxytag: inherits="Strategy" -->
+<!-- doxytag: class="WignerDStrategy" --><!-- doxytag: inherits="Strategy,Strategy" -->
 <p><code>#include &lt;<a class="el" href="../../d6/d5d/AmpSumTree_8hpp_source.xhtml">AmpSumTree.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for WignerDStrategy:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../dc/dd3/classWignerDStrategy__inherit__graph.svg" width="152" height="299" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../dc/dd3/classWignerDStrategy__inherit__graph.svg" width="152" height="472" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for WignerDStrategy:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d0/d00/classWignerDStrategy__coll__graph.svg" width="248" height="454" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d0/d00/classWignerDStrategy__coll__graph.svg" width="274" height="627" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
@@ -92,7 +93,22 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure Virtual interface for streaming info about the strategy.  <a href="#a8d5e84224733a973b8f7b3a793c1fb04"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="../../d7/d6a/classAbsParameter.xhtml">AbsParameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a">execute</a> (const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;paras)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure Virtual interface for executing a function.  <a href="#a7cbcce522e75d1744079cb42017fe67a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure Virtual interface for executing a strategy.  <a href="#a7cbcce522e75d1744079cb42017fe67a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#ab89231aa03c8201761d66c79c624cc72">WignerDStrategy</a> (const std::string resonanceName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a8d5e84224733a973b8f7b3a793c1fb04">to_str</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure Virtual interface for streaming info about the strategy.  <a href="#a8d5e84224733a973b8f7b3a793c1fb04"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../d7/d6a/classAbsParameter.xhtml">AbsParameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a7cbcce522e75d1744079cb42017fe67a">execute</a> (const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;paras)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure Virtual interface for executing a strategy.  <a href="#a7cbcce522e75d1744079cb42017fe67a"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a0f04b32990d76db119af0d9cb8bc26ee">lambda</a> (double x, double y, double z) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#aa0ce49471e4697791403215ca4ead729">s2min</a> (double s1, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#ab276cffd026c52f2f2d415499b0681bf">s2max</a> (double s1, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#af53fed3b1536ab543f521ac4b5b2c910">s3min</a> (double s1, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a345b7f57929dbdcb886308f330230758">s3max</a> (double s1, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#ab067c53cf556812781dfdf46dc6d7c9b">s1min</a> (double s2, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a35b5c5e76f158d94b1e1a3ca3371830f">s1max</a> (double s2, double m0, double <a class="el" href="../../db/d35/GenTwoPartApp_8cpp.xhtml#ad4b1dc0c54e834c5c1ca325ebcd66fc3">m1</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ada5f2cdf434605648b802a0e13f67c82">m2</a>, double <a class="el" href="../../da/d2a/DalitzFitApp_8cpp.xhtml#ade198176253fe8f58cd46dae72aae18e">m3</a>) const </td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d77/classWignerDStrategy.xhtml#a15ee726286d5fad903f87cca9c48e0dc">name</a></td></tr>
@@ -104,6 +120,23 @@ Friends</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">friend function to stream parameter information to output  <a href="#afc4f637bf8c2a2e2f038ea925c8609a0"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab89231aa03c8201761d66c79c624cc72"></a><!-- doxytag: member="WignerDStrategy::WignerDStrategy" ref="ab89231aa03c8201761d66c79c624cc72" args="(const std::string resonanceName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WignerDStrategy::WignerDStrategy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>resonanceName</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab89231aa03c8201761d66c79c624cc72"></a><!-- doxytag: member="WignerDStrategy::WignerDStrategy" ref="ab89231aa03c8201761d66c79c624cc72" args="(const std::string resonanceName)" -->
 <div class="memitem">
 <div class="memproto">
@@ -137,9 +170,353 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Pure Virtual interface for executing a function. </p>
+<p>Pure Virtual interface for executing a strategy. </p>
 
 <p>Implements <a class="el" href="../../d2/df2/classStrategy.xhtml#a7cd96afdcb5825742cdf3a383473fc8f">Strategy</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7cbcce522e75d1744079cb42017fe67a"></a><!-- doxytag: member="WignerDStrategy::execute" ref="a7cbcce522e75d1744079cb42017fe67a" args="(const ParameterList &amp;paras)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../d7/d6a/classAbsParameter.xhtml">AbsParameter</a>&gt; WignerDStrategy::execute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
+          <td class="paramname"><em>paras</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pure Virtual interface for executing a strategy. </p>
+
+<p>Implements <a class="el" href="../../d2/df2/classStrategy.xhtml#a7cd96afdcb5825742cdf3a383473fc8f">Strategy</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f04b32990d76db119af0d9cb8bc26ee"></a><!-- doxytag: member="WignerDStrategy::lambda" ref="a0f04b32990d76db119af0d9cb8bc26ee" args="(double x, double y, double z) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::lambda </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a35b5c5e76f158d94b1e1a3ca3371830f"></a><!-- doxytag: member="WignerDStrategy::s1max" ref="a35b5c5e76f158d94b1e1a3ca3371830f" args="(double s2, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s1max </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab067c53cf556812781dfdf46dc6d7c9b"></a><!-- doxytag: member="WignerDStrategy::s1min" ref="ab067c53cf556812781dfdf46dc6d7c9b" args="(double s2, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s1min </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab276cffd026c52f2f2d415499b0681bf"></a><!-- doxytag: member="WignerDStrategy::s2max" ref="ab276cffd026c52f2f2d415499b0681bf" args="(double s1, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s2max </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa0ce49471e4697791403215ca4ead729"></a><!-- doxytag: member="WignerDStrategy::s2min" ref="aa0ce49471e4697791403215ca4ead729" args="(double s1, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s2min </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a345b7f57929dbdcb886308f330230758"></a><!-- doxytag: member="WignerDStrategy::s3max" ref="a345b7f57929dbdcb886308f330230758" args="(double s1, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s3max </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af53fed3b1536ab543f521ac4b5b2c910"></a><!-- doxytag: member="WignerDStrategy::s3min" ref="af53fed3b1536ab543f521ac4b5b2c910" args="(double s1, double m0, double m1, double m2, double m3) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WignerDStrategy::s3min </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d5e84224733a973b8f7b3a793c1fb04"></a><!-- doxytag: member="WignerDStrategy::to_str" ref="a8d5e84224733a973b8f7b3a793c1fb04" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string WignerDStrategy::to_str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Pure Virtual interface for streaming info about the strategy. </p>
+
+<p>Implements <a class="el" href="../../d2/df2/classStrategy.xhtml#a76fc8e8159e9c60afc4556bc106311a2">Strategy</a>.</p>
 
 </div>
 </div>
@@ -240,8 +617,9 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Physics/AmplitudeSum/<a class="el" href="../../d6/d5d/AmpSumTree_8hpp_source.xhtml">AmpSumTree.hpp</a></li>
+<li>Physics/AmplitudeSum/<a class="el" href="../../d0/d2a/AmpWigner2_8hpp_source.xhtml">AmpWigner2.hpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -258,7 +636,7 @@ Friends</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

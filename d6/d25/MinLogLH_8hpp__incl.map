@@ -11,6 +11,6 @@
 <area shape="rect" id="node45" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="1077,547,1221,576"/>
 <area shape="rect" id="node35" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="1308,624,1460,653"/>
 <area shape="rect" id="node63" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="1029,315,1165,344"/>
-<area shape="rect" id="node72" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="1157,237,1293,267"/>
+<area shape="rect" id="node72" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="1157,237,1293,267"/>
 <area shape="rect" id="node93" href="$d3/d65/Particle_8hpp.xhtml" title="This class provides a internal container for information of a particle." alt="" coords="1744,547,1867,576"/>
 </map>

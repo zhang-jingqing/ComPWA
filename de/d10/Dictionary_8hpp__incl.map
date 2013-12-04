@@ -10,6 +10,6 @@
 <area shape="rect" id="node53" href="$d3/d65/Particle_8hpp.xhtml" title="This class provides a internal container for information of a particle." alt="" coords="1845,547,1968,576"/>
 <area shape="rect" id="node63" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="827,160,981,189"/>
 <area shape="rect" id="node69" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="1028,315,1164,344"/>
-<area shape="rect" id="node77" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="771,237,907,267"/>
+<area shape="rect" id="node77" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="771,237,907,267"/>
 <area shape="rect" id="node89" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="296,315,504,344"/>
 </map>

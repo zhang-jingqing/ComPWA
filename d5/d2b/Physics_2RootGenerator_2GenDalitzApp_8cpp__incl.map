@@ -1,14 +1,24 @@
 <map id="G" name="G">
-<area shape="rect" id="node33" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="1967,83,2257,112"/>
-<area shape="rect" id="node69" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="1813,160,1968,189"/>
-<area shape="rect" id="node73" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="2471,237,2631,267"/>
-<area shape="rect" id="node85" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="2509,315,2648,344"/>
-<area shape="rect" id="node99" href="$dd/d27/AmplitudeSetup_8hpp.xhtml" title="XML config parser for Amplitude Setup." alt="" coords="1712,392,1989,421"/>
-<area shape="rect" id="node110" href="$d2/d45/AmpRelBreitWignerRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp" alt="" coords="488,237,813,267"/>
-<area shape="rect" id="node117" href="$df/d8c/AmpGausRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpGausRes.hpp" alt="" coords="837,237,1107,267"/>
-<area shape="rect" id="node124" href="$dd/d65/AmpFlatteRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpFlatteRes.hpp" alt="" coords="144,237,413,267"/>
-<area shape="rect" id="node131" href="$d4/d12/AmpWigner_8hpp.xhtml" title="Physics/AmplitudeSum/AmpWigner.hpp" alt="" coords="1232,237,1485,267"/>
-<area shape="rect" id="node136" href="$d4/d9e/AmpSumOfAmplitudes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp" alt="" coords="1267,160,1587,189"/>
-<area shape="rect" id="node80" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="2312,392,2475,421"/>
-<area shape="rect" id="node93" href="$d2/de9/Exceptions_8hpp.xhtml" title="Core/Exceptions.hpp" alt="" coords="2643,392,2787,421"/>
+<area shape="rect" id="node33" href="$d0/d2a/AmpSumIntensity_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumIntensity.hpp" alt="" coords="1751,83,2042,112"/>
+<area shape="rect" id="node38" href="$dc/de3/Amplitude_8hpp.xhtml" title="This class provides the interface to the model which tries to describe the intensity." alt="" coords="2213,160,2367,189"/>
+<area shape="rect" id="node42" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="2454,469,2614,499"/>
+<area shape="rect" id="node60" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="1998,547,2137,576"/>
+<area shape="rect" id="node74" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="2213,237,2367,267"/>
+<area shape="rect" id="node109" href="$dd/d27/AmplitudeSetup_8hpp.xhtml" title="XML config parser for Amplitude Setup." alt="" coords="3345,624,3622,653"/>
+<area shape="rect" id="node120" href="$d2/d45/AmpRelBreitWignerRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp" alt="" coords="1350,237,1675,267"/>
+<area shape="rect" id="node135" href="$d0/d2a/AmpWigner2_8hpp.xhtml" title="Angular distribution based on WignerD functions." alt="" coords="1451,315,1713,344"/>
+<area shape="rect" id="node140" href="$d1/d72/DPKinematics_8hpp.xhtml" title="DPKinematics stores kinematic information of a dalitz plot." alt="" coords="561,469,830,499"/>
+<area shape="rect" id="node143" href="$d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot" alt="" coords="606,392,849,421"/>
+<area shape="rect" id="node151" href="$df/d8c/AmpGausRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpGausRes.hpp" alt="" coords="706,315,975,344"/>
+<area shape="rect" id="node157" href="$dd/d65/AmpFlatteRes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpFlatteRes.hpp" alt="" coords="905,237,1174,267"/>
+<area shape="rect" id="node168" href="$d4/d9e/AmpSumOfAmplitudes_8hpp.xhtml" title="Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp" alt="" coords="1311,160,1631,189"/>
+<area shape="rect" id="node51" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="2089,624,2251,653"/>
+<area shape="rect" id="node68" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="2326,624,2470,653"/>
+<area shape="rect" id="node58" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="2198,701,2350,731"/>
+<area shape="rect" id="node80" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="1889,392,2025,421"/>
+<area shape="rect" id="node89" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="2243,315,2379,344"/>
+<area shape="rect" id="node101" href="$de/d1f/ControlParameter_8hpp.xhtml" title="This class provides the interface for the optimizer module to access the data." alt="" coords="2454,392,2662,421"/>
+<area shape="rect" id="node123" href="$d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml" title="Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp" alt="" coords="1225,392,1574,421"/>
+<area shape="rect" id="node128" href="$d6/d6b/AmpKinematics_8hpp.xhtml" title="Physics/AmplitudeSum/AmpKinematics.hpp" alt="" coords="923,392,1201,421"/>
+<area shape="rect" id="node162" href="$d4/d12/AmpWigner_8hpp.xhtml" title="Physics/AmplitudeSum/AmpWigner.hpp" alt="" coords="327,315,581,344"/>
 </map>

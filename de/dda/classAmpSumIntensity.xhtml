@@ -61,7 +61,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">AmpSumIntensity Class Reference</div>  </div>
@@ -72,35 +74,108 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for AmpSumIntensity:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d2/d71/classAmpSumIntensity__inherit__graph.svg" width="166" height="438" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d2/d71/classAmpSumIntensity__inherit__graph.svg" width="166" height="888" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for AmpSumIntensity:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d0/dcc/classAmpSumIntensity__coll__graph.svg" width="166" height="438" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d0/dcc/classAmpSumIntensity__coll__graph.svg" width="1688" height="3155" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="../../d7/d13/classAmpSumIntensity-members.xhtml">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a> { <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680a6ef75c29fb0a06de5054e4e91fbba9e4">none</a>, 
+<a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680aeb785c68c0a1644997b5aaba59ba7613">one</a>, 
+<a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680a824a1ec740ebacfb8cc3a0777cb50ccb">entries</a>
+ }</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#abf5de602d6f8960805a105036754cb48">AmpSumIntensity</a> (const double inM, const double inBr, const double in1, const double in2, const double in3, <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> ini)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor (0x0)  <a href="#abf5de602d6f8960805a105036754cb48"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac1132d6a2220a4e82d8c108e2029ddf1">integral</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#abd4492f1f13c383bed9a1b988f1c182a">volume</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a3ced9c149deae4375c6cb458377717b0">intensity</a> (std::vector&lt; double &gt; &amp;x, <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a45fb28709211222aa13fd4722996975f">fillStartParVec</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;outPar)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a16fc651ba1263455a366e4df51ef9ff6">AmpSumIntensity</a> (const double inM, const double inBr, const double in1, const double in2, const double in3, std::string nameM, std::string name1, std::string name2, std::string name3, <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> ini, unsigned int entries=9999, <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a> ns=none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor (0x0)  <a href="#a16fc651ba1263455a366e4df51ef9ff6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac5ad72be133a2220a62f642fc91f6517">AmpSumIntensity</a> (<a class="el" href="../../d3/d07/classDPKinematics.xhtml">DPKinematics</a> kin, <a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> ini, unsigned int entries=9999, <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a> ns=none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor (0x0)  <a href="#ac5ad72be133a2220a62f642fc91f6517"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a287a8be611bebc8d23fb6a5e15c1b03d">evaluate</a> (double x[], size_t dim)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#aa864d46a78d52843d7fb4774244103a0">integral</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">normalization integral for parameters  <a href="#aa864d46a78d52843d7fb4774244103a0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a7bfa5ff9904480ed2298dcdf4c94f30c">getMaxVal</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum value of amplitude with parameters  <a href="#a7bfa5ff9904480ed2298dcdf4c94f30c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ab6a368f841afe5097df129891c8e46e1">setNevents</a> (unsigned int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a044fc51af933d4fb8f8517bb261fd959">getNevents</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a16a0778c4cb5ffee4b7a64346032938d">setParameterList</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setting new parameterList  <a href="#a16a0778c4cb5ffee4b7a64346032938d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a5a6641f9e016864e9178c92fead4a0ca">intensity</a> (std::vector&lt; double &gt; &amp;x, <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate total amplitude using parameters  <a href="#a5a6641f9e016864e9178c92fead4a0ca"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a6e63f5507ffcb35be10a17850d5446b4">intensity</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;par)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate total amplitude using parameters  <a href="#a6e63f5507ffcb35be10a17850d5446b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ad248bbd7634cecfca258379fe7dac73b">intensity</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate total amplitude using current set of parameters  <a href="#ad248bbd7634cecfca258379fe7dac73b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a990ac16c109a6846387bf55f75e9e018">functionTree</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;outPar)</td></tr>
+&lt; <a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#aa2f5ec43919c0f70219e67769890db0b">functionTree</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;outPar)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a5836b640fcd3270cc2ab5b730ae50b35">fillStartParVec</a> (<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;outPar)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a9e3ed5272ef7abbb5cca1b06d8a3138b">printAmps</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a7f9349a58a68064b2946da08a09a50ad">~AmpSumIntensity</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a5c9786f704fc4f686705afb44fd47b45">init</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d9/dec/classAmpSum.xhtml">AmpSum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a15dd57d86ffe4216d299731f608f597d">totAmp</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d3/d07/classDPKinematics.xhtml">DPKinematics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a24e09e42bab4e0e3834211b5ab601ccd">_kin</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a914c9d9f2f9f84dea2b33f116877e8f0">totAmp</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a4b0409bf525e1f5b05f66180616f6d98">ampSetup</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a90142416c911648f983d928de1365195">myTree</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a11040024d7acc127cfd9cf604638f0b1">treePar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a1dfcdd39ab646afcd747e46bab2249de">maxVal</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac463a718740062e967c8a8db7662c87b">_normStyle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a6c42e953f0734ee26544acb4f341b5e8">_entries</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a1fb616aeaff712edda171c4d4a327e9c">_dpArea</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a0e64c487233249ebb18edb279d200c03">namer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac797ee706755fdc2ab5a3aa5cabbdb6f">mr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a4f66933d642894fe56a4a894f7e23a8e">gr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ad69912e6cd6789e48513083121da3120">rr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a0b3a45826506e6bcc07cfd4022a06478">phir</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d38/classAmpWigner.xhtml">AmpWigner</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a057994051c08ae3bd7f8aa97213f3bd0">angd</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a08af6659c398af25cb3b070a4f19e961">nAmps</a></td></tr>
 </table>
+<hr/><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="a2e134cf3b394756d1c0b5e179fca7680"></a><!-- doxytag: member="AmpSumIntensity::normalizationStyle" ref="a2e134cf3b394756d1c0b5e179fca7680" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">AmpSumIntensity::normalizationStyle</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a2e134cf3b394756d1c0b5e179fca7680a6ef75c29fb0a06de5054e4e91fbba9e4"></a><!-- doxytag: member="none" ref="a2e134cf3b394756d1c0b5e179fca7680a6ef75c29fb0a06de5054e4e91fbba9e4" args="" -->none</em>&nbsp;</td><td>
+<p>no normaliztion between Amplitudes. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a2e134cf3b394756d1c0b5e179fca7680aeb785c68c0a1644997b5aaba59ba7613"></a><!-- doxytag: member="one" ref="a2e134cf3b394756d1c0b5e179fca7680aeb785c68c0a1644997b5aaba59ba7613" args="" -->one</em>&nbsp;</td><td>
+<p>all amplitudes are normalized to one. </p>
+<p>The normalization factor is <img class="formulaInl" alt="$ 1/\sqrt(\int |A|^2)$" src="../../form_1.png"/> </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a2e134cf3b394756d1c0b5e179fca7680a824a1ec740ebacfb8cc3a0777cb50ccb"></a><!-- doxytag: member="entries" ref="a2e134cf3b394756d1c0b5e179fca7680a824a1ec740ebacfb8cc3a0777cb50ccb" args="" -->entries</em>&nbsp;</td><td>
+<p>all amplitudes are normalized to the number of entries in dalitz plot. </p>
+<p>The normalization factor is <img class="formulaInl" alt="$ 1/\sqrt(entries/area * \int |A|^2)$" src="../../form_2.png"/> </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abf5de602d6f8960805a105036754cb48"></a><!-- doxytag: member="AmpSumIntensity::AmpSumIntensity" ref="abf5de602d6f8960805a105036754cb48" args="(const double inM, const double inBr, const double in1, const double in2, const double in3, AmplitudeSetup ini)" -->
+<a class="anchor" id="a16fc651ba1263455a366e4df51ef9ff6"></a><!-- doxytag: member="AmpSumIntensity::AmpSumIntensity" ref="a16fc651ba1263455a366e4df51ef9ff6" args="(const double inM, const double inBr, const double in1, const double in2, const double in3, std::string nameM, std::string name1, std::string name2, std::string name3, AmplitudeSetup ini, unsigned int entries=9999, normalizationStyle ns=none)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -137,13 +212,90 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>nameM</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a>&#160;</td>
-          <td class="paramname"><em>ini</em>&#160;</td>
+          <td class="paramname"><em>ini</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>entries</em> = <code>9999</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a>&#160;</td>
+          <td class="paramname"><em>ns</em> = <code>none</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Default Constructor (0x0) </p>
+
+</div>
+</div>
+<a class="anchor" id="ac5ad72be133a2220a62f642fc91f6517"></a><!-- doxytag: member="AmpSumIntensity::AmpSumIntensity" ref="ac5ad72be133a2220a62f642fc91f6517" args="(DPKinematics kin, AmplitudeSetup ini, unsigned int entries=9999, normalizationStyle ns=none)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AmpSumIntensity::AmpSumIntensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d07/classDPKinematics.xhtml">DPKinematics</a>&#160;</td>
+          <td class="paramname"><em>kin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a>&#160;</td>
+          <td class="paramname"><em>ini</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>entries</em> = <code>9999</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a>&#160;</td>
+          <td class="paramname"><em>ns</em> = <code>none</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -166,21 +318,47 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Destructor </p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a45fb28709211222aa13fd4722996975f"></a><!-- doxytag: member="AmpSumIntensity::fillStartParVec" ref="a45fb28709211222aa13fd4722996975f" args="(ParameterList &amp;outPar)" -->
+<a class="anchor" id="a287a8be611bebc8d23fb6a5e15c1b03d"></a><!-- doxytag: member="AmpSumIntensity::evaluate" ref="a287a8be611bebc8d23fb6a5e15c1b03d" args="(double x[], size_t dim)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const bool AmpSumIntensity::fillStartParVec </td>
+          <td class="memname">double AmpSumIntensity::evaluate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>dim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5836b640fcd3270cc2ab5b730ae50b35"></a><!-- doxytag: member="AmpSumIntensity::fillStartParVec" ref="a5836b640fcd3270cc2ab5b730ae50b35" args="(ParameterList &amp;outPar)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool AmpSumIntensity::fillStartParVec </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
           <td class="paramname"><em>outPar</em></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -190,16 +368,16 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a990ac16c109a6846387bf55f75e9e018"></a><!-- doxytag: member="AmpSumIntensity::functionTree" ref="a990ac16c109a6846387bf55f75e9e018" args="(ParameterList &amp;outPar)" -->
+<a class="anchor" id="aa2f5ec43919c0f70219e67769890db0b"></a><!-- doxytag: member="AmpSumIntensity::functionTree" ref="aa2f5ec43919c0f70219e67769890db0b" args="(ParameterList &amp;outPar)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a>&gt; AmpSumIntensity::functionTree </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a> &gt; AmpSumIntensity::functionTree </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
           <td class="paramname"><em>outPar</em></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -209,12 +387,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac1132d6a2220a4e82d8c108e2029ddf1"></a><!-- doxytag: member="AmpSumIntensity::integral" ref="ac1132d6a2220a4e82d8c108e2029ddf1" args="(ParameterList &amp;par)" -->
+<a class="anchor" id="a7bfa5ff9904480ed2298dcdf4c94f30c"></a><!-- doxytag: member="AmpSumIntensity::getMaxVal" ref="a7bfa5ff9904480ed2298dcdf4c94f30c" args="(ParameterList &amp;par)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const double AmpSumIntensity::integral </td>
+          <td class="memname">virtual double AmpSumIntensity::getMaxVal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
           <td class="paramname"><em>par</em></td><td>)</td>
@@ -224,16 +402,75 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#ae0ce9e61d0e567682b4fd0ffe3c01c6c">Amplitude</a>.</p>
+<p>maximum value of amplitude with parameters </p>
+<dl class="user"><dt><b></b></dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#a9fe357d37871118667835b03c22f7669">Amplitude</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3ced9c149deae4375c6cb458377717b0"></a><!-- doxytag: member="AmpSumIntensity::intensity" ref="a3ced9c149deae4375c6cb458377717b0" args="(std::vector&lt; double &gt; &amp;x, ParameterList &amp;par)" -->
+<a class="anchor" id="a044fc51af933d4fb8f8517bb261fd959"></a><!-- doxytag: member="AmpSumIntensity::getNevents" ref="a044fc51af933d4fb8f8517bb261fd959" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> AmpSumIntensity::intensity </td>
+          <td class="memname">virtual unsigned int AmpSumIntensity::getNevents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#a38489a276ed921abb94d41fe7c49f00f">Amplitude</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c9786f704fc4f686705afb44fd47b45"></a><!-- doxytag: member="AmpSumIntensity::init" ref="a5c9786f704fc4f686705afb44fd47b45" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AmpSumIntensity::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa864d46a78d52843d7fb4774244103a0"></a><!-- doxytag: member="AmpSumIntensity::integral" ref="aa864d46a78d52843d7fb4774244103a0" args="(ParameterList &amp;par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double AmpSumIntensity::integral </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
+          <td class="paramname"><em>par</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>normalization integral for parameters </p>
+<dl class="user"><dt><b></b></dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#ae0ce9e61d0e567682b4fd0ffe3c01c6c">Amplitude</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a6641f9e016864e9178c92fead4a0ca"></a><!-- doxytag: member="AmpSumIntensity::intensity" ref="a5a6641f9e016864e9178c92fead4a0ca" args="(std::vector&lt; double &gt; &amp;x, ParameterList &amp;par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> AmpSumIntensity::intensity </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -247,41 +484,118 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [inline, virtual]</code></td>
+          <td></td><td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>evaluate total amplitude using parameters </p>
+<dl class="user"><dt><b>at phsp point  </b></dt><dd></dd></dl>
+
 <p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#a3ff15068212e2151ab9d20d24f4b6248">Amplitude</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abd4492f1f13c383bed9a1b988f1c182a"></a><!-- doxytag: member="AmpSumIntensity::volume" ref="abd4492f1f13c383bed9a1b988f1c182a" args="()" -->
+<a class="anchor" id="a6e63f5507ffcb35be10a17850d5446b4"></a><!-- doxytag: member="AmpSumIntensity::intensity" ref="a6e63f5507ffcb35be10a17850d5446b4" args="(ParameterList &amp;par)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const double AmpSumIntensity::volume </td>
+          <td class="memname">const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> AmpSumIntensity::intensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
+          <td class="paramname"><em>par</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>evaluate total amplitude using parameters </p>
+<dl class="user"><dt><b></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad248bbd7634cecfca258379fe7dac73b"></a><!-- doxytag: member="AmpSumIntensity::intensity" ref="ad248bbd7634cecfca258379fe7dac73b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> AmpSumIntensity::intensity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>evaluate total amplitude using current set of parameters </p>
+
+</div>
+</div>
+<a class="anchor" id="a9e3ed5272ef7abbb5cca1b06d8a3138b"></a><!-- doxytag: member="AmpSumIntensity::printAmps" ref="a9e3ed5272ef7abbb5cca1b06d8a3138b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AmpSumIntensity::printAmps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab6a368f841afe5097df129891c8e46e1"></a><!-- doxytag: member="AmpSumIntensity::setNevents" ref="ab6a368f841afe5097df129891c8e46e1" args="(unsigned int n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void AmpSumIntensity::setNevents </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
           <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#a7f3b23028df6415c9ce20be0735b51d8">Amplitude</a>.</p>
+<p>Implements <a class="el" href="../../d9/d3e/classAmplitude.xhtml#ac15a36f9c32054edd28b9a930911b483">Amplitude</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a15dd57d86ffe4216d299731f608f597d"></a><!-- doxytag: member="AmpSumIntensity::totAmp" ref="a15dd57d86ffe4216d299731f608f597d" args="" -->
+<a class="anchor" id="a16a0778c4cb5ffee4b7a64346032938d"></a><!-- doxytag: member="AmpSumIntensity::setParameterList" ref="a16a0778c4cb5ffee4b7a64346032938d" args="(ParameterList &amp;par)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d9/dec/classAmpSum.xhtml">AmpSum</a>&gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a15dd57d86ffe4216d299731f608f597d">AmpSumIntensity::totAmp</a><code> [protected]</code></td>
+          <td class="memname">void AmpSumIntensity::setParameterList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td>
+          <td class="paramname"><em>par</em></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>setting new parameterList </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a1fb616aeaff712edda171c4d4a327e9c"></a><!-- doxytag: member="AmpSumIntensity::_dpArea" ref="a1fb616aeaff712edda171c4d4a327e9c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a1fb616aeaff712edda171c4d4a327e9c">AmpSumIntensity::_dpArea</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -289,8 +603,204 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a6c42e953f0734ee26544acb4f341b5e8"></a><!-- doxytag: member="AmpSumIntensity::_entries" ref="a6c42e953f0734ee26544acb4f341b5e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a6c42e953f0734ee26544acb4f341b5e8">AmpSumIntensity::_entries</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a24e09e42bab4e0e3834211b5ab601ccd"></a><!-- doxytag: member="AmpSumIntensity::_kin" ref="a24e09e42bab4e0e3834211b5ab601ccd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d3/d07/classDPKinematics.xhtml">DPKinematics</a> <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a24e09e42bab4e0e3834211b5ab601ccd">AmpSumIntensity::_kin</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac463a718740062e967c8a8db7662c87b"></a><!-- doxytag: member="AmpSumIntensity::_normStyle" ref="ac463a718740062e967c8a8db7662c87b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a2e134cf3b394756d1c0b5e179fca7680">normalizationStyle</a> <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac463a718740062e967c8a8db7662c87b">AmpSumIntensity::_normStyle</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4b0409bf525e1f5b05f66180616f6d98"></a><!-- doxytag: member="AmpSumIntensity::ampSetup" ref="a4b0409bf525e1f5b05f66180616f6d98" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d3a/classAmplitudeSetup.xhtml">AmplitudeSetup</a> <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a4b0409bf525e1f5b05f66180616f6d98">AmpSumIntensity::ampSetup</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a057994051c08ae3bd7f8aa97213f3bd0"></a><!-- doxytag: member="AmpSumIntensity::angd" ref="a057994051c08ae3bd7f8aa97213f3bd0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../d4/d38/classAmpWigner.xhtml">AmpWigner</a>&gt; &gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a057994051c08ae3bd7f8aa97213f3bd0">AmpSumIntensity::angd</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4f66933d642894fe56a4a894f7e23a8e"></a><!-- doxytag: member="AmpSumIntensity::gr" ref="a4f66933d642894fe56a4a894f7e23a8e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a>&gt; &gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a4f66933d642894fe56a4a894f7e23a8e">AmpSumIntensity::gr</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1dfcdd39ab646afcd747e46bab2249de"></a><!-- doxytag: member="AmpSumIntensity::maxVal" ref="a1dfcdd39ab646afcd747e46bab2249de" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a1dfcdd39ab646afcd747e46bab2249de">AmpSumIntensity::maxVal</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac797ee706755fdc2ab5a3aa5cabbdb6f"></a><!-- doxytag: member="AmpSumIntensity::mr" ref="ac797ee706755fdc2ab5a3aa5cabbdb6f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a>&gt; &gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ac797ee706755fdc2ab5a3aa5cabbdb6f">AmpSumIntensity::mr</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a90142416c911648f983d928de1365195"></a><!-- doxytag: member="AmpSumIntensity::myTree" ref="a90142416c911648f983d928de1365195" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../db/d4e/classFunctionTree.xhtml">FunctionTree</a>&gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a90142416c911648f983d928de1365195">AmpSumIntensity::myTree</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0e64c487233249ebb18edb279d200c03"></a><!-- doxytag: member="AmpSumIntensity::namer" ref="a0e64c487233249ebb18edb279d200c03" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a0e64c487233249ebb18edb279d200c03">AmpSumIntensity::namer</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a08af6659c398af25cb3b070a4f19e961"></a><!-- doxytag: member="AmpSumIntensity::nAmps" ref="a08af6659c398af25cb3b070a4f19e961" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a08af6659c398af25cb3b070a4f19e961">AmpSumIntensity::nAmps</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0b3a45826506e6bcc07cfd4022a06478"></a><!-- doxytag: member="AmpSumIntensity::phir" ref="a0b3a45826506e6bcc07cfd4022a06478" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a>&gt; &gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a0b3a45826506e6bcc07cfd4022a06478">AmpSumIntensity::phir</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad69912e6cd6789e48513083121da3120"></a><!-- doxytag: member="AmpSumIntensity::rr" ref="ad69912e6cd6789e48513083121da3120" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d8d/classDoubleParameter.xhtml">DoubleParameter</a>&gt; &gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#ad69912e6cd6789e48513083121da3120">AmpSumIntensity::rr</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a914c9d9f2f9f84dea2b33f116877e8f0"></a><!-- doxytag: member="AmpSumIntensity::totAmp" ref="a914c9d9f2f9f84dea2b33f116877e8f0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a> <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a914c9d9f2f9f84dea2b33f116877e8f0">AmpSumIntensity::totAmp</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a11040024d7acc127cfd9cf604638f0b1"></a><!-- doxytag: member="AmpSumIntensity::treePar" ref="a11040024d7acc127cfd9cf604638f0b1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a>&gt; <a class="el" href="../../de/dda/classAmpSumIntensity.xhtml#a11040024d7acc127cfd9cf604638f0b1">AmpSumIntensity::treePar</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Physics/AmplitudeSum/<a class="el" href="../../d0/d2a/AmpSumIntensity_8hpp_source.xhtml">AmpSumIntensity.hpp</a></li>
+<li>Physics/AmplitudeSum/<a class="el" href="../../db/dd9/AmpSumIntensity_8cpp.xhtml">AmpSumIntensity.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -307,7 +817,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

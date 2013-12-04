@@ -11,6 +11,6 @@
 <area shape="rect" id="node35" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="341,624,493,653"/>
 <area shape="rect" id="node57" href="$da/db2/FunctionTree_8hpp.xhtml" title="This class can be used to store a function in a tree&#45;like structure." alt="" coords="928,160,1083,189"/>
 <area shape="rect" id="node63" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="997,315,1133,344"/>
-<area shape="rect" id="node72" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu..." alt="" coords="832,237,968,267"/>
+<area shape="rect" id="node72" href="$df/d5a/TreeNode_8hpp.xhtml" title="This class acts as a container for a parameter in a function tree." alt="" coords="832,237,968,267"/>
 <area shape="rect" id="node93" href="$d3/d65/Particle_8hpp.xhtml" title="This class provides a internal container for information of a particle." alt="" coords="1811,547,1933,576"/>
 </map>

@@ -74,12 +74,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for IntegerParameter:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../db/dbb/classIntegerParameter__inherit__graph.svg" width="166" height="1046" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe src="../../db/dbb/classIntegerParameter__inherit__graph.svg" width="166" height="1064" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for IntegerParameter:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d5/d21/classIntegerParameter__coll__graph.svg" width="448" height="1371" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe src="../../d5/d21/classIntegerParameter__coll__graph.svg" width="448" height="1390" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="../../d4/d03/classIntegerParameter-members.xhtml">List of all members.</a></p>
@@ -137,8 +139,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Call to free parameter.  <a href="#aaf5d8de1cad5e36a8390a4f1c6a1e4e1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da0/classIntegerParameter.xhtml#addaf4594889140804622055648cb4205">FixParameter</a> (const bool fixed)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parameter free or fixed.  <a href="#addaf4594889140804622055648cb4205"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da0/classIntegerParameter.xhtml#a4d4097e57daf46dfb5131ede39acc578">operator int</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A public function returning a string naming its type.  <a href="#a4d4097e57daf46dfb5131ede39acc578"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da0/classIntegerParameter.xhtml#a4fa223c2f21a5c0c71a09d2e0e9848e3">TypeName</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A public function returning a string naming its type.  <a href="#a4fa223c2f21a5c0c71a09d2e0e9848e3"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for typename of object, to be defined by the actual implementation.  <a href="#a4fa223c2f21a5c0c71a09d2e0e9848e3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6a/classAbsParameter.xhtml#a881d731fe387c785a76b6aad22445400">GetName</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for name of object.  <a href="#a881d731fe387c785a76b6aad22445400"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d8/def/AbsParameter_8hpp.xhtml#a5c1a62d78971166ef74c26cf99527f8a">ParType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6a/classAbsParameter.xhtml#a126b949117c9428eca256fb279e34a06">type</a> ()</td></tr>
@@ -762,6 +766,26 @@ Parameter(const double value, const double min, const double max, const double e
 
 </div>
 </div>
+<a class="anchor" id="a4d4097e57daf46dfb5131ede39acc578"></a><!-- doxytag: member="IntegerParameter::operator int" ref="a4d4097e57daf46dfb5131ede39acc578" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntegerParameter::operator int </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A public function returning a string naming its type. </p>
+<p>This function is used to get the type of the implementation of this general parameter interface. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd>operator&lt;&lt;, <a class="el" href="../../d7/d6a/classAbsParameter.xhtml#a155e74bf1c96ce8321ab65c6a003f868" title="A public function returning a string with parameter information.">to_str()</a>, <a class="el" href="../../dc/da0/classIntegerParameter.xhtml#a0432071f33c3d53b730dbe888ff90f46" title="A protected function which creates an output string for printing.">make_str()</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a91d73f38cbbf3a344a9355c459a34145"></a><!-- doxytag: member="IntegerParameter::SetError" ref="a91d73f38cbbf3a344a9355c459a34145" args="(const int inErr)" -->
 <div class="memitem">
 <div class="memproto">
@@ -974,29 +998,9 @@ Parameter(const double value, const double min, const double max, const double e
 </div>
 <div class="memdoc">
 
-<p>A public function returning a string naming its type. </p>
-<p>This function is used to get the type of the implementation of this general parameter interface. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd>operator&lt;&lt;, <a class="el" href="../../d7/d6a/classAbsParameter.xhtml#a155e74bf1c96ce8321ab65c6a003f868" title="A public function returning a string with parameter information.">to_str()</a>, <a class="el" href="../../dc/da0/classIntegerParameter.xhtml#a0432071f33c3d53b730dbe888ff90f46" title="A protected function which creates an output string for printing.">make_str()</a> </dd></dl>
+<p>Getter for typename of object, to be defined by the actual implementation. </p>
 
 <p>Implements <a class="el" href="../../d7/d6a/classAbsParameter.xhtml#a6798bb427c8fb456c4caae1b1b132ab7">AbsParameter</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2fa6e3a0cb1c288b8dd3d37860b6dea1"></a><!-- doxytag: member="IntegerParameter::UseBounds" ref="a2fa6e3a0cb1c288b8dd3d37860b6dea1" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const bool IntegerParameter::UseBounds </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Check if bounds should be used. </p>
 
 </div>
 </div>
@@ -1016,6 +1020,24 @@ Parameter(const double value, const double min, const double max, const double e
 <div class="memdoc">
 
 <p>Set if bounds should be used. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2fa6e3a0cb1c288b8dd3d37860b6dea1"></a><!-- doxytag: member="IntegerParameter::UseBounds" ref="a2fa6e3a0cb1c288b8dd3d37860b6dea1" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const bool IntegerParameter::UseBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Check if bounds should be used. </p>
 
 </div>
 </div>
@@ -1235,6 +1257,8 @@ Parameter(const double value, const double min, const double max, const double e
 
 <p>Output string to print information. </p>
 
+<p>Reimplemented in <a class="el" href="../../dd/d8d/classDoubleParameter.xhtml#ad3c3e06213e3c1bd6290a592b0c2c021">DoubleParameter</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac9bd4b866495c7770e34cad366ebd0e2"></a><!-- doxytag: member="IntegerParameter::outVal_" ref="ac9bd4b866495c7770e34cad366ebd0e2" args="" -->
@@ -1313,7 +1337,7 @@ Parameter(const double value, const double min, const double max, const double e
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

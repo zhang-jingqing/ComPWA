@@ -76,45 +76,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a4b9788540d583d98195a9f02aa87360d">AmpWigner</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9a933109e3d0e58e20c4dca84f7d9191">AmpWigner</a> (const char *name, const char *title, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#a4172d4cff14b2880cec4df093d5240e6">_m12</a>, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#a8eedc7cf46e73e7fb2c2ec7ac011bbc2">_m23</a>, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#a65aa73a5f3f960feb84608f6cec89fd4">_m13</a>, const int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab6063479d0b9571fe242238f46f72845">_subSysFlag</a>, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#a099fc4296690cc51909906895fee9d84">_inSpin</a>, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#afccfdfc062a9fa44c45f9498e3b63d56">_outSpin1</a>, RooAbsReal &amp;<a class="el" href="../../d4/d38/classAmpWigner.xhtml#a777d9b5fb9e4ac6f7c42e9b55c5e3961">_outSpin2</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a69f4e662e997ee0e69e9401ca46ad150">AmpWigner</a> (const char *name, unsigned int spin, unsigned int m, unsigned int n, unsigned int subSys)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a5407f785bfe94046cfbec4009943c628">AmpWigner</a> (const <a class="el" href="../../d4/d38/classAmpWigner.xhtml">AmpWigner</a> &amp;, const char *)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a833ce64a566dd8bb96695e22da6b3748">~AmpWigner</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#af46efef6ab12232a04237c92ac2bec89">hasDist</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#aa396cb00c36a480f2656d401f2bc55a6">initialise</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a5ba2441214fa10546f0f4724539c32ad">evaluate</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual TObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a1fe09e053fad795f22f2e97e5d53ae82">clone</a> (const char *newname) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual Bool_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a4648d867aa77b54899f075c97e23c314">readFromStream</a> (std::istream &amp;, Bool_t, Bool_t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab4e1ec2429d333f698ab9ff37613e616">writeToStream</a> (std::ostream &amp;, Bool_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual Bool_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a33e6b72f4b461a5d1d5b771d644c4eab">operator==</a> (const RooAbsArg &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a294ca6b0c0b78c0e3ab6f136607ad192">syncCache</a> (const RooArgSet *)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a93a824e5a30acd70aa547e433df7be99">copyCache</a> (const RooAbsArg *, Bool_t, Bool_t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a07014f86313b9418b90b58d6dcc33eb9">attachToTree</a> (TTree &amp;, Int_t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a7103484c52a49519a1ff3de97425dbae">attachToVStore</a> (RooVectorDataStore &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab484e257c5cba766c6c9c8b4fbd791c0">setTreeBranchStatus</a> (TTree &amp;, Bool_t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a1aa3d7ab2fbd224b64c12b232db2fcbe">fillTreeBranch</a> (TTree &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual RooAbsArg *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a2040d2fa0af0d6e48ff9afd4dc04a266">createFundamental</a> (const char *) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a7631b9cbe704f5ce46c9eaef059813ae">setDecayMasses</a> (double, double, double, double)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a22d44e5d6baea0ecb6d6d010556f0697">lambda</a> (double x, double y, double z) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9554bc7251bbc1e687ed2c8a7aca8e0b">s1max</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a018a82aa8b9153c0508f2a58ac113f67">s1min</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ae8d8f2fd4f9d0701c3bccd1005b92a4a">s2max</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a094cdf22fd3acb8c636dbe1d808f7739">s2min</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#aa87aece17378824c56a38adee05f2a45">s3max</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a174f6d8008997b89abf2e701d923bb63">s3min</a> (Double_t, Double_t, Double_t, Double_t, Double_t) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a69e8834818de83c9e9c1fc4a19c52b80">s1max</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#abc3c3bb28f8d226a6b88f512b23b5bfd">s1min</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a2fea03ef732b8068724803a352a1259a">s2max</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a1a7dbcd27bb877b2b96416aa73e8a62d">s2min</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a0ef62ba8228e9dee219e901511b3d30f">s3max</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ae1b5f51dad6538742e2ffa16f09ab559">s3min</a> (double, double, double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab3910b38a3e3f741e7dfca451eac9c20">cosTheta</a> (double, double, double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a08a2afc340b04892fd605d614543b544">qin</a> (double) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a661600e0cf36e6aa07fd52a41ff76420">qout</a> (double) const </td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a4172d4cff14b2880cec4df093d5240e6">_m12</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a8eedc7cf46e73e7fb2c2ec7ac011bbc2">_m23</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a65aa73a5f3f960feb84608f6cec89fd4">_m13</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab6063479d0b9571fe242238f46f72845">_subSysFlag</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a099fc4296690cc51909906895fee9d84">_inSpin</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#afccfdfc062a9fa44c45f9498e3b63d56">_outSpin1</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">RooRealProxy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a777d9b5fb9e4ac6f7c42e9b55c5e3961">_outSpin2</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a2e020f09ea30cead3aacfafe840858de">_M</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a26efdff87e10fdc62edf52699d25ff04">_m1</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a573e9da8ce063e2512e9781f51f92fa3">_m2</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#abd4a70d9b77819eec362a7fe0bdb8628">_m3</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ad9e35a3e41b2dc47c605cfda5e2785f6">_inSpin</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a6d0d70fbb59c071ac5ce1fef35eda1bc">_outSpin1</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9742040a6ce6a486b69d3590120050b1">_outSpin2</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a863cebcb9a5ce10f5c2633f5307f1ed7">_subSys</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a32e856e58b4f803be41b29fd02a83a4d">_M</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#aa16c14c601d903f986408382c4f85a46">_m1</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a5216b522b1c493db5b1c56112945ff8f">_m2</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9079195d22ad26b22bd309bdc3af7581">_m3</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#adc9a253f9efd45d6781793f89154bc08">toEvaluate</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
@@ -134,7 +124,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9a933109e3d0e58e20c4dca84f7d9191"></a><!-- doxytag: member="AmpWigner::AmpWigner" ref="a9a933109e3d0e58e20c4dca84f7d9191" args="(const char *name, const char *title, RooAbsReal &amp;_m12, RooAbsReal &amp;_m23, RooAbsReal &amp;_m13, const int _subSysFlag, RooAbsReal &amp;_inSpin, RooAbsReal &amp;_outSpin1, RooAbsReal &amp;_outSpin2)" -->
+<a class="anchor" id="a69f4e662e997ee0e69e9401ca46ad150"></a><!-- doxytag: member="AmpWigner::AmpWigner" ref="a69f4e662e997ee0e69e9401ca46ad150" args="(const char *name, unsigned int spin, unsigned int m, unsigned int n, unsigned int subSys)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -147,50 +137,26 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>title</em>, </td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>spin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_m12</em>, </td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_m23</em>, </td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_m13</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_subSysFlag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_inSpin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_outSpin1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RooAbsReal &amp;&#160;</td>
-          <td class="paramname"><em>_outSpin2</em>&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>subSys</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -247,110 +213,32 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a07014f86313b9418b90b58d6dcc33eb9"></a><!-- doxytag: member="AmpWigner::attachToTree" ref="a07014f86313b9418b90b58d6dcc33eb9" args="(TTree &amp;, Int_t)" -->
+<a class="anchor" id="ab3910b38a3e3f741e7dfca451eac9c20"></a><!-- doxytag: member="AmpWigner::cosTheta" ref="ab3910b38a3e3f741e7dfca451eac9c20" args="(double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AmpWigner::attachToTree </td>
+          <td class="memname">double AmpWigner::cosTheta </td>
           <td>(</td>
-          <td class="paramtype">TTree &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Int_t&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>u</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7103484c52a49519a1ff3de97425dbae"></a><!-- doxytag: member="AmpWigner::attachToVStore" ref="a7103484c52a49519a1ff3de97425dbae" args="(RooVectorDataStore &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AmpWigner::attachToVStore </td>
-          <td>(</td>
-          <td class="paramtype">RooVectorDataStore &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1fe09e053fad795f22f2e97e5d53ae82"></a><!-- doxytag: member="AmpWigner::clone" ref="a1fe09e053fad795f22f2e97e5d53ae82" args="(const char *newname) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TObject * AmpWigner::clone </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>newname</em></td><td>)</td>
-          <td> const<code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a93a824e5a30acd70aa547e433df7be99"></a><!-- doxytag: member="AmpWigner::copyCache" ref="a93a824e5a30acd70aa547e433df7be99" args="(const RooAbsArg *, Bool_t, Bool_t)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AmpWigner::copyCache </td>
-          <td>(</td>
-          <td class="paramtype">const RooAbsArg *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2040d2fa0af0d6e48ff9afd4dc04a266"></a><!-- doxytag: member="AmpWigner::createFundamental" ref="a2040d2fa0af0d6e48ff9afd4dc04a266" args="(const char *) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RooAbsArg * AmpWigner::createFundamental </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [virtual]</code></td>
+          <td></td><td> const<code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -367,23 +255,6 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1aa3d7ab2fbd224b64c12b232db2fcbe"></a><!-- doxytag: member="AmpWigner::fillTreeBranch" ref="a1aa3d7ab2fbd224b64c12b232db2fcbe" args="(TTree &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AmpWigner::fillTreeBranch </td>
-          <td>(</td>
-          <td class="paramtype">TTree &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -456,16 +327,16 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a33e6b72f4b461a5d1d5b771d644c4eab"></a><!-- doxytag: member="AmpWigner::operator==" ref="a33e6b72f4b461a5d1d5b771d644c4eab" args="(const RooAbsArg &amp;)" -->
+<a class="anchor" id="a08a2afc340b04892fd605d614543b544"></a><!-- doxytag: member="AmpWigner::qin" ref="a08a2afc340b04892fd605d614543b544" args="(double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Bool_t AmpWigner::operator== </td>
+          <td class="memname">double AmpWigner::qin </td>
           <td>(</td>
-          <td class="paramtype">const RooAbsArg &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const<code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -473,32 +344,16 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4648d867aa77b54899f075c97e23c314"></a><!-- doxytag: member="AmpWigner::readFromStream" ref="a4648d867aa77b54899f075c97e23c314" args="(std::istream &amp;, Bool_t, Bool_t)" -->
+<a class="anchor" id="a661600e0cf36e6aa07fd52a41ff76420"></a><!-- doxytag: member="AmpWigner::qout" ref="a661600e0cf36e6aa07fd52a41ff76420" args="(double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Bool_t AmpWigner::readFromStream </td>
+          <td class="memname">double AmpWigner::qout </td>
           <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [virtual]</code></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const<code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -506,38 +361,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9554bc7251bbc1e687ed2c8a7aca8e0b"></a><!-- doxytag: member="AmpWigner::s1max" ref="a9554bc7251bbc1e687ed2c8a7aca8e0b" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="a69e8834818de83c9e9c1fc4a19c52b80"></a><!-- doxytag: member="AmpWigner::s1max" ref="a69e8834818de83c9e9c1fc4a19c52b80" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s1max </td>
+          <td class="memname">double AmpWigner::s1max </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -551,38 +406,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a018a82aa8b9153c0508f2a58ac113f67"></a><!-- doxytag: member="AmpWigner::s1min" ref="a018a82aa8b9153c0508f2a58ac113f67" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="abc3c3bb28f8d226a6b88f512b23b5bfd"></a><!-- doxytag: member="AmpWigner::s1min" ref="abc3c3bb28f8d226a6b88f512b23b5bfd" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s1min </td>
+          <td class="memname">double AmpWigner::s1min </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -596,38 +451,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae8d8f2fd4f9d0701c3bccd1005b92a4a"></a><!-- doxytag: member="AmpWigner::s2max" ref="ae8d8f2fd4f9d0701c3bccd1005b92a4a" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="a2fea03ef732b8068724803a352a1259a"></a><!-- doxytag: member="AmpWigner::s2max" ref="a2fea03ef732b8068724803a352a1259a" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s2max </td>
+          <td class="memname">double AmpWigner::s2max </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -641,38 +496,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a094cdf22fd3acb8c636dbe1d808f7739"></a><!-- doxytag: member="AmpWigner::s2min" ref="a094cdf22fd3acb8c636dbe1d808f7739" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="a1a7dbcd27bb877b2b96416aa73e8a62d"></a><!-- doxytag: member="AmpWigner::s2min" ref="a1a7dbcd27bb877b2b96416aa73e8a62d" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s2min </td>
+          <td class="memname">double AmpWigner::s2min </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -686,38 +541,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa87aece17378824c56a38adee05f2a45"></a><!-- doxytag: member="AmpWigner::s3max" ref="aa87aece17378824c56a38adee05f2a45" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="a0ef62ba8228e9dee219e901511b3d30f"></a><!-- doxytag: member="AmpWigner::s3max" ref="a0ef62ba8228e9dee219e901511b3d30f" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s3max </td>
+          <td class="memname">double AmpWigner::s3max </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -731,38 +586,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a174f6d8008997b89abf2e701d923bb63"></a><!-- doxytag: member="AmpWigner::s3min" ref="a174f6d8008997b89abf2e701d923bb63" args="(Double_t, Double_t, Double_t, Double_t, Double_t) const " -->
+<a class="anchor" id="ae1b5f51dad6538742e2ffa16f09ab559"></a><!-- doxytag: member="AmpWigner::s3min" ref="ae1b5f51dad6538742e2ffa16f09ab559" args="(double, double, double, double, double) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t AmpWigner::s3min </td>
+          <td class="memname">double AmpWigner::s3min </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Double_t&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>m3</em>&#160;</td>
         </tr>
         <tr>
@@ -776,70 +631,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab484e257c5cba766c6c9c8b4fbd791c0"></a><!-- doxytag: member="AmpWigner::setTreeBranchStatus" ref="ab484e257c5cba766c6c9c8b4fbd791c0" args="(TTree &amp;, Bool_t)" -->
+<a class="anchor" id="a7631b9cbe704f5ce46c9eaef059813ae"></a><!-- doxytag: member="AmpWigner::setDecayMasses" ref="a7631b9cbe704f5ce46c9eaef059813ae" args="(double, double, double, double)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AmpWigner::setTreeBranchStatus </td>
+          <td class="memname">void AmpWigner::setDecayMasses </td>
           <td>(</td>
-          <td class="paramtype">TTree &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a294ca6b0c0b78c0e3ab6f136607ad192"></a><!-- doxytag: member="AmpWigner::syncCache" ref="a294ca6b0c0b78c0e3ab6f136607ad192" args="(const RooArgSet *)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AmpWigner::syncCache </td>
-          <td>(</td>
-          <td class="paramtype">const RooArgSet *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab4e1ec2429d333f698ab9ff37613e616"></a><!-- doxytag: member="AmpWigner::writeToStream" ref="ab4e1ec2429d333f698ab9ff37613e616" args="(std::ostream &amp;, Bool_t) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AmpWigner::writeToStream </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Bool_t&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>M</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const<code> [virtual]</code></td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -848,12 +671,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a099fc4296690cc51909906895fee9d84"></a><!-- doxytag: member="AmpWigner::_inSpin" ref="a099fc4296690cc51909906895fee9d84" args="" -->
+<a class="anchor" id="ad9e35a3e41b2dc47c605cfda5e2785f6"></a><!-- doxytag: member="AmpWigner::_inSpin" ref="ad9e35a3e41b2dc47c605cfda5e2785f6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a099fc4296690cc51909906895fee9d84">AmpWigner::_inSpin</a><code> [protected]</code></td>
+          <td class="memname">unsigned int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#ad9e35a3e41b2dc47c605cfda5e2785f6">AmpWigner::_inSpin</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -861,12 +684,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2e020f09ea30cead3aacfafe840858de"></a><!-- doxytag: member="AmpWigner::_M" ref="a2e020f09ea30cead3aacfafe840858de" args="" -->
+<a class="anchor" id="a32e856e58b4f803be41b29fd02a83a4d"></a><!-- doxytag: member="AmpWigner::_M" ref="a32e856e58b4f803be41b29fd02a83a4d" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a2e020f09ea30cead3aacfafe840858de">AmpWigner::_M</a><code> [protected]</code></td>
+          <td class="memname">double <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a32e856e58b4f803be41b29fd02a83a4d">AmpWigner::_M</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -874,12 +697,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a26efdff87e10fdc62edf52699d25ff04"></a><!-- doxytag: member="AmpWigner::_m1" ref="a26efdff87e10fdc62edf52699d25ff04" args="" -->
+<a class="anchor" id="aa16c14c601d903f986408382c4f85a46"></a><!-- doxytag: member="AmpWigner::_m1" ref="aa16c14c601d903f986408382c4f85a46" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a26efdff87e10fdc62edf52699d25ff04">AmpWigner::_m1</a><code> [protected]</code></td>
+          <td class="memname">double <a class="el" href="../../d4/d38/classAmpWigner.xhtml#aa16c14c601d903f986408382c4f85a46">AmpWigner::_m1</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -887,12 +710,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4172d4cff14b2880cec4df093d5240e6"></a><!-- doxytag: member="AmpWigner::_m12" ref="a4172d4cff14b2880cec4df093d5240e6" args="" -->
+<a class="anchor" id="a5216b522b1c493db5b1c56112945ff8f"></a><!-- doxytag: member="AmpWigner::_m2" ref="a5216b522b1c493db5b1c56112945ff8f" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a4172d4cff14b2880cec4df093d5240e6">AmpWigner::_m12</a><code> [protected]</code></td>
+          <td class="memname">double <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a5216b522b1c493db5b1c56112945ff8f">AmpWigner::_m2</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -900,12 +723,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a65aa73a5f3f960feb84608f6cec89fd4"></a><!-- doxytag: member="AmpWigner::_m13" ref="a65aa73a5f3f960feb84608f6cec89fd4" args="" -->
+<a class="anchor" id="a9079195d22ad26b22bd309bdc3af7581"></a><!-- doxytag: member="AmpWigner::_m3" ref="a9079195d22ad26b22bd309bdc3af7581" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a65aa73a5f3f960feb84608f6cec89fd4">AmpWigner::_m13</a><code> [protected]</code></td>
+          <td class="memname">double <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9079195d22ad26b22bd309bdc3af7581">AmpWigner::_m3</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -913,12 +736,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a573e9da8ce063e2512e9781f51f92fa3"></a><!-- doxytag: member="AmpWigner::_m2" ref="a573e9da8ce063e2512e9781f51f92fa3" args="" -->
+<a class="anchor" id="a6d0d70fbb59c071ac5ce1fef35eda1bc"></a><!-- doxytag: member="AmpWigner::_outSpin1" ref="a6d0d70fbb59c071ac5ce1fef35eda1bc" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a573e9da8ce063e2512e9781f51f92fa3">AmpWigner::_m2</a><code> [protected]</code></td>
+          <td class="memname">unsigned int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a6d0d70fbb59c071ac5ce1fef35eda1bc">AmpWigner::_outSpin1</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -926,12 +749,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8eedc7cf46e73e7fb2c2ec7ac011bbc2"></a><!-- doxytag: member="AmpWigner::_m23" ref="a8eedc7cf46e73e7fb2c2ec7ac011bbc2" args="" -->
+<a class="anchor" id="a9742040a6ce6a486b69d3590120050b1"></a><!-- doxytag: member="AmpWigner::_outSpin2" ref="a9742040a6ce6a486b69d3590120050b1" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a8eedc7cf46e73e7fb2c2ec7ac011bbc2">AmpWigner::_m23</a><code> [protected]</code></td>
+          <td class="memname">unsigned int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a9742040a6ce6a486b69d3590120050b1">AmpWigner::_outSpin2</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -939,51 +762,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abd4a70d9b77819eec362a7fe0bdb8628"></a><!-- doxytag: member="AmpWigner::_m3" ref="abd4a70d9b77819eec362a7fe0bdb8628" args="" -->
+<a class="anchor" id="a863cebcb9a5ce10f5c2633f5307f1ed7"></a><!-- doxytag: member="AmpWigner::_subSys" ref="a863cebcb9a5ce10f5c2633f5307f1ed7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Double_t <a class="el" href="../../d4/d38/classAmpWigner.xhtml#abd4a70d9b77819eec362a7fe0bdb8628">AmpWigner::_m3</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afccfdfc062a9fa44c45f9498e3b63d56"></a><!-- doxytag: member="AmpWigner::_outSpin1" ref="afccfdfc062a9fa44c45f9498e3b63d56" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#afccfdfc062a9fa44c45f9498e3b63d56">AmpWigner::_outSpin1</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a777d9b5fb9e4ac6f7c42e9b55c5e3961"></a><!-- doxytag: member="AmpWigner::_outSpin2" ref="a777d9b5fb9e4ac6f7c42e9b55c5e3961" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RooRealProxy <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a777d9b5fb9e4ac6f7c42e9b55c5e3961">AmpWigner::_outSpin2</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab6063479d0b9571fe242238f46f72845"></a><!-- doxytag: member="AmpWigner::_subSysFlag" ref="ab6063479d0b9571fe242238f46f72845" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab6063479d0b9571fe242238f46f72845">AmpWigner::_subSysFlag</a><code> [protected]</code></td>
+          <td class="memname">unsigned int <a class="el" href="../../d4/d38/classAmpWigner.xhtml#a863cebcb9a5ce10f5c2633f5307f1ed7">AmpWigner::_subSys</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -1023,7 +807,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 24 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

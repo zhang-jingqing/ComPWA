@@ -11,8 +11,8 @@
 <polygon fill="white" stroke="white" points="-4,5 -4,-142 2013,-142 2013,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="669,-116.5 669,-137.5 791,-137.5 791,-116.5 669,-116.5"/>
-<text text-anchor="middle" x="730" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/Estimator.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="798,-116.5 798,-137.5 920,-137.5 920,-116.5 798,-116.5"/>
+<text text-anchor="middle" x="859" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/Estimator.hpp</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
@@ -23,8 +23,8 @@
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M658.635,-123.77C511.873,-116.772 185.989,-99.2841 139,-80 107.673,-67.1436 79.4439,-37.6926 65.7412,-21.7404"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="658.731,-127.278 668.886,-124.255 659.063,-120.286 658.731,-127.278"/>
+<path fill="none" stroke="midnightblue" d="M787.651,-124.868C617.584,-119.428 198.082,-103.76 139,-80 107.41,-67.2965 79.0819,-37.4959 65.4945,-21.5333"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="787.65,-128.37 797.756,-125.189 787.872,-121.374 787.65,-128.37"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
@@ -35,56 +35,68 @@
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M658.553,-119.107C553.461,-107.497 359.243,-86.0402 262.658,-75.3699"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="658.424,-122.614 668.748,-120.233 659.193,-115.656 658.424,-122.614"/>
+<path fill="none" stroke="midnightblue" d="M787.479,-120.657C656.874,-109.074 382.232,-84.7178 262.665,-74.114"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="787.497,-124.172 797.767,-121.57 788.116,-117.2 787.497,-124.172"/>
 </g>
 <!-- Node5 -->
 <g id="node10" class="node"><title>Node5</title>
-<a xlink:href="../../d5/d8d/ChiOneD_8hpp.xhtml" target="_top" xlink:title="This class calculates a simple &#160;of a intensity and a dataset.">
-<polygon fill="white" stroke="black" points="517,-58.5 517,-79.5 681,-79.5 681,-58.5 517,-58.5"/>
-<text text-anchor="middle" x="599" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/ChiOneD/ChiOneD.hpp</text>
+<a xlink:href="../../d9/d77/AmpFcn_8cpp.xhtml" target="_top" xlink:title="Estimator/AmpFcn.cpp">
+<polygon fill="white" stroke="black" points="962.5,-58.5 962.5,-79.5 1079.5,-79.5 1079.5,-58.5 962.5,-58.5"/>
+<text text-anchor="middle" x="1021" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/AmpFcn.cpp</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge10" class="edge"><title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M696.896,-112.343C673.874,-102.15 643.715,-88.7977 622.989,-79.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="695.716,-115.649 706.277,-116.497 698.55,-109.248 695.716,-115.649"/>
+<path fill="none" stroke="midnightblue" d="M898.077,-113.009C926.866,-102.702 965.409,-88.903 991.608,-79.5231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="896.572,-109.831 888.337,-116.497 898.932,-116.421 896.572,-109.831"/>
 </g>
-<!-- Node9 -->
-<g id="node18" class="node"><title>Node9</title>
+<!-- Node6 -->
+<g id="node12" class="node"><title>Node6</title>
+<a xlink:href="../../d5/d8d/ChiOneD_8hpp.xhtml" target="_top" xlink:title="This class calculates a simple &#160;of a intensity and a dataset.">
+<polygon fill="white" stroke="black" points="516,-58.5 516,-79.5 680,-79.5 680,-58.5 516,-58.5"/>
+<text text-anchor="middle" x="598" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/ChiOneD/ChiOneD.hpp</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge12" class="edge"><title>Node1&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M801.731,-114.274C754.847,-103.855 689.314,-89.2921 645.354,-79.5231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="801.214,-117.744 811.735,-116.497 802.732,-110.911 801.214,-117.744"/>
+</g>
+<!-- Node10 -->
+<g id="node20" class="node"><title>Node10</title>
 <a xlink:href="../../d7/de4/MinLogLH_8hpp.xhtml" target="_top" xlink:title="This class calculates a simple &#45;log(LH) of a intensity and a dataset.">
-<polygon fill="white" stroke="black" points="775,-58.5 775,-79.5 947,-79.5 947,-58.5 775,-58.5"/>
-<text text-anchor="middle" x="861" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/MinLogLH/MinLogLH.hpp</text>
+<polygon fill="white" stroke="black" points="773,-58.5 773,-79.5 945,-79.5 945,-58.5 773,-58.5"/>
+<text text-anchor="middle" x="859" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/MinLogLH/MinLogLH.hpp</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node9 -->
-<g id="edge18" class="edge"><title>Node1&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M763.104,-112.343C786.126,-102.15 816.285,-88.7977 837.011,-79.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="761.45,-109.248 753.723,-116.497 764.284,-115.649 761.45,-109.248"/>
+<!-- Node1&#45;&gt;Node10 -->
+<g id="edge20" class="edge"><title>Node1&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M859,-106.191C859,-97.1684 859,-86.9941 859,-79.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="855.5,-106.362 859,-116.362 862.5,-106.362 855.5,-106.362"/>
 </g>
-<!-- Node13 -->
-<g id="node28" class="node"><title>Node13</title>
+<!-- Node14 -->
+<g id="node30" class="node"><title>Node14</title>
 <a xlink:href="../../da/d67/SliceFit_8hpp.xhtml" target="_top" xlink:title="This class performs a Chi2&#45;Fit on slices along one axis of a dalitz&#45;plot.">
-<polygon fill="white" stroke="black" points="1180.5,-58.5 1180.5,-79.5 1329.5,-79.5 1329.5,-58.5 1180.5,-58.5"/>
-<text text-anchor="middle" x="1255" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/SliceFit/SliceFit.hpp</text>
+<polygon fill="white" stroke="black" points="1245.5,-58.5 1245.5,-79.5 1394.5,-79.5 1394.5,-58.5 1245.5,-58.5"/>
+<text text-anchor="middle" x="1320" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/SliceFit/SliceFit.hpp</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node13 -->
-<g id="edge30" class="edge"><title>Node1&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M801.479,-119.103C900.688,-108.143 1079.28,-88.4129 1180.22,-77.2617"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="800.807,-115.656 791.252,-120.233 801.576,-122.614 800.807,-115.656"/>
+<!-- Node1&#45;&gt;Node14 -->
+<g id="edge32" class="edge"><title>Node1&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M930.345,-118.024C1015.77,-107.276 1158.19,-89.3576 1245.15,-78.4176"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="929.702,-114.577 920.217,-119.298 930.576,-121.522 929.702,-114.577"/>
 </g>
-<!-- Node15 -->
-<g id="node32" class="node"><title>Node15</title>
+<!-- Node16 -->
+<g id="node34" class="node"><title>Node16</title>
 <a xlink:href="../../d3/de6/StockLeastSquares_8hpp.xhtml" target="_top" xlink:title="This class calculates a simple square&#45;sum of a stock&#45;model and stock value.">
 <polygon fill="white" stroke="black" points="1555,-58.5 1555,-79.5 1809,-79.5 1809,-58.5 1555,-58.5"/>
 <text text-anchor="middle" x="1682" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/StockLeastSquares/StockLeastSquares.hpp</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge34" class="edge"><title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M801.215,-122.661C961.417,-112.901 1351.99,-89.1054 1554.91,-76.7429"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="800.769,-119.182 791,-123.284 801.194,-126.169 800.769,-119.182"/>
+<!-- Node1&#45;&gt;Node16 -->
+<g id="edge36" class="edge"><title>Node1&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M930.318,-121.974C1069.61,-112.158 1379.49,-90.3192 1554.77,-77.9661"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="929.916,-118.494 920.186,-122.688 930.408,-125.476 929.916,-118.494"/>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge6" class="edge"><title>Node3&#45;&gt;Node2</title>
@@ -103,133 +115,133 @@
 <path fill="none" stroke="midnightblue" d="M205,-48.1906C205,-39.1684 205,-28.9941 205,-21.5707"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="201.5,-48.3619 205,-58.3619 208.5,-48.3619 201.5,-48.3619"/>
 </g>
-<!-- Node6 -->
-<g id="node12" class="node"><title>Node6</title>
+<!-- Node7 -->
+<g id="node14" class="node"><title>Node7</title>
 <a xlink:href="../../d1/d9e/ChiOneD_8cpp.xhtml" target="_top" xlink:title="Estimator/ChiOneD/ChiOneD.cpp">
 <polygon fill="white" stroke="black" points="296,-0.5 296,-21.5 460,-21.5 460,-0.5 296,-0.5"/>
 <text text-anchor="middle" x="378" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/ChiOneD/ChiOneD.cpp</text>
 </a>
 </g>
-<!-- Node5&#45;&gt;Node6 -->
-<g id="edge12" class="edge"><title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M549.255,-55.9447C509.648,-45.5501 454.93,-31.1897 418.096,-21.5231"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="548.418,-59.3435 558.979,-58.4966 550.195,-52.5727 548.418,-59.3435"/>
+<!-- Node6&#45;&gt;Node7 -->
+<g id="edge14" class="edge"><title>Node6&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M548.48,-55.9447C509.052,-45.5501 454.582,-31.1897 417.915,-21.5231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="547.598,-59.3317 558.16,-58.4966 549.382,-52.5629 547.598,-59.3317"/>
 </g>
-<!-- Node7 -->
-<g id="node14" class="node"><title>Node7</title>
+<!-- Node8 -->
+<g id="node16" class="node"><title>Node8</title>
 <a xlink:href="../../d4/d31/EstimatorTestApp_8cpp.xhtml" target="_top" xlink:title="Test&#45;Application of a simple &#160;estimator.">
 <polygon fill="white" stroke="black" points="662,-0.5 662,-21.5 796,-21.5 796,-0.5 662,-0.5"/>
 <text text-anchor="middle" x="729" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/EstimatorTestApp.cpp</text>
 </a>
 </g>
-<!-- Node5&#45;&gt;Node7 -->
-<g id="edge14" class="edge"><title>Node5&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M631.852,-54.3431C654.698,-44.1502 684.626,-30.7977 705.194,-21.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="630.248,-51.2259 622.542,-58.4966 633.1,-57.6185 630.248,-51.2259"/>
+<!-- Node6&#45;&gt;Node8 -->
+<g id="edge16" class="edge"><title>Node6&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M631.104,-54.3431C654.126,-44.1502 684.285,-30.7977 705.011,-21.6212"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="629.45,-51.2478 621.723,-58.4966 632.284,-57.6485 629.45,-51.2478"/>
 </g>
-<!-- Node8 -->
-<g id="node16" class="node"><title>Node8</title>
+<!-- Node9 -->
+<g id="node18" class="node"><title>Node9</title>
 <a xlink:href="../../d0/d0c/IntegrationTestBinnedApp_8cpp.xhtml" target="_top" xlink:title="test/IntegrationTestBinnedApp.cpp">
 <polygon fill="white" stroke="black" points="477.5,-0.5 477.5,-21.5 644.5,-21.5 644.5,-0.5 477.5,-0.5"/>
 <text text-anchor="middle" x="561" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/IntegrationTestBinnedApp.cpp</text>
 </a>
 </g>
-<!-- Node5&#45;&gt;Node8 -->
-<g id="edge16" class="edge"><title>Node5&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M586.525,-49.9591C580.342,-40.522 573.11,-29.4835 567.926,-21.5707"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="583.622,-51.9154 592.03,-58.3619 589.478,-48.0792 583.622,-51.9154"/>
+<!-- Node6&#45;&gt;Node9 -->
+<g id="edge18" class="edge"><title>Node6&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M585.667,-49.6667C579.688,-40.2948 572.739,-29.4019 567.743,-21.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="582.885,-51.8136 591.214,-58.3619 588.786,-48.0489 582.885,-51.8136"/>
 </g>
-<!-- Node9&#45;&gt;Node4 -->
-<g id="edge28" class="edge"><title>Node9&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M764.698,-62.6403C650.55,-54.7494 454.663,-40.0977 287,-22 284.287,-21.7071 281.524,-21.3971 278.735,-21.0742"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="764.59,-66.1411 774.807,-63.3362 765.071,-59.1576 764.59,-66.1411"/>
+<!-- Node10&#45;&gt;Node4 -->
+<g id="edge30" class="edge"><title>Node10&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M762.542,-62.5926C648.723,-54.6806 453.839,-40.0328 287,-22 284.287,-21.7067 281.524,-21.3964 278.736,-21.0732"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="762.405,-66.0914 772.623,-63.2905 762.889,-59.1081 762.405,-66.0914"/>
 </g>
-<!-- Node9&#45;&gt;Node7 -->
-<g id="edge24" class="edge"><title>Node9&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M827.643,-54.3431C804.445,-44.1502 774.057,-30.7977 753.172,-21.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="826.533,-57.6782 837.096,-58.4966 829.349,-51.2695 826.533,-57.6782"/>
+<!-- Node10&#45;&gt;Node8 -->
+<g id="edge26" class="edge"><title>Node10&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M826.148,-54.3431C803.302,-44.1502 773.374,-30.7977 752.806,-21.6212"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="824.9,-57.6185 835.458,-58.4966 827.752,-51.2259 824.9,-57.6185"/>
 </g>
-<!-- Node10 -->
-<g id="node20" class="node"><title>Node10</title>
+<!-- Node11 -->
+<g id="node22" class="node"><title>Node11</title>
 <a xlink:href="../../de/d8e/MinLogLH_8cpp.xhtml" target="_top" xlink:title="Estimator/MinLogLH/MinLogLH.cpp">
 <polygon fill="white" stroke="black" points="814,-0.5 814,-21.5 986,-21.5 986,-0.5 814,-0.5"/>
 <text text-anchor="middle" x="900" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/MinLogLH/MinLogLH.cpp</text>
 </a>
 </g>
-<!-- Node9&#45;&gt;Node10 -->
-<g id="edge20" class="edge"><title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M873.803,-49.9591C880.149,-40.522 887.571,-29.4835 892.892,-21.5707"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="870.829,-48.1105 868.153,-58.3619 876.638,-52.0165 870.829,-48.1105"/>
+<!-- Node10&#45;&gt;Node11 -->
+<g id="edge22" class="edge"><title>Node10&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M872.46,-49.9591C879.131,-40.522 886.934,-29.4835 892.528,-21.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="869.434,-48.1758 866.52,-58.3619 875.15,-52.2165 869.434,-48.1758"/>
 </g>
-<!-- Node11 -->
-<g id="node22" class="node"><title>Node11</title>
+<!-- Node12 -->
+<g id="node24" class="node"><title>Node12</title>
 <a xlink:href="../../da/d2a/DalitzFitApp_8cpp.xhtml" target="_top" xlink:title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model.">
 <polygon fill="white" stroke="black" points="1003.5,-0.5 1003.5,-21.5 1112.5,-21.5 1112.5,-0.5 1003.5,-0.5"/>
 <text text-anchor="middle" x="1058" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/DalitzFitApp.cpp</text>
 </a>
 </g>
-<!-- Node9&#45;&gt;Node11 -->
-<g id="edge22" class="edge"><title>Node9&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M906.696,-55.5464C941.886,-45.1857 989.842,-31.0668 1022.26,-21.5231"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="905.28,-52.3148 896.675,-58.4966 907.257,-59.0298 905.28,-52.3148"/>
+<!-- Node10&#45;&gt;Node12 -->
+<g id="edge24" class="edge"><title>Node10&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M904.703,-55.6795C940.291,-45.307 989.01,-31.1078 1021.9,-21.5231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="903.659,-52.3382 895.037,-58.4966 905.617,-59.0586 903.659,-52.3382"/>
 </g>
-<!-- Node12 -->
-<g id="node25" class="node"><title>Node12</title>
+<!-- Node13 -->
+<g id="node27" class="node"><title>Node13</title>
 <a xlink:href="../../d5/d26/IntegrationTestApp_8cpp.xhtml" target="_top" xlink:title="Test&#45;Application for full fit with simple modules.">
 <polygon fill="white" stroke="black" points="1129.5,-0.5 1129.5,-21.5 1266.5,-21.5 1266.5,-0.5 1129.5,-0.5"/>
 <text text-anchor="middle" x="1198" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/IntegrationTestApp.cpp</text>
 </a>
 </g>
-<!-- Node9&#45;&gt;Node12 -->
-<g id="edge26" class="edge"><title>Node9&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M931.919,-56.7943C992.635,-46.3447 1079.14,-31.4559 1136.86,-21.5231"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="931.29,-53.3511 922.028,-58.4966 932.477,-60.2497 931.29,-53.3511"/>
+<!-- Node10&#45;&gt;Node13 -->
+<g id="edge28" class="edge"><title>Node10&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M930.34,-56.7943C991.417,-46.3447 1078.44,-31.4559 1136.49,-21.5231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="929.657,-53.3603 920.39,-58.4966 930.837,-60.26 929.657,-53.3603"/>
 </g>
-<!-- Node14 -->
-<g id="node30" class="node"><title>Node14</title>
+<!-- Node15 -->
+<g id="node32" class="node"><title>Node15</title>
 <a xlink:href="../../d2/d9b/SliceFit_8cpp.xhtml" target="_top" xlink:title="Estimator/SliceFit/SliceFit.cpp">
 <polygon fill="white" stroke="black" points="1283.5,-0.5 1283.5,-21.5 1432.5,-21.5 1432.5,-0.5 1283.5,-0.5"/>
 <text text-anchor="middle" x="1358" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/SliceFit/SliceFit.cpp</text>
 </a>
 </g>
-<!-- Node13&#45;&gt;Node14 -->
-<g id="edge32" class="edge"><title>Node13&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M1282.74,-53.379C1300.64,-43.3011 1323.44,-30.4624 1339.23,-21.5707"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1280.89,-50.4055 1273.89,-58.3619 1284.32,-56.505 1280.89,-50.4055"/>
+<!-- Node14&#45;&gt;Node15 -->
+<g id="edge34" class="edge"><title>Node14&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M1332.48,-49.9591C1338.66,-40.522 1345.89,-29.4835 1351.07,-21.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1329.52,-48.0792 1326.97,-58.3619 1335.38,-51.9154 1329.52,-48.0792"/>
 </g>
-<!-- Node16 -->
-<g id="node34" class="node"><title>Node16</title>
+<!-- Node17 -->
+<g id="node36" class="node"><title>Node17</title>
 <a xlink:href="../../db/de2/StockLeastSquares_8cpp.xhtml" target="_top" xlink:title="Estimator/StockLeastSquares/StockLeastSquares.cpp">
 <polygon fill="white" stroke="black" points="1450,-0.5 1450,-21.5 1704,-21.5 1704,-0.5 1450,-0.5"/>
 <text text-anchor="middle" x="1577" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">Estimator/StockLeastSquares/StockLeastSquares.cpp</text>
 </a>
 </g>
-<!-- Node15&#45;&gt;Node16 -->
-<g id="edge36" class="edge"><title>Node15&#45;&gt;Node16</title>
+<!-- Node16&#45;&gt;Node17 -->
+<g id="edge38" class="edge"><title>Node16&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M1653.97,-53.5175C1635.69,-43.4189 1612.31,-30.5032 1596.14,-21.5707"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1652.3,-56.5903 1662.74,-58.3619 1655.68,-50.463 1652.3,-56.5903"/>
 </g>
-<!-- Node17 -->
-<g id="node36" class="node"><title>Node17</title>
+<!-- Node18 -->
+<g id="node38" class="node"><title>Node18</title>
 <a xlink:href="../../de/dbe/BlackScholesApp_8cpp.xhtml" target="_top" xlink:title="Test&#45;Application for Black&#45;Scholes stock model.">
 <polygon fill="white" stroke="black" points="1722,-0.5 1722,-21.5 1854,-21.5 1854,-0.5 1722,-0.5"/>
 <text text-anchor="middle" x="1788" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/BlackScholesApp.cpp</text>
 </a>
 </g>
-<!-- Node15&#45;&gt;Node17 -->
-<g id="edge38" class="edge"><title>Node15&#45;&gt;Node17</title>
+<!-- Node16&#45;&gt;Node18 -->
+<g id="edge40" class="edge"><title>Node16&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M1710.3,-53.5175C1728.75,-43.4189 1752.36,-30.5032 1768.68,-21.5707"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1708.53,-50.4913 1701.44,-58.3619 1711.89,-56.6322 1708.53,-50.4913"/>
 </g>
-<!-- Node18 -->
-<g id="node38" class="node"><title>Node18</title>
+<!-- Node19 -->
+<g id="node40" class="node"><title>Node19</title>
 <a xlink:href="../../dc/d3f/NeuralNetworkApp_8cpp.xhtml" target="_top" xlink:title="test/NeuralNetworkApp.cpp">
 <polygon fill="white" stroke="black" points="1871.5,-0.5 1871.5,-21.5 2008.5,-21.5 2008.5,-0.5 1871.5,-0.5"/>
 <text text-anchor="middle" x="1940" y="-8.5" font-family="Helvetica,sans-Serif" font-size="10.00">test/NeuralNetworkApp.cpp</text>
 </a>
 </g>
-<!-- Node15&#45;&gt;Node18 -->
-<g id="edge40" class="edge"><title>Node15&#45;&gt;Node18</title>
+<!-- Node16&#45;&gt;Node19 -->
+<g id="edge42" class="edge"><title>Node16&#45;&gt;Node19</title>
 <path fill="none" stroke="midnightblue" d="M1738.61,-56.2737C1784.96,-45.8548 1849.74,-31.2921 1893.19,-21.5231"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1737.71,-52.8885 1728.72,-58.4966 1739.25,-59.718 1737.71,-52.8885"/>
 </g>

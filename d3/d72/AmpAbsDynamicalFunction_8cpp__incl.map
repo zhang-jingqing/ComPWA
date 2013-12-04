@@ -1,3 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml" title="Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp" alt="" coords="112,83,461,112"/>
+<area shape="rect" id="node13" href="$d8/d35/PhysConst_8hpp.xhtml" title="PhysConst provides particle information to the framework." alt="" coords="1024,83,1275,112"/>
+<area shape="rect" id="node43" href="$d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot" alt="" coords="757,83,1000,112"/>
+<area shape="rect" id="node52" href="$d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml" title="Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp" alt="" coords="1299,83,1648,112"/>
+<area shape="rect" id="node19" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="1097,160,1236,189"/>
+<area shape="rect" id="node28" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="1085,237,1248,267"/>
+<area shape="rect" id="node38" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="867,237,1011,267"/>
+<area shape="rect" id="node36" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="1268,315,1420,344"/>
+<area shape="rect" id="node49" href="$d1/d72/DPKinematics_8hpp.xhtml" title="DPKinematics stores kinematic information of a dalitz plot." alt="" coords="745,160,1015,189"/>
 </map>

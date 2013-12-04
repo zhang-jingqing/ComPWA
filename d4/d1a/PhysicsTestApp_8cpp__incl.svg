@@ -359,7 +359,7 @@
 </g>
 <!-- Node22 -->
 <g id="node70" class="node"><title>Node22</title>
-<a xlink:href="../../df/d5a/TreeNode_8hpp.xhtml" target="_top" xlink:title="This class provides the interface for all kind of elements which later can be used as nodes in the Fu...">
+<a xlink:href="../../df/d5a/TreeNode_8hpp.xhtml" target="_top" xlink:title="This class acts as a container for a parameter in a function tree.">
 <polygon fill="white" stroke="black" points="563,-290.5 563,-311.5 665,-311.5 665,-290.5 563,-290.5"/>
 <text text-anchor="middle" x="614" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">Core/TreeNode.hpp</text>
 </a>
