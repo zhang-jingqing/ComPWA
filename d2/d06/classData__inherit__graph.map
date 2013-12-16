@@ -1,5 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$df/d15/classAsciiReader.xhtml" title="Reader for data in ASCII&#45;Format like Pawian&#39;s epemEvtReader." alt="" coords="5,340,125,529"/>
-<area shape="rect" id="node5" href="$d2/d4d/classRootReader.xhtml" title="Reader for data in Root&#45;files." alt="" coords="149,227,299,642"/>
-<area shape="rect" id="node7" href="$db/d6c/classStockReader.xhtml" title="Reader for stock data in csv ASCII&#45;Format." alt="" coords="323,340,448,529"/>
+<area shape="rect" id="node3" href="$df/d15/classAsciiReader.xhtml" title="Reader for data in ASCII&#45;Format like Pawian&#39;s epemEvtReader." alt="" coords="5,399,125,588"/>
+<area shape="rect" id="node5" href="$d2/d4d/classRootReader.xhtml" title="Reader for data in Root&#45;files." alt="" coords="149,243,299,744"/>
 </map>

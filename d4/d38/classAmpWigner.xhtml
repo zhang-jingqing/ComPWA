@@ -81,7 +81,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a833ce64a566dd8bb96695e22da6b3748">~AmpWigner</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#af46efef6ab12232a04237c92ac2bec89">hasDist</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#aa396cb00c36a480f2656d401f2bc55a6">initialise</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a5ba2441214fa10546f0f4724539c32ad">evaluate</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a697698ff7eedbd2b92c8ba37506552d2">evaluate</a> (<a class="el" href="../../df/d0d/classdataPoint.xhtml">dataPoint</a> &amp;point) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a7631b9cbe704f5ce46c9eaef059813ae">setDecayMasses</a> (double, double, double, double)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -92,9 +92,6 @@ Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a1a7dbcd27bb877b2b96416aa73e8a62d">s2min</a> (double, double, double, double, double) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a0ef62ba8228e9dee219e901511b3d30f">s3max</a> (double, double, double, double, double) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ae1b5f51dad6538742e2ffa16f09ab559">s3min</a> (double, double, double, double, double) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ab3910b38a3e3f741e7dfca451eac9c20">cosTheta</a> (double, double, double) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a08a2afc340b04892fd605d614543b544">qin</a> (double) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#a661600e0cf36e6aa07fd52a41ff76420">qout</a> (double) const </td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d38/classAmpWigner.xhtml#ad9e35a3e41b2dc47c605cfda5e2785f6">_inSpin</a></td></tr>
@@ -213,47 +210,15 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ab3910b38a3e3f741e7dfca451eac9c20"></a><!-- doxytag: member="AmpWigner::cosTheta" ref="ab3910b38a3e3f741e7dfca451eac9c20" args="(double, double, double) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double AmpWigner::cosTheta </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>u</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5ba2441214fa10546f0f4724539c32ad"></a><!-- doxytag: member="AmpWigner::evaluate" ref="a5ba2441214fa10546f0f4724539c32ad" args="() const " -->
+<a class="anchor" id="a697698ff7eedbd2b92c8ba37506552d2"></a><!-- doxytag: member="AmpWigner::evaluate" ref="a697698ff7eedbd2b92c8ba37506552d2" args="(dataPoint &amp;point) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">double AmpWigner::evaluate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../df/d0d/classdataPoint.xhtml">dataPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
           <td> const<code> [virtual]</code></td>
         </tr>
       </table>
@@ -320,40 +285,6 @@ Protected Attributes</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td> const<code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a08a2afc340b04892fd605d614543b544"></a><!-- doxytag: member="AmpWigner::qin" ref="a08a2afc340b04892fd605d614543b544" args="(double) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double AmpWigner::qin </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td> const<code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a661600e0cf36e6aa07fd52a41ff76420"></a><!-- doxytag: member="AmpWigner::qout" ref="a661600e0cf36e6aa07fd52a41ff76420" args="(double) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double AmpWigner::qout </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td> const<code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -807,7 +738,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

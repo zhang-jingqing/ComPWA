@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00070"></a><a class="code" href="../../d7/d6a/classAbsParameter.xhtml#a9d8d907c87e67616f1fadf77475c650c">00070</a>   <span class="keywordtype">void</span> <a class="code" href="../../d7/d6a/classAbsParameter.xhtml#a9d8d907c87e67616f1fadf77475c650c" title="Notify all observing TreeNodes that parameter changed.">Notify</a>(){
 <a name="l00071"></a>00071     <span class="keywordflow">for</span>(std::vector&lt;std::shared_ptr&lt;ParObserver&gt; &gt;::const_iterator iter = <a class="code" href="../../d7/d6a/classAbsParameter.xhtml#abd724fca707acabfdf91b20739ce1e12" title="list of observers, e.g.">oberservingNodes</a>.begin(); iter != <a class="code" href="../../d7/d6a/classAbsParameter.xhtml#abd724fca707acabfdf91b20739ce1e12" title="list of observers, e.g.">oberservingNodes</a>.end(); ++iter)
 <a name="l00072"></a>00072     {
-<a name="l00073"></a>00073         <span class="keywordflow">if</span>(*iter != 0)
+<a name="l00073"></a>00073         <span class="keywordflow">if</span>(*iter != std::shared_ptr&lt;ParObserver&gt;())<span class="comment">//Ist das richtig????</span>
 <a name="l00074"></a>00074         {
 <a name="l00075"></a>00075             (*iter)-&gt;Update();
 <a name="l00076"></a>00076         }
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

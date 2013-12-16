@@ -76,13 +76,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for RootReader:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d0/d05/classRootReader__inherit__graph.svg" width="160" height="648" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d0/d05/classRootReader__inherit__graph.svg" width="160" height="750" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for RootReader:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d7/de6/classRootReader__coll__graph.svg" width="699" height="1502" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d7/de6/classRootReader__coll__graph.svg" width="750" height="1638" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
@@ -92,9 +92,11 @@ Collaboration diagram for RootReader:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a4e536dd209293a6dd2d7dce1911fd1de">RootReader</a> (TTree *tr, const bool binned)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor (0x0)  <a href="#a4e536dd209293a6dd2d7dce1911fd1de"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#af10d9979564e164fdd8085e3a7a8f473">RootReader</a> (const std::string inRootFile, const bool binned, const std::string inTreeName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a985ec5cd361413411b7935de8ec06580">RootReader</a> (const std::string inRootFile, const bool binned=true, const std::string inTreeName=&quot;data&quot;, const bool readFlag=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a591fed78276e981f80ba06514146084d">RootReader</a> (const bool binned=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const std::vector<br class="typebreak"/>
 &lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a1459a5bdb157ec3794c7f83c48456479">getVariableNames</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a10037771d580fd4a836566a33f40fc46">pushEvent</a> (const <a class="el" href="../../d5/da5/classEvent.xhtml">Event</a> &amp;evt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d5/da5/classEvent.xhtml">Event</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a9abb0aca839119eaa81c07da411813cf">getEvent</a> (const int)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#ab4b78926472a13be4ae08e648fe70f15">getBin</a> (const int, double &amp;, double &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a035727b2548547a0c1b84bdf3799ab37">getNEvents</a> () const </td></tr>
@@ -107,6 +109,9 @@ Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a1cf7942febb7897b17baffe2c16a495e">bin</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#abdbceccb2df52025d3e8c3a8beab43a1">_readFlag</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a1cf73877449a89775913be36f5125e4c">fileName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#ac89a741ecb1f412fc24d81381c11f146">treeName</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TFile *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">fFile</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TTree *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#ae3a20a6601087cecc748c4b50b94392f">fTree</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TClonesArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classRootReader.xhtml#a9c22fe9aa23f6c4299d534aad9b240ce">fParticles</a></td></tr>
@@ -151,7 +156,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af10d9979564e164fdd8085e3a7a8f473"></a><!-- doxytag: member="RootReader::RootReader" ref="af10d9979564e164fdd8085e3a7a8f473" args="(const std::string inRootFile, const bool binned, const std::string inTreeName)" -->
+<a class="anchor" id="a985ec5cd361413411b7935de8ec06580"></a><!-- doxytag: member="RootReader::RootReader" ref="a985ec5cd361413411b7935de8ec06580" args="(const std::string inRootFile, const bool binned=true, const std::string inTreeName=&quot;data&quot;, const bool readFlag=true)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -165,18 +170,41 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>binned</em> = <code>false</code>, </td>
+          <td class="paramname"><em>binned</em> = <code>true</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>inTreeName</em> = <code>&quot;data&quot;</code>&#160;</td>
+          <td class="paramname"><em>inTreeName</em> = <code>&quot;data&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>readFlag</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a591fed78276e981f80ba06514146084d"></a><!-- doxytag: member="RootReader::RootReader" ref="a591fed78276e981f80ba06514146084d" args="(const bool binned=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RootReader::RootReader </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>binned</em> = <code>true</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
@@ -340,6 +368,25 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a10037771d580fd4a836566a33f40fc46"></a><!-- doxytag: member="RootReader::pushEvent" ref="a10037771d580fd4a836566a33f40fc46" args="(const Event &amp;evt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void RootReader::pushEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/da5/classEvent.xhtml">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="../../d0/df3/classData.xhtml#a6db11bce8fdefd6a57e599fdc52e629b">Data</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4c2e6179e52197a407b5a5d216c48243"></a><!-- doxytag: member="RootReader::storeEvents" ref="a4c2e6179e52197a407b5a5d216c48243" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -357,6 +404,19 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="abdbceccb2df52025d3e8c3a8beab43a1"></a><!-- doxytag: member="RootReader::_readFlag" ref="abdbceccb2df52025d3e8c3a8beab43a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/d4d/classRootReader.xhtml#abdbceccb2df52025d3e8c3a8beab43a1">RootReader::_readFlag</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a1b113b9995014a846c6096cb4e11eee2"></a><!-- doxytag: member="RootReader::fBinned" ref="a1b113b9995014a846c6096cb4e11eee2" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -415,6 +475,19 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">TFile* <a class="el" href="../../d2/d4d/classRootReader.xhtml#a75af1a876b73e6833bdc6b254d65335b">RootReader::fFile</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1cf73877449a89775913be36f5125e4c"></a><!-- doxytag: member="RootReader::fileName" ref="a1cf73877449a89775913be36f5125e4c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d2/d4d/classRootReader.xhtml#a1cf73877449a89775913be36f5125e4c">RootReader::fileName</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -487,6 +560,19 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac89a741ecb1f412fc24d81381c11f146"></a><!-- doxytag: member="RootReader::treeName" ref="ac89a741ecb1f412fc24d81381c11f146" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d2/d4d/classRootReader.xhtml#ac89a741ecb1f412fc24d81381c11f146">RootReader::treeName</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>DataReader/RootReader/<a class="el" href="../../df/d53/RootReader_8hpp_source.xhtml">RootReader.hpp</a></li>
 <li>DataReader/RootReader/<a class="el" href="../../df/d44/RootReader_8cpp.xhtml">RootReader.cpp</a></li>
@@ -506,7 +592,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

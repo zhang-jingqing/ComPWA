@@ -79,38 +79,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="../../d3/d76/AmpAbsDynamicalFunction_8hpp.xhtml">Physics/AmplitudeSum/AmpAbsDynamicalFunction.hpp</a>&quot;</span>
 <a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="../../d2/d45/AmpRelBreitWignerRes_8hpp.xhtml">Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp</a>&quot;</span>
 <a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="../../d4/d12/AmpWigner_8hpp.xhtml">Physics/AmplitudeSum/AmpWigner.hpp</a>&quot;</span>
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;memory&gt;</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="comment">//class TIterator;</span>
-<a name="l00024"></a>00024 <span class="comment">//class RooRealVar;</span>
-<a name="l00025"></a>00025  
-<a name="l00026"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">00026</a> <span class="keyword">class </span><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a>{
-<a name="l00027"></a>00027 <span class="keyword">public</span>:
-<a name="l00028"></a>00028   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>();
-<a name="l00029"></a>00029   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name);
-<a name="l00030"></a>00030   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a>&amp; other, <span class="keyword">const</span> <span class="keywordtype">char</span>* name=0) ;
-<a name="l00031"></a>00031   <span class="keyword">virtual</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a831951cf4501e458ddfec6eac694fdc1">~AmpSumOfAmplitudes</a>();
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <span class="keywordtype">void</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abd10da2566cce5a11e57812fdf678554">addBW</a>(std::shared_ptr&lt;AmpAbsDynamicalFunction&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;DoubleParameter&gt;);
-<a name="l00034"></a>00034   <span class="keywordtype">void</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abd10da2566cce5a11e57812fdf678554">addBW</a>(std::shared_ptr&lt;AmpAbsDynamicalFunction&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;AmpWigner&gt;);
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#ac60d21d59ef7427c1dcdf300e6f59f0b">evaluateSlice</a>(std::complex&lt;double&gt;*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) <span class="keyword">const</span> ;
-<a name="l00037"></a>00037   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abc905466c8533801103d3ae5e69d4c34">evaluate</a>() <span class="keyword">const</span> ;
-<a name="l00038"></a>00038   
-<a name="l00039"></a>00039 <span class="keyword">protected</span>:
-<a name="l00040"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abce84ba0526d987145e73b66854c23be">00040</a>   std::vector&lt;std::shared_ptr&lt;AmpAbsDynamicalFunction&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abce84ba0526d987145e73b66854c23be">_pdfList</a> ;   <span class="comment">//  List of component PDFs</span>
-<a name="l00041"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aeacd8c6289bb13006a6bb5ebb87a3649">00041</a>   std::vector&lt;std::shared_ptr&lt;DoubleParameter&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aeacd8c6289bb13006a6bb5ebb87a3649">_intList</a>;    <span class="comment">//  List of relative intensities</span>
-<a name="l00042"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a4fb6f6f7024be7bec8ba2b3707c9b1cb">00042</a>   std::vector&lt;std::shared_ptr&lt;DoubleParameter&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a4fb6f6f7024be7bec8ba2b3707c9b1cb">_phaseList</a>;  <span class="comment">//  List of relative phases</span>
-<a name="l00043"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a8af3b5a2e4a5bcf2d7da97239445d1c5">00043</a>   std::vector&lt;std::shared_ptr&lt;AmpWigner&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a8af3b5a2e4a5bcf2d7da97239445d1c5">_angList</a> ;   <span class="comment">//  List of component angular distributions</span>
-<a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aa982dc609e1e35765ce6172cef895f90">00045</a>   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aa982dc609e1e35765ce6172cef895f90">maxVal</a>;
-<a name="l00046"></a>00046 
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="../../d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot">Core/DataPoint.hpp</a>&quot;</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;memory&gt;</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="comment">//class TIterator;</span>
+<a name="l00025"></a>00025 <span class="comment">//class RooRealVar;</span>
+<a name="l00026"></a>00026  
+<a name="l00027"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">00027</a> <span class="keyword">class </span><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a>{
+<a name="l00028"></a>00028 <span class="keyword">public</span>:
+<a name="l00029"></a>00029   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>();
+<a name="l00030"></a>00030   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name);
+<a name="l00031"></a>00031   <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a05bb4529f6f4bed1d870aaed0393780a">AmpSumOfAmplitudes</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml">AmpSumOfAmplitudes</a>&amp; other, <span class="keyword">const</span> <span class="keywordtype">char</span>* name=0) ;
+<a name="l00032"></a>00032   <span class="keyword">virtual</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a831951cf4501e458ddfec6eac694fdc1">~AmpSumOfAmplitudes</a>();
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034   <span class="keywordtype">void</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abd10da2566cce5a11e57812fdf678554">addBW</a>(std::shared_ptr&lt;AmpAbsDynamicalFunction&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;DoubleParameter&gt;);
+<a name="l00035"></a>00035   <span class="keywordtype">void</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abd10da2566cce5a11e57812fdf678554">addBW</a>(std::shared_ptr&lt;AmpAbsDynamicalFunction&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;DoubleParameter&gt;, std::shared_ptr&lt;AmpWigner&gt;);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a804f85fa4cabe0d1da09210f5511fb0e">evaluateSlice</a>(<a class="code" href="../../df/d0d/classdataPoint.xhtml" title="dataPoint is a singleton class which provides a certain phase space point to all classes of the frame...">dataPoint</a>&amp; point,std::complex&lt;double&gt;*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) <span class="keyword">const</span> ;
+<a name="l00038"></a>00038   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#ae8acabc71e339b356460651590365407">evaluate</a>(<a class="code" href="../../df/d0d/classdataPoint.xhtml" title="dataPoint is a singleton class which provides a certain phase space point to all classes of the frame...">dataPoint</a>&amp; point) <span class="keyword">const</span> ;
+<a name="l00039"></a>00039   
+<a name="l00040"></a>00040 <span class="keyword">protected</span>:
+<a name="l00041"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abce84ba0526d987145e73b66854c23be">00041</a>   std::vector&lt;std::shared_ptr&lt;AmpAbsDynamicalFunction&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#abce84ba0526d987145e73b66854c23be">_pdfList</a> ;   <span class="comment">//  List of component PDFs</span>
+<a name="l00042"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aeacd8c6289bb13006a6bb5ebb87a3649">00042</a>   std::vector&lt;std::shared_ptr&lt;DoubleParameter&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aeacd8c6289bb13006a6bb5ebb87a3649">_intList</a>;    <span class="comment">//  List of relative intensities</span>
+<a name="l00043"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a4fb6f6f7024be7bec8ba2b3707c9b1cb">00043</a>   std::vector&lt;std::shared_ptr&lt;DoubleParameter&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a4fb6f6f7024be7bec8ba2b3707c9b1cb">_phaseList</a>;  <span class="comment">//  List of relative phases</span>
+<a name="l00044"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a8af3b5a2e4a5bcf2d7da97239445d1c5">00044</a>   std::vector&lt;std::shared_ptr&lt;AmpWigner&gt; &gt; <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#a8af3b5a2e4a5bcf2d7da97239445d1c5">_angList</a> ;   <span class="comment">//  List of component angular distributions</span>
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aa982dc609e1e35765ce6172cef895f90">00046</a>   <span class="keywordtype">double</span> <a class="code" href="../../dc/d5e/classAmpSumOfAmplitudes.xhtml#aa982dc609e1e35765ce6172cef895f90">maxVal</a>;
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048 };
-<a name="l00049"></a>00049  
-<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050  
+<a name="l00051"></a>00051 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -127,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -1,8 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$d9/d3e/classAmplitude.xhtml" title="Physics Interface Base&#45;Class." alt="" coords="5,112,85,141"/>
-<area shape="rect" id="node3" href="$de/dda/classAmpSumIntensity.xhtml" title="AmpSumIntensity" alt="" coords="148,5,273,35"/>
-<area shape="rect" id="node5" href="$d0/d4b/classAmpSumSliceIntensity.xhtml" title="AmpSumSliceIntensity" alt="" coords="133,59,288,88"/>
-<area shape="rect" id="node7" href="$d9/d64/classBlackScholes.xhtml" title="Physics Module for Black&#45;Scholes stock price development." alt="" coords="160,112,261,141"/>
-<area shape="rect" id="node9" href="$d4/d1c/classBreitWigner.xhtml" title="Physics Module with simple 1D Breit&#45;Wigner." alt="" coords="165,165,256,195"/>
-<area shape="rect" id="node11" href="$d0/d37/classNeuralNetwork.xhtml" title="Physics Module using a neural network." alt="" coords="156,219,265,248"/>
+<area shape="rect" id="node1" href="$d9/d3e/classAmplitude.xhtml" title="Physics Interface Base&#45;Class." alt="" coords="5,32,85,61"/>
+<area shape="rect" id="node3" href="$de/dda/classAmpSumIntensity.xhtml" title="AmpSumIntensity" alt="" coords="135,5,260,35"/>
+<area shape="rect" id="node5" href="$d4/d1c/classBreitWigner.xhtml" title="Physics Module with simple 1D Breit&#45;Wigner." alt="" coords="152,59,243,88"/>
 </map>

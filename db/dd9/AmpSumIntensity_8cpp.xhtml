@@ -66,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;memory&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
 <code>#include &quot;<a class="el" href="../../dc/de3/Amplitude_8hpp_source.xhtml">Physics/Amplitude.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../db/dce/Parameter_8hpp_source.xhtml">Core/Parameter.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../df/d9f/ParameterList_8hpp_source.xhtml">Core/ParameterList.hpp</a>&quot;</code><br/>
@@ -78,15 +79,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;<a class="el" href="../../d2/d45/AmpRelBreitWignerRes_8hpp_source.xhtml">Physics/AmplitudeSum/AmpRelBreitWignerRes.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../df/d8c/AmpGausRes_8hpp_source.xhtml">Physics/AmplitudeSum/AmpGausRes.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../dd/d65/AmpFlatteRes_8hpp_source.xhtml">Physics/AmplitudeSum/AmpFlatteRes.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d2a/AmpWigner2_8hpp_source.xhtml">Physics/AmplitudeSum/AmpWigner2.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d12/AmpWigner_8hpp_source.xhtml">Physics/AmplitudeSum/AmpWigner.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../d4/d9e/AmpSumOfAmplitudes_8hpp_source.xhtml">Physics/AmplitudeSum/AmpSumOfAmplitudes.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../d0/d2a/AmpSumIntensity_8hpp_source.xhtml">Physics/AmplitudeSum/AmpSumIntensity.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/d35/PhysConst_8hpp_source.xhtml">Physics/DPKinematics/PhysConst.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d35/PhysConst_8hpp_source.xhtml">Core/PhysConst.hpp</a>&quot;</code><br/>
+<code>#include &lt;boost/random/linear_congruential.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/uniform_int.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/uniform_real.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/variate_generator.hpp&gt;</code><br/>
+<code>#include &lt;boost/generator_iterator.hpp&gt;</code><br/>
 <code>#include &quot;boost/function.hpp&quot;</code><br/>
+<code>#include &lt;boost/log/trivial.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for AmpSumIntensity.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d6/d2d/AmpSumIntensity_8cpp__incl.svg" width="3678" height="736" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d6/d2d/AmpSumIntensity_8cpp__incl.svg" width="5014" height="736" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -143,7 +150,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

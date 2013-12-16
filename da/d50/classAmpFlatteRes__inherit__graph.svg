@@ -35,35 +35,34 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<a xlink:href="../../de/d75/classAmpAbsDynamicalFunction.xhtml" target="_top" xlink:title="{AmpAbsDynamicalFunction\n|# _name\l# _norm\l|+ AmpAbsDynamicalFunction()\l+ AmpAbsDynamicalFunction()\l+ ~AmpAbsDynamicalFunction()\l+ to_str()\l+ initialise()\l+ evaluate()\l+ evaluateAmp()\l+ evaluateWignerD()\l+ getSpin()\l+ isSubSys()\l+ evaluate()\l+ integral()\l+ GetName()\l+ GetTitle()\l+ GetNormalization()\l+ SetNormalization()\l}">
-<polygon fill="white" stroke="black" points="-0.5,-400.5 -0.5,-671.5 158.5,-671.5 158.5,-400.5 -0.5,-400.5"/>
-<text text-anchor="middle" x="79" y="-658.5" font-family="Helvetica,sans-Serif" font-size="10.00">AmpAbsDynamicalFunction</text>
-<polyline fill="none" stroke="black" points="-0.5,-650.5 158.5,-650.5 "/>
-<text text-anchor="start" x="7.5" y="-637.5" font-family="Helvetica,sans-Serif" font-size="10.00"># _name</text>
-<text text-anchor="start" x="7.5" y="-624.5" font-family="Helvetica,sans-Serif" font-size="10.00"># _norm</text>
-<polyline fill="none" stroke="black" points="-0.5,-616.5 158.5,-616.5 "/>
-<text text-anchor="start" x="7.5" y="-603.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ AmpAbsDynamicalFunction()</text>
-<text text-anchor="start" x="7.5" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ AmpAbsDynamicalFunction()</text>
-<text text-anchor="start" x="7.5" y="-577.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~AmpAbsDynamicalFunction()</text>
-<text text-anchor="start" x="7.5" y="-564.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ to_str()</text>
-<text text-anchor="start" x="7.5" y="-551.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ initialise()</text>
-<text text-anchor="start" x="7.5" y="-538.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluate()</text>
-<text text-anchor="start" x="7.5" y="-525.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluateAmp()</text>
-<text text-anchor="start" x="7.5" y="-512.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluateWignerD()</text>
-<text text-anchor="start" x="7.5" y="-499.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSpin()</text>
-<text text-anchor="start" x="7.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isSubSys()</text>
-<text text-anchor="start" x="7.5" y="-473.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluate()</text>
-<text text-anchor="start" x="7.5" y="-460.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ integral()</text>
-<text text-anchor="start" x="7.5" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetName()</text>
-<text text-anchor="start" x="7.5" y="-434.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetTitle()</text>
-<text text-anchor="start" x="7.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetNormalization()</text>
-<text text-anchor="start" x="7.5" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetNormalization()</text>
+<a xlink:href="../../de/d75/classAmpAbsDynamicalFunction.xhtml" target="_top" xlink:title="{AmpAbsDynamicalFunction\n|# _name\l# _norm\l|+ AmpAbsDynamicalFunction()\l+ AmpAbsDynamicalFunction()\l+ ~AmpAbsDynamicalFunction()\l+ initialise()\l+ evaluate()\l+ evaluateAmp()\l+ evaluateWignerD()\l+ getSpin()\l+ isSubSys()\l+ evaluate()\l+ integral()\l+ GetName()\l+ GetTitle()\l+ GetNormalization()\l+ SetNormalization()\l}">
+<polygon fill="white" stroke="black" points="-0.5,-407 -0.5,-665 158.5,-665 158.5,-407 -0.5,-407"/>
+<text text-anchor="middle" x="79" y="-652" font-family="Helvetica,sans-Serif" font-size="10.00">AmpAbsDynamicalFunction</text>
+<polyline fill="none" stroke="black" points="-0.5,-644 158.5,-644 "/>
+<text text-anchor="start" x="7.5" y="-631" font-family="Helvetica,sans-Serif" font-size="10.00"># _name</text>
+<text text-anchor="start" x="7.5" y="-618" font-family="Helvetica,sans-Serif" font-size="10.00"># _norm</text>
+<polyline fill="none" stroke="black" points="-0.5,-610 158.5,-610 "/>
+<text text-anchor="start" x="7.5" y="-597" font-family="Helvetica,sans-Serif" font-size="10.00">+ AmpAbsDynamicalFunction()</text>
+<text text-anchor="start" x="7.5" y="-584" font-family="Helvetica,sans-Serif" font-size="10.00">+ AmpAbsDynamicalFunction()</text>
+<text text-anchor="start" x="7.5" y="-571" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~AmpAbsDynamicalFunction()</text>
+<text text-anchor="start" x="7.5" y="-558" font-family="Helvetica,sans-Serif" font-size="10.00">+ initialise()</text>
+<text text-anchor="start" x="7.5" y="-545" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluate()</text>
+<text text-anchor="start" x="7.5" y="-532" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluateAmp()</text>
+<text text-anchor="start" x="7.5" y="-519" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluateWignerD()</text>
+<text text-anchor="start" x="7.5" y="-506" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSpin()</text>
+<text text-anchor="start" x="7.5" y="-493" font-family="Helvetica,sans-Serif" font-size="10.00">+ isSubSys()</text>
+<text text-anchor="start" x="7.5" y="-480" font-family="Helvetica,sans-Serif" font-size="10.00">+ evaluate()</text>
+<text text-anchor="start" x="7.5" y="-467" font-family="Helvetica,sans-Serif" font-size="10.00">+ integral()</text>
+<text text-anchor="start" x="7.5" y="-454" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetName()</text>
+<text text-anchor="start" x="7.5" y="-441" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetTitle()</text>
+<text text-anchor="start" x="7.5" y="-428" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetNormalization()</text>
+<text text-anchor="start" x="7.5" y="-415" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetNormalization()</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge2" class="edge"><title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M105.916,-390.297C113.835,-347.429 122.439,-300.848 130.152,-259.097"/>
-<polygon fill="none" stroke="midnightblue" points="102.453,-389.774 104.078,-400.243 109.337,-391.046 102.453,-389.774"/>
+<path fill="none" stroke="midnightblue" d="M104.691,-396.927C112.945,-352.245 122.049,-302.961 130.164,-259.031"/>
+<polygon fill="none" stroke="midnightblue" points="101.208,-396.512 102.834,-406.981 108.092,-397.783 101.208,-396.512"/>
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>

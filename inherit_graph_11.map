@@ -1,5 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$d6/d1a/classDalitzEfficiency.xhtml" title="Virtual efficiency class." alt="" coords="5,32,120,61"/>
-<area shape="rect" id="node3" href="$d7/d76/classDalitzHistEfficiency.xhtml" title="Efficiency provided by a histogram." alt="" coords="169,5,308,35"/>
-<area shape="rect" id="node5" href="$d5/dff/classDalitzPolyEfficiency.xhtml" title="Efficiency provided by a polynomial." alt="" coords="169,59,308,88"/>
+<area shape="rect" id="node1" href="$d6/d1a/classDalitzEfficiency.xhtml" title="Virtual efficiency class." alt="" coords="5,5,120,35"/>
 </map>

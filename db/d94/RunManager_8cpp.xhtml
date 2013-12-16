@@ -63,16 +63,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div class="contents">
 <div class="textblock"><code>#include &lt;memory&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
+<code>#include &lt;boost/random/linear_congruential.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/uniform_int.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/uniform_real.hpp&gt;</code><br/>
+<code>#include &lt;boost/random/variate_generator.hpp&gt;</code><br/>
+<code>#include &lt;boost/generator_iterator.hpp&gt;</code><br/>
+<code>#include &lt;boost/log/trivial.hpp&gt;</code><br/>
+<code>#include &lt;boost/progress.hpp&gt;</code><br/>
 <code>#include &quot;<a class="el" href="../../d2/d4b/Data_8hpp_source.xhtml">DataReader/Data.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../d5/d10/Estimator_8hpp_source.xhtml">Estimator/Estimator.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../dc/de3/Amplitude_8hpp_source.xhtml">Physics/Amplitude.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../db/d93/Optimizer_8hpp_source.xhtml">Optimizer/Optimizer.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../df/d9f/ParameterList_8hpp_source.xhtml">Core/ParameterList.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../df/d7d/Event_8hpp_source.xhtml">Core/Event.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../df/d33/Generator_8hpp_source.xhtml">Core/Generator.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="../../db/d41/RunManager_8hpp_source.xhtml">Core/RunManager.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for RunManager.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d8/d7c/RunManager_8cpp__incl.svg" width="2227" height="736" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d8/d7c/RunManager_8cpp__incl.svg" width="2646" height="736" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -92,7 +103,7 @@ Include dependency graph for RunManager.cpp:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

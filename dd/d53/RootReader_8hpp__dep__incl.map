@@ -5,7 +5,8 @@
 <area shape="rect" id="node9" href="$da/d2a/DalitzFitApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple BW&#45;dalitz&#45;model." alt="" coords="784,83,928,112"/>
 <area shape="rect" id="node11" href="$db/d8a/DataIFTestApp_8cpp.xhtml" title="Test&#45;Application of the Root Data&#45;IF." alt="" coords="952,83,1115,112"/>
 <area shape="rect" id="node13" href="$d4/d31/EstimatorTestApp_8cpp.xhtml" title="Test&#45;Application of a simple &#160;estimator." alt="" coords="1139,83,1317,112"/>
-<area shape="rect" id="node15" href="$d5/d26/IntegrationTestApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple modules." alt="" coords="1341,83,1523,112"/>
-<area shape="rect" id="node17" href="$d0/d0c/IntegrationTestBinnedApp_8cpp.xhtml" title="test/IntegrationTestBinnedApp.cpp" alt="" coords="1547,83,1768,112"/>
-<area shape="rect" id="node19" href="$dd/d77/RunManagerTestApp_8cpp.xhtml" title="Test&#45;Application for fit with simple modules using RunManager." alt="" coords="1792,83,1987,112"/>
+<area shape="rect" id="node15" href="$db/d19/GenRunManagerApp_8cpp.xhtml" title="test/GenRunManagerApp.cpp" alt="" coords="1341,83,1536,112"/>
+<area shape="rect" id="node17" href="$d5/d26/IntegrationTestApp_8cpp.xhtml" title="Test&#45;Application for full fit with simple modules." alt="" coords="1560,83,1741,112"/>
+<area shape="rect" id="node19" href="$d0/d0c/IntegrationTestBinnedApp_8cpp.xhtml" title="test/IntegrationTestBinnedApp.cpp" alt="" coords="1765,83,1987,112"/>
+<area shape="rect" id="node21" href="$dd/d77/RunManagerTestApp_8cpp.xhtml" title="Test&#45;Application for fit with simple modules using RunManager." alt="" coords="2011,83,2205,112"/>
 </map>

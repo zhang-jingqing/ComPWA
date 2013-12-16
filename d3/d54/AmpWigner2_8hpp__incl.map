@@ -1,10 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node7" href="$d1/d72/DPKinematics_8hpp.xhtml" title="DPKinematics stores kinematic information of a dalitz plot." alt="" coords="772,160,1041,189"/>
-<area shape="rect" id="node11" href="$d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot" alt="" coords="596,83,839,112"/>
-<area shape="rect" id="node18" href="$df/d9f/ParameterList_8hpp.xhtml" title="This class provides a list of fit parameters which can have different types." alt="" coords="319,160,479,189"/>
-<area shape="rect" id="node53" href="$dc/d66/Functions_8hpp.xhtml" title="This file contains Functions implementing the Strategy interface so they can be used inside a node of..." alt="" coords="436,83,572,112"/>
-<area shape="rect" id="node30" href="$d8/def/AbsParameter_8hpp.xhtml" title="This class defines the internal container of a parameter." alt="" coords="653,315,816,344"/>
-<area shape="rect" id="node39" href="$db/dce/Parameter_8hpp.xhtml" title="This class implements some internal container of parameters." alt="" coords="467,237,605,267"/>
-<area shape="rect" id="node47" href="$d2/de9/Exceptions_8hpp.xhtml" title="This class defines the ComPWA exception base&#45;class and provides a set of standard exceptions..." alt="" coords="147,315,291,344"/>
-<area shape="rect" id="node37" href="$d9/d91/ParObserver_8hpp.xhtml" title="For the use in the function tree, the observer pattern is used." alt="" coords="589,392,741,421"/>
+<area shape="rect" id="node5" href="$d7/dd9/DalitzKinematics_8hpp.xhtml" title="Physics/DPKinematics/DalitzKinematics.hpp" alt="" coords="53,83,338,112"/>
+<area shape="rect" id="node18" href="$d8/dd4/DataPoint_8hpp.xhtml" title="dataPoint stores kinematic information of a dalitz plot" alt="" coords="397,237,533,267"/>
+<area shape="rect" id="node12" href="$d4/d37/Kinematics_8hpp.xhtml" title="Core/Kinematics.hpp" alt="" coords="254,160,398,189"/>
 </map>

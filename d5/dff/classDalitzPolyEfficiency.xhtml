@@ -66,21 +66,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">DalitzPolyEfficiency Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="DalitzPolyEfficiency" --><!-- doxytag: inherits="DalitzEfficiency" -->
-<p>Efficiency provided by a polynomial.  
+<!-- doxytag: class="DalitzPolyEfficiency" --><!-- doxytag: inherits="Efficiency" -->
+<p><a class="el" href="../../dc/d05/classEfficiency.xhtml">Efficiency</a> provided by a polynomial.  
  <a href="../../d5/dff/classDalitzPolyEfficiency.xhtml#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d1c/DalitzEfficiency_8hpp_source.xhtml">DalitzEfficiency.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d5e/RootEfficiency_8hpp_source.xhtml">RootEfficiency.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DalitzPolyEfficiency:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../d5/dc7/classDalitzPolyEfficiency__inherit__graph.svg" width="179" height="318" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../d5/dc7/classDalitzPolyEfficiency__inherit__graph.svg" width="179" height="299" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for DalitzPolyEfficiency:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../df/d58/classDalitzPolyEfficiency__coll__graph.svg" width="179" height="318" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../df/d58/classDalitzPolyEfficiency__coll__graph.svg" width="179" height="299" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
@@ -91,9 +91,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dff/classDalitzPolyEfficiency.xhtml#ac40cec802adc47677ff5db5fcb067bfe">evaluate</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dff/classDalitzPolyEfficiency.xhtml#ade20cbe833a1e7551fc97d44aa6408a3">DalitzPolyEfficiency</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dff/classDalitzPolyEfficiency.xhtml#a20220f98c883867a1f595e1f75056898">~DalitzPolyEfficiency</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d05/classEfficiency.xhtml#aa09d652b67ff64eaf4b10396955f4ff6">evaluate</a> (std::vector&lt; double &gt; x)=0</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Efficiency provided by a polynomial. </p>
+<div class="textblock"><p><a class="el" href="../../dc/d05/classEfficiency.xhtml">Efficiency</a> provided by a polynomial. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ade20cbe833a1e7551fc97d44aa6408a3"></a><!-- doxytag: member="DalitzPolyEfficiency::DalitzPolyEfficiency" ref="ade20cbe833a1e7551fc97d44aa6408a3" args="()" -->
 <div class="memitem">
@@ -136,18 +137,35 @@ Public Member Functions</h2></td></tr>
           <td class="memname">double DalitzPolyEfficiency::evaluate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="../../d6/d1a/classDalitzEfficiency.xhtml#a49cf01e8e6947d294e0990dc5e940676">DalitzEfficiency</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa09d652b67ff64eaf4b10396955f4ff6"></a><!-- doxytag: member="DalitzPolyEfficiency::evaluate" ref="aa09d652b67ff64eaf4b10396955f4ff6" args="(std::vector&lt; double &gt; x)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double Efficiency::evaluate </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td><code> [pure virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d9/da5/classUnitEfficiency.xhtml#a9a4bbef788157f4e84dbbb6f9f3467c5">UnitEfficiency</a>, and <a class="el" href="../../d7/d76/classDalitzHistEfficiency.xhtml#abf6f3d70fb7f0542aab97d2b61086b41">DalitzHistEfficiency</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Physics/DPKinematics/<a class="el" href="../../dc/d1c/DalitzEfficiency_8hpp_source.xhtml">DalitzEfficiency.hpp</a></li>
+<li>Physics/DPKinematics/<a class="el" href="../../d5/d5e/RootEfficiency_8hpp_source.xhtml">RootEfficiency.hpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -164,7 +182,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

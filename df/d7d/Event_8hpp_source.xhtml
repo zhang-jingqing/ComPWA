@@ -97,20 +97,22 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00040"></a>00040 
 <a name="l00041"></a><a class="code" href="../../d5/da5/classEvent.xhtml#af49af9d3039f930eeefa2f52e44c1cc7">00041</a>   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <span class="keyword">inline</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af49af9d3039f930eeefa2f52e44c1cc7">setName</a>(<span class="keyword">const</span> std::string&amp; name) { <a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">fName</a> = name; }
 <a name="l00042"></a><a class="code" href="../../d5/da5/classEvent.xhtml#ab96b80e962735b08e077e70176c0e8d4">00042</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">inline</span> std::string&amp; <a class="code" href="../../d5/da5/classEvent.xhtml#ab96b80e962735b08e077e70176c0e8d4">getName</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">fName</a>; }
-<a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="../../d5/da5/classEvent.xhtml#af6404986f4d6025c9f91db1964b7e964">00044</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af6404986f4d6025c9f91db1964b7e964">getNParticles</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">fParticles</a>.size(); }
-<a name="l00045"></a>00045   <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/d47/structParticle.xhtml" title="Internal container representing a particle.">Particle</a>&amp; <a class="code" href="../../d5/da5/classEvent.xhtml#a1386cb0d462fdebdc54f2fdbda6c9004">getParticle</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">protected</span>:
-<a name="l00048"></a><a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">00048</a>   std::vector&lt;Particle&gt; <a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">fParticles</a>;
-<a name="l00049"></a><a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">00049</a>   <span class="keywordtype">double</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">fWeight</a>;
-<a name="l00050"></a><a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">00050</a>   std::string <a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">fName</a>;
-<a name="l00051"></a>00051   <span class="comment">//Particle fParticleB;</span>
-<a name="l00052"></a>00052   <span class="comment">//TODO: other event info?</span>
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 };
+<a name="l00043"></a><a class="code" href="../../d5/da5/classEvent.xhtml#a69b63cd465cdda3f629db7d151a3de56">00043</a>   <span class="keyword">virtual</span> <span class="keywordtype">double</span> <span class="keyword">inline</span> <a class="code" href="../../d5/da5/classEvent.xhtml#a69b63cd465cdda3f629db7d151a3de56">getWeight</a>() {<span class="keywordflow">return</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">fWeight</a>;};
+<a name="l00044"></a><a class="code" href="../../d5/da5/classEvent.xhtml#a57b9859f938ff39eeba89f0effb63bff">00044</a>   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <span class="keyword">inline</span> <a class="code" href="../../d5/da5/classEvent.xhtml#a57b9859f938ff39eeba89f0effb63bff">setWeight</a>(<span class="keywordtype">double</span> w) { <a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">fWeight</a>=w;};
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="../../d5/da5/classEvent.xhtml#af6404986f4d6025c9f91db1964b7e964">00046</a>   <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af6404986f4d6025c9f91db1964b7e964">getNParticles</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">fParticles</a>.size(); }
+<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/d47/structParticle.xhtml" title="Internal container representing a particle.">Particle</a>&amp; <a class="code" href="../../d5/da5/classEvent.xhtml#a1386cb0d462fdebdc54f2fdbda6c9004">getParticle</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">protected</span>:
+<a name="l00050"></a><a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">00050</a>   std::vector&lt;Particle&gt; <a class="code" href="../../d5/da5/classEvent.xhtml#a8b6abfa709a91c4109ab52237a364229">fParticles</a>;
+<a name="l00051"></a><a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">00051</a>   <span class="keywordtype">double</span> <a class="code" href="../../d5/da5/classEvent.xhtml#af00af833e5d897490265fb19c8578485">fWeight</a>;
+<a name="l00052"></a><a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">00052</a>   std::string <a class="code" href="../../d5/da5/classEvent.xhtml#ae4491e652f57bc4af8fbca2c5e008248">fName</a>;
+<a name="l00053"></a>00053   <span class="comment">//Particle fParticleB;</span>
+<a name="l00054"></a>00054   <span class="comment">//TODO: other event info?</span>
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
+<a name="l00056"></a>00056 };
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -127,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

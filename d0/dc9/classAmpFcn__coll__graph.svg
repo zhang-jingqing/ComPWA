@@ -60,26 +60,30 @@
 <!-- Node4 -->
 <g id="node6" class="node"><title>Node4</title>
 <a xlink:href="../../d9/d3e/classAmplitude.xhtml" target="_top" xlink:title="Physics Interface Base&#45;Class.">
-<polygon fill="white" stroke="black" points="353.5,-355.5 353.5,-522.5 448.5,-522.5 448.5,-355.5 353.5,-355.5"/>
-<text text-anchor="middle" x="401" y="-509.5" font-family="Helvetica,sans-Serif" font-size="10.00">Amplitude</text>
-<polyline fill="none" stroke="black" points="353.5,-501.5 448.5,-501.5 "/>
-<text text-anchor="middle" x="401" y="-488.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="353.5,-480.5 448.5,-480.5 "/>
-<text text-anchor="start" x="361.5" y="-467.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Amplitude()</text>
-<text text-anchor="start" x="361.5" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~Amplitude()</text>
-<text text-anchor="start" x="361.5" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setNevents()</text>
-<text text-anchor="start" x="361.5" y="-428.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getNevents()</text>
-<text text-anchor="start" x="361.5" y="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ integral()</text>
-<text text-anchor="start" x="361.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getMaxVal()</text>
+<polygon fill="white" stroke="black" points="353.5,-329.5 353.5,-548.5 448.5,-548.5 448.5,-329.5 353.5,-329.5"/>
+<text text-anchor="middle" x="401" y="-535.5" font-family="Helvetica,sans-Serif" font-size="10.00">Amplitude</text>
+<polyline fill="none" stroke="black" points="353.5,-527.5 448.5,-527.5 "/>
+<text text-anchor="middle" x="401" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="353.5,-506.5 448.5,-506.5 "/>
+<text text-anchor="start" x="361.5" y="-493.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Amplitude()</text>
+<text text-anchor="start" x="361.5" y="-480.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~Amplitude()</text>
+<text text-anchor="start" x="361.5" y="-467.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setNevents()</text>
+<text text-anchor="start" x="361.5" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getNevents()</text>
+<text text-anchor="start" x="361.5" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ integral()</text>
+<text text-anchor="start" x="361.5" y="-428.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getMaxVal()</text>
+<text text-anchor="start" x="361.5" y="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getMaxVal()</text>
+<text text-anchor="start" x="361.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ intensity()</text>
 <text text-anchor="start" x="361.5" y="-389.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ intensity()</text>
-<text text-anchor="start" x="361.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ fillStartParVec()</text>
-<text text-anchor="start" x="361.5" y="-363.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ functionTree()</text>
+<text text-anchor="start" x="361.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ intensity()</text>
+<text text-anchor="start" x="361.5" y="-363.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ fillStartParVec()</text>
+<text text-anchor="start" x="361.5" y="-350.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Clone()</text>
+<text text-anchor="start" x="361.5" y="-337.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ functionTree()</text>
 </a>
 </g>
 <!-- Node4&#45;&gt;Node1 -->
 <g id="edge6" class="edge"><title>Node4&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M401,-345.26C401,-264.468 401,-151.373 401,-89.604"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="401,-355.443 396.5,-345.443 401,-350.443 401,-345.443 401,-345.443 401,-345.443 401,-350.443 405.5,-345.443 401,-355.443 401,-355.443"/>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M401,-318.924C401,-241.385 401,-144.983 401,-89.6682"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="401,-329.249 396.5,-319.249 401,-324.249 401,-319.249 401,-319.249 401,-319.249 401,-324.249 405.5,-319.249 401,-329.249 401,-329.249"/>
 <text text-anchor="middle" x="413.5" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">_amp</text>
 </g>
 <!-- Node5 -->

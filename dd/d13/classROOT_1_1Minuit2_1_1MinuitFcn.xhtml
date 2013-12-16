@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="dynheader">
 Collaboration diagram for ROOT::Minuit2::MinuitFcn:</div>
 <div class="dyncontent">
-<div class="center"><iframe src="../../da/d5e/classROOT_1_1Minuit2_1_1MinuitFcn__coll__graph.svg" width="1468" height="1627" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe src="../../da/d5e/classROOT_1_1Minuit2_1_1MinuitFcn__coll__graph.svg" width="1330" height="1523" frameborder="0" scrolling="no"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="../../graph_legend.xhtml">legend</a>]</span></center></div>
 
@@ -91,17 +91,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#ad15147b95f66ebaae0aa1075d342e546">~MinuitFcn</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#adb9dc1866f4f718becb2e606e7e4de6b">operator()</a> (const std::vector&lt; double &gt; &amp;x) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#a66f3013fdbc34077352fe8add6620d60">Up</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#a778fe9ef991f7c5e1775681ed6f9a1de">setNameID</a> (const unsigned int id, const std::string name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#a82ec55567cee4582dcb204b815ea2b8d">parName</a> (const unsigned int id)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/db1/classControlParameter.xhtml">ControlParameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#ab5379c23cd6c194e6e940537a96400c1">_myDataPtr</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the <a class="el" href="../../d5/db1/classControlParameter.xhtml" title="Optimizer Data Base-Class.">ControlParameter</a> (e.g.  <a href="#ab5379c23cd6c194e6e940537a96400c1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d9d/classParameterList.xhtml">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#aada4eb181c89bb2d75eb9b032a55f12b">_parList</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of Parameters the <a class="el" href="../../d5/db1/classControlParameter.xhtml" title="Optimizer Data Base-Class.">ControlParameter</a> needs.  <a href="#aada4eb181c89bb2d75eb9b032a55f12b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, <br class="typebreak"/>
-std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#a2df5a043de82232c70adc3c4ae45794f">_parNames</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">mapping of minuit ids to ComPWA names  <a href="#a2df5a043de82232c70adc3c4ae45794f"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa41f206d7d0c17f1742eb01bca064f4d"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::MinuitFcn" ref="aa41f206d7d0c17f1742eb01bca064f4d" args="(std::shared_ptr&lt; ControlParameter &gt; theData, ParameterList &amp;parList)" -->
@@ -165,50 +158,6 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a82ec55567cee4582dcb204b815ea2b8d"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::parName" ref="a82ec55567cee4582dcb204b815ea2b8d" args="(const unsigned int id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ROOT::Minuit2::MinuitFcn::parName </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a778fe9ef991f7c5e1775681ed6f9a1de"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::setNameID" ref="a778fe9ef991f7c5e1775681ed6f9a1de" args="(const unsigned int id, const std::string name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ROOT::Minuit2::MinuitFcn::setNameID </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a66f3013fdbc34077352fe8add6620d60"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::Up" ref="a66f3013fdbc34077352fe8add6620d60" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -237,9 +186,6 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>pointer to the <a class="el" href="../../d5/db1/classControlParameter.xhtml" title="Optimizer Data Base-Class.">ControlParameter</a> (e.g. </p>
-<p><a class="el" href="../../d8/dff/classEstimator.xhtml" title="Estimator Interface Base-Class.">Estimator</a>) </p>
-
 </div>
 </div>
 <a class="anchor" id="aada4eb181c89bb2d75eb9b032a55f12b"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::_parList" ref="aada4eb181c89bb2d75eb9b032a55f12b" args="" -->
@@ -252,23 +198,6 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
-
-<p>List of Parameters the <a class="el" href="../../d5/db1/classControlParameter.xhtml" title="Optimizer Data Base-Class.">ControlParameter</a> needs. </p>
-
-</div>
-</div>
-<a class="anchor" id="a2df5a043de82232c70adc3c4ae45794f"></a><!-- doxytag: member="ROOT::Minuit2::MinuitFcn::_parNames" ref="a2df5a043de82232c70adc3c4ae45794f" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;unsigned int, std::string&gt; <a class="el" href="../../dd/d13/classROOT_1_1Minuit2_1_1MinuitFcn.xhtml#a2df5a043de82232c70adc3c4ae45794f">ROOT::Minuit2::MinuitFcn::_parNames</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>mapping of minuit ids to ComPWA names </p>
 
 </div>
 </div>
@@ -291,7 +220,7 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Dec 4 2013 for ComPWA by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Dec 16 2013 for ComPWA by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
