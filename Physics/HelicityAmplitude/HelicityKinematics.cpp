@@ -120,6 +120,7 @@ void HelicityKinematics::setDecayTopologies(
       particle_names_.push_back(fs_particle->name_);
       masses_.push_back(
           physics_constants.findParticle(fs_particle->name_).mass_);
+      pids_.push_back(fs_particle->particle_id_);
     }
   }
 }
@@ -418,11 +419,11 @@ void HelicityKinematics::fillPointWithBoostedKinematicVariables(
    decaying_state_rot.RotateZ(-decaying_state.Phi());
    decaying_state_rot.RotateY(-decaying_state.Theta());
 
-   particle1_4vector.Boost(mother);
-   particle1_4vector.RotateZ(-decaying_state.Phi());
-   particle1_4vector.RotateY(-decaying_state.Theta());
+   daughter1_4vector.Boost(mother);
+   daughter1_4vector.RotateZ(-decaying_state.Phi());
+   daughter1_4vector.RotateY(-decaying_state.Theta());
 
-   particle1_4vector.Boost(decaying_state_rot);*/
+   daughter1_4vector.Boost(decaying_state_rot);*/
 
   // now just get the theta and phi angles of the boosted particle 1
   point.setVal(++data_point_fill_position, daughter1_4vector.Theta());

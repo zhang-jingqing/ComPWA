@@ -15,6 +15,7 @@ using ComPWA::Physics::DecayTree::HelicityTree;
 TopologyAmplitudeFactory::TopologyAmplitudeFactory() :
     two_body_decay_amplitude_list_(), dynamical_function_factory_() {
   // TODO Auto-generated constructor stub
+  parity_conserved_ = 1;
 }
 
 TopologyAmplitudeFactory::~TopologyAmplitudeFactory() {
@@ -267,7 +268,8 @@ SequentialTwoBodyDecayAmplitude TopologyAmplitudeFactory::generateSequentialDeca
 
     std::stringstream helicity_amp_name;
     appendSpinMagnitudeInfoToName(helicity_amp_name, helicity_tree[*decay_vertex_iter].state_info_);
-    std::stringstream parity_related_name(helicity_amp_name.str());
+    std::stringstream parity_related_name;
+    parity_related_name<<helicity_amp_name.str();
 
     TwoBodyDecaySpinInformation decay_spin_info;
     std::pair<ParticleStateInfo, ParticleStateInfo> decay_products_ps_info;
@@ -303,13 +305,15 @@ SequentialTwoBodyDecayAmplitude TopologyAmplitudeFactory::generateSequentialDeca
       }
       appendParticleInfoToName(name, helicity_tree[decay_product].state_info_);
 
-      appendSpinZComponentInfoToName(helicity_amp_name, helicity_tree[decay_product].state_info_);
+      appendParticleInfoToName(helicity_amp_name, helicity_tree[decay_product].state_info_);
+      //appendSpinZComponentInfoToName(helicity_amp_name, helicity_tree[decay_product].state_info_);
 
       ParticleStateInfo temp_psi(helicity_tree[decay_product].state_info_);
       temp_psi.spin_information_.J_z_numerator_ =
           -temp_psi.spin_information_.J_z_numerator_;
-      appendSpinZComponentInfoToName(parity_related_name,
-          temp_psi);
+      //appendSpinZComponentInfoToName(parity_related_name,
+      //    temp_psi);
+      appendParticleInfoToName(parity_related_name, temp_psi);
 
       ++ep.first;
     }
@@ -465,9 +469,9 @@ std::pair<std::shared_ptr<DoubleParameter>, bool> TopologyAmplitudeFactory::gene
   bool create_new(false);
 
   if (result == global_parameter_list_.end()) {
-    if (parity_conserved && related_name != "") {
+    if (parity_conserved_ && related_name != "") {
       // check parameter map for parity related phase
-      auto result = global_parameter_list_.find(related_name);
+      result = global_parameter_list_.find(related_name);
       if (result != global_parameter_list_.end())
         used_related_parameter = true;
       else

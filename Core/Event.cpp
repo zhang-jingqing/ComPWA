@@ -13,6 +13,9 @@
 //-------------------------------------------------------------------------------
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <stdexcept>
+
 #include "Core/Particle.hpp"
 #include "Core/Event.hpp"
 
@@ -38,6 +41,20 @@ void Event::setParticleAt(const Particle &particle, unsigned int index) {
   fParticles[index] = particle;
 }
 
+void Event::reorderEvent(const Event &reference) {
+  std::vector<unsigned int> temp;
+  for(unsigned int i = 0; i < reference.getNParticles(); ++i) {
+    auto iter = fParticles.begin() + i;
+    int ref_pid = reference.getParticle(i).pid;
+    if(ref_pid != iter->pid) {
+      auto result = std::find_if(iter+1, fParticles.end(), [&] (const Particle& p) { return p.pid == ref_pid; });
+      if(result == fParticles.end())
+        throw std::runtime_error("Event::reorderEvent(): This should not happen...");
+      std::iter_swap(iter, result);
+    }
+  }
+}
+
 Event::~Event() { /* nothing */	}
 
 const Particle& Event::getParticle(const unsigned int id) const{
@@ -45,7 +62,7 @@ const Particle& Event::getParticle(const unsigned int id) const{
     //TODO Exception
     return Particle();
   }
-  return fParticles.at(id);
+  return fParticles[id];
 }
 
 } /* namespace ComPWA */

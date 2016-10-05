@@ -9,6 +9,10 @@
 //   Stefan Pflueger - initial API and implementation
 //--------------------------------------------------------------------------------
 
+#include <thread>
+#include <future>
+#include <functional>
+
 #include "Core/DataPointStorage.hpp"
 #include "Physics/HelicityAmplitude/CoherentAmplitude.hpp"
 #include "Physics/HelicityAmplitude/HelicityKinematics.hpp"
@@ -20,7 +24,7 @@ namespace HelicityFormalism {
 CoherentAmplitude::CoherentAmplitude(
     const std::vector<TopologyAmplitude>& amplitude_trees) :
     topology_amplitudes_(amplitude_trees), wasMaxAmplitudeValueCalculated_(
-        false), maxAmplitudeValue_(0.0) {
+    false), maxAmplitudeValue_(0.0) {
 
   init();
 }
@@ -63,6 +67,7 @@ void CoherentAmplitude::init() {
   clearMaps();
   constructSequentialDecayTreeNodes(storage_index);
   constructCoherentAmpTree(storage_index);
+  //std::cout<<tree_[1]->print()<<std::endl;
 }
 
 void CoherentAmplitude::constructSequentialDecayTreeNodes(
@@ -78,17 +83,9 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
     for (auto const& sequential_decay : decay_topology_amp.getSequentialDecayList()) {
       std::vector<std::shared_ptr<TreeNode> > single_combinatoric_sequential_decay_nodes;
 
-      SequentialDecayInformation seq_decay_info;
+      std::set<unsigned int> seq_decay_info;
 
       for (unsigned int i = 0; i < evaluation_lists.size(); ++i) {
-        std::stringstream eval_leaf_name;
-        eval_leaf_name << "topology_" << topology_index << "_combination_" << i;
-        std::shared_ptr<MultiUnsignedInteger> init_value(
-            new MultiUnsignedInteger(eval_leaf_name.str(),
-                evaluation_lists[i]));
-
-        std::shared_ptr<TreeNode> eval_list_leaf(
-            new TreeNode(eval_leaf_name.str(), init_value, nullptr, nullptr));
 
         // just connect all these sequential decay tree nodes with the appropriate
         unsigned int two_body_decay_index(0);
@@ -97,6 +94,17 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
         std::string seq_decay_node_name;
 
         for (auto const& full_two_body_decay_amp : sequential_decay.decay_amplitude) {
+          std::stringstream eval_leaf_name;
+          eval_leaf_name << "topology_" << topology_index << "_combination_"
+              << i << "tbd_index_" << two_body_decay_index;
+          IndexList temp_index_list;
+          temp_index_list.push_back(evaluation_lists[i][two_body_decay_index]);
+          std::shared_ptr<MultiUnsignedInteger> init_value(
+              new MultiUnsignedInteger(eval_leaf_name.str(), temp_index_list));
+
+          std::shared_ptr<TreeNode> eval_list_leaf(
+              new TreeNode(eval_leaf_name.str(), init_value, nullptr, nullptr));
+
           std::string basename(full_two_body_decay_amp.name);
           basename = basename + "_" + eval_leaf_name.str();
 
@@ -128,27 +136,14 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
           // only do this once for the first evaluation list
           if (i == 0) {
             // ok just add it to the index decay tree, the indices should be unique
-            seq_decay_info.unique_id_decay_tree_[mother_index].push_back(
-                d1_index);
-            seq_decay_info.unique_id_decay_tree_[mother_index].push_back(
-                d2_index);
+            seq_decay_info.insert(mother_index);
+            seq_decay_info.insert(d1_index);
+            seq_decay_info.insert(d2_index);
+            /* seq_decay_info.unique_id_decay_tree_[mother_index].push_back(
+             d1_index);
+             seq_decay_info.unique_id_decay_tree_[mother_index].push_back(
+             d2_index);*/
           }
-
-          // create strategies
-          auto tbdas = angular_part_strategies_.insert(
-              std::make_pair(basename,
-                  std::shared_ptr<TwoBodyDecayAngularStrategy>(
-                      new TwoBodyDecayAngularStrategy(
-                          full_two_body_decay_amp.angular_part_,
-                          storage_index))));
-          auto dfs =
-              dynamical_part_strategies_.insert(
-                  std::make_pair(basename,
-                      std::shared_ptr<
-                          DynamicalFunctions::DynamicalFunctionStrategy>(
-                          new DynamicalFunctions::DynamicalFunctionStrategy(
-                              full_two_body_decay_amp.dynamical_part_,
-                              storage_index))));
 
           std::shared_ptr<MultiComplex> full_tbd_amp(
               new MultiComplex(basename + "_full_values",
@@ -191,11 +186,26 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
 
             full_two_body_decay.first->second->addChild(strength_and_phase);
 
+            // create strategies
+            auto tbdas = angular_part_strategies_.insert(
+                std::make_pair(basename,
+                    std::shared_ptr<TwoBodyDecayAngularStrategy>(
+                        new TwoBodyDecayAngularStrategy(
+                            full_two_body_decay_amp.angular_part_,
+                            storage_index))));
+            auto dfs = dynamical_part_strategies_.insert(
+                std::make_pair(basename,
+                    std::shared_ptr<
+                        DynamicalFunctions::DynamicalFunctionStrategy>(
+                        new DynamicalFunctions::DynamicalFunctionStrategy(
+                            full_two_body_decay_amp.dynamical_part_,
+                            storage_index))));
+
             std::shared_ptr<MultiComplex> initial_value(
                 new MultiComplex("ang_part_values",
                     std::vector<std::complex<double> >()));
             auto two_body_decay_angular_part = angular_part_nodes_.insert(
-                std::make_pair(full_two_body_decay_amp.angular_part_,
+                std::make_pair(basename,
                     std::shared_ptr<TreeNode>(
                         new TreeNode(basename + "_angular", initial_value,
                             tbdas.first->second, nullptr))));
@@ -206,7 +216,7 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
                 new MultiComplex("dyn_part_values",
                     std::vector<std::complex<double> >()));
             auto two_body_decay_dynamical_part = dynamical_part_nodes_.insert(
-                std::make_pair(full_two_body_decay_amp.dynamical_part_,
+                std::make_pair(basename,
                     std::shared_ptr<TreeNode>(
                         new TreeNode(basename + "_dynamic", initial_value2,
                             dfs.first->second, nullptr))));
@@ -282,7 +292,7 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
         std::shared_ptr<MultiComplex> combi_seq_amp_dummy_val(
             new MultiComplex("combinatorics" + node_label.str() + "_values",
                 std::vector<std::complex<double> >()));
-        std::shared_ptr<TreeNode> combinatorics_seq_decay_amp_node(
+        combinatorics_seq_decay_amp_node.reset(
             new TreeNode("combinatorics" + node_label.str(),
                 combi_seq_amp_dummy_val,
                 std::shared_ptr<AddAll>(new AddAll(ParType::MCOMPLEX)),
@@ -294,19 +304,29 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
 
       }
 
-      // determine top node of sequential decay
-      for (auto const& decay_node : seq_decay_info.unique_id_decay_tree_) {
-        bool is_top_node(true);
-        for (auto const& test_decay_node : seq_decay_info.unique_id_decay_tree_) {
-          if (std::find(test_decay_node.second.begin(),
-              test_decay_node.second.end(), decay_node.first)
-              != test_decay_node.second.end()) {
-            is_top_node = false;
-          }
-        }
-        if (is_top_node)
-          seq_decay_info.top_node = decay_node.first;
-      }
+      // determine top node and final state of sequential decay
+      /*for (auto const& decay_node : seq_decay_info.unique_id_decay_tree_) {
+       bool is_top_node(true);
+       bool is_final_state(true);
+       for (auto const& test_decay_node : seq_decay_info.unique_id_decay_tree_) {
+       if (std::find(test_decay_node.second.begin(),
+       test_decay_node.second.end(), decay_node.first)
+       != test_decay_node.second.end()) {
+       is_top_node = false;
+       break;
+       }
+       }
+       if (is_top_node)
+       seq_decay_info.top_node_ = decay_node.first;
+
+       for (auto possible_final_state_unique_id : decay_node.second) {
+       if (seq_decay_info.unique_id_decay_tree_.find(
+       possible_final_state_unique_id)
+       == seq_decay_info.unique_id_decay_tree_.end()) {
+       seq_decay_info.final_state_.push_back(possible_final_state_unique_id);
+       }
+       }
+       }*/
 
       auto insert_success = sequential_decay_amplitudes_map_.insert(
           std::make_pair(seq_decay_info,
@@ -324,81 +344,127 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
 }
 
 void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
-// now we build the intensity from that
+  // now we build the intensity from that
 
   /* ok now when we construct the coherent amplitude we have to go through the sequential decay list
    and find suitable partners for the summation.
    so we need some kind of search algorithm that goes through the map and look for sequential decay trees
    that have the coherent index the same or different*/
 
-  std::vector<std::pair<unsigned int, IndexList> > coherent_sum_pairings;
+  /* std::vector<std::pair<unsigned int, IndexList> > coherent_sum_pairings;
 
-// create the different pairings based on the coherency of the individual parts
+   // create the different pairings based on the coherency of the individual parts
+   for (auto seq_amp_node : sequential_decay_amplitudes_map_) {
+   IndexList partners = getListOfCoherentPartners(seq_amp_node);
+   coherent_sum_pairings.push_back(
+   std::make_pair(seq_amp_node.second, partners));
+   }
+
+   // construct the actual full tree amplitude
+   std::shared_ptr<MultiComplex> coh_amp_val(
+   new MultiComplex("coherent_sum_value",
+   std::vector<std::complex<double> >()));
+   std::shared_ptr<TreeNode> coherent_amp(
+   new TreeNode("coherent_sum", coh_amp_val,
+   std::shared_ptr<AddAll>(new AddAll(ParType::MCOMPLEX)), nullptr));
+
+   unsigned int node_label_index(0);
+   for (auto const& pairing : coherent_sum_pairings) {
+   ++node_label_index;
+   std::stringstream node_label;
+   node_label << node_label_index;
+   std::shared_ptr<MultiComplex> coh_amp_dummy_val(
+   new MultiComplex("coherent_amp_part1_" + node_label.str() + "_values",
+   std::vector<std::complex<double> >()));
+   std::shared_ptr<TreeNode> coherent_amp_node_part1(
+   new TreeNode("coherent_amp_part1_" + node_label.str(),
+   coh_amp_dummy_val,
+   std::shared_ptr<AddAll>(new AddAll(ParType::MCOMPLEX)), nullptr));
+   for (auto const& node_to_conjugate : pairing.second) {
+   coherent_amp_node_part1->addChild(
+   sequential_decay_amplitudes_vec_[node_to_conjugate]);
+   }
+
+   std::shared_ptr<MultiComplex> coh_amp_dummy_val2(
+   new MultiComplex(
+   "coherent_amp_part1_conj_" + node_label.str() + "_values",
+   std::vector<std::complex<double> >()));
+   std::shared_ptr<TreeNode> coherent_amp_node_part1_conj(
+   new TreeNode("coherent_amp_part1_conj_" + node_label.str(),
+   coh_amp_dummy_val2,
+   std::shared_ptr<ComplexConjugate>(
+   new ComplexConjugate(ParType::MCOMPLEX)), nullptr));
+   coherent_amp_node_part1_conj->addChild(coherent_amp_node_part1);
+
+   std::shared_ptr<MultiComplex> coh_amp_dummy_val3(
+   new MultiComplex("coherent_amp_" + node_label.str() + "_values",
+   std::vector<std::complex<double> >()));
+   std::shared_ptr<TreeNode> coherent_amp_node(
+   new TreeNode("coherent_amp_" + node_label.str(), coh_amp_dummy_val3,
+   std::shared_ptr<MultAll>(new MultAll(ParType::MCOMPLEX)), nullptr));
+   coherent_amp_node->addChild(coherent_amp_node_part1_conj);
+   coherent_amp_node->addChild(
+   sequential_decay_amplitudes_vec_[pairing.first]);
+
+   coherent_amp->addChild(coherent_amp_node);*/
+
+  std::vector<IndexList> coherent_sum_parts;
+
+  // create the different pairings based on the coherency of the individual parts
   for (auto seq_amp_node : sequential_decay_amplitudes_map_) {
-    IndexList partners = getListOfCoherentPartners(seq_amp_node);
-    coherent_sum_pairings.push_back(
-        std::make_pair(seq_amp_node.second, partners));
+    IndexList amplitude_group = getListOfCoherentPartners(seq_amp_node);
+    auto result = std::find_if(coherent_sum_parts.begin(),
+        coherent_sum_parts.end(), isIndexListContentEqual(amplitude_group));
+    if (result == coherent_sum_parts.end())
+      coherent_sum_parts.push_back(amplitude_group);
   }
 
-// construct the actual full tree amplitude
-  std::shared_ptr<MultiComplex> coh_amp_val(
-      new MultiComplex("coherent_sum_value",
-          std::vector<std::complex<double> >()));
+  // construct the actual full tree amplitude
+  std::shared_ptr<MultiDouble> coh_amp_val(
+      new MultiDouble("coherent_sum_value",
+          std::vector<double>()));
   std::shared_ptr<TreeNode> coherent_amp(
       new TreeNode("coherent_sum", coh_amp_val,
-          std::shared_ptr<AddAll>(new AddAll(ParType::MCOMPLEX)), nullptr));
+          std::shared_ptr<AddAll>(new AddAll(ParType::MDOUBLE)), nullptr));
 
   unsigned int node_label_index(0);
-  for (auto const& pairing : coherent_sum_pairings) {
+  for (auto const& amplitude_group : coherent_sum_parts) {
     ++node_label_index;
     std::stringstream node_label;
     node_label << node_label_index;
     std::shared_ptr<MultiComplex> coh_amp_dummy_val(
-        new MultiComplex("coherent_amp_part1_" + node_label.str() + "_values",
+        new MultiComplex("coherent_amp_nodesum_" + node_label.str() + "_values",
             std::vector<std::complex<double> >()));
-    std::shared_ptr<TreeNode> coherent_amp_node_part1(
-        new TreeNode("coherent_amp_part1_" + node_label.str(),
+    std::shared_ptr<TreeNode> coherent_amp_nodesum(
+        new TreeNode("coherent_amp_nodesum_" + node_label.str(),
             coh_amp_dummy_val,
             std::shared_ptr<AddAll>(new AddAll(ParType::MCOMPLEX)), nullptr));
-    for (auto const& node_to_conjugate : pairing.second) {
-      coherent_amp_node_part1->addChild(
-          sequential_decay_amplitudes_vec_[node_to_conjugate]);
+    for (auto const& node : amplitude_group) {
+      coherent_amp_nodesum->addChild(sequential_decay_amplitudes_vec_[node]);
     }
 
-    std::shared_ptr<MultiComplex> coh_amp_dummy_val2(
-        new MultiComplex(
-            "coherent_amp_part1_conj_" + node_label.str() + "_values",
-            std::vector<std::complex<double> >()));
-    std::shared_ptr<TreeNode> coherent_amp_node_part1_conj(
-        new TreeNode("coherent_amp_part1_conj_" + node_label.str(),
+    std::shared_ptr<MultiDouble> coh_amp_dummy_val2(
+        new MultiDouble("coherent_amp_part_" + node_label.str() + "_values",
+            std::vector<double>()));
+    std::shared_ptr<TreeNode> coherent_amp_part(
+        new TreeNode("coherent_amp_part_" + node_label.str(),
             coh_amp_dummy_val2,
-            std::shared_ptr<ComplexConjugate>(
-                new ComplexConjugate(ParType::MCOMPLEX)), nullptr));
-    coherent_amp_node_part1_conj->addChild(coherent_amp_node_part1);
-
-    std::shared_ptr<MultiComplex> coh_amp_dummy_val3(
-        new MultiComplex("coherent_amp_" + node_label.str() + "_values",
-            std::vector<std::complex<double> >()));
-    std::shared_ptr<TreeNode> coherent_amp_node(
-        new TreeNode("coherent_amp_" + node_label.str(), coh_amp_dummy_val3,
-            std::shared_ptr<MultAll>(new MultAll(ParType::MCOMPLEX)), nullptr));
-    coherent_amp_node->addChild(coherent_amp_node_part1_conj);
-    coherent_amp_node->addChild(
-        sequential_decay_amplitudes_vec_[pairing.first]);
-
-    coherent_amp->addChild(coherent_amp_node);
+            std::shared_ptr<AbsSquare>(new AbsSquare(ParType::MDOUBLE)),
+            nullptr));
+    coherent_amp_part->addChild(coherent_amp_nodesum);
+    coherent_amp->addChild(coherent_amp_part);
   }
 
-  // construct the actual full tree amplitude
+/*  // construct the actual full tree amplitude
   std::shared_ptr<MultiDouble> real_coh_amp_val(
       new MultiDouble("real_coherent_sum_value", std::vector<double>()));
   std::shared_ptr<TreeNode> real_coherent_amp(
       new TreeNode("real_coherent_sum", real_coh_amp_val,
           std::shared_ptr<Real>(new Real(ParType::MCOMPLEX)), nullptr));
-  real_coherent_amp->addChild(coherent_amp);
+  real_coherent_amp->addChild(coherent_amp);*/
 
   tree_[storage_index] = std::shared_ptr<FunctionTree>(new FunctionTree());
-  tree_[storage_index]->addHead(real_coherent_amp);
+  tree_[storage_index]->addHead(coherent_amp);
   // ok create leafs
   for (auto const& parent_leaves : tree_leaves_) {
     for (auto leaf : parent_leaves.second) {
@@ -464,70 +530,123 @@ std::vector<std::shared_ptr<AbsParameter> > CoherentAmplitude::createLeaves(
 }
 
 IndexList CoherentAmplitude::getListOfCoherentPartners(
-    const std::pair<SequentialDecayInformation, unsigned int>& seq_amp) const {
+    const std::pair<std::set<unsigned int>, unsigned int>& seq_amp) const {
   IndexList coherent_partners;
 
-//find all elements with appropriate quantum numbers
+  //find all elements with appropriate quantum numbers
+  /*for (auto const& seq_amp_element : sequential_decay_amplitudes_map_) {
+   if (isCoherentPartner(
+   std::make_pair(seq_amp_element.first, seq_amp_element.first.top_node_),
+   std::make_pair(seq_amp.first, seq_amp.first.top_node_)))
+   coherent_partners.push_back(seq_amp_element.second);
+   }
+   return coherent_partners;*/
+
+  // ok first remove all indices from the list that correspond to coherent particles
+  std::set<unsigned int> incoherent_particles = removeCoherentParticleIndices(
+      seq_amp.first);
+
+  // loop over all sequential amplitudes
   for (auto const& seq_amp_element : sequential_decay_amplitudes_map_) {
-    if (isCoherentPartner(
-        std::make_pair(seq_amp_element.first, seq_amp_element.first.top_node),
-        std::make_pair(seq_amp.first, seq_amp.first.top_node)))
-      coherent_partners.push_back(seq_amp_element.second);
+    bool is_valid(true);
+    // now we want to remove all coherent particles from the list
+    std::set<unsigned int> incoherent_particles_other_seq_amp =
+        removeCoherentParticleIndices(seq_amp_element.first);
+
+    // then check if all incoherent particles are equal and thats it...
+    if (incoherent_particles.size()
+        == incoherent_particles_other_seq_amp.size()) {
+      for (auto particle_index : incoherent_particles_other_seq_amp) {
+        auto ref_partner = incoherent_particles.find(particle_index);
+        if (ref_partner == incoherent_particles.end()) {
+          is_valid = false;
+          break;
+        }
+      }
+      if (is_valid) {
+        coherent_partners.push_back(seq_amp_element.second);
+      }
+    }
   }
+
   return coherent_partners;
 }
 
-bool CoherentAmplitude::isCoherentPartner(
-    const std::pair<SequentialDecayInformation, unsigned int>& seq_amp_partner,
-    const std::pair<SequentialDecayInformation, unsigned int>& seq_amp_ref) const {
-
-  if (!compareCoherentParticleStates(particles_[seq_amp_partner.second],
-      particles_[seq_amp_ref.second])) {
-    return false;
-  }
-
-  auto result_ref = seq_amp_ref.first.unique_id_decay_tree_.find(
-      seq_amp_ref.second);
-  auto result_partner = seq_amp_partner.first.unique_id_decay_tree_.find(
-      seq_amp_partner.second);
-  if (result_ref != seq_amp_ref.first.unique_id_decay_tree_.end()
-      && result_partner != seq_amp_partner.first.unique_id_decay_tree_.end()) {
-    IndexList ref_index_list(result_ref->second);
-    for (auto partner_index : result_partner->second) {
-      auto found =
-          std::find_if(ref_index_list.begin(), ref_index_list.end(),
-              [&](unsigned int ref_index) {return particles_[partner_index].unique_id_ == particles_[ref_index].unique_id_;});
-      if (found != ref_index_list.end()) {
-        bool is_coherent_partner = isCoherentPartner(
-            std::make_pair(seq_amp_partner.first, partner_index),
-            std::make_pair(seq_amp_ref.first, *found));
-        if (!is_coherent_partner)
-          return false;
-        ref_index_list.erase(found);
-      }
-      else {
-        BOOST_LOG_TRIVIAL(debug)<<"CoherentAmplitude::isCoherentPartner() amplitudes are not matching from the topology";
-        return false;
-      }
+std::set<unsigned int> CoherentAmplitude::removeCoherentParticleIndices(
+    const std::set<unsigned int>& particles_indices) const {
+  std::set<unsigned int> incoherent_particles;
+  for (auto particle_index : particles_indices) {
+    if (!particles_[particle_index].coherent) {
+      incoherent_particles.insert(particle_index);
     }
   }
-
-  return true;
+  return incoherent_particles;
 }
+
+/*bool CoherentAmplitude::isCoherentPartner(
+ const std::pair<std::set<unsigned int>, unsigned int>& seq_amp_partner,
+ const std::pair<std::set<unsigned int>, unsigned int>& seq_amp_ref) const {
+
+ if (!compareCoherentParticleStates(particles_[seq_amp_partner.second],
+ particles_[seq_amp_ref.second])) {
+ return false;
+ }
+
+ auto result_ref = seq_amp_ref.first.unique_id_decay_tree_.find(
+ seq_amp_ref.second);
+ auto result_partner = seq_amp_partner.first.unique_id_decay_tree_.find(
+ seq_amp_partner.second);
+ if (result_ref != seq_amp_ref.first.unique_id_decay_tree_.end()
+ && result_partner != seq_amp_partner.first.unique_id_decay_tree_.end()) {
+ IndexList ref_index_list(result_ref->second);
+ for (auto partner_index : result_partner->second) {
+ auto found =
+ std::find_if(ref_index_list.begin(), ref_index_list.end(),
+ [&](unsigned int ref_index) {return particles_[partner_index].unique_id_ == particles_[ref_index].unique_id_;});
+ if (found != ref_index_list.end()) {
+ bool is_coherent_partner = isCoherentPartner(
+ std::make_pair(seq_amp_partner.first, partner_index),
+ std::make_pair(seq_amp_ref.first, *found));
+ if (!is_coherent_partner)
+ return false;
+ ref_index_list.erase(found);
+ }
+ else {
+ // ok we did not find a particle with same unique id...
+ // but maybe we can find one with same pid
+ auto found_same_pid =
+ std::find_if(ref_index_list.begin(), ref_index_list.end(),
+ [&](unsigned int ref_index) {return particles_[partner_index].pid_information_.particle_id_ == particles_[ref_index].pid_information_.particle_id_;});
+ if (found_same_pid != ref_index_list.end()) {
+ bool is_coherent_partner = isCoherentPartner(
+ std::make_pair(seq_amp_partner.first, partner_index),
+ std::make_pair(seq_amp_ref.first, *found_same_pid));
+ if (!is_coherent_partner)
+ return false;
+ ref_index_list.erase(found_same_pid);
+ }
+ else {
+ BOOST_LOG_TRIVIAL(debug)<<"CoherentAmplitude::isCoherentPartner() amplitudes are not matching from the topology";
+ return false;
+ }
+ }
+ }
+ }
+
+ return true;
+ }*/
 
 bool CoherentAmplitude::compareCoherentParticleStates(
     const ParticleStateInfo& ps, const ParticleStateInfo& ref) const {
-  if (ps.unique_id_ != ref.unique_id_)
-    return false;
-  if (ps.pid_information_ != ref.pid_information_)
-    return false;
+  //if (ps.unique_id_ != ref.unique_id_)
+  //  return false;
+  //if (ps.pid_information_ != ref.pid_information_)
+  //  return false;
   if (ps.coherent != ref.coherent)
     return false;
-  else {
-    if (!ps.coherent) {
-      if (ps.spin_information_ != ref.spin_information_)
-        return false;
-    }
+  else if (!ps.coherent) {
+    if (ps.spin_information_ != ref.spin_information_)
+      return false;
   }
   return true;
 }
@@ -549,15 +668,42 @@ double CoherentAmplitude::getMaxVal(ParameterList& par,
   setParameterList(par);
   return getMaxVal(gen);
 }
+
 double CoherentAmplitude::getMaxVal(std::shared_ptr<Generator> gen) {
   if (!wasMaxAmplitudeValueCalculated_) {
-    unsigned int evaluations(200000);
+    unsigned int evaluations(100000);
     BOOST_LOG_TRIVIAL(info)<<"CoherentAmplitude::calcMaxVal() calculating amplitude max value with "
     <<evaluations<< " events...";
     HelicityKinematics* kin =
         dynamic_cast<HelicityKinematics*>(Kinematics::instance());
 
+    /*std::vector<std::future<unsigned int> > future_list;
+     std::vector<std::thread> thread_list;
+
+     std::packaged_task<unsigned int()> task(
+     std::bind(&IntegralStrategyGSL2D::determineOptimalCallNumber,
+     integral_strategy.get(), divergence_model.get(),
+     std::cref(int_ranges[i]), 1e-4));
+     future_list.push_back(task.get_future());
+     thread_list.push_back(std::thread(std::move(task)));
+
+     // wait for futures and compute maximum number of calls
+
+     for (auto& future : future_list) {
+     unsigned int temp_calls = future.get();
+     if (temp_calls > calls)
+     calls = temp_calls;
+     }
+
+     // join all threads
+     for (auto& thread : thread_list) {
+     if (thread.joinable())
+     thread.join();
+     }*/
+
     Event event;
+    //Event max_event;
+    //dataPoint max_point;
     double maxVal = 0;
     for (unsigned int i = 0; i < evaluations; i++) {
       //create event
@@ -570,13 +716,36 @@ double CoherentAmplitude::getMaxVal(std::shared_ptr<Generator> gen) {
           i--;
         continue;
       }    //only integrate over phase space
+
       intensity(point);
       double intens = result_value_->GetValue();
+
       if (intens > maxVal) {
         maxVal = intens;
+        // if this event is the new max then we are maybe close to the actual maximum
+        // so vary this event a little and see if that brings us even closer
+        /*max_point = point;
+         max_event = event;
+
+         std::vector<Particle> aasdf;
+         for (unsigned int i = 0; i < max_event.getNParticles(); ++i) {
+         auto particle = max_event.getParticle(i);
+         std::cout << particle.pid << ": (" << particle.E << ", " << particle.px
+         << ", " << particle.py << ", " << particle.pz << ")" << std::endl;
+         aasdf.push_back(particle);
+         }
+         std::cout << "inv masses: " << aasdf[0].invariantMass(aasdf[1]) << " "
+         << aasdf[0].invariantMass(aasdf[2]) << " "
+         << aasdf[1].invariantMass(aasdf[2]) << std::endl;
+
+         intensity(max_point);
+         std::cout << tree_.at(0)->print() << std::endl;*/
+
       }
-      if (i % 1000 == 0)
+      if (i % 1000 == 0) {
         std::cout << i << ": " << intens << std::endl;
+        //std::cout<< tree_.at(0)->print() <<std::endl;
+      }
     }
 
     maxAmplitudeValue_ = maxVal;
@@ -656,7 +825,7 @@ const ParameterList& CoherentAmplitude::intensityNoEff(const dataPoint& point) {
 
     tree_.at(0)->forceRecalculate();
     intensity = std::abs(
-        ((MultiComplex*) tree_.at(0)->head()->getValue().get())->GetValue(0));
+        ((MultiDouble*) tree_.at(0)->head()->getValue().get())->GetValue(0));
 
     if (intensity != intensity) {
       BOOST_LOG_TRIVIAL(error)<<"Intensity is not a number!!";

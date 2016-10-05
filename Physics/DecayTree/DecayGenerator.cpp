@@ -121,6 +121,8 @@ int DecayGenerator::lookupPID(const std::string& name) const {
 }
 
 DecayConfiguration DecayGenerator::createDecayConfiguration() {
+  initializeWithUserConfig();
+
   std::vector<SpinWaveDecayTree> two_body_decay_trees = generate();
 
   DecayConfiguration decay_configuration;
@@ -133,6 +135,21 @@ DecayConfiguration DecayGenerator::createDecayConfiguration() {
   }
 
   return decay_configuration;
+}
+
+void DecayGenerator::initializeWithUserConfig() {
+  auto const& config_pt = DecayGeneratorConfig::Instance().getConfig();
+
+  // init initial state
+  for (auto const& isp : config_pt.get_child("initial_state")) {
+    setTopNodeState(createIFParticleInfo(isp.second.get_value<std::string>()));
+  }
+
+  // init final state
+  for (auto const& isp : config_pt.get_child("final_state")) {
+    addFinalStateParticles(
+        createIFParticleInfo(isp.second.get_value<std::string>()));
+  }
 }
 
 void DecayGenerator::initializeAllowedParticlePool() {
@@ -154,6 +171,31 @@ void DecayGenerator::addSpinWaveTwoBodyDecayToDecayConfiguration(
   std::vector<std::pair<ParticleStateInfo, std::vector<ParticleStateInfo> > > > decay_trees;
 
   for (auto const &decay_node : two_body_decay_tree.unique_decay_node_index_tree_) {
+    /*SpinWave mother_wave = all_spin_waves_[two_body_decay_tree.unique_decay_node_index_to_spin_wave_index_mapping_.at(
+     decay_node.first)];
+     SpinWave d1_wave = all_spin_waves_[two_body_decay_tree.unique_decay_node_index_to_spin_wave_index_mapping_.at(
+     decay_node.second[0])];
+     SpinWave d2_wave = all_spin_waves_[two_body_decay_tree.unique_decay_node_index_to_spin_wave_index_mapping_.at(
+     decay_node.second[1])];
+
+     auto spin_mother = mother_wave.getSpinLikeQuantumNumber(
+     QuantumNumberIDs::SPIN);
+     auto spin_d1 = d1_wave.getSpinLikeQuantumNumber(
+     QuantumNumberIDs::SPIN);
+     auto spin_d2 = d2_wave.getSpinLikeQuantumNumber(
+     QuantumNumberIDs::SPIN);
+     int parity_mother = mother_wave.getIntLikeQuantumNumber(QuantumNumberIDs::PARITY);
+     int parity_d1 = d1_wave.getIntLikeQuantumNumber(QuantumNumberIDs::PARITY);
+     int parity_d2 = d2_wave.getIntLikeQuantumNumber(QuantumNumberIDs::PARITY);
+
+     if(parity_mother == -1 && parity_d1 == -1 && parity_d2 == -1) {
+     if(spin_mother.J_numerator_ == 1 && (spin_d1.J_numerator_ == 1 || spin_d2.J_numerator_ == 1)) {
+     std::cout<<"zs: "<<spin_d1.J_z_numerator_<<" "<<spin_d2.J_z_numerator_<<std::endl;
+     if(spin_d1.J_z_numerator_ == 0 && spin_d2.J_z_numerator_ == 0)
+     throw std::runtime_error("this should not happen!");
+     }
+     }*/
+
     BOOST_LOG_TRIVIAL(debug)<<"mother: "<<decay_node.first<<std::endl;
     if (temp_state_pool.find(decay_node.first) == temp_state_pool.end()) {
       temp_state_pool[decay_node.first] =
@@ -260,7 +302,7 @@ void DecayGenerator::addSpinWaveTwoBodyDecayToDecayConfiguration(
   BOOST_LOG_TRIVIAL(debug)<<"checking for correct initial and final state and adding decay tree to decay configuration...\n";
   for (auto const& decay_tree : decay_trees) {
     if (!checkForCorrectIFState(decay_tree))
-      continue;
+    continue;
     // reset particle picking pool
     current_total_particle_pool_ = total_particle_pool_;
     current_particle_mapping_.clear();
@@ -278,8 +320,7 @@ void DecayGenerator::addSpinWaveTwoBodyDecayToDecayConfiguration(
         << daughter.unique_id_ << ") ";
       }
       BOOST_LOG_TRIVIAL(debug)<< std::endl;
-      const boost::property_tree::ptree decay_strength_info_and_phase =
-      createStrengthAndPhase();
+      const boost::property_tree::ptree decay_strength_info_and_phase = createStrengthAndPhase(mother.pid_information_.name_);
 
       BOOST_LOG_TRIVIAL(debug)<< "trying to add decay for: " << mother.pid_information_.name_
       << " (" << mother.unique_id_ << ") -> ";
@@ -469,7 +510,7 @@ bool DecayGenerator::checkForCorrectIFState(
       return false;
     }
   }
-  if(true_final_state_copy.size() == 0)
+  if (true_final_state_copy.size() == 0)
     return true;
   else
     return false;
@@ -533,14 +574,27 @@ bool DecayGenerator::isParticleIntermediateState(const ParticleStateInfo& state,
   return !(is_leaf || is_top_node);
 }
 
-const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase() const {
+const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
+    const std::string& resonance_name) const {
   boost::property_tree::ptree decay_strength_info_and_phase;
 
-  decay_strength_info_and_phase.put("strength.value", 1.0);
+  double magnitude(1.0);
+  double phase(0.0);
+
+  auto const& config_pt = DecayGeneratorConfig::Instance().getConfig();
+  for (auto const& entry : config_pt.get_child("magnitude_and_phases")) {
+    if (resonance_name.compare(entry.first) == 0) {
+      magnitude = entry.second.get<double>("mag");
+      phase = entry.second.get<double>("phase");
+      break;
+    }
+  }
+
+  decay_strength_info_and_phase.put("strength.value", magnitude);
   decay_strength_info_and_phase.put("strength.fix", 0);
   decay_strength_info_and_phase.put("strength.min", 0);
-  decay_strength_info_and_phase.put("strength.max", 5);
-  decay_strength_info_and_phase.put("phase.value", 0.0);
+  decay_strength_info_and_phase.put("strength.max", 100);
+  decay_strength_info_and_phase.put("phase.value", phase);
   decay_strength_info_and_phase.put("phase.fix", 0);
   decay_strength_info_and_phase.put("phase.min", -100);
   decay_strength_info_and_phase.put("phase.max", 100);
@@ -1191,7 +1245,7 @@ ComPWA::Spin DecayGenerator::createSpin(
     spin.J_z_numerator_ = ValueToInteger(GetValue(data));
   }
   else {
-    std::runtime_error(
+    throw std::runtime_error(
         "DecayGenerator::createSpin: Error retrieving the spin fact from CLIPS, even though it is supposed to be there!");
   }
   return spin;
@@ -1208,7 +1262,7 @@ unsigned int DecayGenerator::findSpinWaveListIndex(
     ss
         << "DecayGenerator::getDecayTreeFromClipsEnvironment: no spinwave found with index "
         << unique_index << "!";
-    std::runtime_error(ss.str());
+    throw std::runtime_error(ss.str());
   }
 }
 

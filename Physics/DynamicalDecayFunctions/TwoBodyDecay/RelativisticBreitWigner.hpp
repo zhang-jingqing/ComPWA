@@ -71,6 +71,14 @@ class RelativisticBreitWigner: public AbstractDynamicalFunction {
 
   std::complex<double> evaluate(double mSq) const;
 
+  double phaseSpaceFactor(double two_body_mass) const;
+
+  double qFactor(double two_body_mass) const;
+
+  double barrierTerm(double q, double q0) const;
+
+  double widthFactor(double two_body_mass) const;
+
 public:
   RelativisticBreitWigner(const ParticleStateInfo& psi, const ExternalParameters& external_parameters);
   virtual ~RelativisticBreitWigner();

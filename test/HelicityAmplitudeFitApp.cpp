@@ -57,6 +57,12 @@
 #include "Core/Efficiency.hpp"
 #include "Core/ProgressBar.hpp"
 #include "Core/DataPointStorage.hpp"
+#include "DataReader/Data.hpp"
+#include "Core/ParameterList.hpp"
+#include "Core/Event.hpp"
+#include "Core/RunManager.hpp"
+#include "DataReader/Data.hpp"
+#include "DataReader/RootGenerator/RootGenerator.hpp"
 
 #include "Physics/DecayTree/DecayConfiguration.hpp"
 #include "Physics/DecayTree/DecayXMLConfigReader.hpp"
@@ -66,14 +72,6 @@
 #include "Physics/HelicityAmplitude/CoherentAmplitude.hpp"
 
 #include <boost/filesystem.hpp>
-
-const Double_t M = 3.096916;    // GeV/c² (J/psi+)
-const Double_t Br = 0.000093;    // GeV/c² (width)
-const Double_t m1 = 0.;    // GeV/c² (gamma)
-const Double_t m2 = 0.139570;    // GeV/c² (pi)
-const Double_t m3 = 0.139570;    // GeV/c² (pi)
-//const Double_t c = 299792458.; // m/s
-const Double_t PI = 3.14159;    // m/s
 
 using namespace ComPWA;
 using DataReader::RootReader::RootReader;
@@ -171,12 +169,11 @@ int main(int argc, char **argv) {
         new ComPWA::Physics::HelicityFormalism::CoherentAmplitude(
             topology_amplitudes));
 
-
     std::shared_ptr<RootReader> myReader(
-        new RootReader(input_data_file_path, "events"));
+        new RootReader(input_data_file_path, "events", 3000));
     myReader->resetWeights();    //setting weights to 1
     std::shared_ptr<RootReader> myPHSPReader(
-        new RootReader(input_phsp_file_path, "events"));
+        new RootReader(input_phsp_file_path, "events", 30000));
     myPHSPReader->setEfficiency(shared_ptr<Efficiency>(new UnitEfficiency()));    //setting efficiency to 1
 
     if (myReader) {
@@ -184,11 +181,13 @@ int main(int argc, char **argv) {
       unsigned int num_events(myReader->getNEvents());
       if (num_events > 0) {
         tmp = myReader->getEvent(0);
+        tmp.reorderEvent(dummy_event);
         DataPointStorage::Instance().layoutDataStorageStructure(1, num_events,
             tmp);
         progressBar bar(num_events);
         for (unsigned int i = 0; i < num_events; ++i) {
           tmp = myReader->getEvent(i);
+          tmp.reorderEvent(dummy_event);
           DataPointStorage::Instance().addEvent(1, tmp);
           bar.nextEvent();
         }
@@ -199,11 +198,13 @@ int main(int argc, char **argv) {
       unsigned int num_events(myPHSPReader->getNEvents());
       if (num_events > 0) {
         tmp = myPHSPReader->getEvent(0);
+        tmp.reorderEvent(dummy_event);
         DataPointStorage::Instance().layoutDataStorageStructure(0, num_events,
             tmp);
         progressBar bar(num_events);
         for (unsigned int i = 0; i < num_events; ++i) {
           tmp = myPHSPReader->getEvent(i);
+          tmp.reorderEvent(dummy_event);
           DataPointStorage::Instance().addEvent(0, tmp);
           bar.nextEvent();
         }
@@ -214,9 +215,11 @@ int main(int argc, char **argv) {
     std::shared_ptr<Optimizer::ControlParameter> esti;
     amp->copyParameterList(par);    //perfect startvalues
 
+    std::cout << "number of parameters: " << par.GetNDouble() << std::endl;
     for (auto const& param : par.GetDoubleParameters()) {
       std::cout << param->GetName() << " " << param->IsFixed() << std::endl;
     }
+
     esti = MinLogLH::createInstance(amp, myReader, myPHSPReader, 0,
         myReader->getNEvents());
     MinLogLH* contrPar = dynamic_cast<MinLogLH*>(&*(esti->Instance()));
@@ -235,12 +238,13 @@ int main(int argc, char **argv) {
     if (useFctTree)
       BOOST_LOG_TRIVIAL(info)<<tree;
     double startInt[par.GetNDouble()], optiInt[par.GetNDouble()];
+    TRandom3 rand(seed);
     for (unsigned int i = 0; i < par.GetNDouble(); i++) {
       std::shared_ptr<DoubleParameter> tmp = par.GetDoubleParameter(i);
       optiInt[i] = tmp->GetValue();
       if (!tmp->IsFixed()) {
         BOOST_LOG_TRIVIAL(debug)<< *tmp;
-        tmp->SetValue(tmp->GetValue()*1.2);
+        tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
         tmp->SetError(tmp->GetValue());
         if (!tmp->GetValue())
         tmp->SetError(1.);
@@ -262,16 +266,53 @@ int main(int argc, char **argv) {
       << "   [ start: " << startInt[i] << " ," << " optimal: " << optiInt[i] << " ]";
     }
 
-    string output_file_path = output_directory + "/fitresult.txt";
-    if (output_file_suffix != "")
+    // create weighted phase-space sample
+    unsigned int dataSize = 100000;
+
+    /*std::shared_ptr<DataReader::Data> plotdata(
+     new DataReader::RootReader::RootReader());
+     std::shared_ptr<Generator> gen(
+     new DataReader::RootGenerator::RootGenerator());
+
+     progressBar bar(dataSize);
+     for (unsigned int i = 0; i < dataSize; i++) {
+     if (i > 0)
+     i--;
+     Event tmp;
+     gen->generate(tmp);
+     double ampRnd = gen->getUniform();
+     if (ampRnd > tmp.getWeight())
+     continue;
+     dataPoint point(tmp);
+     ParameterList list;
+     list = amp->intensity(point);    //unfortunatly not thread safe
+     tmp.setWeight(*list.GetDoubleParameter(0));    //reset weight
+     tmp.setEfficiency(1.);
+     i++;
+     plotdata->pushEvent(tmp);    //unfortunatly not thread safe
+     bar.nextEvent();
+     }*/
+
+    std::shared_ptr<DataReader::Data> plotdata(new RootReader());
+    std::shared_ptr<Generator> gen(
+        new DataReader::RootGenerator::RootGenerator());
+
+    RunManager run(dataSize, amp, gen);
+    run.setGenerator(gen);
+    run.setData(plotdata);
+    run.generate(dataSize);
+
+    string output_gendata_path = output_directory + "/resultdata.root";
+    string output_file_path = output_directory + "/fitresult.xml";
+    if (output_file_suffix != "") {
+      output_gendata_path = output_directory + "/resultdata_"
+          + output_file_suffix + ".root";
       output_file_path = output_directory + "/fitresult_" + output_file_suffix
-          + ".txt";
-    //genResult->writeText(output_file_path);
-    output_file_path = output_directory + "/simplefitresult.txt";
-    if (output_file_suffix != "")
-      output_file_path = output_directory + "/simplefitresult_"
-          + output_file_suffix + ".txt";
-    genResult->writeSimpleText(output_file_path);
+          + ".xml";
+    }
+
+    plotdata->writeData(output_gendata_path, "events");
+    genResult->writeXML(output_file_path);
 
     if (!resultGen)
       return 0;

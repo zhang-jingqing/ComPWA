@@ -83,6 +83,59 @@
 			</isospin>
 		</quantum_numbers>
 	</particle>
+	
+		<particle>
+		<ID>11122</ID>
+		<name>pi02</name>
+		<mass>
+			<value>0.1349766</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>-1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>1</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
+			<particle>
+		<ID>1113</ID>
+		<name>pi03</name>
+		<mass>
+			<value>0.1349766</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>-1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>1</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
 	<particle>
 		<ID>-211</ID>
 		<name>pi-</name>
@@ -321,6 +374,38 @@
 			</isospin>
 		</quantum_numbers>
 	</particle>
+	
+	<particle>
+		<ID>4430</ID>
+		<name>jpsi0</name>
+		<mass>
+			<value>3.0969</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.000093</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>-1</parity>
+			<cparity>-1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
 	<particle>
 		<ID>333</ID>
 		<name>phi(1020)</name>
@@ -362,7 +447,38 @@
 			</error>
 		</mass>
 		<width>
-			<value>0.00849</value>
+			<value>0.01849</value>
+			<error>
+				<value>0.00008</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>1</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>-1</parity>
+			<cparity>-1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
+	<particle>
+		<ID>22322</ID>
+		<name>omega2</name>
+		<mass>
+			<value>0.78265</value>
+			<error>
+				<value>0.00012</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.01849</value>
 			<error>
 				<value>0.00008</value>
 			</error>
@@ -386,6 +502,37 @@
 	<particle>
 		<ID>9010221</ID>
 		<name>f0_980</name>
+		<mass>
+			<value>0.99</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.05</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
+	<particle>
+		<ID>90102212</ID>
+		<name>f0_9802</name>
 		<mass>
 			<value>0.98</value>
 			<error>
@@ -413,6 +560,69 @@
 			</isospin>
 		</quantum_numbers>
 	</particle>
+	
+	<particle>
+		<ID>9030221</ID>
+		<name>f0_1500</name>
+		<mass>
+			<value>1.505</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.109</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
+	<particle>
+		<ID>10331</ID>
+		<name>f0_1710</name>
+		<mass>
+			<value>1.722</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.135</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+	
 	<particle>
 		<ID>225</ID>
 		<name>f2_1270</name>
@@ -424,6 +634,37 @@
 		</mass>
 		<width>
 			<value>0.185</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>2</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+
+	<particle>
+		<ID>335</ID>
+		<name>f2_1525</name>
+		<mass>
+			<value>1.525</value>
+			<error>
+				<value>0.0</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.073</value>
 			<error>
 				<value>0.0</value>
 			</error>

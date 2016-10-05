@@ -593,7 +593,10 @@ public:
       std::shared_ptr<MultiDouble> tmp = paras.GetMultiDouble(0);
       for (unsigned int ele = 0; ele < tmp->GetNValues() || ele < nElements;
           ele++)
-        results[ele] = std::log(tmp->GetValue(ele));
+        if(tmp->GetValue(ele) > 0.0)
+          results[ele] = std::log(tmp->GetValue(ele));
+        else
+          results[ele] = 0.0;
 
       out = std::shared_ptr<AbsParameter>(
           new MultiDouble(out->GetName(), results));

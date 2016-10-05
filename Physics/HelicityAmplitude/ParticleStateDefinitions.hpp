@@ -164,10 +164,8 @@ struct checkLessThanOnIDInfoVectorsIgnoringID {
     std::vector<unsigned int> not_found_elements;
     std::vector<ComPWA::IDInfo> clone_lhs(lhs);
     std::vector<ComPWA::IDInfo> clone_rhs(rhs);
-    std::sort(clone_lhs.begin(), clone_lhs.end(),
-        ComPWA::IDInfo::lessThenIgnoringID);
-    std::sort(clone_rhs.begin(), clone_rhs.end(),
-        ComPWA::IDInfo::lessThenIgnoringID);
+    std::sort(clone_lhs.begin(), clone_lhs.end());
+    std::sort(clone_rhs.begin(), clone_rhs.end());
     for (unsigned int i = 0; i < lhs.size(); ++i) {
       if (clone_lhs[i].particle_id_ < clone_rhs[i].particle_id_)
         return true;

@@ -28,7 +28,7 @@ namespace HelicityFormalism {
 class TopologyAmplitudeFactory {
   DynamicalFunctions::DynamicalFunctionFactory dynamical_function_factory_;
 
-  bool parity_conserved;
+  bool parity_conserved_;
 
   std::map<std::string, std::shared_ptr<DoubleParameter> > global_parameter_list_;
 

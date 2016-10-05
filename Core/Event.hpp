@@ -40,6 +40,8 @@ public:
 
   virtual void setParticleAt(const Particle &particle, unsigned int index);
 
+  void reorderEvent(const Event &reference);
+
   virtual ~Event();
 
   virtual void inline setName(const std::string& name) { fName = name; }

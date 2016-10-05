@@ -42,6 +42,10 @@ public:
   virtual void eventToDataPoint(const Event& ev, dataPoint& point) const;
   //! get mass of particles
   virtual double getMass(unsigned int num) const = 0;
+  //! get pid of particles
+  virtual int getPID(unsigned int num) const {
+    return pids_[num];
+  }
   //! get mass of paticles
   virtual double getMass(std::string name) const = 0;
   //! Get number of particles
@@ -61,6 +65,7 @@ protected:
 
   unsigned int number_of_particles_;
   std::vector<std::string> variable_names_;
+  std::vector<int> pids_;
 
   Kinematics();
   virtual ~Kinematics();

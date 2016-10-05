@@ -54,9 +54,9 @@
 			then
 				(if (= -1 (get-qn-value ?mother_index ?decay_tree "parity"))
 				then 
-	  				(printout t "decay violates bose statistics!" crlf)
+	  				;(printout t "decay violates bose statistics!" crlf)
 	  				(retract ?decay_tree)
-	  				(retract ?decay)
+	  				;(retract ?decay)
 	  			)
 	  		else	  	
 	  			; if they are fermions then check for antisymmetric wavefunction -> mother parity = -1 
@@ -66,7 +66,7 @@
 					then 
 	 					;(printout t "decay violates fermi statistics!" crlf)
 	  					(retract ?decay_tree)
-	 					(retract ?decay)
+	 					;(retract ?decay)
 	  				)
 	  			)
 	  		)

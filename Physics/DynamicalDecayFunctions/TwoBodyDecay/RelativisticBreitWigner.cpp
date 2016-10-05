@@ -124,8 +124,53 @@ std::complex<double> RelativisticBreitWigner::evaluate(
   return evaluate(mSq);
 }
 
+double RelativisticBreitWigner::phaseSpaceFactor(double two_body_mass) const {
+  double ma = daughter1_mass_->GetValue();
+  double mb = daughter2_mass_->GetValue();
+  return std::sqrt(
+      (1.0 - std::pow((ma + mb) / two_body_mass, 2))
+          * (1.0 - std::pow((ma - mb) / two_body_mass, 2)));
+}
+
+double RelativisticBreitWigner::qFactor(double two_body_mass) const {
+  return 0.5 * phaseSpaceFactor(two_body_mass) * two_body_mass;
+}
+
+double RelativisticBreitWigner::barrierTerm(double q, double q0) const {
+  unsigned int J(J_.J_numerator_ / J_.J_denominator_);
+  double z = std::pow(q * meson_radius_->GetValue(), 2);
+  double z0 = std::pow(q0 * meson_radius_->GetValue(), 2);
+  if (J == 0) {
+    return 1;
+  }
+  else if (J == 1) {
+    return std::sqrt((1.0 + z0) / (1.0 + z));
+  }
+  else if (J == 2) {
+    return std::sqrt(
+        (std::pow(z0 - 3.0, 2) + 9.0 * z0) / (std::pow(z - 3.0, 2) + 9.0 * z));
+  }
+  else {
+    std::runtime_error(
+        "RelativisticBreitWigner::barrierTerm: barrier factor only implemented for J <= 2");
+  }
+}
+
+double RelativisticBreitWigner::widthFactor(double two_body_mass) const {
+  double q(qFactor(two_body_mass));
+  double q0(qFactor(resonance_mass_->GetValue()));
+  unsigned int J(J_.J_numerator_ / J_.J_denominator_);
+
+  return std::pow(q/q0, 2*J+1)*resonance_mass_->GetValue()/two_body_mass*std::pow(barrierTerm(q, q0), 2);
+}
+
 std::complex<double> RelativisticBreitWigner::evaluate(double mSq) const {
   double mR = resonance_mass_->GetValue();
+  double width = resonance_width_->GetValue();
+  double corrected_width = width;//*widthFactor(std::sqrt(mSq));
+  std::complex<double> denominator(std::pow(mR, 2)-mSq, -mR*corrected_width);
+  return mR*corrected_width/denominator;
+  /*double mR = resonance_mass_->GetValue();
   double width = resonance_width_->GetValue();
   double ma = daughter1_mass_->GetValue();
   double mb = daughter2_mass_->GetValue();
@@ -159,7 +204,7 @@ std::complex<double> RelativisticBreitWigner::evaluate(double mSq) const {
         << mR << " " << mSq << " " << ma << " " << mb << std::endl;
     return 0;
   }
-  return result;
+  return result;*/
 }
 
 } /* namespace DynamicalFunctions */

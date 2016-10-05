@@ -50,13 +50,11 @@ struct SpinWaveDecay {
   std::vector<ComPWA::QuantumNumberIDs> violated_quantum_numbers_;
 
   bool operator==(const SpinWaveDecay& rhs) const {
-    if (mother_index_
-        != rhs.mother_index_)
+    if (mother_index_ != rhs.mother_index_)
       return false;
     if (daughter_indices_ != rhs.daughter_indices_)
       return false;
-    if (violated_quantum_numbers_
-        != rhs.violated_quantum_numbers_)
+    if (violated_quantum_numbers_ != rhs.violated_quantum_numbers_)
       return false;
     return true;
   }
@@ -146,6 +144,8 @@ class DecayGenerator {
       const std::map<unsigned int, unsigned int>& index_mapping,
       unsigned int unique_index) const;
 
+  void initializeWithUserConfig();
+
   void initializeAllowedParticlePool();
 
   void addSpinWaveTwoBodyDecayToDecayConfiguration(
@@ -153,7 +153,7 @@ class DecayGenerator {
       const SpinWaveDecayTree& two_body_decay_tree);
 
   std::vector<ParticleStateInfo> createParticleStateInfoCandidates(
-      unsigned int spin_wave_index,  unsigned int unique_index) const;
+      unsigned int spin_wave_index, unsigned int unique_index) const;
 
   DynamicalInfo createDynamicInfo(const ParticleProperties& particle_properties,
       ComPWA::Physics::DynamicalFunctions::DynamicalInfoTypes dynamical_type) const;
@@ -170,12 +170,15 @@ class DecayGenerator {
       const std::vector<
           std::pair<ParticleStateInfo, std::vector<ParticleStateInfo> > >& decay_tree) const;
 
-  ParticleStateInfo createParticleInstance(const ParticleStateInfo& psi, bool make_coherent);
+  ParticleStateInfo createParticleInstance(const ParticleStateInfo& psi,
+      bool make_coherent);
 
-  bool isParticleIntermediateState(const ParticleStateInfo& state, const std::vector<
-      std::pair<ParticleStateInfo, std::vector<ParticleStateInfo> > >& decay_tree) const;
+  bool isParticleIntermediateState(const ParticleStateInfo& state,
+      const std::vector<
+          std::pair<ParticleStateInfo, std::vector<ParticleStateInfo> > >& decay_tree) const;
 
-  const boost::property_tree::ptree createStrengthAndPhase() const;
+  const boost::property_tree::ptree createStrengthAndPhase(
+      const std::string& resonance_name) const;
 
   /* bool validateTwoBodyDecay(const SpinWaveTwoBodyDecay& two_body_decay);
    void addTwoBodyDecayToClipsEnviroment(

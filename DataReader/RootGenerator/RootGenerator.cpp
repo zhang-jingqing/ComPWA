@@ -38,25 +38,33 @@ RootGenerator::RootGenerator(int seed) {
   }
   event.SetDecay(W, nPart, masses);
 }
-;
 
 RootGenerator* RootGenerator::Clone() {
   return (new RootGenerator(*this));
 }
 
 void RootGenerator::generate(Event& evt) {
-  evt.setWeight(event.Generate());
-
   Event tmp;
-  for (unsigned int t = 0; t < nPart; t++) {
-    TLorentzVector* p = event.GetDecay(t);
+  bool regenerate(true);
+  while (regenerate) {
+    tmp.setWeight(event.Generate());
+    regenerate = false;
+    for (unsigned int t = 0; t < nPart; t++) {
+      TLorentzVector* p = event.GetDecay(t);
 
-    if(p->M() < 0.0) {
-      p->SetE(p->Vect().Mag());
-      if(p->M() < 0.0)
-        p->SetE(p->E()+std::numeric_limits<double>::epsilon());
+      /*if (p->M() < 0.001) {
+        if (p->E() < 0.001) {
+          regenerate = true;
+          break;
+        }
+      }*/
+      if (p->M() < 0.0) {
+        p->SetE(p->Vect().Mag());
+        if (p->M() < 0.0)
+          p->SetE(p->E() + std::numeric_limits<double>::epsilon());
+      }
+      tmp.addParticle(Particle(p->X(), p->Y(), p->Z(), p->E(), Kinematics::instance()->getPID(t)));
     }
-    tmp.addParticle(Particle(p->X(), p->Y(), p->Z(), p->E()));
   }
   evt = tmp;
 }

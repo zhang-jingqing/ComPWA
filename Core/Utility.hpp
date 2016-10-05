@@ -28,6 +28,31 @@ typedef std::map<unsigned int, unsigned int> IndexMapping;
 
 typedef boost::property_tree::ptree DynamicalInfo;
 
+struct isIndexListContentEqual {
+  IndexList reference_;
+
+  isIndexListContentEqual(const IndexList &ref) :
+      reference_(ref) {
+  }
+
+  bool operator()(const IndexList &list) {
+    for (auto const& element : list) {
+      bool found_match(false);
+      for (auto ref_element = reference_.begin();
+          ref_element != reference_.end(); ++ref_element) {
+        if (*ref_element == element) {
+          reference_.erase(ref_element);
+          found_match = true;
+          break;
+        }
+      }
+      if (!found_match)
+        return false;
+    }
+    return true;
+  }
+};
+
 struct Spin {
   unsigned int J_numerator_;
   unsigned int J_denominator_;
@@ -99,20 +124,11 @@ struct IDInfo {
   }
 
   bool operator<(const IDInfo &rhs) const {
-    /*if (this->id_ < rhs.id_)
-     return true;
-     else if (this->id_ > rhs.id_)
-     return false;*/
-
-    return lessThenIgnoringID(*this, rhs);
-  }
-
-  static bool lessThenIgnoringID(const IDInfo &lhs, const IDInfo &rhs) {
-    if (lhs.particle_id_ < rhs.particle_id_)
+    if (particle_id_ < rhs.particle_id_)
       return true;
-    else if (lhs.particle_id_ > rhs.particle_id_)
+    else if (particle_id_ > rhs.particle_id_)
       return false;
-    if (lhs.name_ < rhs.name_)
+    if (name_ < rhs.name_)
       return true;
 
     return false;

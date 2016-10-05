@@ -260,6 +260,7 @@ exe helicityAmplitudeFitApp :
         $(TOP)/Physics/DecayTree//DecayTree
         $(TOP)/Physics/HelicityAmplitude//HelicityAmplitude
         $(TOP)/DataReader/RootReader//RootReader
+        $(TOP)/DataReader//RootGenerator
         $(TOP)/Optimizer//Optimizer
         $(TOP)/Estimator/MinLogLH//MinLogLH
         $(TOP)/Optimizer/Minuit2//Minuit2IF

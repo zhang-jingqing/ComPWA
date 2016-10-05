@@ -13,6 +13,9 @@ project :
 	    <include>$(BOOST_ROOT)/include
 	    #<include>$(GSL)/include
 	    <include>$(CLIPS)
+	    <include>$(ROOT_INC_PATH)
+	<linkflags>-L$(ROOT_LIB_PATH) 
+	<linkflags>$(ROOTLIBS)
 	#<linkflags>-L$(GSL)/lib
 	#<linkflags>-lgsl
     #<linkflags>-lgslcblas

@@ -26,13 +26,13 @@ namespace Physics {
 namespace HelicityFormalism {
 
 struct SequentialDecayInformation {
-  unsigned int top_node;
+  unsigned int top_node_;
   std::map<unsigned int, IndexList> unique_id_decay_tree_;
 
   bool operator<(const SequentialDecayInformation &rhs) const {
-    if (this->top_node < rhs.top_node)
+    if (this->top_node_ < rhs.top_node_)
       return true;
-    else if (this->top_node > rhs.top_node)
+    else if (this->top_node_ > rhs.top_node_)
       return false;
     if (this->unique_id_decay_tree_ < rhs.unique_id_decay_tree_)
       return true;
@@ -47,11 +47,11 @@ class CoherentAmplitude: public Amplitude {
   std::map<unsigned int, std::shared_ptr<FunctionTree> > tree_;
 
   std::vector<ParticleStateInfo> particles_;
-  std::map<SequentialDecayInformation, unsigned int> sequential_decay_amplitudes_map_;
+  std::map<std::set<unsigned int>, unsigned int> sequential_decay_amplitudes_map_;
   std::vector<std::shared_ptr<TreeNode> > sequential_decay_amplitudes_vec_;
 
-  std::map<std::shared_ptr<TwoBodyDecayAmplitude>, std::shared_ptr<TreeNode> > angular_part_nodes_;
-  std::map<std::shared_ptr<DynamicalFunctions::AbstractDynamicalFunction>,
+  std::map<std::string, std::shared_ptr<TreeNode> > angular_part_nodes_;
+  std::map<std::string,
       std::shared_ptr<TreeNode> > dynamical_part_nodes_;
   std::map<std::string, std::shared_ptr<AbsParameter> > dynamical_parameter_nodes_;
   std::map<std::string, std::shared_ptr<TreeNode> > full_two_body_decay_nodes_;
@@ -83,11 +83,13 @@ class CoherentAmplitude: public Amplitude {
       const ParameterList& parameter_list);
 
   IndexList getListOfCoherentPartners(
-      const std::pair<SequentialDecayInformation, unsigned int>& seq_amp) const;
+      const std::pair<std::set<unsigned int>, unsigned int>& seq_amp) const;
 
-  bool isCoherentPartner(
+  std::set<unsigned int> removeCoherentParticleIndices(
+      const std::set<unsigned int>& particles_indices) const;
+ /* bool isCoherentPartner(
       const std::pair<SequentialDecayInformation, unsigned int>& seq_amp_partner,
-      const std::pair<SequentialDecayInformation, unsigned int>& seq_amp_ref) const;
+      const std::pair<SequentialDecayInformation, unsigned int>& seq_amp_ref) const;*/
 
   bool compareCoherentParticleStates(const ParticleStateInfo& ps,
       const ParticleStateInfo& ref) const;

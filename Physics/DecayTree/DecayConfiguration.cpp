@@ -334,6 +334,19 @@ bool DecayConfiguration::isNodeADaughter(
   return false;
 }
 
+void DecayConfiguration::applyAutomaticStrengthAndPhaseFixing() {
+  // automatic fixing of complex strength and phases (except global one)
+
+  // loop over all decay trees
+  for(auto const& decay_tree : concrete_decay_trees_) {
+
+    // in each decay tree loop over the decays
+
+    // the number of map entries is the number of two body decays N
+    // so we are allowed to fix N - 1 complex parameters per resonance
+  }
+}
+
 void DecayConfiguration::printInfo() const {
   BOOST_LOG_TRIVIAL(info)<<"number of particles: "<<particles_.size()<<std::endl;
   BOOST_LOG_TRIVIAL(info)<<"number of concrete decay trees: "<<concrete_decay_trees_.size()<<std::endl;

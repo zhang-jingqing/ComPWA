@@ -265,12 +265,13 @@ void MinLogLH::iniLHtree() {
     signalPhspTree->createNode("IntensPhspEff", mmultDStrat, "sumAmp",
         mPhspSample.nEvents, false);    //|T_{ev}|^2
     signalPhspTree->createLeaf("eff", eff, "IntensPhspEff");    //efficiency
-    signalPhspTree->createNode("IntensPhsp", msqStrat, "IntensPhspEff",
-        mPhspSample.nEvents, false);    //|T_{ev}|^2
+    //signalPhspTree->createNode("IntensPhsp", msqStrat, "IntensPhspEff",
+    //    mPhspSample.nEvents, false);    //|T_{ev}|^2
     BOOST_LOG_TRIVIAL(debug)<<"MinLogLH::iniLHTree() setting up normalization tree, "
     "using toy sample and assume that efficiency values are saved for every event!";
     //Efficiency values of toy phsp sample
-    signalPhspTree->insertTree(signalPhspTree_amp, "IntensPhsp");    //Sum of resonances, at each point
+    //signalPhspTree->insertTree(signalPhspTree_amp, "IntensPhsp");    //Sum of resonances, at each point
+    signalPhspTree->insertTree(signalPhspTree_amp, "IntensPhspEff");    //Sum of resonances, at each point
   }
   else {    //unbinned
     signalPhspTree->createNode("IntensPhsp", msqStrat, "sumAmp",
@@ -359,9 +360,11 @@ void MinLogLH::iniLHtree() {
       mData.nEvents, false);    // x=f_{bkg}|T|^2/norm_{LH}
   physicsTree->createLeaf("signalFrac", signalFraction, "normIntens");
   physicsTree->insertTree(signalPhspTree, "normIntens");    //provides 1/normLH
-  physicsTree->createNode("Intens", msqStrat, "normIntens", mData.nEvents,
-      false);
-  physicsTree->insertTree(signalTree_amp, "Intens");
+  //physicsTree->createNode("Intens", msqStrat, "normIntens", mData.nEvents,
+  //    false);
+  //physicsTree->insertTree(signalTree_amp, "Intens");
+  physicsTree->insertTree(signalTree_amp, "normIntens");
+
   //background term
   if (ampBkg) {
     physicsTree->createNode("normBkg", mmultDStrat, "addBkgSignal",

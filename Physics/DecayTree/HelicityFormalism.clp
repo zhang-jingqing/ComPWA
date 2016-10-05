@@ -94,3 +94,73 @@
 	  (retract ?decay)
 	)
 )
+
+(defrule check-parity-helicity
+	(declare (salience 99))
+
+	?decay_tree <- (DecayTree (decays $?decays) (available_waves $?available_waves))
+	
+	=>
+	;(printout t "checking for parity violating decays in helicity basis (only A00 amplitudes)" crlf)
+
+    (if (is-qn-conserved "parity")
+    then
+	
+		(foreach ?decay ?decays
+			(bind ?mother_index (fact-slot-value ?decay mother))
+			(bind ?d1_index (nth$ 1 (fact-slot-value ?decay daughters)))
+			(bind ?d2_index (nth$ 2 (fact-slot-value ?decay daughters)))
+				
+			; get all info that is needed
+			(bind ?parity_mother (get-qn-value ?mother_index ?decay_tree "parity"))
+			(bind ?parity_daughter1 (get-qn-value ?d1_index ?decay_tree "parity"))
+			(bind ?parity_daughter2 (get-qn-value ?d2_index ?decay_tree "parity"))
+	
+			(bind ?spin_mother (get-spin-qn-with-unique-id (get-qn-value ?mother_index ?decay_tree "spin")))
+			(bind ?spin_daughter1 (get-spin-qn-with-unique-id (get-qn-value ?d1_index ?decay_tree "spin")))
+			(bind ?spin_daughter2 (get-spin-qn-with-unique-id (get-qn-value ?d2_index ?decay_tree "spin")))
+	
+			(if (and
+					(= (fact-slot-value ?spin_daughter1 z_component_numerator) 
+						0
+					)
+					(= (fact-slot-value ?spin_daughter2 z_component_numerator) 
+						0
+					)
+				)
+			then
+	    		(bind ?intrinsic_parity_product (* ?parity_mother (* ?parity_daughter1 ?parity_daughter2)))
+	  		    (bind ?spin_difference 
+	    			(abs
+	    				(- 
+	    					(+ 
+	    						(/ (fact-slot-value ?spin_daughter1 numerator) (fact-slot-value ?spin_daughter1 denominator)) 
+	    						(/ (fact-slot-value ?spin_daughter2 numerator) (fact-slot-value ?spin_daughter2 denominator))
+	    					)
+	    					(/ (fact-slot-value ?spin_mother numerator) (fact-slot-value ?spin_mother denominator))
+	    				)
+	    			)
+	    		)
+	    		(bind ?spin_factor_part -1)
+	    		(if (= 0 (mod ?spin_difference 2)) then (bind ?spin_factor_part 1))
+				
+				;(printout t "checking if " ?intrinsic_parity_product " " ?spin_factor_part crlf)
+				(if (= -1 (* ?intrinsic_parity_product ?spin_factor_part))
+				then
+					;(printout t "decay violates parity!" crlf)
+					(if (is-qn-conserved "parity")
+					then
+						(retract ?decay_tree)
+	  					(break)
+	  				else
+	  					(bind ?violating_quantum_number_list (fact-slot-value ?decay violating_quantum_number_list))
+	  					(if (not (member$ "parity" ?violating_quantum_number_list))
+	  					then
+	  						(modify ?decay (violating_quantum_number_list ?violating_quantum_number_list "parity"))
+	  					)
+	  				)
+				)
+			)
+		)
+	)
+)
