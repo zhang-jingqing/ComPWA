@@ -164,9 +164,9 @@ int main(int argc, char **argv) {
         if (output_file_suffix.compare("") != 0) {
           // add output suffix
           std::stringstream ss;
-          ss << output_data_filename_template.stem() << "_"
+          ss << output_data_filename_template.stem().string() << "_"
               << output_file_suffix
-              << output_data_filename_template.extension();
+              << output_data_filename_template.extension().string();
           output_data_filename = ss.str();
         }
       }
@@ -177,9 +177,9 @@ int main(int argc, char **argv) {
         if (output_file_suffix.compare("") != 0) {
           // add output suffix
           std::stringstream ss;
-          ss << output_phspdata_filename_template.stem() << "_"
+          ss << output_phspdata_filename_template.stem().string() << "_"
               << output_file_suffix
-              << output_phspdata_filename_template.extension();
+              << output_phspdata_filename_template.extension().string();
           output_phspdata_filename = ss.str();
         }
       }
