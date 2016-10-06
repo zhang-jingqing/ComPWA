@@ -186,7 +186,7 @@ int main(int argc, char **argv) {
 
       std::shared_ptr<Data> data(new RootReader());
       std::shared_ptr<Data> phsp(new RootReader());
-      std::shared_ptr<Generator> gen(new RootGenerator());
+      std::shared_ptr<Generator> gen(new RootGenerator(seed));
 
       RunManager run(amp, gen);
       run.setGenerator(gen);
