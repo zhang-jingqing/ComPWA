@@ -297,7 +297,7 @@ int main(int argc, char **argv) {
     std::shared_ptr<Generator> gen(
         new DataReader::RootGenerator::RootGenerator());
 
-    RunManager run(dataSize, amp, gen);
+    RunManager run(amp, gen);
     run.setGenerator(gen);
     run.setData(plotdata);
     run.generate(dataSize);

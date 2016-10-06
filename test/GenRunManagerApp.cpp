@@ -51,7 +51,7 @@ int main(int argc, char **argv){
 	std::shared_ptr<Generator> gen(new RootGenerator());
 	std::shared_ptr<Amplitude> amp(new AmpSumIntensity(ini,std::shared_ptr<Efficiency>(new UnitEfficiency()),AmpSumIntensity::normStyle::none));
 
-	RunManager run(dataSize,amp,gen);
+	RunManager run(amp,gen);
 	run.setGenerator(gen);
 	run.setData(data);
 	run.setPhspSample(phsp);
