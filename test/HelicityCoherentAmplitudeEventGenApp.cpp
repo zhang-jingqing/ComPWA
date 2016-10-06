@@ -53,26 +53,42 @@ int main(int argc, char **argv) {
       dynamic_cast<ComPWA::Physics::HelicityFormalism::HelicityKinematics*>(ComPWA::Physics::HelicityFormalism::HelicityKinematics::createInstance());
 
   // we expect at least 1 argument
-  if (argc > 1) {
-    std::string input_config_file = argv[1];
+  if (argc > 2) {
+    int seed = 1234;
+    boost::filesystem::path input_config_file(argv[1]);
+    unsigned int num_events(std::atoi(argv[2]));
+    boost::filesystem::path output_data_filename_template("data.root");
+    boost::filesystem::path output_phspdata_filename_template("phspdata.root");
 
-    boost::filesystem::path output_path(input_config_file);
-    if (!boost::filesystem::is_regular_file(output_path)) {
+    boost::filesystem::path output_directory = boost::filesystem::absolute(
+        input_config_file, boost::filesystem::current_path());
+    output_directory = output_directory.parent_path();
+
+    string output_file_suffix("");
+    if (argc > 3)
+      output_data_filename_template = argv[3];
+    if (argc > 4)
+      output_phspdata_filename_template = argv[4];
+    if (argc > 5)
+      output_directory = argv[5];
+    if (argc > 6)
+      seed = atoi(argv[6]);
+    if (argc > 7)
+      output_file_suffix = argv[7];
+
+    if (!boost::filesystem::is_regular_file(input_config_file)) {
       std::runtime_error(
           "Specified xml config file does not exist! Please specify a valid url...");
     }
-    output_path = boost::filesystem::absolute(output_path,
-        boost::filesystem::current_path());
 
-    std::cout << "using config file url " << input_config_file << std::endl;
-
-    output_path = output_path.parent_path();
+    std::cout << "using config file url " << input_config_file.string()
+        << std::endl;
 
     //load resonances
     ComPWA::Physics::DecayTree::DecayConfiguration decay_configuration;
     ComPWA::Physics::DecayTree::DecayXMLConfigReader xml_reader(
         decay_configuration);
-    xml_reader.readConfig(input_config_file);
+    xml_reader.readConfig(input_config_file.string());
 
     ComPWA::Physics::DecayTree::DecayTreeFactory decay_tree_factory(
         decay_configuration);
@@ -123,31 +139,75 @@ int main(int argc, char **argv) {
 
       ParameterList par;
       amp->copyParameterList(par);    //perfect startvalues
-      std::cout<<"number of parameters: "<<par.GetNDouble()<<std::endl;
+      std::cout << "number of parameters: " << par.GetNDouble() << std::endl;
       unsigned int counter_free_params(0);
       for (auto const& param : par.GetDoubleParameters()) {
         std::cout << param->GetName() << " " << param->IsFixed() << std::endl;
-        if(!param->IsFixed())
+        if (!param->IsFixed())
           ++counter_free_params;
       }
-      std::cout<<"free params: "<<counter_free_params<<std::endl;
+      std::cout << "free params: " << counter_free_params << std::endl;
 
       //create dummy final state event to initialized the kinematics class
-      unsigned int dataSize = 10000;
+
+      // create output filenames
+      string output_data_filename(output_data_filename_template.string());
+      string output_phspdata_filename(
+          output_phspdata_filename_template.string());
+      bool want_data_generation(true);
+      bool want_phsp_generation(true);
+      if (output_data_filename_template.string().compare("") == 0) {
+        // no data generation wanted
+        want_data_generation = false;
+      }
+      else {
+        if (output_file_suffix.compare("") != 0) {
+          // add output suffix
+          std::stringstream ss;
+          ss << output_data_filename_template.stem() << "_"
+              << output_file_suffix
+              << output_data_filename_template.extension();
+          output_data_filename = ss.str();
+        }
+      }
+      if (output_phspdata_filename_template.string().compare("") == 0) {
+        want_phsp_generation = false;
+      }
+      else {
+        if (output_file_suffix.compare("") != 0) {
+          // add output suffix
+          std::stringstream ss;
+          ss << output_phspdata_filename_template.stem() << "_"
+              << output_file_suffix
+              << output_phspdata_filename_template.extension();
+          output_phspdata_filename = ss.str();
+        }
+      }
 
       std::shared_ptr<Data> data(new RootReader());
       std::shared_ptr<Data> phsp(new RootReader());
       std::shared_ptr<Generator> gen(new RootGenerator());
 
-      RunManager run(dataSize, amp, gen);
+      RunManager run(amp, gen);
       run.setGenerator(gen);
-      //run.setData(data);
-      //run.generate(dataSize);
-      run.setPhspSample(phsp);
-      run.generatePhsp(dataSize * 10);
+      if (want_data_generation) {
+        run.setData(data);
+        run.generate(num_events);
+        data->writeData(output_directory.string() + "/" + output_data_filename,
+            "events");
+      }
+      if (want_phsp_generation) {
+        run.setPhspSample(phsp);
+        if (want_data_generation)
+          run.generatePhsp(num_events * 10);
+        else
+          run.generatePhsp(num_events);
+        phsp->writeData(
+            output_directory.string() + "/" + output_phspdata_filename,
+            "events");
+      }
       //std::cout << "Data size: " << data->getNEvents() << std::endl;
-      //data->writeData(output_path.string() + "/data.root", "events");
-      phsp->writeData(output_path.string() + "/phspdata.root", "events");
+
     }
   }
   return 0;

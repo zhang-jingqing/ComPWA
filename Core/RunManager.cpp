@@ -48,7 +48,7 @@ RunManager::RunManager(std::shared_ptr<Data> inD,
     std::shared_ptr<Amplitude> inP, std::shared_ptr<Optimizer::Optimizer> inO) :
     sampleData_(inD), amp_(inP), opti_(inO) {
 }
-RunManager::RunManager(unsigned int size, std::shared_ptr<Amplitude> inP,
+RunManager::RunManager(std::shared_ptr<Amplitude> inP,
     std::shared_ptr<Generator> gen) :
     gen_(gen), amp_(inP) {
 }

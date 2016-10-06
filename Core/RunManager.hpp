@@ -97,7 +97,7 @@ public:
 
 	RunManager();
 	RunManager( std::shared_ptr<DataReader::Data>, std::shared_ptr<Amplitude>, std::shared_ptr<Optimizer::Optimizer>); //Fit
-	RunManager( unsigned int size, std::shared_ptr<Amplitude>, std::shared_ptr<Generator>); //Generate
+	RunManager(std::shared_ptr<Amplitude>, std::shared_ptr<Generator>); //Generate
 
 	virtual ~RunManager();
 
