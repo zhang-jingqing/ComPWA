@@ -671,7 +671,7 @@ double CoherentAmplitude::getMaxVal(ParameterList& par,
 
 double CoherentAmplitude::getMaxVal(std::shared_ptr<Generator> gen) {
   if (!wasMaxAmplitudeValueCalculated_) {
-    unsigned int evaluations(100000);
+    unsigned int evaluations(10000);
     BOOST_LOG_TRIVIAL(info)<<"CoherentAmplitude::calcMaxVal() calculating amplitude max value with "
     <<evaluations<< " events...";
     HelicityKinematics* kin =

@@ -98,7 +98,7 @@ bool RunManager::generate(int number) {
   else
     limit = 100000000;    //set large limit, should never be reached
   Event tmp;
-  progressBar bar(number);
+  //progressBar bar(number);
   for (unsigned int i = 0; i < limit; i++) {
     if (samplePhsp_)    //if phsp sample is set -> use it
       tmp = samplePhsp_->getEvent(i);
@@ -133,7 +133,7 @@ bool RunManager::generate(int number) {
      continue;
     sampleData_->pushEvent(tmp);    //Unfortunately not thread safe
     acceptedEvents++;
-    bar.nextEvent();
+   // bar.nextEvent();
     if (acceptedEvents >= number)
       i = limit;    //continue if we have a sufficienct number of events
   }
@@ -232,7 +232,7 @@ bool RunManager::generatePhsp(int number) {
 
   Generator* genNew = (&(*gen_))->Clone();    //copy generator for every thread
 
-  progressBar bar(number);
+  //progressBar bar(number);
   for (unsigned int i = 0; i < number; i++) {
     if (i > 0)
       i--;
@@ -247,7 +247,7 @@ bool RunManager::generatePhsp(int number) {
     tmp.setEfficiency(1.);
     i++;
     samplePhsp_->pushEvent(tmp);    //unfortunatly not thread safe
-    bar.nextEvent();
+    //bar.nextEvent();
   }
   return true;
 }
