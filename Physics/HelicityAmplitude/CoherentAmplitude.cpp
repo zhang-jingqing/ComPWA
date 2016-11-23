@@ -419,10 +419,28 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
       coherent_sum_parts.push_back(amplitude_group);
   }
 
+  // prepare a phase space term
+  std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
+      new DoubleParameter("coherent_phsp_mag_value", 0.0));
+  std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
+      new DoubleParameter("coherent_phsp_phase_value", 0.0));
+  parameters_.AddParameter(coherent_phsp_mag_value);
+  parameters_.AddParameter(coherent_phsp_phase_value);
+
+  std::shared_ptr<ComplexParameter> coherent_phsp_value(
+      new ComplexParameter("coherent_phsp_value", std::complex<double>(0, 0)));
+  std::shared_ptr<TreeNode> coherent_phsp(
+      new TreeNode("coherent_phsp", coherent_phsp_value,
+          std::shared_ptr<Complexify>(new Complexify(ParType::COMPLEX)),
+          nullptr));
+  tree_leaves_[coherent_phsp->getName()].push_back(
+      std::make_pair("coherent_phsp_mag_value", coherent_phsp_mag_value));
+  tree_leaves_[coherent_phsp->getName()].push_back(
+      std::make_pair("coherent_phsp_phase_value", coherent_phsp_phase_value));
+
   // construct the actual full tree amplitude
   std::shared_ptr<MultiDouble> coh_amp_val(
-      new MultiDouble("coherent_sum_value",
-          std::vector<double>()));
+      new MultiDouble("coherent_sum_value", std::vector<double>()));
   std::shared_ptr<TreeNode> coherent_amp(
       new TreeNode("coherent_sum", coh_amp_val,
           std::shared_ptr<AddAll>(new AddAll(ParType::MDOUBLE)), nullptr));
@@ -442,6 +460,8 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
     for (auto const& node : amplitude_group) {
       coherent_amp_nodesum->addChild(sequential_decay_amplitudes_vec_[node]);
     }
+    // add coherent background
+    coherent_amp_nodesum->addChild(coherent_phsp);
 
     std::shared_ptr<MultiDouble> coh_amp_dummy_val2(
         new MultiDouble("coherent_amp_part_" + node_label.str() + "_values",
@@ -455,26 +475,13 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
     coherent_amp->addChild(coherent_amp_part);
   }
 
-/*  // construct the actual full tree amplitude
-  std::shared_ptr<MultiDouble> real_coh_amp_val(
-      new MultiDouble("real_coherent_sum_value", std::vector<double>()));
-  std::shared_ptr<TreeNode> real_coherent_amp(
-      new TreeNode("real_coherent_sum", real_coh_amp_val,
-          std::shared_ptr<Real>(new Real(ParType::MCOMPLEX)), nullptr));
-  real_coherent_amp->addChild(coherent_amp);*/
-
-  // add incoherent phase space term
-
-  std::shared_ptr<DoubleParameter> incoherent_phsp_value(
-      new DoubleParameter("incoherent_phsp_value",
-          0.0));
-  std::shared_ptr<TreeNode> incoherent_phsp(
-      new TreeNode("incoherent_phsp",
-          incoherent_phsp_value,
-          std::shared_ptr<AbsSquare>(new AbsSquare(ParType::MDOUBLE)),
-          nullptr));
-  coherent_amp->addChild(incoherent_phsp);
-  parameters_.AddParameter(incoherent_phsp_value);
+  /*  // construct the actual full tree amplitude
+   std::shared_ptr<MultiDouble> real_coh_amp_val(
+   new MultiDouble("real_coherent_sum_value", std::vector<double>()));
+   std::shared_ptr<TreeNode> real_coherent_amp(
+   new TreeNode("real_coherent_sum", real_coh_amp_val,
+   std::shared_ptr<Real>(new Real(ParType::MCOMPLEX)), nullptr));
+   real_coherent_amp->addChild(coherent_amp);*/
 
   tree_[storage_index] = std::shared_ptr<FunctionTree>(new FunctionTree());
   tree_[storage_index]->addHead(coherent_amp);
