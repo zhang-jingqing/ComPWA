@@ -463,6 +463,19 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
           std::shared_ptr<Real>(new Real(ParType::MCOMPLEX)), nullptr));
   real_coherent_amp->addChild(coherent_amp);*/
 
+  // add incoherent phase space term
+
+  std::shared_ptr<DoubleParameter> incoherent_phsp_value(
+      new DoubleParameter("incoherent_phsp_value",
+          0.0));
+  std::shared_ptr<TreeNode> incoherent_phsp(
+      new TreeNode("incoherent_phsp",
+          incoherent_phsp_value,
+          std::shared_ptr<AbsSquare>(new AbsSquare(ParType::MDOUBLE)),
+          nullptr));
+  coherent_amp->addChild(incoherent_phsp);
+  parameters_.AddParameter(incoherent_phsp_value);
+
   tree_[storage_index] = std::shared_ptr<FunctionTree>(new FunctionTree());
   tree_[storage_index]->addHead(coherent_amp);
   // ok create leafs

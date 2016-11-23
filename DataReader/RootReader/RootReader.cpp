@@ -238,6 +238,10 @@ void RootReader::storeEvents(){
    }//event loop
 }
 
+void RootReader::changeWeight(unsigned int event_index, double weight) {
+  fEvents[event_index].setWeight(fEvents[event_index].getWeight()*weight);
+}
+
 void RootReader::writeData(std::string file, std::string trName){
    if(file!="") fileName=file;
    if(trName!="") treeName=trName;

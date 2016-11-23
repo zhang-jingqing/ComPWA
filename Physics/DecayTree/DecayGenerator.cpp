@@ -384,11 +384,11 @@ DynamicalInfo DecayGenerator::createDynamicInfo(
   if (dynamical_type
       == ComPWA::Physics::DynamicalFunctions::DynamicalInfoTypes::RELATIVE_BREIT_WIGNER) {
     dynamical_info.put("mass.value", particle_properties.mass_);
-    dynamical_info.put("mass.fix", 1);
+    dynamical_info.put("mass.fix", 0);
     dynamical_info.put("mass.min", 0.5 * particle_properties.mass_);
     dynamical_info.put("mass.max", 1.5 * particle_properties.mass_);
     dynamical_info.put("width.value", particle_properties.width_);
-    dynamical_info.put("width.fix", 1);
+    dynamical_info.put("width.fix", 0);
     dynamical_info.put("width.min", 0.5 * particle_properties.width_);
     dynamical_info.put("width.max", 10.0 * particle_properties.width_);
     dynamical_info.put("mesonRadius", 1.0);
@@ -580,6 +580,11 @@ const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
 
   double magnitude(1.0);
   double phase(0.0);
+  int fix(1);
+  //if not top node then just fix to 1, 0
+  if(resonance_name.compare(mother_state_particle_.particle_info_.name_) == 0) {
+    fix = 0;
+  }
 
   auto const& config_pt = DecayGeneratorConfig::Instance().getConfig();
   for (auto const& entry : config_pt.get_child("magnitude_and_phases")) {
@@ -591,11 +596,11 @@ const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
   }
 
   decay_strength_info_and_phase.put("strength.value", magnitude);
-  decay_strength_info_and_phase.put("strength.fix", 0);
+  decay_strength_info_and_phase.put("strength.fix", fix);
   decay_strength_info_and_phase.put("strength.min", 0);
   decay_strength_info_and_phase.put("strength.max", 100);
   decay_strength_info_and_phase.put("phase.value", phase);
-  decay_strength_info_and_phase.put("phase.fix", 0);
+  decay_strength_info_and_phase.put("phase.fix", fix);
   decay_strength_info_and_phase.put("phase.min", -100);
   decay_strength_info_and_phase.put("phase.max", 100);
 

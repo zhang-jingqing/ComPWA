@@ -80,7 +80,7 @@ bool RunManager::generate(int number) {
         "RunManager: generate() dataset not empty! abort!");
 
   //Determing an estimate on the maximum of the physics amplitude using 100k events.
-  double genMaxVal = 1.15 * amp_->getMaxVal(gen_);
+  double genMaxVal = 1.1 * amp_->getMaxVal(gen_);
 
   BOOST_LOG_TRIVIAL(info)<< "Generating MC: ["<<number<<" events] ";
   BOOST_LOG_TRIVIAL(info)<< "Using "<<genMaxVal<< " as maximum value for random number generation!";

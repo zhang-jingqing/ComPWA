@@ -66,6 +66,7 @@ public:
     virtual allMasses getMasses(const unsigned int startEvent=0, unsigned int nEvents=0);
     virtual const int getBin(const int, double&, double&);
     //virtual const int getEvent(const int, TLorentzVector& , TLorentzVector& , double&);
+    virtual void changeWeight(unsigned int event_index, double weight);
     virtual void writeData(std::string file="",std::string trName="");
     virtual void Clear();
 

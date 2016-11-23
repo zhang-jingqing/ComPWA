@@ -86,7 +86,7 @@ int main(int argc, char **argv) {
   if (argc > 1) {
     int seed = 1234;
     boost::filesystem::path input_config_file(argv[1]);
-    int num_events(-1);
+    int requested_num_events(-1);
     boost::filesystem::path input_data_file_path("data.root");
     boost::filesystem::path input_phsp_file_path("phspdata.root");
 
@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
 
     string output_file_suffix("");
     if (argc > 2)
-      num_events = std::atoi(argv[2]);
+      requested_num_events = std::atoi(argv[2]);
     if (argc > 3)
       input_data_file_path = argv[3];
     if (argc > 4)
@@ -177,48 +177,52 @@ int main(int argc, char **argv) {
           new ComPWA::Physics::HelicityFormalism::CoherentAmplitude(
               topology_amplitudes));
 
+      // ok lets determine number of events to use
+      int requested_phsp_events(requested_num_events * 10);
+      if (requested_num_events == -1)
+        requested_phsp_events = -1;
+
       std::shared_ptr<RootReader> myReader(
-          new RootReader(input_data_file_path.string(), "events", num_events));
+          new RootReader(input_data_file_path.string(), "events",
+              requested_num_events));
       myReader->resetWeights();    //setting weights to 1
-      int phsp_events(num_events * 10);
-      if (num_events == -1)
-        phsp_events = -1;
       std::shared_ptr<RootReader> myPHSPReader(
-          new RootReader(input_phsp_file_path.string(), "events", phsp_events));
+          new RootReader(input_phsp_file_path.string(), "events",
+              requested_phsp_events));
       myPHSPReader->setEfficiency(shared_ptr<Efficiency>(new UnitEfficiency()));    //setting efficiency to 1
 
-      if (myReader) {
-        Event tmp;
-        unsigned int num_events(myReader->getNEvents());
-        if (num_events > 0) {
-          tmp = myReader->getEvent(0);
+      Event tmp;
+      unsigned int num_events_data(myReader->getNEvents());
+      if (num_events_data > requested_num_events && requested_num_events > 0)
+        num_events_data = requested_num_events;
+      if (num_events_data > 0) {
+        tmp = myReader->getEvent(0);
+        tmp.reorderEvent(dummy_event);
+        DataPointStorage::Instance().layoutDataStorageStructure(1,
+            num_events_data, tmp);
+        progressBar bar(num_events_data);
+        for (unsigned int i = 0; i < num_events_data; ++i) {
+          tmp = myReader->getEvent(i);
           tmp.reorderEvent(dummy_event);
-          DataPointStorage::Instance().layoutDataStorageStructure(1, num_events,
-              tmp);
-          progressBar bar(num_events);
-          for (unsigned int i = 0; i < num_events; ++i) {
-            tmp = myReader->getEvent(i);
-            tmp.reorderEvent(dummy_event);
-            DataPointStorage::Instance().addEvent(1, tmp);
-            bar.nextEvent();
-          }
+          DataPointStorage::Instance().addEvent(1, tmp);
+          bar.nextEvent();
         }
       }
-      if (myPHSPReader) {
-        Event tmp;
-        unsigned int num_events(myPHSPReader->getNEvents());
-        if (num_events > 0) {
-          tmp = myPHSPReader->getEvent(0);
+
+      unsigned int num_events_phsp(myPHSPReader->getNEvents());
+      if (num_events_phsp > requested_phsp_events && requested_phsp_events > 0)
+        num_events_phsp = requested_phsp_events;
+      if (num_events_phsp > 0) {
+        tmp = myPHSPReader->getEvent(0);
+        tmp.reorderEvent(dummy_event);
+        DataPointStorage::Instance().layoutDataStorageStructure(0,
+            num_events_phsp, tmp);
+        progressBar bar(num_events_phsp);
+        for (unsigned int i = 0; i < num_events_phsp; ++i) {
+          tmp = myPHSPReader->getEvent(i);
           tmp.reorderEvent(dummy_event);
-          DataPointStorage::Instance().layoutDataStorageStructure(0, num_events,
-              tmp);
-          progressBar bar(num_events);
-          for (unsigned int i = 0; i < num_events; ++i) {
-            tmp = myPHSPReader->getEvent(i);
-            tmp.reorderEvent(dummy_event);
-            DataPointStorage::Instance().addEvent(0, tmp);
-            bar.nextEvent();
-          }
+          DataPointStorage::Instance().addEvent(0, tmp);
+          bar.nextEvent();
         }
       }
 
@@ -232,7 +236,8 @@ int main(int argc, char **argv) {
       }
 
       esti = MinLogLH::createInstance(amp, myReader, myPHSPReader, 0,
-          myReader->getNEvents());
+          num_events_data);
+
       MinLogLH* contrPar = dynamic_cast<MinLogLH*>(&*(esti->Instance()));
       std::shared_ptr<FunctionTree> tree;
       if (useFctTree) {
@@ -255,7 +260,7 @@ int main(int argc, char **argv) {
         optiInt[i] = tmp->GetValue();
         if (!tmp->IsFixed()) {
           BOOST_LOG_TRIVIAL(debug)<< *tmp;
-          tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
+          //tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
           tmp->SetError(tmp->GetValue());
           if (!tmp->GetValue())
           tmp->SetError(1.);
@@ -278,40 +283,38 @@ int main(int argc, char **argv) {
       }
 
       // create weighted phase-space sample
-      unsigned int dataSize = 100000;
+      // use all phase space events
+      if (myPHSPReader) {
+        Event tmp;
+        unsigned int num_events(myPHSPReader->getNEvents());
+        if (num_events > 0) {
+          tmp = myPHSPReader->getEvent(0);
+          tmp.reorderEvent(dummy_event);
+          DataPointStorage::Instance().layoutDataStorageStructure(0, num_events,
+              tmp);
+          progressBar bar(num_events);
+          for (unsigned int i = 0; i < num_events; ++i) {
+            tmp = myPHSPReader->getEvent(i);
+            tmp.reorderEvent(dummy_event);
+            DataPointStorage::Instance().addEvent(0, tmp);
+            bar.nextEvent();
+          }
+        }
+      }
 
-      /*std::shared_ptr<DataReader::Data> plotdata(
-       new DataReader::RootReader::RootReader());
-       std::shared_ptr<Generator> gen(
-       new DataReader::RootGenerator::RootGenerator());
-
-       progressBar bar(dataSize);
-       for (unsigned int i = 0; i < dataSize; i++) {
-       if (i > 0)
-       i--;
-       Event tmp;
-       gen->generate(tmp);
-       double ampRnd = gen->getUniform();
-       if (ampRnd > tmp.getWeight())
-       continue;
-       dataPoint point(tmp);
-       ParameterList list;
-       list = amp->intensity(point);    //unfortunatly not thread safe
-       tmp.setWeight(*list.GetDoubleParameter(0));    //reset weight
-       tmp.setEfficiency(1.);
-       i++;
-       plotdata->pushEvent(tmp);    //unfortunatly not thread safe
-       bar.nextEvent();
-       }*/
-
-      std::shared_ptr<DataReader::Data> plotdata(new RootReader());
-      std::shared_ptr<Generator> gen(
-          new DataReader::RootGenerator::RootGenerator(seed));
-
-      RunManager run(amp, gen);
-      run.setGenerator(gen);
-      run.setData(plotdata);
-      run.generate(dataSize);
+      ComPWA::allMasses dummy_masses;
+      std::shared_ptr<ComPWA::FunctionTree> result_tree = amp->getAmpTree(
+          dummy_masses, dummy_masses, "phsp");
+      const std::shared_ptr<ComPWA::MultiDouble> result_values =
+          std::dynamic_pointer_cast<MultiDouble>(
+              result_tree->head()->getValue(0));
+      if (result_values->GetNValues() != myPHSPReader->getNEvents()) {
+        std::cout << "something is wrong\n";
+      }
+      BOOST_LOG_TRIVIAL(info)<< "changing weights for " << result_values->GetNValues() << " events...";
+      for (unsigned int i = 0; i < result_values->GetNValues(); ++i) {
+        myPHSPReader->changeWeight(i, result_values->GetValue(i));
+      }
 
       // create output filenames
       string output_data_filename(output_filename_template.string());
@@ -324,14 +327,16 @@ int main(int argc, char **argv) {
         output_data_filename = ss.str();
       }
 
-      string output_gendata_path = output_directory.string() + "/resultdata.root";
+      string output_gendata_path = output_directory.string()
+          + "/resultdata.root";
       if (output_file_suffix != "") {
         output_gendata_path = output_directory.string() + "/resultdata_"
             + output_file_suffix + ".root";
       }
 
-      plotdata->writeData(output_gendata_path, "events");
-      genResult->writeXML(output_directory.string() + "/" + output_data_filename);
+      myPHSPReader->writeData(output_gendata_path, "events");
+      genResult->writeXML(
+          output_directory.string() + "/" + output_data_filename);
 
       if (!resultGen)
         return 0;
