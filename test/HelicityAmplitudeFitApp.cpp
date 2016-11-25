@@ -260,7 +260,7 @@ int main(int argc, char **argv) {
         optiInt[i] = tmp->GetValue();
         if (!tmp->IsFixed()) {
           BOOST_LOG_TRIVIAL(debug)<< *tmp;
-          //tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
+          tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
           tmp->SetError(tmp->GetValue());
           if (!tmp->GetValue())
           tmp->SetError(1.);
