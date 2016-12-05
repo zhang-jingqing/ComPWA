@@ -325,14 +325,18 @@ int main(int argc, char **argv) {
         output_data_filename = ss.str();
       }
 
-      string output_gendata_path = output_directory.string()
-          + "/resultdata.root";
+      string output_fitweight_phspdata_path = output_directory.string()
+          + "/fit_weighted_phspdata.root";
+      string output_fitted_data_path = output_directory.string() + "/fitted_data.root";
       if (output_file_suffix != "") {
-        output_gendata_path = output_directory.string() + "/resultdata_"
+        output_fitweight_phspdata_path = output_directory.string() + "/fit_weighted_phspdata_"
             + output_file_suffix + ".root";
+        output_fitted_data_path = output_directory.string() + "/fitted_data_"
+                    + output_file_suffix + ".root";
       }
 
-      myPHSPReader->writeData(output_gendata_path, "events");
+      myReader->writeData(output_fitted_data_path, "events");
+      myPHSPReader->writeData(output_fitweight_phspdata_path, "events");
       genResult->writeXML(
           output_directory.string() + "/" + output_data_filename);
 
