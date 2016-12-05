@@ -284,8 +284,7 @@ int main(int argc, char **argv) {
 
       // create weighted phase-space sample
       // use all phase space events
-      if (myPHSPReader) {
-        Event tmp;
+    /*
         unsigned int num_events(myPHSPReader->getNEvents());
         if (num_events > 0) {
           tmp = myPHSPReader->getEvent(0);
@@ -299,8 +298,7 @@ int main(int argc, char **argv) {
             DataPointStorage::Instance().addEvent(0, tmp);
             bar.nextEvent();
           }
-        }
-      }
+        }*/
 
       ComPWA::allMasses dummy_masses;
       std::shared_ptr<ComPWA::FunctionTree> result_tree = amp->getAmpTree(
@@ -308,7 +306,7 @@ int main(int argc, char **argv) {
       const std::shared_ptr<ComPWA::MultiDouble> result_values =
           std::dynamic_pointer_cast<MultiDouble>(
               result_tree->head()->getValue(0));
-      if (result_values->GetNValues() != myPHSPReader->getNEvents()) {
+      if (result_values->GetNValues() != num_events_phsp) {
         std::cout << "something is wrong\n";
       }
       BOOST_LOG_TRIVIAL(info)<< "changing weights for " << result_values->GetNValues() << " events...";

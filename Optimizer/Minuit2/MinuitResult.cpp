@@ -429,6 +429,8 @@ void MinuitResult::printCovarianceMatrix(TableFormater* tableCov){
 void MinuitResult::writeXML(std::string filename){
 	std::ofstream ofs(filename);
 	boost::archive::xml_oarchive oa(ofs);
+	oa << boost::serialization::make_nvp("EstimatorValue", finalLH);
+	oa << boost::serialization::make_nvp("MinimumValid", isValid);
 	oa << boost::serialization::make_nvp("FitParameters", finalParameters);
 	oa << boost::serialization::make_nvp("FitFractions", fractionList);
 	ofs.close();
