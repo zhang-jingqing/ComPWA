@@ -412,6 +412,9 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
 
   // create the different pairings based on the coherency of the individual parts
   for (auto seq_amp_node : sequential_decay_amplitudes_map_) {
+    // getListofCoherentPartners gets index of all amplitudes that have same coherent topology
+    // that also includes the amplitude itself that is used as reference because the loop goes
+    // over all amplitudes again... make that nicer after handing in thesis TODO
     IndexList amplitude_group = getListOfCoherentPartners(seq_amp_node);
     auto result = std::find_if(coherent_sum_parts.begin(),
         coherent_sum_parts.end(), isIndexListContentEqual(amplitude_group));

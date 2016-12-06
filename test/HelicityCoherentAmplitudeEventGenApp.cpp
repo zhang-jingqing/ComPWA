@@ -151,6 +151,12 @@ int main(int argc, char **argv) {
       //create dummy final state event to initialized the kinematics class
 
       // create output filenames
+      if(output_file_suffix.compare("") != 0) {
+        output_directory /=  "data_" + output_file_suffix;
+        boost::filesystem::create_directory(output_directory);
+        output_file_suffix = "";
+      }
+
       string output_data_filename(output_data_filename_template.string());
       string output_phspdata_filename(
           output_phspdata_filename_template.string());
