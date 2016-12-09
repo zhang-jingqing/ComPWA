@@ -262,8 +262,13 @@ int main(int argc, char **argv) {
           BOOST_LOG_TRIVIAL(debug)<< *tmp;
           tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
           tmp->SetError(tmp->GetValue());
-          if (!tmp->GetValue())
-          tmp->SetError(1.);
+          if (!tmp->GetValue()) {
+            tmp->SetError(1.);
+          }
+          if(optiInt[i] != 0.0) {
+            tmp->SetMinMax(optiInt[i]*0.93, optiInt[i]*1.07);
+            tmp->SetUseBounds(true);
+          }
         }
         startInt[i] = tmp->GetValue();
       }
@@ -284,21 +289,21 @@ int main(int argc, char **argv) {
 
       // create weighted phase-space sample
       // use all phase space events
-    /*
-        unsigned int num_events(myPHSPReader->getNEvents());
-        if (num_events > 0) {
-          tmp = myPHSPReader->getEvent(0);
-          tmp.reorderEvent(dummy_event);
-          DataPointStorage::Instance().layoutDataStorageStructure(0, num_events,
-              tmp);
-          progressBar bar(num_events);
-          for (unsigned int i = 0; i < num_events; ++i) {
-            tmp = myPHSPReader->getEvent(i);
-            tmp.reorderEvent(dummy_event);
-            DataPointStorage::Instance().addEvent(0, tmp);
-            bar.nextEvent();
-          }
-        }*/
+      /*
+       unsigned int num_events(myPHSPReader->getNEvents());
+       if (num_events > 0) {
+       tmp = myPHSPReader->getEvent(0);
+       tmp.reorderEvent(dummy_event);
+       DataPointStorage::Instance().layoutDataStorageStructure(0, num_events,
+       tmp);
+       progressBar bar(num_events);
+       for (unsigned int i = 0; i < num_events; ++i) {
+       tmp = myPHSPReader->getEvent(i);
+       tmp.reorderEvent(dummy_event);
+       DataPointStorage::Instance().addEvent(0, tmp);
+       bar.nextEvent();
+       }
+       }*/
 
       ComPWA::allMasses dummy_masses;
       std::shared_ptr<ComPWA::FunctionTree> result_tree = amp->getAmpTree(
@@ -327,12 +332,13 @@ int main(int argc, char **argv) {
 
       string output_fitweight_phspdata_path = output_directory.string()
           + "/fit_weighted_phspdata.root";
-      string output_fitted_data_path = output_directory.string() + "/fitted_data.root";
+      string output_fitted_data_path = output_directory.string()
+          + "/fitted_data.root";
       if (output_file_suffix != "") {
-        output_fitweight_phspdata_path = output_directory.string() + "/fit_weighted_phspdata_"
-            + output_file_suffix + ".root";
+        output_fitweight_phspdata_path = output_directory.string()
+            + "/fit_weighted_phspdata_" + output_file_suffix + ".root";
         output_fitted_data_path = output_directory.string() + "/fitted_data_"
-                    + output_file_suffix + ".root";
+            + output_file_suffix + ".root";
       }
 
       myReader->writeData(output_fitted_data_path, "events");
