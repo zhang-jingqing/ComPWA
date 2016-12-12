@@ -266,7 +266,7 @@ int main(int argc, char **argv) {
             tmp->SetError(1.);
           }
           if(optiInt[i] != 0.0) {
-            tmp->SetMinMax(optiInt[i]*0.93, optiInt[i]*1.07);
+            tmp->SetMinMax(optiInt[i]*0.79, optiInt[i]*1.21);
             tmp->SetUseBounds(true);
           }
         }
