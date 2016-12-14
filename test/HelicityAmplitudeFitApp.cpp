@@ -265,10 +265,10 @@ int main(int argc, char **argv) {
           if (!tmp->GetValue()) {
             tmp->SetError(1.);
           }
-          if(optiInt[i] != 0.0) {
+          /*if(optiInt[i] != 0.0) {
             tmp->SetMinMax(optiInt[i]*0.79, optiInt[i]*1.21);
             tmp->SetUseBounds(true);
-          }
+          }*/
         }
         startInt[i] = tmp->GetValue();
       }
