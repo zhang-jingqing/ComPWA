@@ -63,6 +63,8 @@ class CoherentAmplitude: public Amplitude {
 
   std::shared_ptr<Efficiency> efficiency_;
 
+  bool use_coherent_background;
+
   ParameterList parameters_;
   std::shared_ptr<DoubleParameter> result_value_;
   std::vector<std::vector<IndexList> > data_point_index_lists_;

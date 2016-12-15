@@ -24,7 +24,7 @@ namespace HelicityFormalism {
 CoherentAmplitude::CoherentAmplitude(
     const std::vector<TopologyAmplitude>& amplitude_trees) :
     topology_amplitudes_(amplitude_trees), wasMaxAmplitudeValueCalculated_(
-    false), maxAmplitudeValue_(0.0) {
+    false), maxAmplitudeValue_(0.0), use_coherent_background(false) {
 
   init();
 }
@@ -423,23 +423,27 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
   }
 
   // prepare a phase space term
-  std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
-      new DoubleParameter("coherent_phsp_mag_value", 0.0));
-  std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
-      new DoubleParameter("coherent_phsp_phase_value", 0.0));
-  parameters_.AddParameter(coherent_phsp_mag_value);
-  parameters_.AddParameter(coherent_phsp_phase_value);
+  std::shared_ptr<TreeNode> coherent_phsp;
+  if (use_coherent_background) {
+    std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
+        new DoubleParameter("coherent_phsp_mag_value", 0.0));
+    std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
+        new DoubleParameter("coherent_phsp_phase_value", 0.0));
+    parameters_.AddParameter(coherent_phsp_mag_value);
+    parameters_.AddParameter(coherent_phsp_phase_value);
 
-  std::shared_ptr<ComplexParameter> coherent_phsp_value(
-      new ComplexParameter("coherent_phsp_value", std::complex<double>(0, 0)));
-  std::shared_ptr<TreeNode> coherent_phsp(
-      new TreeNode("coherent_phsp", coherent_phsp_value,
-          std::shared_ptr<Complexify>(new Complexify(ParType::COMPLEX)),
-          nullptr));
-  tree_leaves_[coherent_phsp->getName()].push_back(
-      std::make_pair("coherent_phsp_mag_value", coherent_phsp_mag_value));
-  tree_leaves_[coherent_phsp->getName()].push_back(
-      std::make_pair("coherent_phsp_phase_value", coherent_phsp_phase_value));
+    std::shared_ptr<ComplexParameter> coherent_phsp_value(
+        new ComplexParameter("coherent_phsp_value",
+            std::complex<double>(0, 0)));
+    coherent_phsp.reset(
+        new TreeNode("coherent_phsp", coherent_phsp_value,
+            std::shared_ptr<Complexify>(new Complexify(ParType::COMPLEX)),
+            nullptr));
+    tree_leaves_[coherent_phsp->getName()].push_back(
+        std::make_pair("coherent_phsp_mag_value", coherent_phsp_mag_value));
+    tree_leaves_[coherent_phsp->getName()].push_back(
+        std::make_pair("coherent_phsp_phase_value", coherent_phsp_phase_value));
+  }
 
   // construct the actual full tree amplitude
   std::shared_ptr<MultiDouble> coh_amp_val(
@@ -463,8 +467,10 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
     for (auto const& node : amplitude_group) {
       coherent_amp_nodesum->addChild(sequential_decay_amplitudes_vec_[node]);
     }
-    // add coherent background
-    coherent_amp_nodesum->addChild(coherent_phsp);
+    if (use_coherent_background) {
+      // add coherent background
+      coherent_amp_nodesum->addChild(coherent_phsp);
+    }
 
     std::shared_ptr<MultiDouble> coh_amp_dummy_val2(
         new MultiDouble("coherent_amp_part_" + node_label.str() + "_values",
