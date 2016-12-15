@@ -28,7 +28,7 @@
 
 #include <vector>
 #include <complex>
-#include <math.h>
+#include <cmath>
 
 #include "Core/Exceptions.hpp"
 #include "Core/ParameterList.hpp"
@@ -745,8 +745,8 @@ public:
       std::shared_ptr<MultiDouble> tmpB = paras.GetMultiDouble(1);
       for (unsigned int ele = 0; ele < nElements; ele++)
         results[ele] = std::complex<double>(
-            tmpA->GetValue(ele) * std::cos(tmpB->GetValue(ele)),
-            tmpA->GetValue(ele) * std::sin(tmpB->GetValue(ele)));    //a*cos(phi),a*sin(phi)
+            std::abs(tmpA->GetValue(ele)) * std::cos(tmpB->GetValue(ele)),
+            std::abs(tmpA->GetValue(ele)) * std::sin(tmpB->GetValue(ele)));    //a*cos(phi),a*sin(phi)
 
       out = std::shared_ptr<AbsParameter>(
           new MultiComplex(out->GetName(), results));
