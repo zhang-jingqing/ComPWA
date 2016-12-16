@@ -63,7 +63,7 @@ class CoherentAmplitude: public Amplitude {
 
   std::shared_ptr<Efficiency> efficiency_;
 
-  bool use_coherent_background;
+  boost::property_tree::ptree background_part_;
 
   ParameterList parameters_;
   std::shared_ptr<DoubleParameter> result_value_;
@@ -97,7 +97,7 @@ class CoherentAmplitude: public Amplitude {
       const ParticleStateInfo& ref) const;
 
 public:
-  CoherentAmplitude(const std::vector<TopologyAmplitude>& amplitude_trees);
+  CoherentAmplitude(const std::vector<TopologyAmplitude>& amplitude_trees, const boost::property_tree::ptree& background_part);
   virtual ~CoherentAmplitude();
 
   const double integral();

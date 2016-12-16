@@ -134,6 +134,18 @@ DecayConfiguration DecayGenerator::createDecayConfiguration() {
         two_body_decay_trees[i]);
   }
 
+  // add background part
+  auto simple_background_config =
+      DecayGeneratorConfig::Instance().getConfig().get_child("background");
+
+  boost::property_tree::ptree background_config;
+  for (auto const& bgd : simple_background_config) {
+    std::string name = bgd.second.get_value<std::string>();
+    background_config.add_child(name, createStrengthAndPhase(name));
+  }
+
+  decay_configuration.setBackgroundPart(background_config);
+
   return decay_configuration;
 }
 
@@ -582,7 +594,8 @@ const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
   double phase(0.0);
   int fix(1);
   //if not top node then just fix to 1, 0
-  if(resonance_name.compare(mother_state_particle_.particle_info_.name_) == 0) {
+  if (resonance_name.compare(mother_state_particle_.particle_info_.name_)
+      == 0) {
     fix = 0;
   }
 

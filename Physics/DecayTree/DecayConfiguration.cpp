@@ -106,7 +106,8 @@ boost::property_tree::ptree DecayConfiguration::exportConfigurationToPropertyTre
     boost::property_tree::ptree decay_tree_property_tree =
         createPropertyTreeForParticleIndexTree(*particle_index_decay_tree);
 
-    pt.add_child("DecayTreeSetup.DecayTrees.DecayTree", decay_tree_property_tree);
+    pt.add_child("DecayTreeSetup.DecayTrees.DecayTree",
+        decay_tree_property_tree);
 
     // fill the sets with the particles of the final state (only unique id matter here)
 
@@ -131,6 +132,8 @@ boost::property_tree::ptree DecayConfiguration::exportConfigurationToPropertyTre
         createPropertyTreeForIntermediateStateParticle(
             particles_[particle_iter->second]));
   }
+
+  pt.add_child("DecayTreeSetup.Background", getBackgroundPart());
 
   return pt;
 }
@@ -263,7 +266,8 @@ boost::property_tree::ptree DecayConfiguration::createPropertyTreeForFinalStateP
 
 boost::property_tree::ptree DecayConfiguration::createPropertyTreeForIntermediateStateParticle(
     const ParticleStateInfo& particle) const {
-  boost::property_tree::ptree pt(createPropertyTreeForFinalStateParticle(particle));
+  boost::property_tree::ptree pt(
+      createPropertyTreeForFinalStateParticle(particle));
 
 //spin info
   boost::property_tree::ptree spin_pt;
@@ -338,13 +342,21 @@ void DecayConfiguration::applyAutomaticStrengthAndPhaseFixing() {
   // automatic fixing of complex strength and phases (except global one)
 
   // loop over all decay trees
-  for(auto const& decay_tree : concrete_decay_trees_) {
+  for (auto const& decay_tree : concrete_decay_trees_) {
 
     // in each decay tree loop over the decays
 
     // the number of map entries is the number of two body decays N
     // so we are allowed to fix N - 1 complex parameters per resonance
   }
+}
+
+const boost::property_tree::ptree& DecayConfiguration::getBackgroundPart() const {
+  return background_part_;
+}
+void DecayConfiguration::setBackgroundPart(
+    const boost::property_tree::ptree& background_part) {
+  background_part_ = background_part;
 }
 
 void DecayConfiguration::printInfo() const {

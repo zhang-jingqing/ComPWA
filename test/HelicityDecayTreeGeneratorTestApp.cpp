@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
       << std::endl;
   std::cout << std::endl;
 
-  if(argc < 2) {
+  if (argc < 2) {
     std::runtime_error("Error: please specify a config url!");
   }
 
@@ -24,7 +24,8 @@ int main(int argc, char **argv) {
   output_path = output_path.parent_path();
 
   // first read the config file
-  ComPWA::Physics::DecayTree::DecayGeneratorConfig::Instance().readConfig(std::string(argv[1]));
+  ComPWA::Physics::DecayTree::DecayGeneratorConfig::Instance().readConfig(
+      std::string(argv[1]));
 
   ComPWA::Physics::DecayTree::DecayGenerator decay_generator;
   // initialize

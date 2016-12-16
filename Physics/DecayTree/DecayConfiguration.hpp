@@ -31,6 +31,8 @@ typedef std::map<unsigned int, DecayProductsInfo> ParticleIndexDecayTree;
 class DecayConfiguration {
   friend class DecayTreeFactory;
 
+  boost::property_tree::ptree background_part_;
+
   std::vector<ParticleStateInfo> particles_;
 
   std::vector<ParticleIndexDecayTree> concrete_decay_trees_;
@@ -88,6 +90,9 @@ public:
       const std::vector<unsigned int>& list_of_daughters) const;
 
   void applyAutomaticStrengthAndPhaseFixing();
+
+  const boost::property_tree::ptree& getBackgroundPart() const;
+  void setBackgroundPart(const boost::property_tree::ptree& background_part);
 
   void printInfo() const;
   void printDecayTree(const ParticleIndexDecayTree& index_decay_tree) const;

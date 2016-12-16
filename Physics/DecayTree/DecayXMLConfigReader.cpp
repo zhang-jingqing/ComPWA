@@ -48,6 +48,9 @@ void DecayXMLConfigReader::readConfig(const std::string &filename) {
   template_particle_states_[ps.unique_id_] = ps;
 }
 
+  // read background
+  decay_configuration_.setBackgroundPart(pt_.get_child("Background"));
+
 // now go through the decay tree info and construct them
   BOOST_FOREACH(ptree::value_type const& decay_tree, pt_.get_child("DecayTrees")){
   BOOST_FOREACH(ptree::value_type const& decay_node, decay_tree.second) {

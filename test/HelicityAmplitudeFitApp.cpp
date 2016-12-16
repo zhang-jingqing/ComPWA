@@ -175,7 +175,7 @@ int main(int argc, char **argv) {
 
       std::shared_ptr<ComPWA::Physics::HelicityFormalism::CoherentAmplitude> amp(
           new ComPWA::Physics::HelicityFormalism::CoherentAmplitude(
-              topology_amplitudes));
+              topology_amplitudes, decay_configuration.getBackgroundPart()));
 
       // ok lets determine number of events to use
       int requested_phsp_events(requested_num_events * 10);

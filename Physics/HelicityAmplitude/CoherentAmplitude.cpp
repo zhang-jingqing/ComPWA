@@ -22,9 +22,10 @@ namespace Physics {
 namespace HelicityFormalism {
 
 CoherentAmplitude::CoherentAmplitude(
-    const std::vector<TopologyAmplitude>& amplitude_trees) :
+    const std::vector<TopologyAmplitude>& amplitude_trees,
+    const boost::property_tree::ptree& background_part) :
     topology_amplitudes_(amplitude_trees), wasMaxAmplitudeValueCalculated_(
-    false), maxAmplitudeValue_(0.0), use_coherent_background(false) {
+    false), maxAmplitudeValue_(0.0), background_part_(background_part) {
 
   init();
 }
@@ -424,11 +425,14 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
 
   // prepare a phase space term
   std::shared_ptr<TreeNode> coherent_phsp;
-  if (use_coherent_background) {
+  boost::optional<boost::property_tree::ptree&> coherent_background_opt =
+      background_part_.get_child_optional("coherent");
+  if (coherent_background_opt.is_initialized()) {
+    auto temp_coherent_part_config = background_part_.get_child("coherent");
     std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
-        new DoubleParameter("coherent_phsp_mag_value", 0.0));
+        new DoubleParameter("coherent_phsp_mag_value", temp_coherent_part_config.get_child("strength").get<double>("value")));
     std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
-        new DoubleParameter("coherent_phsp_phase_value", 0.0));
+        new DoubleParameter("coherent_phsp_phase_value", temp_coherent_part_config.get_child("phase").get<double>("value")));
     parameters_.AddParameter(coherent_phsp_mag_value);
     parameters_.AddParameter(coherent_phsp_phase_value);
 
@@ -467,7 +471,7 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
     for (auto const& node : amplitude_group) {
       coherent_amp_nodesum->addChild(sequential_decay_amplitudes_vec_[node]);
     }
-    if (use_coherent_background) {
+    if (coherent_background_opt.is_initialized()) {
       // add coherent background
       coherent_amp_nodesum->addChild(coherent_phsp);
     }
