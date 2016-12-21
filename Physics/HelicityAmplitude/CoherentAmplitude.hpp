@@ -61,6 +61,8 @@ class CoherentAmplitude: public Amplitude {
   std::map<std::string,
       std::shared_ptr<DynamicalFunctions::DynamicalFunctionStrategy> > dynamical_part_strategies_;
 
+  std::shared_ptr<TreeNode> coherent_phsp_;
+
   std::shared_ptr<Efficiency> efficiency_;
 
   boost::property_tree::ptree background_part_;

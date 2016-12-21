@@ -342,6 +342,45 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
             "CoherentAmplitude::init(): error in the sequential decay tree node construction!");
     }
   }
+
+  // prepare a phase space term
+  boost::optional<boost::property_tree::ptree&> coherent_background_opt =
+      background_part_.get_child_optional("coherent");
+  if (coherent_background_opt.is_initialized()) {
+    auto temp_coherent_part_config = background_part_.get_child("coherent");
+    std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
+        new DoubleParameter("coherent_phsp_mag_value",
+            temp_coherent_part_config.get_child("strength").get<double>(
+                "value")));
+    std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
+        new DoubleParameter("coherent_phsp_phase_value",
+            temp_coherent_part_config.get_child("phase").get<double>("value")));
+    parameters_.AddParameter(coherent_phsp_mag_value);
+    parameters_.AddParameter(coherent_phsp_phase_value);
+
+    auto result_coherent_phsp_mag_value = dynamical_parameter_nodes_.insert(
+        std::make_pair(coherent_phsp_mag_value->GetName(),
+            coherent_phsp_mag_value));
+    auto result_coherent_phsp_phase_value = dynamical_parameter_nodes_.insert(
+        std::make_pair(coherent_phsp_phase_value->GetName(),
+            coherent_phsp_phase_value));
+
+    std::shared_ptr<ComplexParameter> coherent_phsp_value(
+        new ComplexParameter("coherent_phsp_value",
+            std::complex<double>(0, 0)));
+    coherent_phsp_.reset(
+        new TreeNode("coherent_phsp", coherent_phsp_value,
+            std::shared_ptr<Complexify>(new Complexify(ParType::COMPLEX)),
+            nullptr));
+    std::shared_ptr<AbsParameter> temp1 =
+        result_coherent_phsp_mag_value.first->second;
+    std::shared_ptr<AbsParameter> temp2 =
+        result_coherent_phsp_phase_value.first->second;
+    tree_leaves_[coherent_phsp_->getName()].push_back(
+        std::make_pair("coherent_phsp_mag_value", temp1));
+    tree_leaves_[coherent_phsp_->getName()].push_back(
+        std::make_pair("coherent_phsp_phase_value", temp2));
+  }
 }
 
 void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
@@ -423,32 +462,6 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
       coherent_sum_parts.push_back(amplitude_group);
   }
 
-  // prepare a phase space term
-  std::shared_ptr<TreeNode> coherent_phsp;
-  boost::optional<boost::property_tree::ptree&> coherent_background_opt =
-      background_part_.get_child_optional("coherent");
-  if (coherent_background_opt.is_initialized()) {
-    auto temp_coherent_part_config = background_part_.get_child("coherent");
-    std::shared_ptr<DoubleParameter> coherent_phsp_mag_value(
-        new DoubleParameter("coherent_phsp_mag_value", temp_coherent_part_config.get_child("strength").get<double>("value")));
-    std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
-        new DoubleParameter("coherent_phsp_phase_value", temp_coherent_part_config.get_child("phase").get<double>("value")));
-    parameters_.AddParameter(coherent_phsp_mag_value);
-    parameters_.AddParameter(coherent_phsp_phase_value);
-
-    std::shared_ptr<ComplexParameter> coherent_phsp_value(
-        new ComplexParameter("coherent_phsp_value",
-            std::complex<double>(0, 0)));
-    coherent_phsp.reset(
-        new TreeNode("coherent_phsp", coherent_phsp_value,
-            std::shared_ptr<Complexify>(new Complexify(ParType::COMPLEX)),
-            nullptr));
-    tree_leaves_[coherent_phsp->getName()].push_back(
-        std::make_pair("coherent_phsp_mag_value", coherent_phsp_mag_value));
-    tree_leaves_[coherent_phsp->getName()].push_back(
-        std::make_pair("coherent_phsp_phase_value", coherent_phsp_phase_value));
-  }
-
   // construct the actual full tree amplitude
   std::shared_ptr<MultiDouble> coh_amp_val(
       new MultiDouble("coherent_sum_value", std::vector<double>()));
@@ -471,9 +484,12 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
     for (auto const& node : amplitude_group) {
       coherent_amp_nodesum->addChild(sequential_decay_amplitudes_vec_[node]);
     }
+
+    boost::optional<boost::property_tree::ptree&> coherent_background_opt =
+        background_part_.get_child_optional("coherent");
     if (coherent_background_opt.is_initialized()) {
       // add coherent background
-      coherent_amp_nodesum->addChild(coherent_phsp);
+      coherent_amp_nodesum->addChild(coherent_phsp_);
     }
 
     std::shared_ptr<MultiDouble> coh_amp_dummy_val2(
@@ -498,6 +514,7 @@ void CoherentAmplitude::constructCoherentAmpTree(unsigned int storage_index) {
 
   tree_[storage_index] = std::shared_ptr<FunctionTree>(new FunctionTree());
   tree_[storage_index]->addHead(coherent_amp);
+
   // ok create leafs
   for (auto const& parent_leaves : tree_leaves_) {
     for (auto leaf : parent_leaves.second) {
@@ -520,7 +537,7 @@ void CoherentAmplitude::clearMaps() {
 
   angular_part_nodes_.clear();
   dynamical_part_nodes_.clear();
-  dynamical_parameter_nodes_.clear();
+  //dynamical_parameter_nodes_.clear();
   full_two_body_decay_nodes_.clear();
   tree_leaves_.clear();
 
