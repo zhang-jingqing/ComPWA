@@ -260,7 +260,15 @@ int main(int argc, char **argv) {
         optiInt[i] = tmp->GetValue();
         if (!tmp->IsFixed()) {
           BOOST_LOG_TRIVIAL(debug)<< *tmp;
+          if(tmp->GetName().find("phase") >= 0) {
+            tmp->SetValue(rand.Uniform(-TMath::Pi(), TMath::Pi()));
+          }
+          else if(tmp->GetName().find("mag") >= 0) {
+            tmp->SetValue(rand.Uniform(0.0, 5.0));
+          }
+          else {
           tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
+          }
           tmp->SetError(tmp->GetValue());
           if (!tmp->GetValue()) {
             tmp->SetError(1.);

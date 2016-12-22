@@ -494,6 +494,15 @@ std::pair<std::shared_ptr<DoubleParameter>, bool> TopologyAmplitudeFactory::gene
       BOOST_LOG_TRIVIAL(warning)<<"TopologyAmplitudeFactory::generateGlobalParameter(): "
       <<"two identical two body decays do not carry the same strength and phase fix property";
     }
+    // if temp parameter value is non trivial and result is overwrite
+    if(result->second->GetValue() != temp_param->GetValue()) {
+      if(result->second->GetValue() == 0.0) {
+        result->second->SetValue(temp_param->GetValue());
+      }
+      else if(result->second->GetValue() == 1.0) {
+        result->second->SetValue(temp_param->GetValue());
+      }
+    }
   }
 
   return std::make_pair(result->second, used_related_parameter);

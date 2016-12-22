@@ -10,6 +10,7 @@
 //-------------------------------------------------------------------------------
 
 #include <chrono>
+#include <regex>
 
 #include "Core/PhysConst.hpp"
 
@@ -140,8 +141,12 @@ DecayConfiguration DecayGenerator::createDecayConfiguration() {
 
   boost::property_tree::ptree background_config;
   for (auto const& bgd : simple_background_config) {
-    std::string name = bgd.second.get_value<std::string>();
-    background_config.add_child(name, createStrengthAndPhase(name));
+    std::vector<ParticleStateInfo> temp_daughters;
+    ParticleStateInfo temp_ps;
+    temp_ps.pid_information_.name_ = bgd.second.get_value<std::string>();
+    temp_daughters.push_back(temp_ps);
+    background_config.add_child(temp_ps.pid_information_.name_,
+        createStrengthAndPhase(temp_ps, temp_daughters));
   }
 
   decay_configuration.setBackgroundPart(background_config);
@@ -332,7 +337,7 @@ void DecayGenerator::addSpinWaveTwoBodyDecayToDecayConfiguration(
         << daughter.unique_id_ << ") ";
       }
       BOOST_LOG_TRIVIAL(debug)<< std::endl;
-      const boost::property_tree::ptree decay_strength_info_and_phase = createStrengthAndPhase(mother.pid_information_.name_);
+      const boost::property_tree::ptree decay_strength_info_and_phase = createStrengthAndPhase(mother, daughters);
 
       BOOST_LOG_TRIVIAL(debug)<< "trying to add decay for: " << mother.pid_information_.name_
       << " (" << mother.unique_id_ << ") -> ";
@@ -587,33 +592,78 @@ bool DecayGenerator::isParticleIntermediateState(const ParticleStateInfo& state,
 }
 
 const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
-    const std::string& resonance_name) const {
+    const ParticleStateInfo& mother,
+    const std::vector<ParticleStateInfo>& daughters) const {
+  /*
+   * TODO: this has to be reworked a bit to also function correctly for
+   * arbitrary decay trees. Right now the fixing of parameters only works for a
+   * three body final state, or two two-body-decays.
+   */
   boost::property_tree::ptree decay_strength_info_and_phase;
 
   double magnitude(1.0);
   double phase(0.0);
-  int fix(1);
+  int fix_mag(1);
+  int fix_phase(1);
   //if not top node then just fix to 1, 0
-  if (resonance_name.compare(mother_state_particle_.particle_info_.name_)
-      == 0) {
-    fix = 0;
+  if (mother.pid_information_.name_.compare(
+      mother_state_particle_.particle_info_.name_) == 0) {
+    fix_mag = 0;
+    fix_phase = 0;
   }
 
   auto const& config_pt = DecayGeneratorConfig::Instance().getConfig();
   for (auto const& entry : config_pt.get_child("magnitude_and_phases")) {
-    if (resonance_name.compare(entry.first) == 0) {
-      magnitude = entry.second.get<double>("mag");
-      phase = entry.second.get<double>("phase");
-      break;
+    for (auto const& daughter : daughters) {
+      std::string resonance_name(daughter.pid_information_.name_);
+      if (resonance_name.compare(entry.first) == 0) {
+        auto mag_opt = entry.second.get_child_optional("mag");
+        auto phase_opt = entry.second.get_child_optional("phase");
+        if (mag_opt.is_initialized() && phase_opt.is_initialized()) {
+          magnitude = entry.second.get<double>("mag");
+          phase = entry.second.get<double>("phase");
+          auto fix_opt = entry.second.get_optional<bool>("fix_phase");
+          if (fix_opt.is_initialized())
+            fix_phase = fix_opt.get();
+        }
+        else {
+          for (auto const& spin_setting : entry.second) {
+            //parse "spin_z=num/denom" value from the first part of spin_setting
+            //std::smatch sm;
+            //std::regex expr("spin_z\s*=\s*\(\d\)\s*/\s*\(\d\)");
+            //std::regex_match(spin_setting.first, sm, expr);
+            unsigned int temp_denom = std::stoul(
+                spin_setting.first.substr(9, 1));
+            unsigned int temp_num_z = std::stoi(
+                spin_setting.first.substr(7, 1));
+            //if (sm.size() > 0) {
+            if (daughter.spin_information_.J_denominator_ != temp_denom)
+              std::runtime_error(
+                  "DecayGenerator::createStrengthAndPhase: spin denominators dont match for "
+                      + resonance_name);
+            if (daughter.spin_information_.J_z_numerator_ == temp_num_z) {
+              magnitude = spin_setting.second.get<double>("mag");
+              phase = spin_setting.second.get<double>("phase");
+              auto fix_opt = spin_setting.second.get_optional<int>(
+                  "fix_phase");
+              if (fix_opt.is_initialized())
+                fix_phase = fix_opt.get();
+              break;
+            }
+            // }
+          }
+        }
+        break;
+      }
     }
   }
 
   decay_strength_info_and_phase.put("strength.value", magnitude);
-  decay_strength_info_and_phase.put("strength.fix", fix);
+  decay_strength_info_and_phase.put("strength.fix", fix_mag);
   decay_strength_info_and_phase.put("strength.min", 0);
   decay_strength_info_and_phase.put("strength.max", 100);
   decay_strength_info_and_phase.put("phase.value", phase);
-  decay_strength_info_and_phase.put("phase.fix", fix);
+  decay_strength_info_and_phase.put("phase.fix", fix_phase);
   decay_strength_info_and_phase.put("phase.min", -100);
   decay_strength_info_and_phase.put("phase.max", 100);
 

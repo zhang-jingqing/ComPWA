@@ -178,7 +178,7 @@ class DecayGenerator {
           std::pair<ParticleStateInfo, std::vector<ParticleStateInfo> > >& decay_tree) const;
 
   const boost::property_tree::ptree createStrengthAndPhase(
-      const std::string& resonance_name) const;
+      const ParticleStateInfo& mother, const std::vector<ParticleStateInfo>& daughters) const;
 
   /* bool validateTwoBodyDecay(const SpinWaveTwoBodyDecay& two_body_decay);
    void addTwoBodyDecayToClipsEnviroment(

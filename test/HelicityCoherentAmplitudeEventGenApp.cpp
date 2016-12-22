@@ -142,7 +142,7 @@ int main(int argc, char **argv) {
       std::cout << "number of parameters: " << par.GetNDouble() << std::endl;
       unsigned int counter_free_params(0);
       for (auto const& param : par.GetDoubleParameters()) {
-        std::cout << param->GetName() << " " << param->IsFixed() << std::endl;
+        std::cout << param->GetName() << ": "<< param->GetValue()<< " || fixed: " << param->IsFixed() << std::endl;
         if (!param->IsFixed())
           ++counter_free_params;
       }
