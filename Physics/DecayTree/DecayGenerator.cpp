@@ -622,9 +622,12 @@ const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
         if (mag_opt.is_initialized() && phase_opt.is_initialized()) {
           magnitude = entry.second.get<double>("mag");
           phase = entry.second.get<double>("phase");
-          auto fix_opt = entry.second.get_optional<bool>("fix_phase");
-          if (fix_opt.is_initialized())
-            fix_phase = fix_opt.get();
+          auto fix_opt_phase = entry.second.get_optional<bool>("fix_phase");
+          auto fix_opt_mag = entry.second.get_optional<bool>("fix_mag");
+          if (fix_opt_phase.is_initialized())
+            fix_phase = fix_opt_phase.get();
+          if (fix_opt_phase.is_initialized())
+            fix_mag = fix_opt_mag.get();
         }
         else {
           for (auto const& spin_setting : entry.second) {
@@ -644,8 +647,7 @@ const boost::property_tree::ptree DecayGenerator::createStrengthAndPhase(
             if (daughter.spin_information_.J_z_numerator_ == temp_num_z) {
               magnitude = spin_setting.second.get<double>("mag");
               phase = spin_setting.second.get<double>("phase");
-              auto fix_opt = spin_setting.second.get_optional<int>(
-                  "fix_phase");
+              auto fix_opt = spin_setting.second.get_optional<int>("fix_phase");
               if (fix_opt.is_initialized())
                 fix_phase = fix_opt.get();
               break;
