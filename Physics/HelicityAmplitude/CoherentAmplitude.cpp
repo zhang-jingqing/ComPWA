@@ -352,9 +352,15 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
         new DoubleParameter("coherent_phsp_mag_value",
             temp_coherent_part_config.get_child("strength").get<double>(
                 "value")));
+    coherent_phsp_mag_value->FixParameter(
+        temp_coherent_part_config.get_child("strength").get<bool>("fix"));
+
     std::shared_ptr<DoubleParameter> coherent_phsp_phase_value(
         new DoubleParameter("coherent_phsp_phase_value",
             temp_coherent_part_config.get_child("phase").get<double>("value")));
+    coherent_phsp_phase_value->FixParameter(
+        temp_coherent_part_config.get_child("phase").get<bool>("fix"));
+
     parameters_.AddParameter(coherent_phsp_mag_value);
     parameters_.AddParameter(coherent_phsp_phase_value);
 

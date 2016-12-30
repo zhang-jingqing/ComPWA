@@ -260,23 +260,23 @@ int main(int argc, char **argv) {
         optiInt[i] = tmp->GetValue();
         if (!tmp->IsFixed()) {
           BOOST_LOG_TRIVIAL(debug)<< *tmp;
-          if(tmp->GetName().find("phase") >= 0) {
+          if(tmp->GetName().find("phase") != std::string::npos) {
             tmp->SetValue(rand.Uniform(-TMath::Pi(), TMath::Pi()));
           }
-          else if(tmp->GetName().find("mag") >= 0) {
+          else if(tmp->GetName().find("mag") != std::string::npos) {
             tmp->SetValue(rand.Uniform(0.0, 5.0));
           }
           else {
-          tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
+            tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
           }
           tmp->SetError(tmp->GetValue());
           if (!tmp->GetValue()) {
             tmp->SetError(1.);
           }
           /*if(optiInt[i] != 0.0) {
-            tmp->SetMinMax(optiInt[i]*0.79, optiInt[i]*1.21);
-            tmp->SetUseBounds(true);
-          }*/
+           tmp->SetMinMax(optiInt[i]*0.79, optiInt[i]*1.21);
+           tmp->SetUseBounds(true);
+           }*/
         }
         startInt[i] = tmp->GetValue();
       }
