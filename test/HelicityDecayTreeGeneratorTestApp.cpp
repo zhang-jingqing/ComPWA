@@ -34,10 +34,10 @@ int main(int argc, char **argv) {
       decay_generator);
 
   decay_generator_facade.setAllowedSpinQuantumNumbers(
-      ComPWA::QuantumNumberIDs::SPIN, { 0, 1, 2 , 3, 4 }, 1, {
+      ComPWA::QuantumNumberIDs::SPIN, { 0, 1, 2, 4 }, 1, {
           ComPWA::QuantumNumberIDs::ORBITAL_ANGULAR_MOMENTUM });
   decay_generator_facade.setAllowedSpinQuantumNumbers(
-      ComPWA::QuantumNumberIDs::ORBITAL_ANGULAR_MOMENTUM, { 0, 1, 2, 3, 4 }, 1, { },
+      ComPWA::QuantumNumberIDs::ORBITAL_ANGULAR_MOMENTUM, { 0, 1, 2, 4 }, 1, { },
       ComPWA::Physics::DecayTree::QuantumNumberTypes::COMPOSITE_PARTICLE_BASED);
   decay_generator_facade.setAllowedSpinQuantumNumbers(
       ComPWA::QuantumNumberIDs::ISOSPIN, { 0, 1 }, 1, { });
