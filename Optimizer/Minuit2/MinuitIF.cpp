@@ -125,6 +125,25 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par){
 	FunctionMinimum minMin = migrad();
 	BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | migrad finished! Minimum is valid = "
 			<<minMin.IsValid();
+	if(!minMin.IsValid()) {
+	  BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Has covariance = "
+	            <<minMin.HasCovariance();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Covariance valid = "
+              <<minMin.HasValidCovariance();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Covariance accurate = "
+          <<minMin.HasAccurateCovar();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Covariance pos def = "
+              <<minMin.HasPosDefCovar();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Covariance made pos def = "
+              <<minMin.HasMadePosDefCovar();
+	  BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Reached call limit = "
+	            <<minMin.HasReachedCallLimit();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Parameters valid = "
+              <<minMin.HasValidParameters();
+    BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | Hesse failed = "
+              <<minMin.HesseFailed();
+
+	}
 
 	//HESSE
 	MnHesse hesse(strat);

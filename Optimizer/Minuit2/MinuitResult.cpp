@@ -488,7 +488,15 @@ void MinuitResult::writeXML(std::string filename) {
   {    // closing xml tag is missing if boost::archive cannot go out of scope before file closes
     boost::archive::xml_oarchive oa(ofs);
     oa << boost::serialization::make_nvp("EstimatorValue", finalLH);
+
     oa << boost::serialization::make_nvp("MinimumValid", isValid);
+    oa << boost::serialization::make_nvp("ValidCovariance", hasValidCov);
+    oa << boost::serialization::make_nvp("ValidParameters", hasValidParameters);
+    oa << boost::serialization::make_nvp("PosDefCovar", covPosDef);
+    oa << boost::serialization::make_nvp("AccurateCovar", hasAccCov);
+    oa << boost::serialization::make_nvp("ReachedCallLimit", hasReachedCallLimit);
+    oa << boost::serialization::make_nvp("HesseFailed", hesseFailed);
+
     oa << boost::serialization::make_nvp("FitParameters", finalParameters);
     oa << boost::serialization::make_nvp("FitFractions", fractionList);
 
