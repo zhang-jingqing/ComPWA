@@ -32,6 +32,9 @@
 #include <boost/numeric/ublas/symmetric.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/log/trivial.hpp>
+#include <boost/serialization/string.hpp>
+#include <boost/serialization/nvp.hpp>
+#include <boost/serialization/serialization.hpp>
 
 #include "Core/Amplitude.hpp"
 #include "Core/ParameterList.hpp"
@@ -40,53 +43,96 @@
 
 namespace ComPWA {
 
-class FitResult
-{
+class FitCovarianceMatrix {
+  std::map<std::pair<std::string, std::string>, double> cov_matrix_;
+
+  friend class boost::serialization::access;
+  template<class archive>
+  void serialize(archive& ar, const unsigned int version) {
+    using namespace boost::serialization;
+    for (auto const& entry : cov_matrix_)
+      ar
+          & make_nvp(std::string(entry.first.first + "_vs_" + entry.first.second).c_str(),
+              entry.second);
+  }
+
 public:
-	FitResult():time(0){};
-	virtual ~FitResult() {};
-	void setInitialParameters(ParameterList iniPars){ initialParameters=iniPars; }
-	void setFinalParameters(ParameterList finPars){ finalParameters=finPars; }
-	void setTrueParameters(ParameterList truePars){ trueParameters=truePars; }
-	void setInitialLH(double iniLH){ }
-	ParameterList getInitialParameters(){ return initialParameters; }
-	ParameterList getFinalParameters(){ return finalParameters; }
-	ParameterList getTrueParameters(){ return trueParameters; }
-	void setTime(double t){ time = t; }
-	double getTime(){ return time; }
-	virtual double getResult() =0;
-
-	//output
-	virtual void print(std::string opt=""){
-		std::stringstream s;
-		genOutput(s,opt);
-		std::string str = s.str();
-		BOOST_LOG_TRIVIAL(info) << str;
-	};
-	//! Table with fit parameters
-	virtual void printFitParameters(TableFormater* tableResult);
-	virtual void writeTeX(std::string filename) {};
-	virtual void writeXML(std::string filename) {};
-	virtual void writeText(std::string filename) ;
-	virtual void writeSimpleText(std::string filename) ;
-	virtual operator double() const =0;
-	friend std::ostream& operator<< (std::ostream &out, FitResult &fitres){ out<<fitres.getResult(); return out;};
-	//! Any errors during minimization?
-	virtual bool hasFailed(){};
-
-protected:
-	virtual double shiftAngle(double v);
-	virtual void genOutput(std::ostream& out,std::string opt="") = 0;
-	virtual void genSimpleOutput(std::ostream& out);
-
-	double time;
-
-	ParameterList initialParameters;
-	ParameterList finalParameters;
-	ParameterList trueParameters;
-	std::shared_ptr<Amplitude> _amp;
+  void insertCovarianceValue(
+      const std::pair<std::string, std::string>& parameter_name_pair,
+      double value) {
+    cov_matrix_.insert(std::make_pair(parameter_name_pair, value));
+  }
 };
 
-} /* namespace ComPWA */
+class FitResult {
+public:
+  FitResult() :
+      time(0) {
+  }
+  ;
+  virtual ~FitResult() {
+  }
+  ;
+  void setInitialParameters(ParameterList iniPars) {
+    initialParameters = iniPars;
+  }
+  void setFinalParameters(ParameterList finPars) {
+    finalParameters = finPars;
+  }
+  void setTrueParameters(ParameterList truePars) {
+    trueParameters = truePars;
+  }
+  void setInitialLH(double iniLH) {
+  }
+  ParameterList getInitialParameters() {
+    return initialParameters;
+  }
+  ParameterList getFinalParameters() {
+    return finalParameters;
+  }
+  ParameterList getTrueParameters() {
+    return trueParameters;
+  }
+  void setTime(double t) {
+    time = t;
+  }
+  double getTime() {
+    return time;
+  }
+  virtual double getResult() =0;
+
+  //output
+  virtual void print(std::string opt = "") {
+    std::stringstream s;
+    genOutput(s, opt);
+    std::string str = s.str();
+    BOOST_LOG_TRIVIAL(info)<<str;
+  };
+  //! Table with fit parameters
+  virtual void printFitParameters(TableFormater* tableResult);
+  virtual void writeTeX(std::string filename) {};
+  virtual void writeXML(std::string filename) {};
+  virtual void writeText(std::string filename);
+  virtual void writeSimpleText(std::string filename);
+  virtual operator double() const =0;
+  friend std::ostream& operator<< (std::ostream &out, FitResult &fitres) {out<<fitres.getResult(); return out;};
+  //! Any errors during minimization?
+  virtual bool hasFailed() {};
+
+protected:
+  virtual double shiftAngle(double v);
+  virtual void genOutput(std::ostream& out,std::string opt="") = 0;
+  virtual void genSimpleOutput(std::ostream& out);
+
+  double time;
+
+  ParameterList initialParameters;
+  ParameterList finalParameters;
+  ParameterList trueParameters;
+  std::shared_ptr<Amplitude> _amp;
+};
+
+}
+/* namespace ComPWA */
 
 #endif
