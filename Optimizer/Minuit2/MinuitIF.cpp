@@ -122,7 +122,7 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par){
 	BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | starting migrad ";
 	MnMigrad migrad(_myFcn, upar, strat);
 	//	FunctionMinimum minMin = migrad(100,0.001);//(maxfcn,tolerance)
-	FunctionMinimum minMin = migrad();
+	FunctionMinimum minMin = migrad(50*par.GetNDouble()*par.GetNDouble());
 	BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | migrad finished! Minimum is valid = "
 			<<minMin.IsValid();
 	if(!minMin.IsValid()) {
