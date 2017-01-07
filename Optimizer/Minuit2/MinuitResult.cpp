@@ -494,34 +494,38 @@ void MinuitResult::writeXML(std::string filename) {
     oa << boost::serialization::make_nvp("ValidParameters", hasValidParameters);
     oa << boost::serialization::make_nvp("PosDefCovar", covPosDef);
     oa << boost::serialization::make_nvp("AccurateCovar", hasAccCov);
-    oa << boost::serialization::make_nvp("ReachedCallLimit", hasReachedCallLimit);
+    oa
+        << boost::serialization::make_nvp("ReachedCallLimit",
+            hasReachedCallLimit);
     oa << boost::serialization::make_nvp("HesseFailed", hesseFailed);
 
     oa << boost::serialization::make_nvp("FitParameters", finalParameters);
     oa << boost::serialization::make_nvp("FitFractions", fractionList);
 
-    FitCovarianceMatrix cov_mat;
+    if (hasValidCov) {
+      FitCovarianceMatrix cov_mat;
 
-    unsigned int n = 0;
-    for (unsigned int o = 0; o < finalParameters.GetNDouble(); o++) {
-      std::shared_ptr<DoubleParameter> par1 =
-          initialParameters.GetDoubleParameter(o);
-      if (par1->IsFixed())
-        continue;
-      unsigned int t(n);
-      for (unsigned int o2 = o; o2 < finalParameters.GetNDouble(); o2++) {
-        std::shared_ptr<DoubleParameter> par2 =
-            initialParameters.GetDoubleParameter(o2);
-        if (par2->IsFixed())
+      unsigned int n = 0;
+      for (unsigned int o = 0; o < finalParameters.GetNDouble(); o++) {
+        std::shared_ptr<DoubleParameter> par1 =
+            initialParameters.GetDoubleParameter(o);
+        if (par1->IsFixed())
           continue;
-        cov_mat.insertCovarianceValue(
-            std::make_pair(par1->GetName(), par2->GetName()), corr(n, t));
+        unsigned int t(n);
+        for (unsigned int o2 = o; o2 < finalParameters.GetNDouble(); o2++) {
+          std::shared_ptr<DoubleParameter> par2 =
+              initialParameters.GetDoubleParameter(o2);
+          if (par2->IsFixed())
+            continue;
+          cov_mat.insertCovarianceValue(
+              std::make_pair(par1->GetName(), par2->GetName()), corr(n, t));
 
-        ++t;
+          ++t;
+        }
+        ++n;
       }
-      ++n;
+      oa << boost::serialization::make_nvp("CorrelationMatrix", cov_mat);
     }
-    oa << boost::serialization::make_nvp("CorrelationMatrix", cov_mat);
   }
   ofs.close();
   return;
