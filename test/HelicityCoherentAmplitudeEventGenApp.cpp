@@ -205,7 +205,7 @@ int main(int argc, char **argv) {
       if (want_phsp_generation) {
         run.setPhspSample(phsp);
         if (want_data_generation)
-          run.generatePhsp(num_events * 10);
+          run.generatePhsp(num_events * 50);
         else
           run.generatePhsp(num_events);
         phsp->writeData(
