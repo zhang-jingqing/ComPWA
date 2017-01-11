@@ -178,7 +178,9 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par){
 				finalPar->SetError( assymErrors.first, assymErrors.second );
 			} else if(finalPar->GetErrorType()==ErrorType::SYM) {
 				//symmetric errors -> migrad/hesse error
-				finalPar->SetError(minState.Error(finalPar->GetName()));
+			  BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | minos for parameter "<<i<< "...";
+			  std::pair<double, double> errs= minos(i);
+				finalPar->SetError(0.5*(errs.first+errs.second));
 			} else
 				throw std::runtime_error("MinuitIF::exec() | unknown error type: "
 						+std::to_string((long long int)finalPar->GetErrorType()));
