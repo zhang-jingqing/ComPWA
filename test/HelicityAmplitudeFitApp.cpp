@@ -178,7 +178,7 @@ int main(int argc, char **argv) {
               topology_amplitudes, decay_configuration.getBackgroundPart()));
 
       // ok lets determine number of events to use
-      int requested_phsp_events(requested_num_events * 10);
+      int requested_phsp_events(requested_num_events * 50);
       if (requested_num_events == -1)
         requested_phsp_events = -1;
 
