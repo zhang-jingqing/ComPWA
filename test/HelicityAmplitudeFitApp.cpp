@@ -264,7 +264,10 @@ int main(int argc, char **argv) {
             tmp->SetValue(rand.Uniform(-TMath::Pi(), TMath::Pi()));
           }
           else if(tmp->GetName().find("mag") != std::string::npos) {
-            tmp->SetValue(rand.Uniform(0.0, 5.0));
+            if(tmp->GetName().find("coherent") != std::string::npos)
+              tmp->SetValue(rand.Uniform(0.0, 0.1));
+            else
+              tmp->SetValue(rand.Uniform(0.0, 5.0));
           }
           else {
             tmp->SetValue(rand.Uniform(tmp->GetValue()*0.8, tmp->GetValue()*1.2));
