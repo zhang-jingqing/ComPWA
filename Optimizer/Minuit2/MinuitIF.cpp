@@ -161,6 +161,7 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par) {
   <<minMin.IsValid();
   BOOST_LOG_TRIVIAL(info)<<"MinuitIF::exec() | Hesse failed = "
   <<minMin.HesseFailed();
+  bool hesse_failed(minMin.HesseFailed());
   //MINOS
   MnMinos minos(_myFcn, minMin, strat);
 
@@ -186,10 +187,15 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par) {
       }
       else if(finalPar->GetErrorType()==ErrorType::SYM) {
         //symmetric errors -> migrad/hesse error
-        BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | hesse error for parameter "<<i<< " = " <<minState.Error(i);
-        std::pair<double, double> errs= minos(i);
-        BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | minos for parameter "<<i<< " = "<<errs.first<<";"<<errs.second;
-        finalPar->SetError(0.5*(errs.first+errs.second));
+        //BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | hesse error for parameter "<<i<< " = " <<minState.Error(i);
+        if(hesse_failed) {
+          std::pair<double, double> errs= minos(i);
+          //BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | minos for parameter "<<i<< " = "<<errs.first<<";"<<errs.second;
+          finalPar->SetError(0.5*(std::fabs(errs.first)+errs.second));
+        }
+        else {
+          finalPar->SetError(minState.Error(i));
+        }
       }
       else
       throw std::runtime_error("MinuitIF::exec() | unknown error type: "
