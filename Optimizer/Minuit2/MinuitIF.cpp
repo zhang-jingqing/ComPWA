@@ -188,10 +188,10 @@ std::shared_ptr<FitResult> MinuitIF::exec(ParameterList& par) {
       else if(finalPar->GetErrorType()==ErrorType::SYM) {
         //symmetric errors -> migrad/hesse error
         //BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | hesse error for parameter "<<i<< " = " <<minState.Error(i);
-        if(hesse_failed) {
+        if(minMin.IsValid() && hesse_failed) {
           std::pair<double, double> errs= minos(i);
           //BOOST_LOG_TRIVIAL(info) <<"MinuitIF::exec() | minos for parameter "<<i<< " = "<<errs.first<<";"<<errs.second;
-          finalPar->SetError(0.5*(std::fabs(errs.first)+errs.second));
+          finalPar->SetError(0.5*(std::fabs(errs.first)+std::fabs(errs.second)));
         }
         else {
           finalPar->SetError(minState.Error(i));
