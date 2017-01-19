@@ -764,8 +764,8 @@ public:
       double tmpB = paras.GetDoubleParameter(1)->GetValue();
       out = std::shared_ptr<AbsParameter>(
           new ComplexParameter(out->GetName(),
-              std::complex<double>(tmpA * std::cos(tmpB),
-                  tmpA * std::sin(tmpB))));
+              std::complex<double>(std::abs(tmpA) * std::cos(tmpB),
+                  std::abs(tmpA) * std::sin(tmpB))));
       break;
     }        //end double
 
