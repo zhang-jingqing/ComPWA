@@ -18,6 +18,7 @@
 #include "TCanvas.h"
 #include "TStyle.h"
 #include "TF1.h"
+#include "TGraph.h"
 
 #include "DataReader/RootGenerator/RootGenerator.hpp"
 // Physics Interface header files go here
@@ -113,84 +114,111 @@ int main(int argc, char **argv) {
         new ComPWA::Physics::HelicityFormalism::CoherentAmplitude(
             topology_amplitudes, decay_configuration.getBackgroundPart()));
 
-    std::shared_ptr<Generator> gen(new RootGenerator());
-    gen->generate(dummy_event);
+    TFile pawian_file("Data.root", "READ");
 
-    ComPWA::dataPoint dummy_data_point;
-    kinematics->translateEventToDataPoint(dummy_event, dummy_data_point);
+    TTree *pawian_tree = (TTree*) pawian_file.Get("Tree");
 
-    TH1D ct_pi_pi("cms_costheta_pi0_pi0_system", "", 100, 0, 3.2);
-    TH1D ct_pi_pi_hel("hel_costheta_pi0_pi0_system", "", 100, 0, 3.2);
-    TH1D phi_pi_pi("cms_phi_pi0_pi0_system", "", 100, -3.2, 3.2);
-    TH1D phi_pi_pi_hel("hel_phi_pi0_pi0_system", "", 100, -3.2, 3.2);
+    TLorentzVector p1;
+    TLorentzVector p2;
+    TLorentzVector p3;
+    TLorentzVector *pp1(&p1);
+    TLorentzVector *pp2(&p2);
+    TLorentzVector *pp3(&p3);
 
-    // ok now just randomize theta and phis
+    double weight;
+    pawian_tree->SetBranchAddress("weigth", &weight);
+    pawian_tree->SetBranchAddress("P1_P4", &pp1);
+    pawian_tree->SetBranchAddress("P2_P4", &pp2);
+    pawian_tree->SetBranchAddress("P3_P4", &pp3);
 
-    double genMaxVal(0.0);
-    double AMPpdf(0.0);
+    TH2D dalitz_phsp("dalitz_events", "", 100, 0.0, 10.0, 100, 0.0, 10.0);
+    TH2D dalitz_pawian("dalitz_pawian", "", 100, 0.0, 10.0, 100, 0.0, 10.0);
+    TH2D dalitz_compwa("dalitz_compwa", "", 100, 0.0, 10.0, 100, 0.0, 10.0);
+    TH2D dalitz_reldiff("dalitz_reldiff", "", 100, 0.0, 10.0, 100, 0.0, 10.0);
+    TH1D costhetagamma("cms_cos_theta_gamma", "", 100, -1, 1);
+    TH1D costhetapi01("cms_cos_theta_pi01", "", 100, -1, 1);
+    TH1D costhetapi02("cms_cos_theta_pi02", "", 100, -1, 1);
 
-    gRandom = new TRandom3(123456);
+    std::cout<<pawian_tree->GetEntries()<<std::endl;
+    unsigned int entries(10000); //pawian_tree->GetEntries()
+    TGraph graph_pawian(entries);
+    TGraph graph(entries);
+    ComPWA::dataPoint data_point;
+    for (unsigned int i = 0; i < entries; ++i) {
+      pawian_tree->GetEntry(i);
 
-    for (unsigned int i = 0; i < 500000; ++i) {
-      dummy_data_point.setVal(3, gRandom->Uniform(0, TMath::Pi()));
-      dummy_data_point.setVal(4, gRandom->Uniform(-TMath::Pi(), TMath::Pi()));
+      TLorentzVector cms = p1 + p2 + p3;
+      p1.Boost(-cms.BoostVector());
+      p2.Boost(-cms.BoostVector());
+      p3.Boost(-cms.BoostVector());
 
-      dummy_data_point.setVal(8, gRandom->Uniform(0, TMath::Pi()));
-      dummy_data_point.setVal(9, gRandom->Uniform(-TMath::Pi(), TMath::Pi()));
-
-      ParameterList list = amp->intensity(dummy_data_point);    //unfortunatly not thread safe
-      AMPpdf = *list.GetDoubleParameter(0);
-      if (AMPpdf > genMaxVal)
-        genMaxVal = 1.2*AMPpdf;
-    }
-
-    unsigned int acceptedEvents(0);
-    while (acceptedEvents < 100000) {
-      dummy_data_point.setVal(3, gRandom->Uniform(0, TMath::Pi()));
-      dummy_data_point.setVal(4, gRandom->Uniform(-TMath::Pi(), TMath::Pi()));
-
-      dummy_data_point.setVal(8, gRandom->Uniform(0, TMath::Pi()));
-      dummy_data_point.setVal(9, gRandom->Uniform(-TMath::Pi(), TMath::Pi()));
-
-      double ampRnd = gRandom->Uniform(0.0, 1.0) * genMaxVal;
-      ParameterList list;
-      list = amp->intensity(dummy_data_point);    //unfortunatly not thread safe
-      AMPpdf = *list.GetDoubleParameter(0);
-      if (genMaxVal < AMPpdf) {
-        std::stringstream ss;
-        ss << "RunManager::generate: error in HitMiss procedure. "
-            << "Maximum value of random number generation smaller then amplitude maximum! "
-            << genMaxVal << " < " << AMPpdf;
-        throw std::runtime_error(ss.str());
+      if (p1.M() > 1e-10 || p1.M() < 0.0) {
+        p1.SetE(p1.Vect().Mag());
+        if (p1.M() < 0.0)
+          p1.SetE(p1.E() + std::numeric_limits<double>::epsilon());
       }
-      if (ampRnd > AMPpdf)
-        continue;
 
-      ++acceptedEvents;
+      ComPWA::Particle gamma(p1.Px(), p1.Py(), p1.Pz(), p1.E(), 22);
+      ComPWA::Particle pi01(p2.Px(), p2.Py(), p2.Pz(), p2.E(), 111);
+      ComPWA::Particle pi02(p3.Px(), p3.Py(), p3.Pz(), p3.E(), 11122);
 
-      ct_pi_pi.Fill(dummy_data_point.getVal(3));
-      ct_pi_pi_hel.Fill(dummy_data_point.getVal(8));
-      phi_pi_pi.Fill(dummy_data_point.getVal(4));
-      phi_pi_pi_hel.Fill(dummy_data_point.getVal(9));
+      unsigned int pi0counter(0);
+      for (unsigned int i = 0; i < dummy_event.getNParticles(); ++i) {
+        //std::cout<<dummy_event.getParticle(i).pid<<std::endl;
+        if (dummy_event.getParticle(i).pid == 22) {
+          dummy_event.setParticleAt(gamma, i);
+          //std::cout<<"asdf1\n";
+        }
+        else if (dummy_event.getParticle(i).pid == 111) {
+          if(pi0counter == 0)
+            dummy_event.setParticleAt(pi01, i);
+          if(pi0counter == 1)
+            dummy_event.setParticleAt(pi02, i);
+          ++pi0counter;
+          //std::cout<<"asdf2\n";
+        }
+        else if (dummy_event.getParticle(i).pid == 11122) {
+          dummy_event.setParticleAt(pi02, i);
+          //std::cout<<"asdf3\n";
+        }
+        else {
+          std::cout << "wtf\n";
+        }
+      }
+
+      dataPoint data_point(dummy_event);
+
+      ParameterList list;
+      list = amp->intensity(data_point);    //unfortunatly not thread safe
+      double myval = *list.GetDoubleParameter(0);
+      graph_pawian.SetPoint(i, i, weight);
+      graph.SetPoint(i, i, myval);
+      /*std::cout
+       << parlist.GetDoubleParameter("coherent_amp")->GetValue() / weight
+       << std::endl;*/
+
+      TLorentzVector lv1(p1+p2);
+      TLorentzVector lv2(p2+p3);
+
+      dalitz_phsp.Fill(lv2.M2(), lv1.M2());
+      dalitz_pawian.Fill(lv2.M2(), lv1.M2(), weight);
+      dalitz_compwa.Fill(lv2.M2(), lv1.M2(), myval);
+      dalitz_reldiff.Fill(lv2.M2(), lv1.M2(), (myval-weight)/(weight+myval));
+
+      costhetagamma.Fill(p1.CosTheta(), (myval-weight)/(weight+myval));
+      costhetapi01.Fill(p2.CosTheta(), (myval-weight)/(weight+myval));
+      costhetapi02.Fill(p3.CosTheta(), (myval-weight)/(weight+myval));
     }
-
-    TCanvas c;
-    c.Divide(2, 4);
-    c.cd(2);
-    ct_pi_pi.Draw();
-    ct_pi_pi.GetYaxis()->SetRangeUser(0.0, ct_pi_pi.GetMaximum());
-    c.cd(4);
-    ct_pi_pi_hel.Draw();
-    ct_pi_pi_hel.GetYaxis()->SetRangeUser(0.0, ct_pi_pi_hel.GetMaximum());
-
-    c.cd(6);
-    phi_pi_pi.Draw();
-    phi_pi_pi.GetYaxis()->SetRangeUser(0.0, phi_pi_pi.GetMaximum());
-    c.cd(8);
-    phi_pi_pi_hel.Draw();
-    phi_pi_pi_hel.GetYaxis()->SetRangeUser(0.0, phi_pi_pi_hel.GetMaximum());
-    c.SaveAs("blub.pdf");
-
+    TFile f("comparison.root", "RECREATE");
+    graph.Write("compwa_weights");
+    graph_pawian.Write("pawian_weights");
+    dalitz_phsp.Write();
+    dalitz_pawian.Write();
+    dalitz_compwa.Write();
+    dalitz_reldiff.Write();
+    costhetagamma.Write();
+    costhetapi01.Write();
+    costhetapi02.Write();
   }
   return 0;
 }

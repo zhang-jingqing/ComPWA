@@ -110,32 +110,6 @@
 		</quantum_numbers>
 	</particle>
 	
-			<particle>
-		<ID>1113</ID>
-		<name>pi03</name>
-		<mass>
-			<value>0.1349766</value>
-			<error>
-				<value>0.0</value>
-			</error>
-		</mass>
-
-		<quantum_numbers>
-			<charge>0</charge>
-			<spin>
-				<numerator>0</numerator>
-				<denominator>1</denominator>
-			</spin>
-			<parity>-1</parity>
-			<cparity>1</cparity>
-			<isospin>
-				<numerator>1</numerator>
-				<denominator>1</denominator>
-				<z_numerator>0</z_numerator>
-			</isospin>
-		</quantum_numbers>
-	</particle>
-	
 	<particle>
 		<ID>-211</ID>
 		<name>pi-</name>
@@ -376,37 +350,6 @@
 	</particle>
 	
 	<particle>
-		<ID>4430</ID>
-		<name>jpsi0</name>
-		<mass>
-			<value>3.0969</value>
-			<error>
-				<value>0.0</value>
-			</error>
-		</mass>
-		<width>
-			<value>0.000093</value>
-			<error>
-				<value>0.0</value>
-			</error>
-		</width>
-		<quantum_numbers>
-			<charge>0</charge>
-			<spin>
-				<numerator>0</numerator>
-				<denominator>1</denominator>
-			</spin>
-			<parity>-1</parity>
-			<cparity>-1</cparity>
-			<isospin>
-				<numerator>0</numerator>
-				<denominator>1</denominator>
-				<z_numerator>0</z_numerator>
-			</isospin>
-		</quantum_numbers>
-	</particle>
-	
-	<particle>
 		<ID>333</ID>
 		<name>phi(1020)</name>
 		<mass>
@@ -447,7 +390,7 @@
 			</error>
 		</mass>
 		<width>
-			<value>0.01849</value>
+			<value>0.00849</value>
 			<error>
 				<value>0.00008</value>
 			</error>
@@ -478,7 +421,7 @@
 			</error>
 		</mass>
 		<width>
-			<value>0.01849</value>
+			<value>0.00849</value>
 			<error>
 				<value>0.00008</value>
 			</error>
@@ -630,7 +573,7 @@
 		<ID>9030221</ID>
 		<name>f0_1500</name>
 		<mass>
-			<value>1.505</value>
+			<value>1.504</value>
 			<error>
 				<value>0.0</value>
 			</error>
@@ -661,13 +604,13 @@
 		<ID>10331</ID>
 		<name>f0_1710</name>
 		<mass>
-			<value>1.722</value>
+			<value>1.723</value>
 			<error>
 				<value>0.0</value>
 			</error>
 		</mass>
 		<width>
-			<value>0.135</value>
+			<value>0.139</value>
 			<error>
 				<value>0.0</value>
 			</error>
@@ -692,13 +635,13 @@
 		<ID>9070221</ID>
 		<name>f0_2020</name>
 		<mass>
-			<value>2.0</value>
+			<value>1.992</value>
 			<error>
 				<value>0.0</value>
 			</error>
 		</mass>
 		<width>
-			<value>0.4</value>
+			<value>0.442</value>
 			<error>
 				<value>0.0</value>
 			</error>
@@ -758,13 +701,13 @@
 		<ID>225</ID>
 		<name>f2_1270</name>
 		<mass>
-			<value>1.275</value>
+			<value>1.2755</value>
 			<error>
 				<value>0.0</value>
 			</error>
 		</mass>
 		<width>
-			<value>0.185</value>
+			<value>0.186</value>
 			<error>
 				<value>0.0</value>
 			</error>

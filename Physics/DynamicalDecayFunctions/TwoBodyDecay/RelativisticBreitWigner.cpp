@@ -167,7 +167,7 @@ double RelativisticBreitWigner::widthFactor(double two_body_mass) const {
 std::complex<double> RelativisticBreitWigner::evaluate(double mSq) const {
   double mR = resonance_mass_->GetValue();
   double width = resonance_width_->GetValue();
-  double corrected_width = width;//*widthFactor(std::sqrt(mSq));
+  double corrected_width = width*widthFactor(std::sqrt(mSq));
   std::complex<double> denominator(std::pow(mR, 2)-mSq, -mR*corrected_width);
   return mR*corrected_width/denominator;
   /*double mR = resonance_mass_->GetValue();

@@ -57,7 +57,7 @@ std::shared_ptr<AbstractDynamicalFunction> DynamicalFunctionFactory::generateDyn
         state_info.dynamical_information_.get < std::string > ("type"))
         == DynamicalFunctions::DynamicalInfoTypes::TOP_NODE) {
       return std::shared_ptr < TopNodeConstantValue
-          > (new TopNodeConstantValue());
+          > (new TopNodeConstantValue(state_info, external_parameters));
     }
   }
 }
