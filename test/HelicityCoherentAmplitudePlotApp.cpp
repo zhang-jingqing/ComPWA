@@ -48,6 +48,75 @@ using DataReader::Data;
 using DataReader::RootReader::RootReader;
 using DataReader::RootGenerator::RootGenerator;
 
+struct HelicityAngles {
+  double theta_cms;
+  double phi_cms;
+  double theta_hel;
+  double phi_hel;
+};
+
+std::pair<double, double> helicityVec(const Vector4<double>& cm,
+    const Vector4<double>& mother, const Vector4<double>& daughter) {
+  Vector4<double> mother_cm(mother);
+  mother_cm.Boost(cm);
+
+  Vector4<double> mother_cm_rot(mother_cm);
+  mother_cm_rot.RotateZ(-mother_cm.Phi());
+  mother_cm_rot.RotateY(-mother_cm.Theta());
+
+  Vector4<double> result(daughter);
+  result.Boost(cm);
+  result.RotateZ(-mother_cm.Phi());
+  result.RotateY(-mother_cm.Theta());
+
+  result.Boost(mother_cm_rot);
+
+  return std::make_pair(result.CosTheta(), result.Phi());
+}
+
+HelicityAngles phiDiff(const TLorentzVector &lv_p1, const TLorentzVector &lv_p2,
+    const TLorentzVector &lv_p3) {
+  // define particle products of the two body decay
+  Vector4<double> p1_4vector(lv_p1.E(), lv_p1.Px(), lv_p1.Py(), lv_p1.Pz());
+  Vector4<double> p2_4vector(lv_p2.E(), lv_p2.Px(), lv_p2.Py(), lv_p2.Pz());
+  Vector4<double> p3_4vector(lv_p3.E(), lv_p3.Px(), lv_p3.Py(), lv_p3.Pz());
+
+  // define the two body state
+  Vector4<double> decaying_state(p1_4vector + p2_4vector);
+  // define mother state
+  Vector4<double> mother(decaying_state + p3_4vector);
+
+  HelicityAngles hel_angles;
+
+  p1_4vector.Boost(decaying_state);
+
+  decaying_state.Boost(mother);
+  hel_angles.theta_cms = decaying_state.CosTheta();
+  hel_angles.phi_cms = decaying_state.Phi();
+
+  p1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(),
+      -decaying_state.Phi());
+
+  hel_angles.theta_hel = p1_4vector.CosTheta();
+  hel_angles.phi_hel = p1_4vector.Phi();
+
+  return hel_angles;
+
+
+  /*HelicityAngles ha;
+
+  Vector4<double> mother2(std::sqrt(mother.M2() + 1.0), 0.0, 0.0, 1.0);
+
+  std::pair<double, double> vals = helicityVec(mother2, mother, decaying_state);
+  ha.theta_cms = vals.first;
+  ha.phi_cms = vals.second;
+
+  vals = helicityVec(mother, decaying_state, p1_4vector);
+  ha.theta_hel = vals.first;
+  ha.phi_hel = vals.second;
+  return ha;*/
+}
+
 /************************************************************************************************/
 /**
  * The main function.
@@ -138,25 +207,43 @@ int main(int argc, char **argv) {
     TH1D costhetagamma("cms_cos_theta_gamma", "", 100, -1, 1);
     TH1D costhetapi01("cms_cos_theta_pi01", "", 100, -1, 1);
     TH1D costhetapi02("cms_cos_theta_pi02", "", 100, -1, 1);
+    TH1D phidiff_pawian("phidiff_pawian", "", 100, -3.146, 3.146);
+    TH1D phidiff_compwa("phidiff_compwa", "", 100, -3.146, 3.146);
+    TH1D phi_cms("phi_cms", "", 100, -3.146, 3.146);
+    TH1D phi_hel("phi_hel", "", 100, -3.146, 3.146);
+    TH1D costheta_cms("costheta_cms", "", 100, -1, 1);
+    TH1D costheta_hel("costheta_hel", "", 100, -1, 1);
+    TH2D phicorr("phicorr", "", 100, -3.146, 3.146, 100, -3.146, 3.146);
+    /*TH2D hel_cos_theta_vs_phi_diff_pawian("hel_cos_theta_vs_phi_diff_pawian", "", 100, -3.146, 3.146, 100, -1, 1);
+     TH2D hel_cos_theta_vs_phi_diff_compwa("hel_cos_theta_vs_phi_diff_compwa", "", 100, -3.146, 3.146, 100, -1, 1);
+     TH1D phidiff_pawian("phidiff_pawian", "", 100, -3.146, 3.146);
+     TH1D phidiff_compwa("phidiff_compwa", "", 100, -3.146, 3.146);*/
 
-    std::cout<<pawian_tree->GetEntries()<<std::endl;
-    unsigned int entries(10000); //pawian_tree->GetEntries()
+    std::cout << pawian_tree->GetEntries() << std::endl;
+    unsigned int entries(20000);
+    //unsigned int entries = pawian_tree->GetEntries();
     TGraph graph_pawian(entries);
     TGraph graph(entries);
     ComPWA::dataPoint data_point;
     for (unsigned int i = 0; i < entries; ++i) {
       pawian_tree->GetEntry(i);
 
-      TLorentzVector cms = p1 + p2 + p3;
-      p1.Boost(-cms.BoostVector());
-      p2.Boost(-cms.BoostVector());
-      p3.Boost(-cms.BoostVector());
+      /*TLorentzVector cms = p1 + p2 + p3;
+       p1.Boost(-cms.BoostVector());
+       p2.Boost(-cms.BoostVector());
+       p3.Boost(-cms.BoostVector());*/
 
-      if (p1.M() > 1e-10 || p1.M() < 0.0) {
-        p1.SetE(p1.Vect().Mag());
-        if (p1.M() < 0.0)
-          p1.SetE(p1.E() + std::numeric_limits<double>::epsilon());
-      }
+      /* cms.Print();
+       cms.Boost(-cms.BoostVector());
+       std::cout<<"boost cms"<<std::endl;
+       cms.Print();*/
+
+      /* if (p1.M() > 1e-10 || p1.M() < 0.0) {
+       p1.SetE(p1.Vect().Mag());
+       if (p1.M() < 0.0)
+       p1.SetE(p1.E() + std::numeric_limits<double>::epsilon());
+       }*/
+
 
       ComPWA::Particle gamma(p1.Px(), p1.Py(), p1.Pz(), p1.E(), 22);
       ComPWA::Particle pi01(p2.Px(), p2.Py(), p2.Pz(), p2.E(), 111);
@@ -170,9 +257,9 @@ int main(int argc, char **argv) {
           //std::cout<<"asdf1\n";
         }
         else if (dummy_event.getParticle(i).pid == 111) {
-          if(pi0counter == 0)
+          if (pi0counter == 0)
             dummy_event.setParticleAt(pi01, i);
-          if(pi0counter == 1)
+          if (pi0counter == 1)
             dummy_event.setParticleAt(pi02, i);
           ++pi0counter;
           //std::cout<<"asdf2\n";
@@ -197,17 +284,35 @@ int main(int argc, char **argv) {
        << parlist.GetDoubleParameter("coherent_amp")->GetValue() / weight
        << std::endl;*/
 
-      TLorentzVector lv1(p1+p2);
-      TLorentzVector lv2(p2+p3);
+      TLorentzVector lv1(p1 + p2);
+      TLorentzVector lv2(p2 + p3);
 
       dalitz_phsp.Fill(lv2.M2(), lv1.M2());
       dalitz_pawian.Fill(lv2.M2(), lv1.M2(), weight);
       dalitz_compwa.Fill(lv2.M2(), lv1.M2(), myval);
-      dalitz_reldiff.Fill(lv2.M2(), lv1.M2(), (myval-weight)/(weight+myval));
+      dalitz_reldiff.Fill(lv2.M2(), lv1.M2(),
+          (myval - weight) / (weight + myval));
 
-      costhetagamma.Fill(p1.CosTheta(), (myval-weight)/(weight+myval));
-      costhetapi01.Fill(p2.CosTheta(), (myval-weight)/(weight+myval));
-      costhetapi02.Fill(p3.CosTheta(), (myval-weight)/(weight+myval));
+      costhetagamma.Fill(p1.CosTheta(), (myval - weight) / (weight + myval));
+      costhetapi01.Fill(p2.CosTheta(), (myval - weight) / (weight + myval));
+      costhetapi02.Fill(p3.CosTheta(), (myval - weight) / (weight + myval));
+
+      HelicityAngles ha = phiDiff(p1, p2, p3);
+
+      double diff(ha.phi_cms - ha.phi_hel);
+      if (diff < -TMath::Pi())
+        diff += 2.0*TMath::Pi();
+      else if (diff > TMath::Pi())
+        diff -= 2.0*TMath::Pi();
+      phidiff_pawian.Fill(diff, weight);
+      phidiff_compwa.Fill(diff, myval);
+
+      phicorr.Fill(ha.phi_cms, ha.phi_hel, weight);
+
+      phi_cms.Fill(ha.phi_cms, myval);
+      phi_hel.Fill(ha.phi_hel, myval);
+      costheta_cms.Fill(ha.theta_cms, myval);
+      costheta_hel.Fill(ha.theta_hel, myval);
     }
     TFile f("comparison.root", "RECREATE");
     graph.Write("compwa_weights");
@@ -219,6 +324,15 @@ int main(int argc, char **argv) {
     costhetagamma.Write();
     costhetapi01.Write();
     costhetapi02.Write();
+    phidiff_pawian.Write();
+    phidiff_compwa.Write();
+
+    phicorr.Write();
+    phi_cms.Write();
+    phi_hel.Write();
+    costheta_cms.Write();
+    costheta_hel.Write();
+
   }
   return 0;
 }

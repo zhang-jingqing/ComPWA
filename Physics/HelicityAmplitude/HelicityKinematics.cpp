@@ -380,9 +380,6 @@ void HelicityKinematics::fillPointWithBoostedKinematicVariables(
   point.setVal(++data_point_fill_position, daughter1_4vector.Mass());
   point.setVal(++data_point_fill_position, daughter2_4vector.Mass());
 
-  // boost particle1 into the rest frame of the two body state
-  daughter1_4vector.Boost(decaying_state);
-
   // if this decay node is the not the top level decay we have to do some
   // boosting
   if (two_body_state_indices.decay_state_index_
@@ -391,21 +388,24 @@ void HelicityKinematics::fillPointWithBoostedKinematicVariables(
     Vector4<double> mother(
         unique_occurring_cms_4vectors[two_body_state_indices.mother_index_]);
 
+    // boost particle1 into the rest frame of the two body state
+    daughter1_4vector.Boost(decaying_state);
     // then boost the two body state into the rest frame of its mother
     decaying_state.Boost(mother);
+
     // now determine the theta and phi values of the boosted particle1 vector
     // with respect to direction of flight of the boosted two body state
     // so we need to rotate
-    //double rotation_theta = daughter1_4vector.Theta();
-    //double rotation_phi = daughter1_4vector.Phi();
-    //daughter1_4vector.RotateZ(-rotation_phi);
-    //daughter1_4vector.RotateY(-rotation_theta);
-    daughter1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(), -decaying_state.Phi());
-    //daughter1_4vector.RotateY(rotation_theta);
-    //daughter1_4vector.RotateZ(rotation_phi);
+    daughter1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(),
+        -decaying_state.Phi());
+  }
+  else {
+    daughter1_4vector.Boost(decaying_state);
   }
 
-   /*Vector4<double> mother(std::sqrt(decaying_state.Mass2() + 1.0), 0., 0., 1.0);
+  /*
+   Vector4<double> mother(std::sqrt(decaying_state.Mass2() + 1.0), 0., 0.,
+   1.0);
 
    if (two_body_state_indices.decay_state_index_
    != two_body_state_indices.mother_index_) {
@@ -423,7 +423,8 @@ void HelicityKinematics::fillPointWithBoostedKinematicVariables(
    daughter1_4vector.RotateZ(-decaying_state.Phi());
    daughter1_4vector.RotateY(-decaying_state.Theta());
 
-   daughter1_4vector.Boost(decaying_state_rot);*/
+   daughter1_4vector.Boost(decaying_state_rot);
+   */
 
   // now just get the theta and phi angles of the boosted particle 1
   point.setVal(++data_point_fill_position, daughter1_4vector.Theta());

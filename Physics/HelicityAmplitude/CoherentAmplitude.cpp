@@ -81,6 +81,7 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
         data_point_index_lists_[topology_index]);
     ++topology_index;
 
+    unsigned int seq_decay_amp_counter(0);
     for (auto const& sequential_decay : decay_topology_amp.getSequentialDecayList()) {
       std::vector<std::shared_ptr<TreeNode> > single_combinatoric_sequential_decay_nodes;
 
@@ -305,6 +306,28 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
 
       }
 
+
+      ++seq_decay_amp_counter;
+      std::stringstream ss;
+      ss<<seq_decay_amp_counter<<"_parity_factor";
+
+      std::shared_ptr<DoubleParameter> parity_factor_value(
+                      new DoubleParameter(ss.str()+"_value",
+                          sequential_decay.factor));
+      std::shared_ptr<TreeNode> parity_factor(
+                      new TreeNode(ss.str(), parity_factor_value,
+                          nullptr, nullptr));
+
+      std::shared_ptr<MultiComplex> parity_corrected_amp_dummy_val(
+                  new MultiComplex("parity_corrected_" + combinatorics_seq_decay_amp_node->getName() + "_values",
+                      std::vector<std::complex<double> >()));
+      std::shared_ptr<TreeNode> parity_corrected_amp(
+                      new TreeNode("parity_corrected_" + combinatorics_seq_decay_amp_node->getName(), parity_corrected_amp_dummy_val,
+                          std::shared_ptr<MultAll>(new MultAll(ParType::MCOMPLEX)), nullptr));
+      // add the parity factor
+      parity_corrected_amp->addChild(parity_factor);
+      parity_corrected_amp->addChild(combinatorics_seq_decay_amp_node);
+
       // determine top node and final state of sequential decay
       /*for (auto const& decay_node : seq_decay_info.unique_id_decay_tree_) {
        bool is_top_node(true);
@@ -333,7 +356,7 @@ void CoherentAmplitude::constructSequentialDecayTreeNodes(
           std::make_pair(seq_decay_info,
               sequential_decay_amplitudes_vec_.size()));
       sequential_decay_amplitudes_vec_.push_back(
-          combinatorics_seq_decay_amp_node);
+          parity_corrected_amp);
 
       // ok in principle we should never fail to create a new two body decay
       // safety check!
