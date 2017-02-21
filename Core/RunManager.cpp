@@ -115,13 +115,16 @@ bool RunManager::generate(int number) {
     double weight = tmp.getWeight();
     /* reset weights: the weights are taken into account by hit and miss. The resulting
      * sample is therefore unweighted */
-    tmp.setWeight(1.);    //reset weight
+    //tmp.setWeight(1.);    //reset weight
     tmp.setEfficiency(1.);    //reset weight
     dataPoint point(tmp);
      double ampRnd = genNew->getUniform() * genMaxVal;
     ParameterList list;
     list = amp_->intensity(point);    //unfortunatly not thread safe
     AMPpdf = *list.GetDoubleParameter(0);
+
+    tmp.setWeight(weight*AMPpdf);
+    /*
      if (genMaxVal < (AMPpdf * weight)) {
      std::stringstream ss;
      ss << "RunManager::generate: error in HitMiss procedure. "
@@ -130,7 +133,7 @@ bool RunManager::generate(int number) {
      throw std::runtime_error(ss.str());
      }
      if (ampRnd > (weight * AMPpdf))
-     continue;
+     continue;*/
     sampleData_->pushEvent(tmp);    //Unfortunately not thread safe
     acceptedEvents++;
    // bar.nextEvent();

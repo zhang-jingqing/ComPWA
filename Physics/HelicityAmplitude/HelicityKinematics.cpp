@@ -329,7 +329,6 @@ std::vector<Vector4<double> > HelicityKinematics::createRequired4Vectors(
       for (unsigned int event_particle_list_index = 0;
           event_particle_list_index < fs_particle_list.size();
           ++event_particle_list_index) {
-
         addParticleToCMS4Vector(
             event.getParticle(fs_particle_list[event_particle_list_index]),
             temp_vector);
@@ -343,17 +342,20 @@ std::vector<Vector4<double> > HelicityKinematics::createRequired4Vectors(
 
 void HelicityKinematics::addParticleToCMS4Vector(const Particle& event_particle,
     Vector4<double>& cms_4vector) const {
-  double px(cms_4vector.Px());
+  /*double px();
   double py(cms_4vector.Py());
   double pz(cms_4vector.Pz());
   double E(cms_4vector.E());
 
-  px += event_particle.px;
+  px +=;
   py += event_particle.py;
   pz += event_particle.pz;
-  E += event_particle.E;
+  E += event_particle.E;*/
 
-  cms_4vector.SetP4(E, px, py, pz);
+  cms_4vector.SetP4(cms_4vector.E() + event_particle.E,
+      cms_4vector.Px() + event_particle.px,
+      cms_4vector.Py() + event_particle.py,
+      cms_4vector.Pz() + event_particle.pz);
 }
 
 /**
@@ -382,49 +384,55 @@ void HelicityKinematics::fillPointWithBoostedKinematicVariables(
 
   // if this decay node is the not the top level decay we have to do some
   // boosting
-  if (two_body_state_indices.decay_state_index_
-      != two_body_state_indices.mother_index_) {
-    // define mother state
-    Vector4<double> mother(
-        unique_occurring_cms_4vectors[two_body_state_indices.mother_index_]);
-
-    // boost particle1 into the rest frame of the two body state
-    daughter1_4vector.Boost(decaying_state);
-    // then boost the two body state into the rest frame of its mother
-    decaying_state.Boost(mother);
-
-    // now determine the theta and phi values of the boosted particle1 vector
-    // with respect to direction of flight of the boosted two body state
-    // so we need to rotate
-    daughter1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(),
-        -decaying_state.Phi());
-  }
-  else {
-    daughter1_4vector.Boost(decaying_state);
-  }
-
-  /*
-   Vector4<double> mother(std::sqrt(decaying_state.Mass2() + 1.0), 0., 0.,
-   1.0);
-
-   if (two_body_state_indices.decay_state_index_
+  /* if (two_body_state_indices.decay_state_index_
    != two_body_state_indices.mother_index_) {
-   mother =
-   unique_occurring_cms_4vectors[two_body_state_indices.mother_index_];
-   }
+   // define mother state
+   Vector4<double> mother(
+   unique_occurring_cms_4vectors[two_body_state_indices.mother_index_]);
 
+   // boost particle1 into the rest frame of the two body state
+   daughter1_4vector.Boost(decaying_state);
+   // then boost the two body state into the rest frame of its mother
    decaying_state.Boost(mother);
 
-   Vector4<double> decaying_state_rot(decaying_state);
-   decaying_state_rot.RotateZ(-decaying_state.Phi());
-   decaying_state_rot.RotateY(-decaying_state.Theta());
+   // now determine the theta and phi values of the boosted particle1 vector
+   // with respect to direction of flight of the boosted two body state
+   // so we need to rotate
+   daughter1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(),
+   -decaying_state.Phi());
+   }
+   else {
+   Vector4<double> mother(std::sqrt(decaying_state.Mass2() + 1.0), 0., 0.,
+   1.0);
+   daughter1_4vector.Boost(decaying_state);
 
-   daughter1_4vector.Boost(mother);
-   daughter1_4vector.RotateZ(-decaying_state.Phi());
-   daughter1_4vector.RotateY(-decaying_state.Theta());
+   decaying_state.Boost(mother);
+   // now determine the theta and phi values of the boosted particle1 vector
+   // with respect to direction of flight of the boosted two body state
+   // so we need to rotate
+   daughter1_4vector.Rotate(decaying_state.Phi(), decaying_state.Theta(),
+   -decaying_state.Phi());
+   }*/
 
-   daughter1_4vector.Boost(decaying_state_rot);
-   */
+  Vector4<double> mother(std::sqrt(decaying_state.Mass2() + 1.0), 0., 0., 1.0);
+
+  if (two_body_state_indices.decay_state_index_
+      != two_body_state_indices.mother_index_) {
+    mother =
+        unique_occurring_cms_4vectors[two_body_state_indices.mother_index_];
+  }
+
+  decaying_state.Boost(mother);
+
+  Vector4<double> decaying_state_rot(decaying_state);
+  decaying_state_rot.RotateZ(-decaying_state.Phi());
+  decaying_state_rot.RotateY(-decaying_state.Theta());
+
+  daughter1_4vector.Boost(mother);
+  daughter1_4vector.RotateZ(-decaying_state.Phi());
+  daughter1_4vector.RotateY(-decaying_state.Theta());
+
+  daughter1_4vector.Boost(decaying_state_rot);
 
   // now just get the theta and phi angles of the boosted particle 1
   point.setVal(++data_point_fill_position, daughter1_4vector.Theta());

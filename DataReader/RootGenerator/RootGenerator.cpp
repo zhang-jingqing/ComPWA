@@ -32,7 +32,7 @@ RootGenerator::RootGenerator(int seed) {
     BOOST_LOG_TRIVIAL(info)<< "RootGenerator::RootGenerator() | only 2 particles in the final"
     " state! There are no degrees of freedom!";
   masses = new Double_t[nPart];
-  TLorentzVector W(0.0, 0.0, 0.0, kin->getMotherMass());    //= beam + target;
+  TLorentzVector W(0.0, 0.04, 0.0, std::sqrt(std::pow(kin->getMotherMass(),2.0)+std::pow(0.04, 2.0)));    //= beam + target;
   for (unsigned int t = 0; t < nPart; t++) {    // particle 0 is mother particle
     masses[t] = kin->getMass(t + 1);
   }

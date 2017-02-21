@@ -86,7 +86,7 @@ HelicityAngles phiDiff(const TLorentzVector &lv_p1, const TLorentzVector &lv_p2,
   // define mother state
   Vector4<double> mother(decaying_state + p3_4vector);
 
-  HelicityAngles hel_angles;
+  /*HelicityAngles hel_angles;
 
   p1_4vector.Boost(decaying_state);
 
@@ -100,10 +100,10 @@ HelicityAngles phiDiff(const TLorentzVector &lv_p1, const TLorentzVector &lv_p2,
   hel_angles.theta_hel = p1_4vector.CosTheta();
   hel_angles.phi_hel = p1_4vector.Phi();
 
-  return hel_angles;
+  return hel_angles;*/
 
 
-  /*HelicityAngles ha;
+  HelicityAngles ha;
 
   Vector4<double> mother2(std::sqrt(mother.M2() + 1.0), 0.0, 0.0, 1.0);
 
@@ -114,7 +114,7 @@ HelicityAngles phiDiff(const TLorentzVector &lv_p1, const TLorentzVector &lv_p2,
   vals = helicityVec(mother, decaying_state, p1_4vector);
   ha.theta_hel = vals.first;
   ha.phi_hel = vals.second;
-  return ha;*/
+  return ha;
 }
 
 /************************************************************************************************/
@@ -220,8 +220,10 @@ int main(int argc, char **argv) {
      TH1D phidiff_compwa("phidiff_compwa", "", 100, -3.146, 3.146);*/
 
     std::cout << pawian_tree->GetEntries() << std::endl;
-    unsigned int entries(20000);
-    //unsigned int entries = pawian_tree->GetEntries();
+    //unsigned int entries(10000);
+    unsigned int entries = pawian_tree->GetEntries();
+    if (entries > 20000)
+      entries = 20000;
     TGraph graph_pawian(entries);
     TGraph graph(entries);
     ComPWA::dataPoint data_point;
@@ -231,9 +233,9 @@ int main(int argc, char **argv) {
       /*TLorentzVector cms = p1 + p2 + p3;
        p1.Boost(-cms.BoostVector());
        p2.Boost(-cms.BoostVector());
-       p3.Boost(-cms.BoostVector());*/
+       p3.Boost(-cms.BoostVector());
 
-      /* cms.Print();
+       cms.Print();
        cms.Boost(-cms.BoostVector());
        std::cout<<"boost cms"<<std::endl;
        cms.Print();*/
@@ -247,7 +249,9 @@ int main(int argc, char **argv) {
 
       ComPWA::Particle gamma(p1.Px(), p1.Py(), p1.Pz(), p1.E(), 22);
       ComPWA::Particle pi01(p2.Px(), p2.Py(), p2.Pz(), p2.E(), 111);
-      ComPWA::Particle pi02(p3.Px(), p3.Py(), p3.Pz(), p3.E(), 11122);
+      ComPWA::Particle pi02(p3.Px(), p3.Py(), p3.Pz(), p3.E(), 111);
+
+      //std::cout<<p1.M()<< " "<<p2.M()<<" "<<p3.M()<<std::endl;
 
       unsigned int pi0counter(0);
       for (unsigned int i = 0; i < dummy_event.getNParticles(); ++i) {
@@ -297,7 +301,7 @@ int main(int argc, char **argv) {
       costhetapi01.Fill(p2.CosTheta(), (myval - weight) / (weight + myval));
       costhetapi02.Fill(p3.CosTheta(), (myval - weight) / (weight + myval));
 
-      HelicityAngles ha = phiDiff(p1, p2, p3);
+      HelicityAngles ha = phiDiff(p2, p3, p1);
 
       double diff(ha.phi_cms - ha.phi_hel);
       if (diff < -TMath::Pi())
