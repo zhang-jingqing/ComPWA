@@ -760,6 +760,37 @@
 	</particle>
 
 	<particle>
+		<ID>9010225</ID>
+		<name>f2_1565</name>
+		<mass>
+			<value>1.562</value>
+			<error>
+				<value>0.013</value>
+			</error>
+		</mass>
+		<width>
+			<value>0.134</value>
+			<error>
+				<value>0.008</value>
+			</error>
+		</width>
+		<quantum_numbers>
+			<charge>0</charge>
+			<spin>
+				<numerator>2</numerator>
+				<denominator>1</denominator>
+			</spin>
+			<parity>1</parity>
+			<cparity>1</cparity>
+			<isospin>
+				<numerator>0</numerator>
+				<denominator>1</denominator>
+				<z_numerator>0</z_numerator>
+			</isospin>
+		</quantum_numbers>
+	</particle>
+
+	<particle>
 		<ID>9050225</ID>
 		<name>f2_1950</name>
 		<mass>
