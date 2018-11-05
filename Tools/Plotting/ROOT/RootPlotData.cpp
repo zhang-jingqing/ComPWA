@@ -12,6 +12,9 @@
 #include "Physics/PartialAmplitude.hpp"
 
 #include "Tools/Plotting/ROOT/RootPlotData.hpp"
+#include "Tools/ResonanceComponent.hpp"
+#include "Physics/IncoherentIntensity.hpp"
+#include "Physics/CoherentIntensity.hpp"
 
 #include "TFile.h"
 #include "TParameter.h"
@@ -45,6 +48,44 @@ void RootPlotData::addComponent(std::string componentName,
                << Intensity->name() << ".";
     return;
   }
+  AmplitudeComponents[ComponentLabel] = comp;
+}
+
+/// add the component of amplitude of decay resName -> daug1 Name + daug2Name 
+/// in the decay, orbitan angular momentum = L and spin = S
+/// if L/S < 0, then all possible L/S are included
+/// if daug1Name and/or daug2Name == "", then all possbile decays/decay with
+/// if intensityName == "" means search for all coherentIntensity in Intensity
+void RootPlotData::addResComponent(std::string title, std::string resName, 
+                                std::string daug1Name, std::string daug2Name, 
+                                int L, int S, std::string intensityName) {
+  std::string ComponentLabel(title);
+  std::shared_ptr<ComPWA::AmpIntensity> comp;
+  auto incoIntensity = 
+      std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>(Intensity);
+  try {
+    if (intensityName == "") {
+      comp = ResonanceComponent(incoIntensity, title, resName, daug1Name, daug2Name, L, S);
+    } else {
+      std::shared_ptr<ComPWA::Physics::CoherentIntensity> coIntensity;
+      try {
+        coIntensity = std::dynamic_pointer_cast<ComPWA::Physics::CoherentIntensity> (
+            incoIntensity->component(intensityName));
+      } catch (std::exception &ex) {
+        throw;
+      }
+      comp = ResonanceComponent(coIntensity, title, resName, 
+                                daug1Name, daug2Name, L, S);
+    }
+  } catch (std::exception &ex) {
+    LOG(ERROR) << "RootPlotData::addComponent() | Component " << title
+               << " of " << intensityName << " not found in AmpIntensity "
+               << Intensity->name() << ".";
+    return;
+  }
+  if (ComponentLabel == "")
+    ComponentLabel = comp->name();
+  
   AmplitudeComponents[ComponentLabel] = comp;
 }
 
