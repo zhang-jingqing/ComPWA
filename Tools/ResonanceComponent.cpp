@@ -42,7 +42,7 @@ std::shared_ptr<AmpIntensity> ResonanceComponent(
   // Nothing found
   if (!found) {
     throw std::runtime_error(
-    "Tools::GetComponentIntensity(): | Error component " + name +
+    "Tools::ResonanceComponent(): | Error component " + name +
     " could not be found in IncoherentIntensity " + incoIntensity->name() + ".");
   }
  
@@ -101,7 +101,7 @@ std::shared_ptr<AmpIntensity> ResonanceComponent(
   // in the IncoherentIntnesity::component()
   if (!found) {
     throw std::runtime_error(
-        "Tools::GetComponentIntensity() | Error component " + name +
+        "Tools::ResonanceComponent() | Error component " + name +
         " could not be found in CoherentIntensity " + coIntensity->name() + ".");
   }
 
