@@ -15,7 +15,19 @@ std::shared_ptr<AmpIntensity> ResonanceComponent(
   if (S < 0) sStr = ""; 
   std::string lsStr = lStr + "_" + sStr;
   if (name == "") {
-    name = resName + "_to_" + daug1Name + "+" + daug2Name;
+    name = resName; 
+    if (daug1Name != "" || daug2Name != "") {
+      name += "_to_";
+      if (daug1Name != "") {
+        name += daug1Name;
+      }
+      if (daug2Name != "") {
+        if (daug1Name != "") {
+          name += "+";
+        }
+        name += daug2Name;
+      }
+    }
     if (L >= 0) name += "_" + lStr;
     if (S >= 0) name += "_" + sStr;
   }
@@ -58,7 +70,19 @@ std::shared_ptr<AmpIntensity> ResonanceComponent(
   if (S < 0) sStr = ""; 
   std::string lsStr = lStr + "_" + sStr;
   if (name == "") {
-    name = resName + "_to_" + daug1Name + "+" + daug2Name;
+    name = resName; 
+    if (daug1Name != "" || daug2Name != "") {
+      name += "_to_";
+      if (daug1Name != "") {
+        name += daug1Name;
+      }
+      if (daug2Name != "") {
+        if (daug1Name != "") {
+          name += "+";
+        }
+        name += daug2Name;
+      }
+    }
     if (L >= 0) name += "_" + lStr;
     if (S >= 0) name += "_" + sStr;
   }
