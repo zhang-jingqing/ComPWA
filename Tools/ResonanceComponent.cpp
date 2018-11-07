@@ -98,7 +98,17 @@ std::shared_ptr<AmpIntensity> ResonanceComponent(
     std::size_t endPos = 0;
     while (begPos != std::string::npos) {
       endPos = seqAmpName.find(";", begPos);
-      //endPos == std::string::npos in substr means until end of the string
+      //if the first character is ";" then 
+      if (endPos == begPos) {
+        if (endPos == seqAmpName.size()) {
+          break; //handle the last ";" in name if there is
+        } else {
+          //in the case ";;", appears, ";" will be  
+          //the first character of a subName, skip this character
+          begPos += 1;
+          continue;
+        }
+      }   
       std::string subName = seqAmpName.substr(begPos, endPos);
       begPos = endPos;
       if (std::string::npos == subName.find(resName))
