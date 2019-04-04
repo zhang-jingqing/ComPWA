@@ -6,11 +6,11 @@
 if( ${ROOT_FOUND} AND ${GSL_FOUND})
 
 set(lib_srcs
-  EvtGenGenerator.cpp Generate.cpp RootGenerator.cpp
+  EvtGenGenerator.cpp Generate.cpp RootGenerator.cpp ComponentIntensity.cpp
 )
 set(lib_headers
   EvtGenGenerator.hpp FitFractions.hpp Generate.hpp ParameterTools.hpp
-  PhspVolume.hpp RootGenerator.hpp
+  PhspVolume.hpp RootGenerator.hpp ComponentIntensity.hpp
 )
 
 add_library(Tools
@@ -18,7 +18,8 @@ add_library(Tools
 )
 
 add_library(Integration
-  SHARED Integration.cpp Integration.hpp
+  SHARED Integration.cpp Integration.hpp ComponentIntensity.cpp
+  ComponentIntensity.cpp
 )
 
 target_link_libraries(Integration

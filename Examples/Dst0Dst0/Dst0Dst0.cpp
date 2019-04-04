@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <utility>
 
 #include <boost/program_options.hpp>
 #include <boost/serialization/export.hpp>
@@ -52,7 +53,7 @@
 #include "Tools/Generate.hpp"
 #include "Tools/FitFractions.hpp"
 #include "Tools/ParameterTools.hpp"
-//#include "Tools/ResonanceComponent.hpp"
+#include "Tools/ComponentIntensity.hpp"
 #include "Tools/Plotting/ROOT/RootPlotData.hpp"
 
 using namespace std;
@@ -90,7 +91,8 @@ int main(int argc, char **argv) {
   bool saveLogFile;
 
   std::string logFileName;
-  std::string plotRootName;
+  std::string plotDataName;
+  std::string plotFitName;
 
   std::string dataFile;
   std::string dataTree;
@@ -115,11 +117,14 @@ int main(int argc, char **argv) {
                        po::value<bool>(&saveLogFile)->default_value(0),
                        "write log file? 0/1");
   config.add_options()(
-      "logFileName", po::value<std::string>(&logFileName)->default_value("out.log"),
-      "set output file name x. The files logFileName are created");
+      "logFileName", po::value<std::string>(&logFileName)
+      ->default_value("out.log"), "The files logFileName are created");
   config.add_options()(
-      "plotRootName", po::value<std::string>(&plotRootName)->default_value("out.root"),
-      "the fit/projection root file for plotting");
+      "plotDataName", po::value<std::string>(&plotDataName)
+      ->default_value("plot_data.root"), "root for data plot");
+  config.add_options()(
+      "plotFitName", po::value<std::string>(&plotFitName)
+      ->default_value("plot_fit.root"), "root for fit plot");
 
   config.add_options()(
       "dataFile", po::value<std::string>(&dataFile)->default_value(""),
@@ -141,12 +146,12 @@ int main(int argc, char **argv) {
       "set tree name of input mc.");
   
   config.add_options()(
-      "execMode", po::value<std::string>(&execMode)->default_value(""),
-      "set execute mode; default is FitData, other choices include GenPhspMC, CalcFitFraction, DrawPlot");
+      "execMode", po::value<std::string>(&execMode)->default_value("Fit"),
+      "set execute mode; default is Fit.");
 
   config.add_options()(
-     "modelFile", po::value<std::string>(&modelFile)->default_value("fitModel.xml"),
-     "xml model for fit/generation");
+     "modelFile", po::value<std::string>(&modelFile)
+     ->default_value("model.xml"), "xml model for fit/generation");
 
   config.add_options()(
       "nPhspMC", po::value<int>(&nPhspMC)->default_value(10000),
@@ -157,19 +162,19 @@ int main(int argc, char **argv) {
 
   config.add_options()(
       "randomSeed", po::value<int>(&randomSeed)->default_value(-1),
-      "set random number randomSeed; default is to used unique randomSeed for every job");
+      "set random number randomSeed");
 
   config.add_options()(
       "noErrorSampling", po::value<int>(&noErrorSampling)->default_value(-1),
       "Number of Sampling when calculate statistical errors");
 
   config.add_options()(
-      "useRandomStartValues", po::value<bool>(&useRandomStartValues)->default_value(false),
-      "use random start values or not in the fit");
+      "useRandomStartValues", po::value<bool>(&useRandomStartValues)
+      ->default_value(false), "use random start values or not in the fit");
 
   config.add_options()(
-      "usePhspRangeLimit", po::value<bool>(&usePhspRangeLimit)->default_value(true),
-      "if remove the events beyond the phsp range");
+      "usePhspRangeLimit", po::value<bool>(&usePhspRangeLimit)
+      ->default_value(true), "if remove the events beyond the phsp range");
 
   config.add_options()(
       "useMinos", po::value<bool>(&useMinos)->default_value(false),
@@ -197,19 +202,20 @@ int main(int argc, char **argv) {
   Logging log(logFileName, logLevel); // initialize logging
 
   LOG(INFO) << "PWA program starts";
-  LOG(INFO) << "configuration in config.cfg";
-  LOG(INFO) << "minuitstragety.xml (optional) is configuration for minuit2 minimization";
+  //LOG(INFO) << "minuitstragety.xml (optional) is configuration for minuit2 ";
   LOG(INFO) << "execMode = " << execMode << std::endl;
 
-  if (!(execMode == "GenPhspMC" || execMode == "GenToyData" 
-      || execMode == "Fit" || execMode == "Calc" 
-      || execMode == "Draw" || execMode == "FitCalc" 
+  if (!(execMode == "GenPhspMC" || execMode == "GenToyData" || execMode == "Fit"
+      || execMode == "Calc" || execMode == "Draw" || execMode == "FitCalc" 
       || execMode == "FitDraw" || execMode == "FitCalcDraw")) {
-    LOG(INFO) << "Unknown execMode! Possible choices are:";
-    LOG(INFO) << "GenPhspMC, FitData, CalcFitFraction, DrawPlot, GenFitCalcDraw, FitCalcDraw";
+    LOG(INFO) << "Unknown execMode! Possible choices are:" << std::endl;
+    LOG(INFO) << "GenPhspMC, GenToyData, " << std::endl;
+    LOG(INFO) << "Fit, FitDraw, FitCalc, FitCalcDraw, " << std::endl;
+    LOG(INFO) << "Calc, Draw" << std::endl;
+    LOG(INFO) << "Calc means calculate fit fractions/yields and their errors" 
+        << std::endl;
     return 0;
   }
-  std::cout << " read configures ok" << std::endl;
   
   ComPWA::Physics::IntensityBuilderXML Builder;
 
@@ -218,13 +224,13 @@ int main(int argc, char **argv) {
   std::vector<pid> initialState, finalState;
   auto partList = std::make_shared<ComPWA::PartList>();
   ReadParticles(partList, modelTree);
-  auto heliKins = Builder.createHelicityKinematics(partList, modelTree.get_child("HelicityKinematics"));
-  //global/total intensity
-  auto intensity = Builder.createIntensity(partList, heliKins, modelTree.get_child("Intensity"));
+  auto heliKins = Builder.createHelicityKinematics(partList,
+      modelTree.get_child("HelicityKinematics"));
+  //global/total intensity, StrengthIntensity
+  auto intensity = Builder.createIntensity(partList, heliKins,
+      modelTree.get_child("Intensity"));
   auto gen = std::make_shared<ComPWA::Tools::RootGenerator>(
       heliKins->getParticleStateTransitionKinematicsInfo(), randomSeed);
-
-  std::cout << " intensity ok " << std::endl;
 
   std::shared_ptr<ComPWA::Data::DataSet> dataSample;
   std::shared_ptr<ComPWA::Data::DataSet> phspSample;
@@ -255,7 +261,8 @@ int main(int argc, char **argv) {
   if (execMode == "FitCalc" || execMode == "FitCalcDraw" 
       || execMode == "CalcFitFraction") {
     if (mcTrueFile.empty()) {
-      std::cout << " no mcTrueFile, use mcFile instead. but result is not precision " << std::endl;
+      LOG(INFO) << " no mcTrueFile, use mcFile instead.";
+      LOG(INFO) << " But result is not precision. " << std::endl;
       phspTrueSample = phspSample;
     } else {
       phspTrueSample = phspTrueIO.readData(mcTrueFile);
@@ -267,10 +274,11 @@ int main(int argc, char **argv) {
       std::cout << " nData <= 0, no toy data sample is generated" << std::endl;
       return 0;
     }
-    dataSample = ComPWA::Tools::generate(nData, heliKins, gen, intensity, phspSample);
+    dataSample = ComPWA::Tools::generate(nData, heliKins, gen, intensity,
+        phspSample);
     if (dataFile.empty()) dataFile == "genToyData.root";
     dataIO.writeData(dataSample, dataFile);
-    std::cout << "FINISHED" << std::endl;
+    LOG(INFO) << "FINISHED" << std::endl;
     return 0;
   }
   //read data
@@ -280,11 +288,11 @@ int main(int argc, char **argv) {
   phspSample->convertEventsToParameterList(heliKins);
   dataSample->convertEventsToParameterList(heliKins);
 
-  std::cout << " Data/MC input ok" << std::endl;
+  LOG(DEBUG) << " Data/MC input ok " << std::endl;
 
   auto estimator = ComPWA::Estimator::createMinLogLHFunctionTreeEstimator(
       intensity, dataSample, phspSample);   
-  std::cout << " createMinLogLH ok" << std::endl;
+  LOG(DEBUG) << " createMinLogLH ok" << std::endl;
   LOG(INFO) << estimator->print(25);
 
   std::shared_ptr<FitResult> result;
@@ -292,9 +300,8 @@ int main(int argc, char **argv) {
   ParameterList fitPars, finalPars;
   intensity->addUniqueParametersTo(fitPars);
   LOG(DEBUG) << fitPars.to_str();
-  std::cout << " IncoherentIntensity::parameters(use tree)" << std::endl;
 
-  std::cout << "Initial LH=" << estimator->evaluate() << "." << std::endl;;
+  LOG(INFO) << " Initial LH = " << estimator->evaluate() << ". " << std::endl;
     
   if (execMode == "Fit" || execMode == "FitDraw" || execMode == "FitCalc" 
       || execMode == "FitCalcDraw") {
@@ -303,21 +310,71 @@ int main(int argc, char **argv) {
     LOG(DEBUG) << " minuitIF OK " << std::endl;
     minuitIF->setUseHesse(useHesse);
     minuitIF->setUseMinos(useMinos);
-    std::cout << fitPars << std::endl;
+    //std::cout << fitPars << std::endl;
+    LOG(DEBUG) << fitPars << std::endl;
     LOG(DEBUG) << " minuitIF OK";
 //    setErrorOnParameterList(fitPars, 0.05, useMinos);
 //      LOG(DEBUG) << " setErrorOnParameterList OK " << std::endl;
+    LOG(INFO) << "useRandomStarValues = " << useRandomStartValues << std::endl;
     if (useRandomStartValues) {
       randomStartValues(fitPars);
     }
     result = minuitIF->exec(fitPars);
     LOG(DEBUG) << " minuitIF->exec(fitPars)";
-    std::cout << fitPars << std::endl;
+    LOG(DEBUG) << fitPars << std::endl;
+//    std::cout << fitPars << std::endl;
     finalPars = result->finalParameters();
     LOG(DEBUG) << " result->finalParameters() OK" << std::endl;
   }
 
-  if (execMode == "Calc" || execMode == "FitCalc" || execMode == "FitCalcDraw") {
+  if (finalPars.numParameters() == 0) {
+    finalPars = fitPars;
+  }
+
+  LOG(INFO) << "intensity->updateParametersFrom(fianlPars) OK" << std::endl;
+  intensity->updateParametersFrom(finalPars);
+
+  // SetComponentPaterns
+  void SetComponentPaterns(std::vector<std::string> &componentNames,
+      std::vector<std::vector<std::vector<std::string>>> &decayPaterns,
+      std::vector<std::vector<std::pair<int, int>>> &decayLRanges,
+      std::vector<std::vector<std::pair<int, int>>> &decaySRanges);
+
+  std::vector<std::string> componentNames;
+  std::vector<std::vector<std::vector<std::string>>> decayPaterns;
+  std::vector<std::vector<std::pair<int, int>>> decayLRanges;
+  std::vector<std::vector<std::pair<int, int>>> decaySRanges;
+
+  SetComponentPaterns(componentNames, decayPaterns, decayLRanges, decaySRanges);
+  LOG(INFO) << "SetComponentPaterns OK" << std::endl;
+
+  // Get IncoherentIntensity to extract components
+  // If we want to calc fit errors, Strength of StrengthIncoherentIntensity
+  // must be fixed (which is the default setting)
+  auto incoherentIntensity = Builder.createIncoherentIntensity(
+      partList, heliKins, modelTree.get_child("Intensity.Intensity"));
+  LOG(INFO) << "Get IncoherentIntensity OK" << std::endl;
+  // use same parameters as intensity
+  incoherentIntensity->updateParametersFrom(finalPars);
+  LOG(INFO) << "incoherentIntensity->updateParametersFrom(finalPars) OK"
+      << std::endl;
+  
+  //get component's intensity
+  std::vector<std::shared_ptr<ComPWA::Intensity>> components(
+      componentNames.size(), std::shared_ptr<ComPWA::Intensity>());
+  for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
+    LOG(INFO) << "Getting component " << componentNames.at(icomp) << std::endl;
+    auto icomponent = 
+        ComPWA::Tools::getComponentIntensityFromIncoherentIntensity(
+        std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>(
+        incoherentIntensity), componentNames.at(icomp), decayPaterns.at(icomp),
+        decayLRanges.at(icomp), decaySRanges.at(icomp)); 
+    components.at(icomp) = icomponent;
+  }
+  LOG(INFO) << "Get Component Intensity OK" << std::endl;
+
+  if (execMode == "Calc" || execMode == "FitCalc" || execMode 
+      == "FitCalcDraw") {
 //121 ComPWA::ParameterList calculateFitFractions(
 //122     std::shared_ptr<const ComPWA::Physics::CoherentIntensity> intensity,
 //123     std::shared_ptr<ComPWA::Data::DataSet> sample,
@@ -327,15 +384,75 @@ int main(int argc, char **argv) {
     
   }
 
-  if (execMode == "Draw" || execMode == "FitDraw" || execMode == "FitCalcDraw") {
-    intensity->updateParametersFrom(finalPars);
+  if (execMode == "Draw" || execMode == "FitDraw" || execMode 
+      == "FitCalcDraw") {
     ComPWA::Tools::Plotting::RootPlotData 
-        rootPlot(heliKins->getParticleStateTransitionKinematicsInfo(), plotRootName, "RECREATE");
-    rootPlot.writeData(*dataSample);
+        plotData(heliKins->getParticleStateTransitionKinematicsInfo(), 
+        plotDataName, "RECREATE");
+    plotData.writeData(*dataSample);
+    LOG(INFO) << "Plot Data OK" << std::endl;
+
+    //global fit
+    ComPWA::Tools::Plotting::RootPlotData
+        plotWeightedMC(heliKins->getParticleStateTransitionKinematicsInfo(), 
+        plotFitName, "RECREATE");
+    plotWeightedMC.writeIntensityWeightedPhspSample(*phspSample, intensity);
+    LOG(INFO) << "Plot Global Fit OK" << std::endl;
+    //fit components
+    for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
+      LOG(INFO) << "Plotting component " << componentNames.at(icomp)
+          << std::endl;
+      plotWeightedMC.writeIntensityWeightedPhspSample(*phspSample,
+          incoherentIntensity, std::map<std::string,
+          std::shared_ptr<const ComPWA::Intensity>>{{componentNames.at(icomp),
+          components.at(icomp)}});
+    }
+    LOG(INFO) << "Plot components OK" << std::endl;
   }
 
-  std::cout << "FINISHED" << std::endl;
-  
+  LOG(INFO) << "FINISHED" << std::endl;
   return 0;
 }
 
+void SetComponentPaterns(std::vector<std::string> &componentNames,
+    std::vector<std::vector<std::vector<std::string>>> &decayPaterns,
+    std::vector<std::vector<std::pair<int, int>>> &decayLRanges,
+    std::vector<std::vector<std::pair<int, int>>> &decaySRanges) {
+  //a component will be set by 
+  //a std::vector<std::vector<std::string>>,
+  //and two std::vector<std::pair<int, int>>
+
+  componentNames = std::vector<std::string>({"a10", "a11", "a12", "a32"});
+
+  //a10
+  std::vector<std::string> decay1({"EpEm", "D*(2007)0", "D*(2007)0bar"});
+  //if there are more requirement in the decay chain,
+  //we need more decay/LSRange in patern1/LSRanges
+  std::vector<std::vector<std::string>> patern1(1, decay1);
+  decayPaterns.push_back(patern1);
+  decayLRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(1, 1)));
+  decaySRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(0, 0)));
+
+  //a_11
+  decayPaterns.push_back(patern1);
+  decayLRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(1, 1)));
+  decaySRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(1, 1)));
+
+  //a_12
+  decayPaterns.push_back(patern1);
+  decayLRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(1, 1)));
+  decaySRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(2, 2)));
+
+  //a_32
+  decayPaterns.push_back(patern1);
+  decayLRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(3, 3)));
+  decaySRanges.push_back(
+      std::vector<std::pair<int, int>>(1, std::pair<int, int>(2, 2)));
+}
