@@ -264,11 +264,11 @@ inline ParameterList calculateFitFractionsWithSampledError(
       }
       t++;
     }
+    // free vector
+    gsl_vector_free(gslNewPar);
     if (error)
       continue; // skip this set if one parameter is out of bound
 
-    // free vector
-    gsl_vector_free(gslNewPar);
     // update amplitude with smeared parameters
     try {
       intens->updateParametersFrom(newPar);
@@ -382,6 +382,282 @@ ComPWA::ParameterList calculateFitFractionsWithCovarianceErrorPropagation(
   intens->updateParametersFrom(PreviousParameters);
 
   return FitFractions;
+}
+
+/// Check if intensity and components use same parameter set
+/// i.e., parameter with same (unique) name, has same value
+/// every parameter in components can be found in intensity
+inline bool sharedParameters(
+    const std::shared_ptr<const ComPWA::Intensity> intensity,
+    const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components) {
+
+  ComPWA::ParameterList parameters;
+  auto tempIntensity = std::const_pointer_cast<ComPWA::Intensity>(intensity);
+  tempIntensity->addUniqueParametersTo(parameters);
+  ComPWA::ParameterList componentParameters;
+  for (std::size_t icomp = 0; icomp < components.size(); ++icomp) {
+    auto tempComp = 
+        std::const_pointer_cast<ComPWA::Intensity>(components.at(icomp));
+    tempComp->addUniqueParametersTo(componentParameters);
+  }
+
+  auto const intensityFitPars = parameters.doubleParameters();
+  auto const componentFitPars = componentParameters.doubleParameters();
+  if (intensityFitPars.size() <= componentFitPars.size()) {
+    LOG(INFO) << "ComPWA::Tools::sharedParameters(): "
+        "global intensity and intensity of components have"
+        " unshared parameters!";
+    return false;
+  }
+  for (auto const & componentPar : componentFitPars) {
+    std::string targetName = componentPar->name();
+    double targetValue = componentPar->value();
+    std::string name;
+    double value;
+    bool shared(false);
+    for (auto const & intensityPar : intensityFitPars) {
+      name = intensityPar->name();
+      value = intensityPar->value();
+      if (name == targetName) {
+        if (abs(value - targetValue) < 1e-6) {
+          shared = true;
+          break;
+        }
+      } 
+    }
+    if (shared) continue;
+    LOG(INFO) << "ComPWA::Tools::sharedParameters(): global intensity and "
+        "intensity of components have unshared parameter: " << name << " = "
+        << value << " vs " << targetName << " = " << targetValue << "!";
+    return false;
+  }
+  return true;
+}
+
+inline ComPWA::ParameterList calculateFitFractions2(
+    const std::shared_ptr<const ComPWA::Intensity> intensity,
+    const std::shared_ptr<ComPWA::Data::DataSet> sample,
+    const std::vector<std::string> & componentNames,
+    const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components) {
+  LOG(DEBUG) << "calculating fit fractions...";
+  ComPWA::ParameterList FitFractionsList;
+
+  ////make sure components and intensity use same parameters
+  if (!sharedParameters(intensity, components)) {
+    LOG(INFO) << "calculateFitFractions2(): Found unshared parameters! Do not "
+        "calculate fit fractions!";
+    return FitFractionsList;
+  }
+  
+  // calculate denominator
+  double IntegralDenominator = ComPWA::Tools::integrate(intensity, sample);
+  //calculate numerators and fit fractions
+  for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
+    double IntegralNumerator = 
+        ComPWA::Tools::integrate(components.at(icomp), sample);
+    double FitFraction = IntegralNumerator / IntegralDenominator;
+    LOG(TRACE) << "calculateFitFractions(): fit fraction for ("
+        << componentNames.at(icomp) << ") is " << FitFraction;
+
+    FitFractionsList.addParameter(
+        std::make_shared<ComPWA::FitParameter>(componentNames.at(icomp),
+        FitFraction, 0.0));
+  }
+  LOG(DEBUG) << "finished fit fraction calculation!";
+  return FitFractionsList;
+}
+
+inline bool smearParameters(const ComPWA::ParameterList &parameters,
+    const std::vector<std::vector<double>> &covariance, size_t nSets,
+    std::vector<ComPWA::ParameterList> &vecNewPars) {
+  vecNewPars.clear();
+
+  if (nSets <= 0) return false;
+  vecNewPars.reserve(nSets);
+
+  if (!parameters.doubleParameters().size()) return false;
+
+  std::size_t nFreeParameters(0);
+  for (auto const &para : parameters.doubleParameters()) {
+    if (!para->isFixed()) {
+      ++nFreeParameters;
+    }
+  }
+  if (nFreeParameters != covariance.size()) return false;
+
+  // Check whether covariance matrix is set to zero
+  bool isAllZero(true);
+  for (std::size_t i = 0; i < covariance.size(); ++i) {
+    for (std::size_t j = 0; j < covariance.size(); ++j) {
+      if (covariance.at(i).at(j) != 0.) {
+        isAllZero = false; 
+        break;
+      }
+    }
+  }
+  if (isAllZero) {
+    LOG(ERROR) << "smearParameters() | Covariance matrix is zero everywhere! "
+        "We skip further smear calculation.";
+    return false;
+  }
+
+  // Setting up random number generator
+  const gsl_rng_type *T;
+  gsl_rng_env_setup();
+  T = gsl_rng_default;
+  gsl_rng *rnd = gsl_rng_alloc(T);
+
+  // convert to GSL objects
+  gsl_vector *gslFinalPar = gsl_parameterList2Vec(parameters);
+  gsl_matrix *gslCov = gsl_vecVec2Matrix(covariance);
+  gsl_matrix_print(gslCov); // DEBUG
+
+  ProgressBar bar(nSets);
+  std::size_t iSet = 0;
+  while (iSet < nSets) {
+    bool error = 0;
+    gsl_vector *gslNewPar = gsl_vector_alloc(nFreeParameters);
+    // generate set of smeared parameters
+    multivariateGaussian(rnd, nFreeParameters, gslFinalPar, gslCov, gslNewPar);
+    // gsl_vector_print(gslNewPar); // Debug
+
+    // deep copy of finalParameters
+    ParameterList newPar;
+    newPar.DeepCopy(parameters);
+    std::size_t i = 0;
+    for (std::size_t j = 0; j < newPar.doubleParameters().size(); ++j) {
+      std::shared_ptr<FitParameter> outPar = newPar.doubleParameter(j);
+      if (outPar->isFixed()) continue;
+      // set floating values to smeared values
+      try { // catch out-of-bound
+        outPar->setValue(gslNewPar->data[i]);
+      } catch (ParameterOutOfBound &ex) {
+        error = 1;
+        break;
+      }
+      ++i;
+    }
+    // free vector
+    gsl_vector_free(gslNewPar);
+    if (error) continue;
+    
+    vecNewPars.push_back(newPar);
+    bar.next();
+    ++iSet;
+  }
+  return true;
+}
+    
+inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
+    const std::shared_ptr<const ComPWA::Intensity> intensity,
+    const std::shared_ptr<ComPWA::Data::DataSet> sample,
+    const std::vector<std::string> & componentNames,
+    const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components,
+    const std::vector<std::vector<double>> &covariance, size_t nSets) {
+
+  if (!sharedParameters(intensity, components)) {
+    LOG(INFO) << "calculateFitFractionsWithSampledError2(): Found unshared "
+        "parameters! Do not calculate fit fractions and errors!";
+  }
+
+  ComPWA::ParameterList calculateFitFractions2(
+      const std::shared_ptr<const ComPWA::Intensity> intensity,
+      const std::shared_ptr<ComPWA::Data::DataSet> sample,
+      const std::vector<std::string> & componentNames,
+      const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components);
+
+  ComPWA::ParameterList fitFractions = calculateFitFractions2(
+      intensity, sample, componentNames, components);
+
+  LOG(INFO) << "calculateFitFractionsWithSampledError(): Calculationg errors "
+      "of fit fractions using " << nSets << " sets of parameters...";
+
+  // copy original parameters, Note, parameters' ptr in tempIntensity 
+  // now point to par in parameters(i.e., they depend on each other)
+  // we need a deepcopy of parameters to get an independent copy of parameters
+  ComPWA::ParameterList parameters;
+  auto tempIntensity = std::const_pointer_cast<ComPWA::Intensity>(intensity);
+  tempIntensity->addUniqueParametersTo(parameters);
+  ParameterList originalParameters;
+  originalParameters.DeepCopy(parameters);
+
+  std::vector<ComPWA::ParameterList> componentParameters(
+      components.size(), ComPWA::ParameterList());
+  std::vector<ComPWA::ParameterList> originalComponentParameters(
+      components.size(), ComPWA::ParameterList());
+  std::vector<std::shared_ptr<ComPWA::Intensity>> tempComponents;
+  tempComponents.reserve(components.size());
+  for (std::size_t icomp = 0; icomp < components.size(); ++icomp) {
+    auto tempComp =
+        std::const_pointer_cast<ComPWA::Intensity>(components.at(icomp));
+    tempComponents.push_back(tempComp);
+    tempComponents.at(icomp)
+        ->addUniqueParametersTo(componentParameters.at(icomp));
+
+    originalComponentParameters.at(icomp)
+        .DeepCopy(componentParameters.at(icomp));
+  }
+  
+  std::vector<ComPWA::ParameterList> vecNewPars;
+
+  bool smearParameters(const ComPWA::ParameterList &parameters,
+    const std::vector<std::vector<double>> &covariance, size_t nSets,
+    std::vector<ComPWA::ParameterList> &vecNewPars);
+
+  bool smearOK = smearParameters(parameters, covariance, nSets, vecNewPars);
+  if (!smearOK) return fitFractions;
+  
+  ProgressBar bar(nSets * componentNames.size());
+
+  std::vector<ComPWA::ParameterList>
+      fractionVec(nSets, ComPWA::ParameterList());
+  std::vector<std::string> oneComponentNames(1, std::string());
+  std::vector<std::shared_ptr<const ComPWA::Intensity>> oneComponent(1,
+      std::shared_ptr<ComPWA::Intensity>());
+
+  for (std::size_t iSet = 0; iSet < nSets; ++iSet) {
+    tempIntensity->updateParametersFrom(vecNewPars.at(iSet));
+    for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
+      tempComponents.at(icomp)->updateParametersFrom(vecNewPars.at(iSet));
+
+      oneComponentNames.at(0) = componentNames.at(icomp);
+      oneComponent.at(0) = tempComponents.at(icomp);
+       
+      ComPWA::ParameterList componentFraction = 
+          calculateFitFractions2(tempIntensity, sample, oneComponentNames, 
+          oneComponent);
+      fractionVec.at(iSet).addParameter(componentFraction.doubleParameter(0));
+      bar.next();
+    }
+  }
+
+
+  //reset to original parameters
+  tempIntensity->updateParametersFrom(originalParameters);
+  for (std::size_t icomp = 0; icomp < components.size(); ++icomp) {
+    tempComponents.at(icomp)->updateParametersFrom(
+        originalComponentParameters.at(icomp));
+  }
+
+  // Calcualate standard deviation
+  for (std::size_t icomp = 0; icomp < fitFractions.doubleParameters().size();
+      ++icomp) {
+    double mean = 0, sqSum = 0, stddev = 0;
+    for (std::size_t iset = 0; iset < fractionVec.size(); ++iset) {
+      double temp = fractionVec.at(iset).doubleParameter(icomp)->value();
+      mean += temp;
+      sqSum += temp * temp;
+    }
+    std::size_t nset = fractionVec.size();
+    sqSum /= nset;
+    mean /= nset;
+
+    // Equivalent to RMS of the distribution
+    stddev = std::sqrt(sqSum - mean * mean);
+    fitFractions.doubleParameter(icomp)->setError(stddev);
+  }
+
+  return fitFractions;
 }
 
 } // namespace Tools
