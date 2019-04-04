@@ -63,6 +63,7 @@ using ComPWA::Data::DataSet;
 using ComPWA::Data::RootDataIO;
 using ComPWA::Physics::HelicityFormalism::HelicityKinematics;
 using namespace ComPWA::Physics;
+using ComPWA::Optimizer::Minuit2::MinuitResult;
 using namespace ComPWA::Physics::HelicityFormalism;
 
 // Enable serialization of MinuitResult. For some reason has to be outside
@@ -295,7 +296,8 @@ int main(int argc, char **argv) {
   LOG(DEBUG) << " createMinLogLH ok" << std::endl;
   LOG(INFO) << estimator->print(25);
 
-  std::shared_ptr<FitResult> result;
+  //std::shared_ptr<FitResult> result;
+  std::shared_ptr<MinuitResult> result;
 
   ParameterList fitPars, finalPars;
   intensity->addUniqueParametersTo(fitPars);
@@ -319,7 +321,7 @@ int main(int argc, char **argv) {
     if (useRandomStartValues) {
       randomStartValues(fitPars);
     }
-    result = minuitIF->exec(fitPars);
+    result = std::dynamic_pointer_cast<MinuitResult>(minuitIF->exec(fitPars));
     LOG(DEBUG) << " minuitIF->exec(fitPars)";
     LOG(DEBUG) << fitPars << std::endl;
 //    std::cout << fitPars << std::endl;
@@ -351,7 +353,7 @@ int main(int argc, char **argv) {
   // Get IncoherentIntensity to extract components
   // If we want to calc fit errors, Strength of StrengthIncoherentIntensity
   // must be fixed (which is the default setting)
-  auto incoherentIntensity = Builder.createIncoherentIntensity(
+  const auto incoherentIntensity = Builder.createIncoherentIntensity(
       partList, heliKins, modelTree.get_child("Intensity.Intensity"));
   LOG(INFO) << "Get IncoherentIntensity OK" << std::endl;
   // use same parameters as intensity
@@ -360,7 +362,7 @@ int main(int argc, char **argv) {
       << std::endl;
   
   //get component's intensity
-  std::vector<std::shared_ptr<ComPWA::Intensity>> components(
+  std::vector<std::shared_ptr<const ComPWA::Intensity>> components(
       componentNames.size(), std::shared_ptr<ComPWA::Intensity>());
   for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
     LOG(INFO) << "Getting component " << componentNames.at(icomp) << std::endl;
@@ -375,14 +377,26 @@ int main(int argc, char **argv) {
 
   if (execMode == "Calc" || execMode == "FitCalc" || execMode 
       == "FitCalcDraw") {
-//121 ComPWA::ParameterList calculateFitFractions(
-//122     std::shared_ptr<const ComPWA::Physics::CoherentIntensity> intensity,
-//123     std::shared_ptr<ComPWA::Data::DataSet> sample,
-//124     const std::vector<std::string> &components = {}) {
-//    std::vector<std::string> components;
-// do not know if it is right or not
-    
+    ComPWA::ParameterList fitFractions = 
+        ComPWA::Tools::calculateFitFractionsWithSampledError2(
+        incoherentIntensity, phspTrueSample, componentNames, components,
+        result->covarianceMatrix(), noErrorSampling);
+    LOG(INFO) << "FitFractions Calculated";
+    auto fflist = fitFractions.doubleParameters();
+    for (auto const &ff : fflist) {
+      LOG(INFO) << "to_str(): " << ff->to_str();
+      LOG(INFO) << "val_to_str(): " << ff->val_to_str();
+      LOG(INFO) << "name " << ff->name() << " val " << ff->value()
+          << " hasError? " << ff->hasError();
+      if (ff->hasError()) {
+        LOG(INFO) << " - " << ff->error().first << " + " << ff->error().second;
+      }
+    }
+    result->setFitFractions(fitFractions);
+    LOG(INFO) << "Set FitFractions OK";
   }
+  result->print();
+  LOG(INFO) << "result print OK";
 
   if (execMode == "Draw" || execMode == "FitDraw" || execMode 
       == "FitCalcDraw") {

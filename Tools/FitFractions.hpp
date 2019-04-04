@@ -553,7 +553,7 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
     const std::shared_ptr<ComPWA::Data::DataSet> sample,
     const std::vector<std::string> & componentNames,
     const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components,
-    const std::vector<std::vector<double>> &covariance, size_t nSets) {
+    const std::vector<std::vector<double>> &covariance, int nSets) {
 
   if (!sharedParameters(intensity, components)) {
     LOG(INFO) << "calculateFitFractionsWithSampledError2(): Found unshared "
@@ -569,8 +569,12 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
   ComPWA::ParameterList fitFractions = calculateFitFractions2(
       intensity, sample, componentNames, components);
 
-  LOG(INFO) << "calculateFitFractionsWithSampledError(): Calculationg errors "
+  LOG(INFO) << "calculateFitFractionsWithSampledError2(): Calculationg errors "
       "of fit fractions using " << nSets << " sets of parameters...";
+  if (nSets <= 0) {
+    LOG(INFO) << "nSets <= 0, stop errors calculation" << std::endl;
+    return fitFractions;
+  }
 
   // copy original parameters, Note, parameters' ptr in tempIntensity 
   // now point to par in parameters(i.e., they depend on each other)
@@ -630,7 +634,6 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
       bar.next();
     }
   }
-
 
   //reset to original parameters
   tempIntensity->updateParametersFrom(originalParameters);
