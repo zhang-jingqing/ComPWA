@@ -117,10 +117,8 @@ bool findDecayPatern(const std::vector<std::string> &decay,
     if (Smin >= 0 && S < Smin) continue;
     if (Smax >= 0 && S > Smax) continue;
 
-    if (found) {
-      found = true;
-      break;
-    }
+    found = true;
+    break;
   }
   return found;
 }

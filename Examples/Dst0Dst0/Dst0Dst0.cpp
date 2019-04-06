@@ -300,7 +300,9 @@ int main(int argc, char **argv) {
   std::shared_ptr<MinuitResult> result;
 
   ParameterList fitPars, finalPars;
+  //fitPars will be bound to intensity, of fitPars will change in minimization
   intensity->addUniqueParametersTo(fitPars);
+  LOG(DEBUG) << "fitPars.to_str(): " << std::endl;
   LOG(DEBUG) << fitPars.to_str();
 
   LOG(INFO) << " Initial LH = " << estimator->evaluate() << ". " << std::endl;
@@ -329,12 +331,20 @@ int main(int argc, char **argv) {
     LOG(DEBUG) << " result->finalParameters() OK" << std::endl;
   }
 
+  LOG(DEBUG) << "finalPars.to_str(): ";
+  LOG(DEBUG) << finalPars.to_str();
+  LOG(DEBUG) << "fitPars.to_str(): ";
+  LOG(DEBUG) << fitPars.to_str();
   if (finalPars.numParameters() == 0) {
     finalPars = fitPars;
   }
+  LOG(DEBUG) << "finalPars.to_str(): ";
+  LOG(DEBUG) << finalPars.to_str();
 
   LOG(INFO) << "intensity->updateParametersFrom(fianlPars) OK" << std::endl;
   intensity->updateParametersFrom(finalPars);
+  LOG(DEBUG) << "finalPars.to_str(): ";
+  LOG(DEBUG) << finalPars.to_str();
 
   // SetComponentPaterns
   void SetComponentPaterns(std::vector<std::string> &componentNames,
@@ -356,6 +366,10 @@ int main(int argc, char **argv) {
   const auto incoherentIntensity = Builder.createIncoherentIntensity(
       partList, heliKins, modelTree.get_child("Intensity.Intensity"));
   LOG(INFO) << "Get IncoherentIntensity OK" << std::endl;
+//  auto funcTree = incoherentIntensity->createFunctionTree(
+//      phspSample->getParameterList(), "");
+//  LOG(DEBUG) << "incoherentIntensity.tree.print(): ";
+//  LOG(DEBUG) << funcTree->print();
   // use same parameters as intensity
   incoherentIntensity->updateParametersFrom(finalPars);
   LOG(INFO) << "incoherentIntensity->updateParametersFrom(finalPars) OK"
@@ -371,6 +385,10 @@ int main(int argc, char **argv) {
         std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>(
         incoherentIntensity), componentNames.at(icomp), decayPaterns.at(icomp),
         decayLRanges.at(icomp), decaySRanges.at(icomp)); 
+    auto funcTree = icomponent->createFunctionTree(
+        phspSample->getParameterList(), "");
+//    LOG(DEBUG) << "icomp " << icomp << " tree.print(): ";
+//    LOG(DEBUG) << funcTree->print();
     components.at(icomp) = icomponent;
   }
   LOG(INFO) << "Get Component Intensity OK" << std::endl;
@@ -381,7 +399,11 @@ int main(int argc, char **argv) {
         ComPWA::Tools::calculateFitFractionsWithSampledError2(
         incoherentIntensity, phspTrueSample, componentNames, components,
         result->covarianceMatrix(), noErrorSampling);
-    LOG(INFO) << "FitFractions Calculated";
+//    ComPWA::ParameterList fitFractions =
+//        ComPWA::Tools::calculateFitFractions2(
+//        incoherentIntensity, phspTrueSample, componentNames, components);
+    LOG(INFO) << "FitFractions Calculated: "
+        << fitFractions;
     auto fflist = fitFractions.doubleParameters();
     for (auto const &ff : fflist) {
       LOG(INFO) << "to_str(): " << ff->to_str();
@@ -392,6 +414,7 @@ int main(int argc, char **argv) {
         LOG(INFO) << " - " << ff->error().first << " + " << ff->error().second;
       }
     }
+    LOG(INFO) << fitFractions;
     result->setFitFractions(fitFractions);
     LOG(INFO) << "Set FitFractions OK";
   }
@@ -436,7 +459,7 @@ void SetComponentPaterns(std::vector<std::string> &componentNames,
   //a std::vector<std::vector<std::string>>,
   //and two std::vector<std::pair<int, int>>
 
-  componentNames = std::vector<std::string>({"a10", "a11", "a12", "a32"});
+  componentNames = std::vector<std::string>({"a10", "a11", "a12"});//, "a32"});
 
   //a10
   std::vector<std::string> decay1({"EpEm", "D*(2007)0", "D*(2007)0bar"});
@@ -463,10 +486,10 @@ void SetComponentPaterns(std::vector<std::string> &componentNames,
   decaySRanges.push_back(
       std::vector<std::pair<int, int>>(1, std::pair<int, int>(2, 2)));
 
-  //a_32
-  decayPaterns.push_back(patern1);
-  decayLRanges.push_back(
-      std::vector<std::pair<int, int>>(1, std::pair<int, int>(3, 3)));
-  decaySRanges.push_back(
-      std::vector<std::pair<int, int>>(1, std::pair<int, int>(2, 2)));
+//  //a_32
+//  decayPaterns.push_back(patern1);
+//  decayLRanges.push_back(
+//      std::vector<std::pair<int, int>>(1, std::pair<int, int>(3, 3)));
+//  decaySRanges.push_back(
+//      std::vector<std::pair<int, int>>(1, std::pair<int, int>(2, 2)));
 }

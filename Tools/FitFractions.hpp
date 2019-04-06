@@ -166,7 +166,6 @@ ComPWA::ParameterList calculateFitFractions(
     FitFractionsList.addParameter(
         std::make_shared<ComPWA::FitParameter>(x->getName(), fitfraction, 0.0));
   }
-  LOG(DEBUG) << "finished fit fraction calculation!";
   return FitFractionsList;
 }
 
@@ -384,56 +383,6 @@ ComPWA::ParameterList calculateFitFractionsWithCovarianceErrorPropagation(
   return FitFractions;
 }
 
-/// Check if intensity and components use same parameter set
-/// i.e., parameter with same (unique) name, has same value
-/// every parameter in components can be found in intensity
-inline bool sharedParameters(
-    const std::shared_ptr<const ComPWA::Intensity> intensity,
-    const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components) {
-
-  ComPWA::ParameterList parameters;
-  auto tempIntensity = std::const_pointer_cast<ComPWA::Intensity>(intensity);
-  tempIntensity->addUniqueParametersTo(parameters);
-  ComPWA::ParameterList componentParameters;
-  for (std::size_t icomp = 0; icomp < components.size(); ++icomp) {
-    auto tempComp = 
-        std::const_pointer_cast<ComPWA::Intensity>(components.at(icomp));
-    tempComp->addUniqueParametersTo(componentParameters);
-  }
-
-  auto const intensityFitPars = parameters.doubleParameters();
-  auto const componentFitPars = componentParameters.doubleParameters();
-  if (intensityFitPars.size() <= componentFitPars.size()) {
-    LOG(INFO) << "ComPWA::Tools::sharedParameters(): "
-        "global intensity and intensity of components have"
-        " unshared parameters!";
-    return false;
-  }
-  for (auto const & componentPar : componentFitPars) {
-    std::string targetName = componentPar->name();
-    double targetValue = componentPar->value();
-    std::string name;
-    double value;
-    bool shared(false);
-    for (auto const & intensityPar : intensityFitPars) {
-      name = intensityPar->name();
-      value = intensityPar->value();
-      if (name == targetName) {
-        if (abs(value - targetValue) < 1e-6) {
-          shared = true;
-          break;
-        }
-      } 
-    }
-    if (shared) continue;
-    LOG(INFO) << "ComPWA::Tools::sharedParameters(): global intensity and "
-        "intensity of components have unshared parameter: " << name << " = "
-        << value << " vs " << targetName << " = " << targetValue << "!";
-    return false;
-  }
-  return true;
-}
-
 inline ComPWA::ParameterList calculateFitFractions2(
     const std::shared_ptr<const ComPWA::Intensity> intensity,
     const std::shared_ptr<ComPWA::Data::DataSet> sample,
@@ -442,13 +391,6 @@ inline ComPWA::ParameterList calculateFitFractions2(
   LOG(DEBUG) << "calculating fit fractions...";
   ComPWA::ParameterList FitFractionsList;
 
-  ////make sure components and intensity use same parameters
-  if (!sharedParameters(intensity, components)) {
-    LOG(INFO) << "calculateFitFractions2(): Found unshared parameters! Do not "
-        "calculate fit fractions!";
-    return FitFractionsList;
-  }
-  
   // calculate denominator
   double IntegralDenominator = ComPWA::Tools::integrate(intensity, sample);
   //calculate numerators and fit fractions
@@ -456,14 +398,13 @@ inline ComPWA::ParameterList calculateFitFractions2(
     double IntegralNumerator = 
         ComPWA::Tools::integrate(components.at(icomp), sample);
     double FitFraction = IntegralNumerator / IntegralDenominator;
-    LOG(TRACE) << "calculateFitFractions(): fit fraction for ("
+    LOG(TRACE) << "calculateFitFractions() | fit fraction for ("
         << componentNames.at(icomp) << ") is " << FitFraction;
 
     FitFractionsList.addParameter(
         std::make_shared<ComPWA::FitParameter>(componentNames.at(icomp),
         FitFraction, 0.0));
   }
-  LOG(DEBUG) << "finished fit fraction calculation!";
   return FitFractionsList;
 }
 
@@ -555,11 +496,6 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
     const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components,
     const std::vector<std::vector<double>> &covariance, int nSets) {
 
-  if (!sharedParameters(intensity, components)) {
-    LOG(INFO) << "calculateFitFractionsWithSampledError2(): Found unshared "
-        "parameters! Do not calculate fit fractions and errors!";
-  }
-
   ComPWA::ParameterList calculateFitFractions2(
       const std::shared_ptr<const ComPWA::Intensity> intensity,
       const std::shared_ptr<ComPWA::Data::DataSet> sample,
@@ -569,7 +505,7 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
   ComPWA::ParameterList fitFractions = calculateFitFractions2(
       intensity, sample, componentNames, components);
 
-  LOG(INFO) << "calculateFitFractionsWithSampledError2(): Calculationg errors "
+  LOG(INFO) << "calculateFitFractionsWithSampledError2() | Calculationg errors "
       "of fit fractions using " << nSets << " sets of parameters...";
   if (nSets <= 0) {
     LOG(INFO) << "nSets <= 0, stop errors calculation" << std::endl;
@@ -609,7 +545,9 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
     std::vector<ComPWA::ParameterList> &vecNewPars);
 
   bool smearOK = smearParameters(parameters, covariance, nSets, vecNewPars);
-  if (!smearOK) return fitFractions;
+  if (!smearOK) {
+    return fitFractions;
+  }
   
   ProgressBar bar(nSets * componentNames.size());
 
