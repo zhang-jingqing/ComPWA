@@ -33,3 +33,28 @@ add_test(NAME EvtGenGeneratorTest
     COMMAND ${PROJECT_BINARY_DIR}/bin/test/EvtGenGeneratorTest
 )
 endif()
+
+if(TARGET Tools)
+  # --------------------- ComponentIntensity ---------------------- #
+  add_executable(ComponentIntensityTests ComponentIntensityTest.cpp)
+
+  target_link_libraries(ComponentIntensityTests
+    HelicityFormalism
+    Tools
+    Boost::unit_test_framework
+  )
+
+  target_include_directories(ComponentIntensityTests
+    PUBLIC ${ROOT_INCLUDE_DIR} ${BOOST_INCLUDE_DIR}
+  )
+
+  # Move testing binaries into a testBin directory
+  set_target_properties(ComponentIntensityTests
+      PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test/
+  )
+
+  add_test(NAME ComponentIntensityTests
+    WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test/
+    COMMAND ${PROJECT_BINARY_DIR}/bin/test/ComponentIntensityTests)
+
+endif()
