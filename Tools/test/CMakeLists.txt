@@ -56,5 +56,29 @@ if(TARGET Tools)
   add_test(NAME ComponentIntensityTests
     WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test/
     COMMAND ${PROJECT_BINARY_DIR}/bin/test/ComponentIntensityTests)
+endif()
 
+if(TARGET Tools)
+  # --------------------- FitFractions ---------------------- #
+  add_executable(FitFractionsTests FitFractionsTest.cpp)
+
+  target_link_libraries(FitFractionsTests
+    HelicityFormalism
+    Tools
+    Integration
+    Boost::unit_test_framework
+  )
+
+  target_include_directories(FitFractionsTests
+    PUBLIC ${ROOT_INCLUDE_DIR} ${BOOST_INCLUDE_DIR}
+  )
+
+  # Move testing binaries into a testBin directory
+  set_target_properties(FitFractionsTests
+      PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test/
+  )
+
+  add_test(NAME FitFractionsTests
+    WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test/
+    COMMAND ${PROJECT_BINARY_DIR}/bin/test/FitFractionsTests)
 endif()

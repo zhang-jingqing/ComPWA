@@ -557,7 +557,7 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
   std::vector<std::shared_ptr<const ComPWA::Intensity>> oneComponent(1,
       std::shared_ptr<ComPWA::Intensity>());
 
-  for (std::size_t iSet = 0; iSet < nSets; ++iSet) {
+  for (std::size_t iSet = 0; iSet < (std::size_t) nSets; ++iSet) {
     tempIntensity->updateParametersFrom(vecNewPars.at(iSet));
     for (std::size_t icomp = 0; icomp < componentNames.size(); ++icomp) {
       tempComponents.at(icomp)->updateParametersFrom(vecNewPars.at(iSet));
