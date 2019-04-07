@@ -383,7 +383,7 @@ ComPWA::ParameterList calculateFitFractionsWithCovarianceErrorPropagation(
   return FitFractions;
 }
 
-inline ComPWA::ParameterList calculateFitFractions2(
+inline ComPWA::ParameterList calculateFitFractions(
     const std::shared_ptr<const ComPWA::Intensity> intensity,
     const std::shared_ptr<ComPWA::Data::DataSet> sample,
     const std::vector<std::string> & componentNames,
@@ -398,8 +398,6 @@ inline ComPWA::ParameterList calculateFitFractions2(
     double IntegralNumerator = 
         ComPWA::Tools::integrate(components.at(icomp), sample);
     double FitFraction = IntegralNumerator / IntegralDenominator;
-    LOG(TRACE) << "calculateFitFractions() | fit fraction for ("
-        << componentNames.at(icomp) << ") is " << FitFraction;
 
     FitFractionsList.addParameter(
         std::make_shared<ComPWA::FitParameter>(componentNames.at(icomp),
@@ -489,23 +487,17 @@ inline bool smearParameters(const ComPWA::ParameterList &parameters,
   return true;
 }
     
-inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
+inline ComPWA::ParameterList calculateFitFractionsWithSampledError(
     const std::shared_ptr<const ComPWA::Intensity> intensity,
     const std::shared_ptr<ComPWA::Data::DataSet> sample,
     const std::vector<std::string> & componentNames,
     const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components,
     const std::vector<std::vector<double>> &covariance, int nSets) {
 
-  ComPWA::ParameterList calculateFitFractions2(
-      const std::shared_ptr<const ComPWA::Intensity> intensity,
-      const std::shared_ptr<ComPWA::Data::DataSet> sample,
-      const std::vector<std::string> & componentNames,
-      const std::vector<std::shared_ptr<const ComPWA::Intensity>> &components);
-
-  ComPWA::ParameterList fitFractions = calculateFitFractions2(
+  ComPWA::ParameterList fitFractions = calculateFitFractions(
       intensity, sample, componentNames, components);
 
-  LOG(INFO) << "calculateFitFractionsWithSampledError2() | Calculationg errors "
+  LOG(INFO) << "calculateFitFractionsWithSampledError() | Calculationg errors "
       "of fit fractions using " << nSets << " sets of parameters...";
   if (nSets <= 0) {
     LOG(INFO) << "nSets <= 0, stop errors calculation" << std::endl;
@@ -566,7 +558,7 @@ inline ComPWA::ParameterList calculateFitFractionsWithSampledError2(
       oneComponent.at(0) = tempComponents.at(icomp);
        
       ComPWA::ParameterList componentFraction = 
-          calculateFitFractions2(tempIntensity, sample, oneComponentNames, 
+          calculateFitFractions(tempIntensity, sample, oneComponentNames, 
           oneComponent);
       fractionVec.at(iSet).addParameter(componentFraction.doubleParameter(0));
       bar.next();

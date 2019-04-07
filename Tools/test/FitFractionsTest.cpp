@@ -534,7 +534,7 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
       "f0_all", subDecays, subLRanges, subSRanges);
   std::vector<std::shared_ptr<const ComPWA::Intensity>> componentIntensities;
   componentIntensities.push_back(f0Intensity);
-  auto f0AllFF = ComPWA::Tools::calculateFitFractions2(
+  auto f0AllFF = ComPWA::Tools::calculateFitFractions(
       incoherentIntensity, sample, std::vector<std::string>(1, "f0_all"),
       componentIntensities);
   double f0_all_ff = f0AllFF.doubleParameter(0)->value();
@@ -548,7 +548,7 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
       (incoherentIntensity),
       "f0clone_all", subDecays, subLRanges, subSRanges);
   componentIntensities.at(0) = f0cloneIntensity;
-  auto f0cloneAllFF = ComPWA::Tools::calculateFitFractions2(
+  auto f0cloneAllFF = ComPWA::Tools::calculateFitFractions(
       incoherentIntensity, sample, std::vector<std::string>(1, "f0clone_all"),
       componentIntensities);
   double f0clone_all_ff = f0cloneAllFF.doubleParameter(0)->value();
@@ -575,7 +575,7 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
 
   componentIntensities.at(0) = f0_a01Intensity;
   componentIntensities.push_back(f0clone_a01Intensity);
-  auto a01_ff = ComPWA::Tools::calculateFitFractions2(
+  auto a01_ff = ComPWA::Tools::calculateFitFractions(
       incoherentIntensity, sample, 
       std::vector<std::string>({"f0_a01", "f0clone_a01"}),
       componentIntensities);
