@@ -4,14 +4,7 @@
 namespace ComPWA {
 namespace Tools {
 
-// I hope expert systems will not produce the incoherent_with_strength,
-// (starts with incoherent)
-// incoherent_with_strength
-// incoherent
-// coherent_0
-// <<Moth, daugh1, daugh2>>, <(L_min, L_max)> <(S_min, S_max)>
-// source intensity is IncoherentIntensity, not StrengthIncoherentIntensity
-std::shared_ptr<ComPWA::Intensity> getComponentIntensityFromIncoherentIntensity(
+std::shared_ptr<ComPWA::Intensity> getComponentIntensity(
     const std::shared_ptr<ComPWA::Physics::IncoherentIntensity> 
         incoherentIntensity, const std::string &componentName,
     const std::vector<std::vector<std::string>> &decList,
@@ -21,11 +14,10 @@ std::shared_ptr<ComPWA::Intensity> getComponentIntensityFromIncoherentIntensity(
   std::vector<std::shared_ptr<ComPWA::Intensity>> comps;
   const auto & intensities = incoherentIntensity->getIntensities();
   int coherentIndex = 0;
-  for (const auto intensityPtr : intensities) {
-    const auto coherentPtr = std::dynamic_pointer_cast<ComPWA::Physics
+  for (const auto &intensityPtr : intensities) {
+    const auto &coherentPtr = std::dynamic_pointer_cast<ComPWA::Physics
         ::CoherentIntensity>(intensityPtr);
-    const auto amps = getAmplitudesFromCoherentIntensity(
-        coherentPtr, componentName, decList, lRange, sRange);
+    const auto &amps = getAmplitudes(coherentPtr, decList, lRange, sRange);
     comps.push_back(std::make_shared<ComPWA::Physics::CoherentIntensity>(
         componentName + "_" + std::to_string(coherentIndex), amps));
     ++coherentIndex;
@@ -35,9 +27,8 @@ std::shared_ptr<ComPWA::Intensity> getComponentIntensityFromIncoherentIntensity(
 }
 
 const std::vector<std::shared_ptr<ComPWA::Physics::NamedAmplitude>>
-    getAmplitudesFromCoherentIntensity(
+    getAmplitudes(
     const std::shared_ptr<ComPWA::Physics::CoherentIntensity> coherentIntensity,
-    const std::string &componentName,
     const std::vector<std::vector<std::string>> & decList,
     const std::vector<std::pair<int, int>> &lRange,
     const std::vector<std::pair<int, int>> &sRange) {
@@ -47,7 +38,7 @@ const std::vector<std::shared_ptr<ComPWA::Physics::NamedAmplitude>>
       & allAmps = coherentIntensity->getAmplitudes();
   std::vector<std::string> decayNames;
   for (const auto & ampPtr : allAmps) {
-    auto ampName = ampPtr->getName();
+    auto &ampName = ampPtr->getName();
     decayNames.clear();
     boost::algorithm::split(decayNames, ampName, boost::is_any_of(";"));
     bool isTarget = findAllDecayPatern(decList, lRange, sRange, decayNames);

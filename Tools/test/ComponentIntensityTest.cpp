@@ -363,7 +363,7 @@ BOOST_AUTO_TEST_CASE(ComponentIntensityTest) {
       std::vector<std::string>({"f0", "", ""}));
   std::vector<std::pair<int, int>> subLRanges(1, std::pair<int, int>(-1, -1));
   std::vector<std::pair<int, int>> subSRanges(1, std::pair<int, int>(-1, -1));
-  auto f0Intensity = getComponentIntensityFromIncoherentIntensity(
+  auto f0Intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "f0", subDecays, subLRanges, subSRanges);
@@ -382,7 +382,7 @@ BOOST_AUTO_TEST_CASE(ComponentIntensityTest) {
   subLRanges.at(0) = std::pair<int, int>(0, 0);
   subSRanges.at(0).first = 1;
   subSRanges.at(0).second = 1;
-  auto a01Intensity = getComponentIntensityFromIncoherentIntensity(
+  auto a01Intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "a01", subDecays, subLRanges, subSRanges);
@@ -435,7 +435,7 @@ BOOST_AUTO_TEST_CASE(ComponentIntensityTest) {
   subDecays.push_back(std::vector<std::string>({"f0", "pi0", "pi0"}));
   subLRanges.push_back(std::pair<int, int>(0, 0));
   subSRanges.push_back(std::pair<int, int>(0, 0));
-  auto a01_a00_intensity = getComponentIntensityFromIncoherentIntensity(
+  auto a01_a00_intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "a01xa00", subDecays, subLRanges, subSRanges);

@@ -528,7 +528,7 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
       std::vector<std::string>({"jpsi", "gamma", "f0"}));
   std::vector<std::pair<int, int>> subLRanges(1, std::pair<int, int>(-1, -1));
   std::vector<std::pair<int, int>> subSRanges(1, std::pair<int, int>(-1, -1));
-  auto f0Intensity = getComponentIntensityFromIncoherentIntensity(
+  auto f0Intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "f0_all", subDecays, subLRanges, subSRanges);
@@ -543,7 +543,7 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
   BOOST_CHECK_EQUAL(f0_all_ff, 0.5);
 
   subDecays.at(0) = std::vector<std::string>({"jpsi", "gamma", "f0clone"});
-  auto f0cloneIntensity = getComponentIntensityFromIncoherentIntensity(
+  auto f0cloneIntensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "f0clone_all", subDecays, subLRanges, subSRanges);
@@ -562,13 +562,13 @@ BOOST_AUTO_TEST_CASE(FitFractionsTest) {
   subDecays.at(0) = std::vector<std::string>({"jpsi", "gamma", "f0"});
   subLRanges.at(0) = std::pair<int, int>(0, 0);
   subSRanges.at(0) = std::pair<int, int>(1, 1);
-  auto f0_a01Intensity = getComponentIntensityFromIncoherentIntensity(
+  auto f0_a01Intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "f0_a01", subDecays, subLRanges, subSRanges);
   // get a_01 of jpsi -> gamma f0clone
   subDecays.at(0) = std::vector<std::string>({"jpsi", "gamma", "f0clone"});
-  auto f0clone_a01Intensity = getComponentIntensityFromIncoherentIntensity(
+  auto f0clone_a01Intensity = getComponentIntensity(
       std::dynamic_pointer_cast<ComPWA::Physics::IncoherentIntensity>
       (incoherentIntensity),
       "f0clone_a01", subDecays, subLRanges, subSRanges);
